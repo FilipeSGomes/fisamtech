@@ -2,7 +2,7 @@ function buildTextInScope(scope) {
   if (!scope || typeof scope.querySelectorAll !== "function") return;
   const texts = scope.querySelectorAll(".build-text");
   texts.forEach((node, index) => {
-    setTimeout(() => node.classList.add("is-built"), (index % 6) * 55);
+    setTimeout(() => node.classList.add("is-built"), (index % 6) * 90);
   });
 }
 
@@ -35,7 +35,7 @@ function initScrollTextBuildEffect(doc = document, win = window, Observer = Inte
 
   nodes.forEach((node, index) => {
     node.classList.add("build-text");
-    node.style.transitionDelay = `${(index % 6) * 60}ms`;
+    node.style.transitionDelay = `${(index % 6) * 85}ms`;
   });
 
   if (media && media.matches) {

@@ -234,7 +234,7 @@ p {
   opacity: 0.14;
   clip-path: inset(0 100% 0 0);
   transform: translateY(8px);
-  transition: clip-path 720ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 540ms ease, transform 540ms ease;
+  transition: clip-path 960ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 740ms ease, transform 740ms ease;
   will-change: clip-path, opacity, transform;
 }
 
