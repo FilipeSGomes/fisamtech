@@ -201,6 +201,7 @@ Rodapé elegante, simples e premium, com:
 * Espaçamento excelente
 * Componentização coerente
 * Deixar fácil de evoluir depois
+* Sempre que houver alteração em arquivos `.js`, executar os testes automaticamente ao final das mudanças e validar que estão passando antes de concluir a tarefa
 
 ## Importante sobre o design
 
