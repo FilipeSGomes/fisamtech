@@ -45,11 +45,28 @@ function initScrollTextBuildEffect(doc = document, win = window, Observer = Inte
   return { disconnect() {} };
 }
 
+function initCookieBanner() {
+  const banner = document.getElementById("cookie-banner");
+  if (!banner) return;
+  if (localStorage.getItem("fisam-cookies-accepted")) {
+    banner.classList.add("hidden");
+    return;
+  }
+  const btn = document.getElementById("cookie-accept");
+  if (btn) {
+    btn.addEventListener("click", () => {
+      localStorage.setItem("fisam-cookies-accepted", "true");
+      banner.classList.add("hidden");
+    });
+  }
+}
+
 if (typeof window !== "undefined" && typeof document !== "undefined") {
   initRevealObserver();
   initScrollTextBuildEffect();
+  initCookieBanner();
 }
 
 if (typeof module !== "undefined") {
-  module.exports = { initRevealObserver, initScrollTextBuildEffect };
+  module.exports = { initRevealObserver, initScrollTextBuildEffect, initCookieBanner };
 }

@@ -385,6 +385,55 @@ p {
   transform: translateY(0);
 }
 
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--brand-navy);
+  color: var(--body-on-dark);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  z-index: 200;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cookie-banner p {
+  font-size: 14px;
+  color: var(--body-muted);
+  margin: 0;
+}
+
+.cookie-banner a {
+  color: var(--primary-on-dark);
+  text-decoration: underline;
+}
+
+.cookie-banner.hidden {
+  display: none;
+}
+
+.cookie-banner button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background-color 160ms ease;
+}
+
+.cookie-banner button:hover {
+  background: var(--primary-focus);
+}
+
 @media (max-width: 980px) {
   .hero-grid,
   .founder-grid {
@@ -426,5 +475,11 @@ p {
 
   .build-text {
     transform: translateY(6px);
+  }
+
+  .cookie-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 }
