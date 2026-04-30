@@ -321,6 +321,76 @@ p {
   background: var(--brand-gold);
 }
 
+.commercial-shell {
+  display: grid;
+  gap: 28px;
+}
+
+.commercial-head {
+  max-width: 920px;
+  display: grid;
+  gap: 14px;
+}
+
+.commercial-head p {
+  color: var(--ink-muted-80);
+}
+
+.commercial-cards {
+  margin-top: 0;
+}
+
+.commercial-benefits {
+  display: grid;
+  gap: 12px;
+}
+
+.commercial-benefits h3 {
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+
+.commercial-benefits ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 16px;
+}
+
+.commercial-benefits li {
+  position: relative;
+  padding-left: 16px;
+  color: var(--ink-muted-80);
+  font-size: 1rem;
+}
+
+.commercial-benefits li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--primary);
+}
+
+.commercial-cta {
+  padding-top: 8px;
+  border-top: 1px solid var(--hairline);
+  display: grid;
+  gap: 14px;
+}
+
+.commercial-cta p {
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  line-height: 1.35;
+  color: var(--ink);
+  max-width: 740px;
+}
+
 .cta-block {
   text-align: center;
   display: grid;
@@ -445,6 +515,10 @@ p {
   }
 
   .footer-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .commercial-benefits ul {
     grid-template-columns: 1fr;
   }
 }
