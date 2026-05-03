@@ -398,6 +398,64 @@ p {
   gap: 16px;
 }
 
+.contact-form {
+  width: min(640px, 100%);
+  display: grid;
+  gap: 10px;
+  text-align: left;
+  margin: 8px 0 4px;
+}
+
+.contact-form label {
+  font-size: 14px;
+  color: var(--body-on-dark);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--body-on-dark);
+  border-radius: 10px;
+  padding: 11px 12px;
+  font: inherit;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  justify-self: start;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: 11px 22px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 160ms ease;
+}
+
+.contact-form button:hover {
+  background: var(--primary-focus);
+}
+
+.form-feedback {
+  min-height: 1.4em;
+  font-size: 14px;
+  color: var(--body-on-dark);
+}
+
+.form-feedback.error {
+  color: #ffb4b4;
+}
+
+.form-feedback a {
+  color: var(--brand-gold-soft);
+}
+
 .site-footer {
   background: var(--canvas);
   border-top: 1px solid var(--divider-soft);
@@ -407,13 +465,12 @@ p {
 .footer-shell {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  align-items: center;
+  gap: 28px;
+  align-items: start;
 }
 
 .footer-brand {
-  display: inline-flex;
-  align-items: center;
+  display: grid;
   gap: 10px;
 }
 
@@ -432,9 +489,12 @@ p {
 .footer-links,
 .footer-contact {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
   gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .footer-links a,
@@ -516,6 +576,7 @@ p {
 
   .footer-shell {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .commercial-benefits ul {
