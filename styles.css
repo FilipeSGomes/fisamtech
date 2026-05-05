@@ -175,6 +175,13 @@ p {
   gap: 20px;
 }
 
+.founder-experience {
+  font-size: 0.875rem;
+  color: var(--ink-muted-48);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
 .eyebrow {
   font-size: 14px;
   font-weight: 600;
