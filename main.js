@@ -35,7 +35,7 @@ function initScrollTextBuildEffect(doc = document, win = window, Observer = Inte
 
   nodes.forEach((node, index) => {
     node.classList.add("build-text");
-    node.style.transitionDelay = `${(index % 6) * 85}ms`;
+    node.style.transitionDelay = `${(index % 6) * 60}ms`;
   });
 
   if (media && media.matches) {
