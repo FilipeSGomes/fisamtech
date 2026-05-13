@@ -118,6 +118,7 @@ function initContactForm(doc = document, fetchImpl = fetch) {
 }
 
 if (typeof window !== "undefined" && typeof document !== "undefined") {
+  document.documentElement.classList.add("js-enabled");
   initRevealObserver();
   initScrollTextBuildEffect();
   initCookieBanner();
