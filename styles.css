@@ -520,6 +520,26 @@ main > .tile:first-child {
   color: var(--primary-on-dark);
 }
 
+.card-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--primary-on-dark);
+  transition: color 160ms ease;
+}
+
+.card-link:hover {
+  color: #fff;
+}
+
+.service-card-light .card-link {
+  color: var(--primary);
+}
+
+.service-card-light .card-link:hover {
+  color: var(--primary-focus);
+}
+
 .service-card-light .client-type {
   font-size: 0.875rem;
   font-weight: 500;
