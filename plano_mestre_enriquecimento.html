@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plano Mestre de Enriquecimento — Filipe Gomes</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#080c18;color:#e2e8f0;font-family:system-ui,-apple-system,sans-serif;font-size:14px;line-height:1.6;padding:24px 16px}
+.wrap{max-width:860px;margin:0 auto}
+.eyebrow{font-size:10px;letter-spacing:2.5px;color:#4a5878;text-transform:uppercase;margin-bottom:6px}
+h1{font-size:22px;font-weight:500;color:#f1f5f9;margin-bottom:4px}
+.sub{font-size:13px;color:#7c8fa9;margin-bottom:20px}
+.alert{background:#1a0a0f;border-left:3px solid #f43f5e;border-radius:0 8px 8px 0;padding:12px 14px;margin-bottom:20px}
+.alert p{font-size:13px;font-weight:500;color:#f43f5e}
+nav{display:flex;overflow-x:auto;border-bottom:1px solid #1e2d45;margin-bottom:24px;gap:0}
+.tbtn{padding:9px 14px;font-size:12px;font-weight:500;color:#7c8fa9;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap}
+.tbtn.on{color:#e2e8f0;border-bottom:2px solid #e2e8f0}
+.tbtn:hover{color:#e2e8f0}
+.panel{display:none}
+.panel.on{display:block}
+.card{background:#0f1829;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem}
+.card-warn{background:#1a140a;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem}
+.card-ok{background:#0a1a0f;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem}
+h2.sec{font-size:15px;font-weight:500;color:#e2e8f0;margin-bottom:14px}
+h3.sec{font-size:13px;font-weight:500;color:#7c8fa9;margin-bottom:8px;margin-top:1.2rem}
+.row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid #1e2d45;font-size:13px}
+.row:last-child{border-bottom:none}
+.lbl{color:#7c8fa9}
+.val{font-weight:500;color:#e2e8f0}
+.val-r{font-weight:500;color:#f43f5e}
+.val-g{font-weight:500;color:#10b981}
+.val-w{font-weight:500;color:#f59e0b}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:1rem}
+.metric{background:#0f1829;border-radius:8px;padding:.85rem 1rem}
+.mnum{font-size:20px;font-weight:500;margin-bottom:2px}
+.mlbl{font-size:11px;color:#7c8fa9}
+ul.lst{list-style:none}
+.li{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #1e2d45;font-size:13px;align-items:flex-start}
+.li:last-child{border-bottom:none}
+.num{min-width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0}
+.badge{display:inline-block;font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;vertical-align:middle;margin-left:4px}
+.b-r{background:#1a0a0f;color:#f43f5e}
+.b-g{background:#0a1a0f;color:#10b981}
+.b-w{background:#1a1200;color:#f59e0b}
+.b-i{background:#0a0f1a;color:#60a5fa}
+.divider{height:1px;background:#1e2d45;margin:1.5rem 0}
+.verdict{border-left:3px solid #1e4d8c;padding:12px 14px;background:#0a0f1f;border-radius:0 8px 8px 0;font-size:13px;color:#93c5fd;font-style:italic;margin-bottom:1.5rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1rem}
+@media(max-width:480px){.two{grid-template-columns:1fr}}
+.seg{margin-bottom:1.5rem}
+.opp{border:1px solid #1e2d45;border-radius:8px;padding:10px 12px;margin-bottom:8px}
+.opp-title{font-size:13px;font-weight:500;margin-bottom:4px}
+.opp-meta{display:flex;flex-wrap:wrap;gap:6px;font-size:11px}
+.phase{background:#0f1829;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem;border-left:3px solid #1e2d45}
+.phase-title{font-size:14px;font-weight:500;margin-bottom:4px}
+.phase-sub{font-size:12px;color:#7c8fa9;margin-bottom:10px}
+.task{font-size:12px;color:#94a3b8;padding:5px 0;border-bottom:1px solid #1e2d45;display:flex;gap:8px;align-items:flex-start}
+.task:last-child{border-bottom:none}
+.tick{color:#4a5878;flex-shrink:0;margin-top:1px}
+.updated{font-size:10px;color:#4a5878;margin-top:24px;text-align:right}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="eyebrow">Conselho estratégico · Buffett × Munger × Dalio × Naval × Hormozi × Thiel × Housel × Carnegie</div>
+<h1>Plano mestre de enriquecimento</h1>
+<div class="sub">Filipe Gomes · 29 anos · Java Architect &amp; Tech Lead · FISAM TECH · Embu-Guaçu, SP · Atualizado: Junho 2026</div>
+
+<div class="alert">
+  <p>⚠ Alerta crítico: R$300k em dívidas a taxas brasileiras típicas = R$6.000–9.000/mês só em juros. Venda do apartamento (R$200k líquido) + terreno (R$40k) = R$240k para quitar dívidas. Você passa de R$300k para R$60k de dívida. A guerra de 3 anos vira 6 meses.</p>
+</div>
+
+<nav>
+  <button class="tbtn on" onclick="go(0)">⚡ Plano mestre</button>
+  <button class="tbtn" onclick="go(1)">🔬 Diagnóstico</button>
+  <button class="tbtn" onclick="go(2)">🗺️ Mapa da riqueza</button>
+  <button class="tbtn" onclick="go(3)">📈 Acumulação</button>
+  <button class="tbtn" onclick="go(4)">💰 Máquina de R$</button>
+  <button class="tbtn" onclick="go(5)">📅 Execução</button>
+  <button class="tbtn" onclick="go(6)">⚠️ Erros fatais</button>
+  <button class="tbtn" onclick="go(7)">🧠 Mentalidade</button>
+</nav>
+
+<!-- PAINEL 0: PLANO MESTRE -->
+<div id="p0" class="panel on">
+<div class="verdict">"Você tem o maior ativo possível: habilidades premium num mercado que paga caro por elas — mas está vendendo por metade do preço e usando o troco para pagar juros. A riqueza começa quando você para de trabalhar pelo dinheiro. Mas primeiro: destrua as dívidas caras. Para isso, triplique sua renda. Você já tem tudo que precisa." — O Conselho</div>
+
+<h2 class="sec">Top 10 prioridades absolutas — da mais para a menos urgente</h2>
+<ul class="lst">
+<li class="li"><div class="num b-r">1</div><div><strong>Vender o apartamento</strong> <span class="badge b-r">DECISÃO TOMADA</span><br><span style="color:#7c8fa9;font-size:12px">R$200k líquido + R$40k terreno = R$240k. De R$300k cai para R$60k de dívida. Uma venda que vale 2 anos de luta. Enquanto a venda não fecha: manter inquilino e parcelas no zero a zero.</span></div></li>
+<li class="li"><div class="num b-r">2</div><div><strong>Auditar todas as dívidas com taxa exata</strong> <span class="badge b-r">Semana 1</span><br><span style="color:#7c8fa9;font-size:12px">Credor, saldo, CET mensal, vencimento. Definir ordem de ataque: maior taxa primeiro (bola de neve invertida = avalanche).</span></div></li>
+<li class="li"><div class="num b-r">3</div><div><strong>CODxAi: formalizar contrato e cadência de projetos</strong> <span class="badge b-r">30 dias</span><br><span style="color:#7c8fa9;font-size:12px">R$7k/projeto é real. 1 projeto/mês = R$7k extra. 2/mês = R$14k extra. Com R$12k CLT + R$7–14k CODxAi, sua renda base sobe para R$19–26k. Cada projeto extra vai 100% para a dívida.</span></div></li>
+<li class="li"><div class="num b-r">4</div><div><strong>Licitações Fisamtour — sistema de acompanhamento diário</strong> <span class="badge b-r">14 dias</span><br><span style="color:#7c8fa9;font-size:12px">30 min/dia você + Isa bem treinada = pipeline contínuo de licitações. Você identifica, estrutura a proposta técnica; ela executa o acompanhamento e entrega. Receita variável mas com contratos de R$10–100k.</span></div></li>
+<li class="li"><div class="num b-w">5</div><div><strong>Kontrolla: formalizar 50% em contrato e definir estratégia de escala</strong> <span class="badge b-w">30 dias</span><br><span style="color:#7c8fa9;font-size:12px">50% de um SaaS de PDV com clientes reais é ativo relevante. Precisa estar documentado. Participação nos lucros mensais começa a aparecer quando a base de clientes cresce.</span></div></li>
+<li class="li"><div class="num b-w">6</div><div><strong>quote.fisamtech.com — primeiros 20 clientes pagantes</strong> <span class="badge b-w">60–90 dias</span><br><span style="color:#7c8fa9;font-size:12px">Produto SaaS foco. Enquanto o apartamento não vende e a dívida ainda pressiona, construir MRR é o que muda o jogo no médio prazo. Detalhar o produto, precificar, e fechar os primeiros clientes.</span></div></li>
+<li class="li"><div class="num b-w">7</div><div><strong>Eliminar gastos invisíveis — modo guerra</strong> <span class="badge b-w">Imediato</span><br><span style="color:#7c8fa9;font-size:12px">Temporário. Com a venda do apto chegando, cada real poupado agora acelera o zerão das dívidas.</span></div></li>
+<li class="li"><div class="num b-i">8</div><div><strong>LinkedIn: 1 post/dia para atrair projetos CODxAi + contratos PJ</strong> <span class="badge b-i">Contínuo</span><br><span style="color:#7c8fa9;font-size:12px">Java + AI + FinTech + arquitetura distribuída. Histórico de B3, Bradesco, Banco Next é ouro. Cada post é prospecção passiva 24/7.</span></div></li>
+<li class="li"><div class="num b-i">9</div><div><strong>Fundo de emergência pós-venda</strong> <span class="badge b-i">Após venda</span><br><span style="color:#7c8fa9;font-size:12px">Com R$60k de dívida e renda de R$19–26k, sobra fluxo. Separar R$5k/mês para fundo: em 20 meses chega em R$100k de reserva.</span></div></li>
+<li class="li"><div class="num b-g">10</div><div><strong>Diversificação em FIIs + Tesouro IPCA+</strong> <span class="badge b-g">12–18 meses</span><br><span style="color:#7c8fa9;font-size:12px">Só após dívidas zeradas e R$30–50k em reserva. Até lá, você mesmo é o melhor investimento.</span></div></li>
+</ul>
+
+<div class="divider"></div>
+<h2 class="sec">A matemática que muda tudo</h2>
+<div class="grid4">
+<div class="metric"><div class="mnum" style="color:#f43f5e">R$9.500</div><div class="mlbl">Renda líquida CLT/mês</div></div>
+<div class="metric"><div class="mnum" style="color:#f59e0b">+ R$7k</div><div class="mlbl">CODxAi por projeto</div></div>
+<div class="metric"><div class="mnum" style="color:#10b981">R$200k</div><div class="mlbl">Líquido da venda do apto</div></div>
+<div class="metric"><div class="mnum" style="color:#10b981">R$60k</div><div class="mlbl">Dívida restante pós-venda</div></div>
+</div>
+</div>
+
+<!-- PAINEL 1: DIAGNÓSTICO -->
+<div id="p1" class="panel">
+<h2 class="sec">Diagnóstico completo</h2>
+
+<div class="seg">
+<h3 class="sec">Balanço pessoal — situação real</h3>
+<div class="two">
+<div class="card">
+<div style="font-size:12px;font-weight:500;color:#10b981;margin-bottom:8px">ATIVOS</div>
+<div class="row"><span class="lbl">Apartamento (venda pendente)</span><span class="val-g">R$290k bruto / R$200k líquido</span></div>
+<div class="row"><span class="lbl">Terreno</span><span class="val-g">R$40.000</span></div>
+<div class="row"><span class="lbl">50% Kontrolla (equity)</span><span class="val-g">A valorizar</span></div>
+<div class="row"><span class="lbl">quote.fisamtech.com</span><span class="val-g">Em construção</span></div>
+<div class="row"><span class="lbl">Stack Java + AI (10 anos)</span><span class="val-g">Maior ativo — intangível</span></div>
+</div>
+<div class="card">
+<div style="font-size:12px;font-weight:500;color:#f43f5e;margin-bottom:8px">PASSIVOS</div>
+<div class="row"><span class="lbl">Dívidas totais</span><span class="val-r">R$300.000</span></div>
+<div class="row"><span class="lbl">Financiamento apto (quitado na venda)</span><span class="val-r">R$90.000</span></div>
+<div class="row"><span class="lbl">Juros estimados/mês (2–3%)</span><span class="val-r">R$6–9.000</span></div>
+</div>
+</div>
+<div class="card" style="border:1px solid #1a3a1a">
+<div class="row"><span class="lbl">Situação pós-venda do apto</span><span class="val-g">Dívida cai de R$300k → R$60k</span></div>
+<div class="row"><span class="lbl">Renda atual (CLT)</span><span class="val">R$12k/mês</span></div>
+<div class="row"><span class="lbl">Renda com CODxAi (1 proj/mês)</span><span class="val-g">R$19k/mês</span></div>
+<div class="row"><span class="lbl">Valor de mercado como arquiteto AI</span><span class="val-g">R$25–35k/mês</span></div>
+</div>
+</div>
+
+<div class="seg">
+<h3 class="sec">Fontes de renda — mapa atual</h3>
+<div class="card">
+<div class="row"><span class="lbl">Gerdau (CLT)</span><span class="val">R$12.000/mês — fixo</span></div>
+<div class="row"><span class="lbl">CODxAi — Arquiteto Spec IA</span><span class="val-w">R$7.000/projeto — variável</span></div>
+<div class="row"><span class="lbl">Kontrolla (50% equity)</span><span class="val-w">Crescente — equity + lucros</span></div>
+<div class="row"><span class="lbl">quote.fisamtech.com</span><span class="val-w">A construir — recorrente</span></div>
+<div class="row"><span class="lbl">Fisamtour licitações</span><span class="val-w">R$10–100k/contrato — variável</span></div>
+<div class="row"><span class="lbl">Apto (aluguel até venda)</span><span class="val">Cobre financiamento ≈ zero líquido</span></div>
+</div>
+</div>
+
+<div class="seg">
+<h3 class="sec">Pontos fortes — seus ativos invisíveis</h3>
+<div class="card">
+<div class="row"><span class="lbl">Stack técnico premium</span><span class="val">Java + Spring Boot + Kafka + AWS + AI/LLMs</span></div>
+<div class="row"><span class="lbl">Credenciais FinTech</span><span class="val">Bradesco · B3 · Banco Next · Capgemini</span></div>
+<div class="row"><span class="lbl">Posição atual</span><span class="val">Tech Lead + Arquiteto IA + Founder</span></div>
+<div class="row"><span class="lbl">Ecossistema próprio</span><span class="val">FISAM TECH + Kontrolla + CODxAi + Fisamtour</span></div>
+<div class="row"><span class="lbl">Mentalidade</span><span class="val">Pragmático · Fast learner · Alta energia</span></div>
+<div class="row"><span class="lbl">Idade</span><span class="val-g">29 anos — tempo é o maior ativo composto</span></div>
+</div>
+</div>
+
+<div class="seg">
+<h3 class="sec">Os 20% que geram 80% dos resultados</h3>
+<ul class="lst card">
+<li class="li"><div class="num b-r">1</div><div><strong>Vender apartamento</strong> — elimina R$240k de dívida numa tacada. Nenhuma outra ação chega perto.</div></li>
+<li class="li"><div class="num b-r">2</div><div><strong>Cadência CODxAi</strong> — 2 projetos/mês = R$14k extra. Esse dinheiro todo vai para quitar os R$60k restantes.</div></li>
+<li class="li"><div class="num b-w">3</div><div><strong>Licitações Fisamtour</strong> — você já ganhou algumas. Sistema de prospecção + Isa executando = receita variável relevante.</div></li>
+<li class="li"><div class="num b-w">4</div><div><strong>quote.fisamtech.com</strong> — 20 clientes a R$150/mês = R$3k MRR. Recorrente, previsível, escalável.</div></li>
+<li class="li"><div class="num b-i">5</div><div><strong>LinkedIn authority</strong> — 1 post/dia sobre Java + AI atrai projetos CODxAi e contratos PJ passivamente.</div></li>
+</ul>
+</div>
+</div>
+
+<!-- PAINEL 2: MAPA DA RIQUEZA -->
+<div id="p2" class="panel">
+<h2 class="sec">Mapa da riqueza — oportunidades classificadas</h2>
+<div style="font-size:12px;color:#7c8fa9;margin-bottom:1rem">Facilidade: ⚡ fácil · ⚙️ médio · 🔧 difícil &nbsp;|&nbsp; Potencial mensal estimado</div>
+
+<h3 class="sec">Renda imediata — ação em até 30 dias</h3>
+<div class="opp"><div class="opp-title">Venda do apartamento — decisão tomada</div><div class="opp-meta"><span class="badge b-g">R$200k líquido</span><span class="badge b-r">Em andamento</span><span class="badge b-g">Muda tudo</span></div><p style="font-size:12px;color:#7c8fa9;margin-top:6px">R$200k + R$40k terreno = R$240k. Dívida de R$300k cai para R$60k. Juros mensais caem de R$6–9k para R$1–2k. Libera R$5–7k de fluxo de caixa mensal imediatamente.</p></div>
+<div class="opp"><div class="opp-title">CODxAi — projetos de Arquiteto IA (R$7k/projeto)</div><div class="opp-meta"><span class="badge b-g">R$7–14k/mês</span><span class="badge b-r">⚡ Já aberto</span><span class="badge b-i">Variável → meta: 2/mês</span></div><p style="font-size:12px;color:#7c8fa9;margin-top:6px">Cada projeto fechado = 1/9 da dívida restante quitada. Formalizar contrato-quadro, entender pipeline de clientes, colocar meta de 2 projetos/mês como norte.</p></div>
+<div class="opp"><div class="opp-title">Fisamtour — licitações já ganhas + novas</div><div class="opp-meta"><span class="badge b-g">R$10–100k/contrato</span><span class="badge b-w">⚙️ 30–60 dias</span><span class="badge b-w">Alta</span></div><p style="font-size:12px;color:#7c8fa9;margin-top:6px">Você monta o sistema de prospecção + proposta técnica. Isa executa o acompanhamento diário. 30 min/dia separados. Meta: 2–3 novos contratos de licitação por trimestre.</p></div>
+
+<div class="divider"></div>
+<h3 class="sec">Receita recorrente — base do patrimônio</h3>
+<div class="opp"><div class="opp-title">quote.fisamtech.com — SaaS foco</div><div class="opp-meta"><span class="badge b-g">R$100–300/cliente/mês</span><span class="badge b-w">⚙️ 60–90 dias</span><span class="badge b-g">Escalabilidade máxima</span></div><p style="font-size:12px;color:#7c8fa9;margin-top:6px">Produto SaaS principal da FISAM TECH. 20 clientes = R$2–4k MRR. 100 clientes = R$10–20k MRR. Roda sem você presente. É o ativo de longo prazo mais valioso.</p></div>
+<div class="opp"><div class="opp-title">Kontrolla PDV — 50% equity + lucros</div><div class="opp-meta"><span class="badge b-g">Participação crescente</span><span class="badge b-i">Em andamento</span><span class="badge b-g">Alta</span></div><p style="font-size:12px;color:#7c8fa9;margin-top:6px">React 18 + Supabase + NFC-e com clientes reais. Formalizar participação nos lucros mensais. Com 50%, você participa de qualquer decisão de exit ou captação.</p></div>
+<div class="opp"><div class="opp-title">Retainer de AI strategy para PMEs</div><div class="opp-meta"><span class="badge b-g">R$3–8k/mês/cliente</span><span class="badge b-r">⚡ 14–30 dias</span><span class="badge b-i">Média</span></div><p style="font-size:12px;color:#7c8fa9;margin-top:6px">10–20h/mês de consultoria de IA recorrente. 2 clientes = R$6–16k/mês. É o que mais dinheiro gera pelo menor esforço dado seu perfil.</p></div>
+<div class="opp"><div class="opp-title">SigaBR — ativar monetização (despachantes)</div><div class="opp-meta"><span class="badge b-g">R$200–500/desp./mês</span><span class="badge b-w">⚙️ 90–120 dias</span><span class="badge b-g">Alta</span></div><p style="font-size:12px;color:#7c8fa9;margin-top:6px">Integração DETRAN + Banco Rendimento já pronta. 20 despachantes = R$6k MRR. Diferencial técnico real num nicho pouco explorado por SaaS.</p></div>
+
+<div class="divider"></div>
+<h3 class="sec">Ativos de longo prazo</h3>
+<div class="opp"><div class="opp-title">Curso online Java Enterprise / Arquitetura IA</div><div class="opp-meta"><span class="badge b-g">R$5–20k/lançamento</span><span class="badge b-w">60–90 dias</span><span class="badge b-g">Evergreen</span></div></div>
+<div class="opp"><div class="opp-title">LinkedIn + YouTube técnico PT-BR</div><div class="opp-meta"><span class="badge b-g">Inbound de projetos + monetização</span><span class="badge b-i">6–12 meses</span><span class="badge b-g">Máxima</span></div></div>
+</div>
+
+<!-- PAINEL 3: ACUMULAÇÃO -->
+<div id="p3" class="panel">
+<h2 class="sec">Estratégia de acumulação — os 5 marcos</h2>
+
+<div class="phase" style="border-left-color:#f43f5e">
+<div class="phase-title"><span class="badge b-r" style="font-size:12px">Marco 1</span> R$10.000 em caixa próprio</div>
+<div class="phase-sub">Meta: 60–90 dias · Objetivo: parar de sangrar, ter colchão mínimo</div>
+<div class="task"><span class="tick">→</span><span><strong>O que fazer:</strong> venda andando + corte de gastos + 1 projeto CODxAi. Cada real extra vai para a dívida de maior custo.</span></div>
+<div class="task"><span class="tick">→</span><span><strong>O que evitar:</strong> qualquer investimento de risco. Crypto, ações, consórcio — não. Foco total em quitar juros altos.</span></div>
+<div class="task"><span class="tick">→</span><span><strong>Onde investir tempo:</strong> CODxAi (50%) + Fisamtour licitações (30%) + quote.fisamtech.com (20%).</span></div>
+<div class="task"><span class="tick">→</span><span><strong>Habilidades:</strong> vendas consultivas de IA, proposta de licitação técnica, negociação de contratos.</span></div>
+</div>
+
+<div class="phase" style="border-left-color:#f59e0b">
+<div class="phase-title"><span class="badge b-w" style="font-size:12px">Marco 2</span> R$50.000 — libertação parcial</div>
+<div class="phase-sub">Meta: 6–12 meses (pós-venda) · Objetivo: dívidas quase zeradas</div>
+<div class="task"><span class="tick">→</span><span><strong>O que fazer:</strong> venda do apto fecha → R$60k restante + CODxAi 2x/mês = dívida zerando em 4–5 meses. Sobra começa a acumular em Tesouro Selic.</span></div>
+<div class="task"><span class="tick">→</span><span><strong>O que evitar:</strong> aumentar padrão de vida quando a renda subir. Lifestyle creep é o assassino silencioso.</span></div>
+<div class="task"><span class="tick">→</span><span><strong>Onde investir dinheiro:</strong> marketing digital para quote.fisamtech.com (R$500–1k/mês) + Tesouro Selic (reserva).</span></div>
+</div>
+
+<div class="phase" style="border-left-color:#10b981">
+<div class="phase-title"><span class="badge b-g" style="font-size:12px">Marco 3</span> R$100.000 — fundo de emergência</div>
+<div class="phase-sub">Meta: 12–24 meses · Objetivo: liberdade de escolha</div>
+<div class="task"><span class="tick">→</span><span><strong>O que fazer:</strong> dívidas zeradas + renda total R$20–30k → sobra R$12–18k/mês. Acumular R$100k em Tesouro Selic. quote.fisamtech.com com 50+ clientes.</span></div>
+<div class="task"><span class="tick">→</span><span><strong>O que evitar:</strong> tocar no fundo. É ele que te dá coragem para arriscar oportunidades maiores.</span></div>
+<div class="task"><span class="tick">→</span><span><strong>Habilidades:</strong> escala de produto SaaS, gestão de equipe, licitações de maior porte.</span></div>
+</div>
+
+<div class="phase" style="border-left-color:#60a5fa">
+<div class="phase-title"><span class="badge b-i" style="font-size:12px">Marco 4</span> R$500.000 — patrimônio real</div>
+<div class="phase-sub">Meta: 3–5 anos</div>
+<div class="task"><span class="tick">→</span><span><strong>O que fazer:</strong> FISAM TECH (quote + SigaBR + Kontrolla) com R$30–50k MRR = valuação de R$300–600k. FIIs + Tesouro IPCA+ + reinvestimento empresarial. Considerar captação para o produto de maior tração.</span></div>
+</div>
+
+<div class="phase" style="border-left-color:#1e2d45">
+<div class="phase-title"><span class="badge" style="background:#1e2d45;color:#7c8fa9;font-size:12px">Marco 5</span> R$1.000.000 — liberdade financeira</div>
+<div class="phase-sub">Meta: 5–8 anos</div>
+<div class="task"><span class="tick">→</span><span><strong>O que fazer:</strong> exit parcial ou aquisição de SaaS + renda passiva de FIIs/dividendos cobrindo custos básicos. Equity em startups como advisor/CTO. Com R$1M gerando 0.8%/mês = R$8k passivo sem trabalhar.</span></div>
+</div>
+</div>
+
+<!-- PAINEL 4: MÁQUINA DE R$ -->
+<div id="p4" class="panel">
+<h2 class="sec">Máquina de geração de renda — 40 formas para você</h2>
+<div style="font-size:12px;color:#7c8fa9;margin-bottom:1rem">Potencial mensal · Tempo para 1º real · Dificuldade · Escalabilidade 1–5</div>
+
+<h3 class="sec">Usando suas habilidades técnicas</h3>
+<div class="card">
+<div class="row"><span class="lbl">1. CODxAi — Arquiteto IA (já ativo)</span><span style="text-align:right"><span class="badge b-g">R$7–14k/mês</span> <span class="badge b-r">⚡ Já aberto</span> <span class="badge">Escala 2/5</span></span></div>
+<div class="row"><span class="lbl">2. Contrato PJ Tech Lead adicional</span><span style="text-align:right"><span class="badge b-g">R$20–35k/mês</span> <span class="badge b-r">14–30 dias</span> <span class="badge">2/5</span></span></div>
+<div class="row"><span class="lbl">3. Assessment de arquitetura fix-price</span><span style="text-align:right"><span class="badge b-g">R$5–15k/proj</span> <span class="badge b-r">7–21 dias</span> <span class="badge">3/5</span></span></div>
+<div class="row"><span class="lbl">4. Mentoria devs pleno/sênior</span><span style="text-align:right"><span class="badge b-g">R$2–5k/mês</span> <span class="badge b-r">7 dias</span> <span class="badge">4/5</span></span></div>
+<div class="row"><span class="lbl">5. Migração cloud AWS/GCP PME</span><span style="text-align:right"><span class="badge b-g">R$8–25k/proj</span> <span class="badge b-w">30–60 dias</span> <span class="badge">3/5</span></span></div>
+<div class="row"><span class="lbl">6. MVPs para startups (Java + Next.js)</span><span style="text-align:right"><span class="badge b-g">R$10–30k/MVP</span> <span class="badge b-w">30–45 dias</span> <span class="badge">3/5</span></span></div>
+<div class="row"><span class="lbl">7. Squads terceirizados FISAM TECH</span><span style="text-align:right"><span class="badge b-g">R$15–40k/mês</span> <span class="badge b-w">60 dias</span> <span class="badge">4/5</span></span></div>
+<div class="row"><span class="lbl">8. Implementação Kafka/EDA para bancos</span><span style="text-align:right"><span class="badge b-g">R$10–30k/proj</span> <span class="badge b-w">30–60 dias</span> <span class="badge">2/5</span></span></div>
+<div class="row"><span class="lbl">9. CTO as a Service para startups</span><span style="text-align:right"><span class="badge b-g">R$5–15k/mês</span> <span class="badge b-w">30–60 dias</span> <span class="badge">3/5</span></span></div>
+<div class="row"><span class="lbl">10. Palestra/workshop técnico pago</span><span style="text-align:right"><span class="badge b-g">R$1–5k/evento</span> <span class="badge b-w">30 dias</span> <span class="badge">3/5</span></span></div>
+</div>
+
+<h3 class="sec">Usando inteligência artificial</h3>
+<div class="card">
+<div class="row"><span class="lbl">1. Agência de automação AI para PMEs</span><span style="text-align:right"><span class="badge b-g">R$3–10k/cliente</span> <span class="badge b-w">30–60 dias</span> <span class="badge">5/5</span></span></div>
+<div class="row"><span class="lbl">2. Chatbots com RAG (agentes)</span><span style="text-align:right"><span class="badge b-g">R$3–8k/proj</span> <span class="badge b-r">14–21 dias</span> <span class="badge">5/5</span></span></div>
+<div class="row"><span class="lbl">3. Retainer AI strategy (PME)</span><span style="text-align:right"><span class="badge b-g">R$3–8k/mês</span> <span class="badge b-r">14 dias</span> <span class="badge">4/5</span></span></div>
+<div class="row"><span class="lbl">4. Fine-tuning de modelos empresariais</span><span style="text-align:right"><span class="badge b-g">R$15–40k/proj</span> <span class="badge b-w">60 dias</span> <span class="badge">3/5</span></span></div>
+<div class="row"><span class="lbl">5. Treinamento de equipes em LLMs</span><span style="text-align:right"><span class="badge b-g">R$3–10k/turma</span> <span class="badge b-r">14 dias</span> <span class="badge">4/5</span></span></div>
+<div class="row"><span class="lbl">6. Agentes AI para análise de licitações</span><span style="text-align:right"><span class="badge b-g">R$10–30k/proj</span> <span class="badge b-w">60 dias</span> <span class="badge">4/5</span></span></div>
+<div class="row"><span class="lbl">7. AI integrada no SigaBR</span><span style="text-align:right"><span class="badge b-g">+R$50–100/cl./mês</span> <span class="badge b-w">60 dias</span> <span class="badge">5/5</span></span></div>
+<div class="row"><span class="lbl">8. Auditoria de sistemas com AI</span><span style="text-align:right"><span class="badge b-g">R$5–15k/proj</span> <span class="badge b-r">14 dias</span> <span class="badge">3/5</span></span></div>
+<div class="row"><span class="lbl">9. AI para automação de propostas licitação</span><span style="text-align:right"><span class="badge b-g">R$3–8k/cliente</span> <span class="badge b-w">45 dias</span> <span class="badge">5/5</span></span></div>
+<div class="row"><span class="lbl">10. Ghostwriting técnico AI-assisted</span><span style="text-align:right"><span class="badge b-g">R$2–4k/mês</span> <span class="badge b-r">7 dias</span> <span class="badge">3/5</span></span></div>
+</div>
+
+<h3 class="sec">Ativos digitais e SaaS</h3>
+<div class="card">
+<div class="row"><span class="lbl">1. quote.fisamtech.com — SaaS foco</span><span style="text-align:right"><span class="badge b-g">R$100–300/cl./mês</span> <span class="badge b-w">60–90 dias</span> <span class="badge">5/5</span></span></div>
+<div class="row"><span class="lbl">2. SigaBR — ativar monetização</span><span style="text-align:right"><span class="badge b-g">R$200–500/desp./mês</span> <span class="badge b-w">90–120 dias</span> <span class="badge">5/5</span></span></div>
+<div class="row"><span class="lbl">3. Kontrolla PDV (50%)</span><span style="text-align:right"><span class="badge b-g">Equity + lucros</span> <span class="badge b-i">Em andamento</span> <span class="badge">5/5</span></span></div>
+<div class="row"><span class="lbl">4. Curso Java Enterprise / AI (Hotmart)</span><span style="text-align:right"><span class="badge b-g">R$5–20k/lançamento</span> <span class="badge b-w">60–90 dias</span> <span class="badge">5/5</span></span></div>
+<div class="row"><span class="lbl">5. Sistema reservas white-label (fork 637)</span><span style="text-align:right"><span class="badge b-g">R$3–10k/licença</span> <span class="badge b-r">21–30 dias</span> <span class="badge">5/5</span></span></div>
+<div class="row"><span class="lbl">6. Templates/boilerplates para devs</span><span style="text-align:right"><span class="badge b-g">R$200–500/unid.</span> <span class="badge b-r">14 dias</span> <span class="badge">5/5</span></span></div>
+<div class="row"><span class="lbl">7. Newsletter técnica Java + AI</span><span style="text-align:right"><span class="badge b-g">R$1–5k/mês</span> <span class="badge b-i">6–12 meses</span> <span class="badge">5/5</span></span></div>
+<div class="row"><span class="lbl">8. YouTube técnico PT-BR</span><span style="text-align:right"><span class="badge b-g">R$1–8k/mês</span> <span class="badge b-i">6–12 meses</span> <span class="badge">5/5</span></span></div>
+<div class="row"><span class="lbl">9. LinkedIn outreach clientes gringos ($)</span><span style="text-align:right"><span class="badge b-g">$2–5k/mês</span> <span class="badge b-w">60–90 dias</span> <span class="badge">4/5</span></span></div>
+<div class="row"><span class="lbl">10. Licitações tech via Fisamtour</span><span style="text-align:right"><span class="badge b-g">R$10–100k/contrato</span> <span class="badge b-w">60 dias</span> <span class="badge">4/5</span></span></div>
+</div>
+</div>
+
+<!-- PAINEL 5: EXECUÇÃO -->
+<div id="p5" class="panel">
+<h2 class="sec">Plano de execução — marcos específicos</h2>
+
+<div class="phase" style="border-left-color:#f43f5e">
+<div class="phase-title">Primeiros 15 dias — triagem de emergência</div>
+<div class="phase-sub">Foco: organização + primeiro movimento</div>
+<div class="task"><span class="tick">□</span><span>Anunciar apartamento para venda (imobiliária + OLX + Viva Real + grupos locais)</span></div>
+<div class="task"><span class="tick">□</span><span>Anunciar terreno para venda em paralelo</span></div>
+<div class="task"><span class="tick">□</span><span>Planilha de dívidas: credor, saldo, taxa real (CET), vencimento</span></div>
+<div class="task"><span class="tick">□</span><span>Calcular breakeven mensal exato (mínimo essencial para família)</span></div>
+<div class="task"><span class="tick">□</span><span>Cancelar assinaturas e gastos não essenciais</span></div>
+<div class="task"><span class="tick">□</span><span>Formalizar contrato com CODxAi: valor por projeto, prazo de pagamento, pipeline de clientes</span></div>
+<div class="task"><span class="tick">□</span><span>Montar rotina de licitações com Isa: plataforma de monitoramento (ComprasNet, BLL, Licitanet) + critérios de filtro</span></div>
+<div class="task"><span class="tick">□</span><span>Atualizar LinkedIn com posicionamento Arquiteto de AI + FinTech</span></div>
+</div>
+
+<div class="phase" style="border-left-color:#f59e0b">
+<div class="phase-title">30 dias — primeiro movimento de renda extra</div>
+<div class="phase-sub">Meta: +R$7–14k de renda variável · Receita total: R$19–26k</div>
+<div class="task"><span class="tick">□</span><span>Fechar ou confirmar 1–2 projetos CODxAi no mês</span></div>
+<div class="task"><span class="tick">□</span><span>Lançar proposta para 2 licitações via Fisamtour (Isa executa, você suporta tecnicamente)</span></div>
+<div class="task"><span class="tick">□</span><span>Definir ICP (cliente ideal) e proposta de valor do quote.fisamtech.com</span></div>
+<div class="task"><span class="tick">□</span><span>Formalizar contrato dos 50% no Kontrolla com Lucas</span></div>
+<div class="task"><span class="tick">□</span><span>1 post técnico/dia no LinkedIn (Java + AI + arquitetura)</span></div>
+</div>
+
+<div class="phase" style="border-left-color:#f59e0b">
+<div class="phase-title">90 dias — nova base financeira</div>
+<div class="phase-sub">Meta: renda total R$22–28k · Venda do apto em andamento · quote com primeiros clientes</div>
+<div class="task"><span class="tick">□</span><span>Apto: proposta aceita ou contrato assinado (venda em curso)</span></div>
+<div class="task"><span class="tick">□</span><span>CODxAi: 2 projetos/mês consolidado = R$14k/mês variável</span></div>
+<div class="task"><span class="tick">□</span><span>quote.fisamtech.com: 5–10 primeiros clientes pagantes</span></div>
+<div class="task"><span class="tick">□</span><span>Fisamtour: 1 nova licitação ganha no trimestre</span></div>
+<div class="task"><span class="tick">□</span><span>Kontrolla: recebendo distribuição de lucros mensalmente</span></div>
+<div class="task"><span class="tick">□</span><span>R$5k em Tesouro Selic iniciado (fundo de emergência)</span></div>
+</div>
+
+<div class="phase" style="border-left-color:#10b981">
+<div class="phase-title">1 ano — virada estrutural</div>
+<div class="phase-sub">Meta: renda total R$25–35k · Dívida: R$0–30k · Fundo emergência: R$20–40k</div>
+<div class="task"><span class="tick">□</span><span>Apartamento vendido → R$200k quitando dívidas → R$60k restante</span></div>
+<div class="task"><span class="tick">□</span><span>CODxAi: renda variável consolidada, possivelmente com projetos maiores</span></div>
+<div class="task"><span class="tick">□</span><span>quote.fisamtech.com: 30–50 clientes (R$4–10k MRR)</span></div>
+<div class="task"><span class="tick">□</span><span>Dívida total reduzida para R$0–30k</span></div>
+<div class="task"><span class="tick">□</span><span>LinkedIn: 5k+ seguidores + 1–2 inbounds/mês orgânicos</span></div>
+<div class="task"><span class="tick">□</span><span>Fisamtour: processo de licitação sistematizado, 3–4 contratos/ano</span></div>
+</div>
+
+<div class="phase" style="border-left-color:#60a5fa">
+<div class="phase-title">3 anos — liberdade financeira estruturada</div>
+<div class="phase-sub">Meta: renda total R$40–60k · Dívidas: zero · Patrimônio: R$300–500k · MRR: R$20–40k</div>
+<div class="task"><span class="tick">□</span><span>FISAM TECH: R$20–40k MRR (quote + SigaBR + Kontrolla)</span></div>
+<div class="task"><span class="tick">□</span><span>Fundo de emergência de R$100k intocado em renda fixa</span></div>
+<div class="task"><span class="tick">□</span><span>Portfólio iniciado: FIIs + Tesouro IPCA+ + ações</span></div>
+<div class="task"><span class="tick">□</span><span>Trabalha por escolha, não por necessidade</span></div>
+</div>
+</div>
+
+<!-- PAINEL 6: ERROS FATAIS -->
+<div id="p6" class="panel">
+<h2 class="sec">Erros fatais — o que vai te destruir financeiramente</h2>
+
+<h3 class="sec">Erros financeiros críticos</h3>
+<div class="card">
+<div class="row"><span class="lbl">Pagar o mínimo do cartão de crédito</span><span class="val-r">Juros de 20–30%/mês = falência lenta</span></div>
+<div class="row"><span class="lbl">Ignorar a taxa real (CET) das dívidas</span><span class="val-r">Você pode estar pagando 36%+ ao ano</span></div>
+<div class="row"><span class="lbl">Investir antes de quitar dívidas caras</span><span class="val-r">Nenhum ativo rende 2–3%/mês com segurança</span></div>
+<div class="row"><span class="lbl">Não renegociar dívidas</span><span class="val-r">Bancos dão 30–70% de desconto — você precisa pedir</span></div>
+<div class="row"><span class="lbl">Misturar finanças pessoais e da FISAM TECH</span><span class="val-r">Perde visibilidade de ambas</span></div>
+<div class="row"><span class="lbl">Não ter contrato em projetos freelance/PJ</span><span class="val-r">Trabalhou 2 meses sem receber — acontece</span></div>
+</div>
+
+<h3 class="sec">Armadilhas da classe média</h3>
+<div class="card">
+<div class="row"><span class="lbl">Aumentar padrão de vida junto com renda</span><span class="val-w">Lifestyle creep — o assassino silencioso</span></div>
+<div class="row"><span class="lbl">Casa própria como "investimento"</span><span class="val-w">Moradia é passivo. Só vira ativo se gerar renda.</span></div>
+<div class="row"><span class="lbl">Parcelar tudo "sem juros"</span><span class="val-w">Compromete fluxo de caixa por meses</span></div>
+<div class="row"><span class="lbl">Consórcio como investimento</span><span class="val-w">Taxa de administração + custo de oportunidade = ruim</span></div>
+</div>
+
+<h3 class="sec">Maus investimentos para sua fase atual</h3>
+<div class="card">
+<div class="row"><span class="lbl">Crypto com dinheiro que você precisa</span><span class="val-r">Volatilidade máxima na hora errada = desastre</span></div>
+<div class="row"><span class="lbl">Day trading / forex</span><span class="val-r">95% dos operadores perdem dinheiro</span></div>
+<div class="row"><span class="lbl">Startup de amigos "imperdível"</span><span class="val-r">Dívida + perda de amigo = dupla derrota</span></div>
+<div class="row"><span class="lbl">Imóvel novo financiado agora</span><span class="val-r">Com R$60k ainda de dívida, é suicídio financeiro</span></div>
+</div>
+
+<h3 class="sec">Desperdícios invisíveis</h3>
+<div class="card">
+<div class="row"><span class="lbl">Assinaturas esquecidas</span><span class="val-w">Audite agora: cancele o que não usa</span></div>
+<div class="row"><span class="lbl">Juros rotativos sem perceber</span><span class="val-r">Olhe o extrato completo todo mês</span></div>
+<div class="row"><span class="lbl">iFood/delivery diário</span><span class="val-w">R$50/dia × 22 dias = R$1.100/mês queimado</span></div>
+<div class="row"><span class="lbl">Tarifa de conta corrente</span><span class="val-w">Nubank/Inter/C6 são gratuitos</span></div>
+</div>
+
+<h3 class="sec">Crenças que te mantêm pobre</h3>
+<div class="card">
+<div class="row"><span class="lbl">"Vou investir quando sobrar"</span><span class="val-r">Nunca vai sobrar — a despesa ocupa o espaço</span></div>
+<div class="row"><span class="lbl">"Preciso de capital para começar"</span><span class="val-w">Você precisa de habilidades. Já tem.</span></div>
+<div class="row"><span class="lbl">"Risco é ruim"</span><span class="val-w">Risco calculado é a diferença entre rico e pobre</span></div>
+<div class="row"><span class="lbl">"Dívida é normal"</span><span class="val-r">É comum. Não é normal. E está te destruindo.</span></div>
+</div>
+</div>
+
+<!-- PAINEL 7: MENTALIDADE -->
+<div id="p7" class="panel">
+<h2 class="sec">Mentalidade dos milionários</h2>
+
+<div class="card"><h3 class="sec" style="margin-top:0">Buffett + Munger — ativo vs passivo e inversão</h3><p style="font-size:13px;color:#94a3b8;margin-bottom:8px">Ativo coloca dinheiro no bolso enquanto você dorme. Passivo tira. Seu apartamento onde você mora era passivo. Sua participação no Kontrolla, o quote.fisamtech.com, o SigaBR — esses são ativos potenciais. Inverta o problema: pergunte "o que pode dar errado?" antes de "o que pode dar certo?". A riqueza vem de evitar grandes erros, não de acertar tudo.</p><div style="font-size:12px;background:#141e33;padding:8px 12px;border-radius:8px;color:#7c8fa9">"Inverta sempre. Descubra o que te deixaria pobre — e evite isso." — Munger</div></div>
+
+<div class="card"><h3 class="sec" style="margin-top:0">Naval Ravikant — alavancagem e specific knowledge</h3><p style="font-size:13px;color:#94a3b8;margin-bottom:8px">Riqueza vem de specific knowledge (o que só você sabe fazer) + leverage (código, mídia, capital). Você tem isso: Java + FinTech + AI. Seu código no quote, SigaBR e Kontrolla trabalha 24/7 sem você. Busque equity, não salário. Salário paga as contas. Equity constrói patrimônio.</p><div style="font-size:12px;background:#141e33;padding:8px 12px;border-radius:8px;color:#7c8fa9">"Você vai ficar rico quando não puder distinguir trabalho de diversão." — Naval</div></div>
+
+<div class="card"><h3 class="sec" style="margin-top:0">Alex Hormozi — oferta e valor</h3><p style="font-size:13px;color:#94a3b8;margin-bottom:8px">Você não vende "sistema de orçamento" — você vende "fechar propostas 10x mais rápido sem perder margem". Não precifique pela hora. Precifique pelo resultado entregue. E duplique seus preços: você perde os piores clientes e atrai os melhores.</p><div style="font-size:12px;background:#141e33;padding:8px 12px;border-radius:8px;color:#7c8fa9">"Duplique seus preços. O que vai acontecer? Nada de ruim que você ainda não consiga lidar." — Hormozi</div></div>
+
+<div class="card"><h3 class="sec" style="margin-top:0">Peter Thiel — nicho de monopólio</h3><p style="font-size:13px;color:#94a3b8;margin-bottom:8px">Competição é para perdedores. Seja o único num nicho pequeno. quote.fisamtech.com para agências/construtoras/prestadores de SP? Se você for a referência, tem poder de precificação. SigaBR para despachantes? Mesmo princípio.</p><div style="font-size:12px;background:#141e33;padding:8px 12px;border-radius:8px;color:#7c8fa9">"Número 1 num mercado pequeno bate número 5 num mercado enorme." — Thiel</div></div>
+
+<div class="card"><h3 class="sec" style="margin-top:0">Morgan Housel — comportamento bate inteligência</h3><p style="font-size:13px;color:#94a3b8;margin-bottom:8px">Riqueza é o que você não gasta. Consistência composta bate talento episódico. O maior risco não é o mercado — é você mesmo tomando uma decisão emocional. Cada real poupado hoje tem efeito composto por décadas.</p><div style="font-size:12px;background:#141e33;padding:8px 12px;border-radius:8px;color:#7c8fa9">"Ficar rico e permanecer rico são habilidades diferentes." — Housel</div></div>
+
+<div class="card"><h3 class="sec" style="margin-top:0">Carnegie — foco obsessivo em uma coisa</h3><p style="font-size:13px;color:#94a3b8;margin-bottom:8px">Para os próximos 90 dias: duas coisas só — avançar a venda do apto e fechar projetos no CODxAi. A dispersão é o inimigo da acumulação. Depois: quote.fisamtech.com. Não abra novas frentes antes de dominar as atuais.</p><div style="font-size:12px;background:#141e33;padding:8px 12px;border-radius:8px;color:#7c8fa9">"Ponha todos os ovos numa só cesta — e cuide da cesta." — Carnegie</div></div>
+</div>
+
+<div class="updated">Última atualização: Junho 2026 · /home/fisam/Documentos/Pessoal/Financeiro/plano_mestre_enriquecimento.html</div>
+
+</div><!-- end wrap -->
+
+<script>
+(function(){
+  var panels = document.querySelectorAll('.panel');
+  var btns = document.querySelectorAll('.tbtn');
+  window.go = function(n) {
+    panels.forEach(function(p, i){ p.className = 'panel' + (i===n?' on':''); });
+    btns.forEach(function(b, i){ b.className = 'tbtn' + (i===n?' on':''); });
+  };
+})();
+</script>
+</body>
+</html>
