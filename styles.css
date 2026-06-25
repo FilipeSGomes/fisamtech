@@ -1085,11 +1085,12 @@ main > .tile:first-child {
 }
 
 .index-hero {
+  position: relative;
   min-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 64px 0 72px;
+  padding: 64px 0 96px;
   text-align: center;
 }
 
@@ -1138,6 +1139,54 @@ main > .tile:first-child {
 
 .index-hero-actions .btn-primary:hover {
   box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25);
+}
+
+.index-hero-scroll {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink-muted-48);
+  transition: color 160ms ease;
+}
+
+.index-hero-scroll:hover {
+  color: var(--ink-muted-80);
+}
+
+.index-hero-scroll-text {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.index-hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--ink-muted-48) 25%,
+    var(--ink-muted-48) 75%,
+    transparent
+  );
+  opacity: 0.55;
+}
+
+.index-hero-scroll-arrow {
+  opacity: 0.55;
+  margin-top: -4px;
+}
+
+.index-hero-scroll:hover .index-hero-scroll-line,
+.index-hero-scroll:hover .index-hero-scroll-arrow {
+  opacity: 0.85;
 }
 
 .index-section {
@@ -1445,7 +1494,15 @@ main > .tile:first-child {
 
   .index-hero {
     min-height: auto;
-    padding: 48px 0 56px;
+    padding: 48px 0 88px;
+  }
+
+  .index-hero-scroll {
+    bottom: 20px;
+  }
+
+  .index-hero-scroll-line {
+    height: 32px;
   }
 
   .index-section {
