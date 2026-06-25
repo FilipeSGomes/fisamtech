@@ -9,7 +9,7 @@
       content="Inscreva sua ideia de negócio e construa com a FISAM TECH como sócia de tecnologia. Submeta, faça o pitch e, se aprovada, desenvolvemos seu MVP juntos."
     />
     <meta name="author" content="FISAM TECH" />
-    <meta name="theme-color" content="#0066cc" />
+    <meta name="theme-color" content="#f5f5f7" />
     <link rel="canonical" href="https://fisamtech.com/parceiros/" />
     <meta property="og:title" content="Parceiros | FISAM TECH" />
     <meta
@@ -25,25 +25,23 @@
   </head>
   <body class="partners-page">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-    <header class="global-nav partners-nav" id="inicio">
-      <div class="shell nav-shell">
-        <a href="../index.html" class="brand" aria-label="FISAM TECH">
-          <img src="../images/perfil-small.png" alt="Logo da FISAM TECH" width="160" height="160" />
+    <header class="landing-header">
+      <div class="landing-header-inner">
+        <a href="../index.html" class="landing-header-brand" aria-label="FISAM TECH">
+          <img src="../images/perfil-small.png" alt="" width="28" height="28" />
           <span>FISAM TECH</span>
         </a>
-        <nav class="site-nav partners-site-nav" aria-label="Navegação da landing">
-          <a href="../index.html">Site principal</a>
-        </nav>
+        <a href="../index.html" class="landing-header-link">Site principal</a>
       </div>
     </header>
 
     <main id="conteudo">
-      <section class="tile tile-light reveal">
-        <div class="shell partners-shell">
+      <section class="partners-main reveal">
+        <div class="partners-shell">
           <div class="partners-hero">
             <p class="partners-eyebrow">Inscrição · FISAM TECH Parceiros</p>
             <h1>Inscreva sua ideia e construa com a FISAM TECH como sócia de tecnologia.</h1>
-            <p class="lead partners-lead">
+            <p class="partners-lead">
               Submeta sua ideia, faça o pitch e, se aprovada, viramos seu parceiro para desenvolver o MVP. Leva cerca de 10 minutos.
             </p>
           </div>
@@ -58,10 +56,8 @@
                   <line x1="16" y1="17" x2="8" y2="17" />
                 </svg>
               </span>
-              <div>
-                <h2 class="partners-step-title">Você submete</h2>
-                <p>Responda 5 perguntas sobre a sua ideia. A FISAM TECH retorna em até 7 dias.</p>
-              </div>
+              <h2 class="partners-step-title">Você submete</h2>
+              <p>Responda 5 perguntas sobre a sua ideia. A FISAM TECH retorna em até 7 dias.</p>
             </li>
             <li class="partners-step-card">
               <span class="partners-step-icon" aria-hidden="true">
@@ -72,10 +68,8 @@
                   <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                 </svg>
               </span>
-              <div>
-                <h2 class="partners-step-title">Avaliação e pitch</h2>
-                <p>Avaliamos sua ideia e, havendo fit, marcamos uma conversa. Aprovamos menos de 2% das inscrições.</p>
-              </div>
+              <h2 class="partners-step-title">Avaliação e pitch</h2>
+              <p>Avaliamos sua ideia e, havendo fit, marcamos uma conversa. Aprovamos menos de 2% das inscrições.</p>
             </li>
             <li class="partners-step-card">
               <span class="partners-step-icon" aria-hidden="true">
@@ -85,10 +79,8 @@
                   <path d="m2 13 6 6" />
                 </svg>
               </span>
-              <div>
-                <h2 class="partners-step-title">Viramos sócios</h2>
-                <p>Construímos seu primeiro MVP por R$ 3k + 10× R$ 500 e ficamos com 17,5%, você fica com 82,5%.</p>
-              </div>
+              <h2 class="partners-step-title">Viramos sócios</h2>
+              <p>Construímos seu primeiro MVP por R$ 5k + 10× R$ 1.500,00 e ficamos com 17,5%, você fica com 82,5%.</p>
             </li>
           </ol>
 
@@ -107,64 +99,52 @@
             aria-hidden="true"
             hidden
           >
-            <h2 class="partners-form-heading">Inscrição</h2>
-            <p class="partners-form-intro">Preencha as 5 perguntas abaixo. Ao enviar, você será direcionado ao WhatsApp com suas respostas.</p>
-            <form class="partners-form" id="partners-form" novalidate>
-              <label for="partners-nome">Nome completo</label>
-              <input id="partners-nome" name="nome" type="text" autocomplete="name" required />
+            <div class="partners-form-card">
+              <h2 class="partners-form-heading">Inscrição</h2>
+              <p class="partners-form-intro">Preencha as 5 perguntas abaixo. Ao enviar, você será direcionado ao WhatsApp com suas respostas.</p>
+              <form class="partners-form" id="partners-form" novalidate>
+                <label for="partners-nome">Nome completo</label>
+                <input id="partners-nome" name="nome" type="text" autocomplete="name" required />
 
-              <label for="partners-whatsapp">WhatsApp</label>
-              <input id="partners-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" required />
+                <label for="partners-whatsapp">WhatsApp</label>
+                <input id="partners-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" required />
 
-              <label for="partners-ideia">Em uma frase, qual é a sua ideia?</label>
-              <textarea id="partners-ideia" name="ideia" rows="3" required></textarea>
+                <label for="partners-ideia">Em uma frase, qual é a sua ideia?</label>
+                <textarea id="partners-ideia" name="ideia" rows="3" required></textarea>
 
-              <label for="partners-problema">Qual problema ela resolve e para quem?</label>
-              <textarea id="partners-problema" name="problema" rows="3" required></textarea>
+                <label for="partners-problema">Qual problema ela resolve e para quem?</label>
+                <textarea id="partners-problema" name="problema" rows="3" required></textarea>
 
-              <label for="partners-estagio">Em que estágio está hoje?</label>
-              <select id="partners-estagio" name="estagio" required>
-                <option value="">Selecione</option>
-                <option value="Ideia">Ideia</option>
-                <option value="Validação">Validação</option>
-                <option value="Protótipo">Protótipo</option>
-                <option value="Já tem clientes">Já tem clientes</option>
-              </select>
+                <label for="partners-estagio">Em que estágio está hoje?</label>
+                <select id="partners-estagio" name="estagio" required>
+                  <option value="">Selecione</option>
+                  <option value="Ideia">Ideia</option>
+                  <option value="Validação">Validação</option>
+                  <option value="Protótipo">Protótipo</option>
+                  <option value="Já tem clientes">Já tem clientes</option>
+                </select>
 
-              <button class="btn btn-primary btn-partners-cta" type="submit">Enviar inscrição</button>
-              <p class="partners-form-feedback" id="partners-form-feedback" role="status" aria-live="polite"></p>
-            </form>
+                <button class="btn btn-primary btn-partners-cta" type="submit">Enviar inscrição</button>
+                <p class="partners-form-feedback" id="partners-form-feedback" role="status" aria-live="polite"></p>
+              </form>
+            </div>
           </section>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="shell footer-shell">
-        <div class="footer-brand">
-          <img src="../images/perfil-small.png" alt="Logo FISAM TECH" width="30" height="30" loading="lazy" />
-          <p>FISAM TECH</p>
-          <p>FISAM TECH LTDA</p>
-          <p>São Paulo, SP | Atendimento remoto para todo o Brasil</p>
-          <p>CNPJ: 59.897.573/0001-02</p>
-        </div>
-        <div class="footer-links">
-          <a href="../index.html">Início</a>
-          <a href="../index.html#sobre">Sobre</a>
-          <a href="../index.html#servicos">Soluções</a>
-          <a href="../index.html#fundador">Fundador</a>
-          <a href="../privacidade.html">Privacidade</a>
-          <a href="../termos.html">Termos de Uso</a>
-          <a href="./">Parceiros</a>
-        </div>
-        <div class="footer-contact">
-          <p>Contato comercial</p>
-          <a href="https://wa.me/5511979562271" target="_blank" rel="noreferrer">WhatsApp</a>
-        </div>
-      </div>
+    <footer class="partners-footer">
+      <p class="partners-footer-disclaimer">
+        Suas respostas são tratadas com confidencialidade e usadas apenas para avaliar sua inscrição.
+      </p>
+      <nav class="partners-footer-legal" aria-label="Links legais">
+        <a href="../privacidade.html">Privacidade</a>
+        <a href="../termos.html">Termos</a>
+        <a href="../index.html">FISAM TECH</a>
+      </nav>
     </footer>
 
-    <div class="cookie-banner" id="cookie-banner" role="alert" aria-live="polite">
+    <div class="cookie-banner cookie-banner--compact" id="cookie-banner" role="alert" aria-live="polite">
       <p>
         Usamos cookies para melhorar sua experiência. Ao continuar navegando,
         você concorda com nossa
