@@ -1,6 +1,17 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { initRevealObserver, initScrollTextBuildEffect } = require("./main.js");
+const {
+  initRevealObserver,
+  initScrollTextBuildEffect,
+  initPartnersLanding,
+  getPartnersFormData,
+  validatePartnersFormData,
+  buildPartnersWhatsAppMessage,
+  buildPartnersWhatsAppUrl,
+  showPartnersForm,
+  normalizeWhatsApp,
+  PARTNERS_WHATSAPP_NUMBER,
+} = require("./main.js");
 
 class MockObserver {
   constructor(callback, options) {
@@ -175,4 +186,227 @@ test("constroi textos da secao quando ela entra no viewport", () => {
   } finally {
     global.setTimeout = originalSetTimeout;
   }
+});
+
+function createPartnersFormMock(values = {}) {
+  const elements = {
+    nome: { value: values.nome ?? "" },
+    whatsapp: { value: values.whatsapp ?? "" },
+    ideia: { value: values.ideia ?? "" },
+    problema: { value: values.problema ?? "" },
+    estagio: { value: values.estagio ?? "" },
+  };
+
+  return {
+    elements,
+    reset() {},
+    addEventListener(type, handler) {
+      this._submitHandler = handler;
+    },
+    dispatchSubmit() {
+      if (this._submitHandler) {
+        this._submitHandler({ preventDefault() {} });
+      }
+    },
+  };
+}
+
+test("validatePartnersFormData rejeita campos obrigatorios vazios", () => {
+  assert.equal(validatePartnersFormData(null), "Preencha todos os campos obrigatórios.");
+  assert.equal(
+    validatePartnersFormData({ nome: "", whatsapp: "", ideia: "", problema: "", estagio: "" }),
+    "Informe seu nome completo."
+  );
+  assert.equal(
+    validatePartnersFormData({ nome: "Ana", whatsapp: "", ideia: "App", problema: "X", estagio: "Ideia" }),
+    "Informe um WhatsApp válido."
+  );
+  assert.equal(
+    validatePartnersFormData({ nome: "Ana", whatsapp: "11999999999", ideia: "", problema: "X", estagio: "Ideia" }),
+    "Descreva sua ideia em uma frase."
+  );
+  assert.equal(
+    validatePartnersFormData({ nome: "Ana", whatsapp: "11999999999", ideia: "App", problema: "", estagio: "Ideia" }),
+    "Explique o problema e o público-alvo."
+  );
+  assert.equal(
+    validatePartnersFormData({ nome: "Ana", whatsapp: "11999999999", ideia: "App", problema: "Y", estagio: "" }),
+    "Selecione o estágio da sua ideia."
+  );
+  assert.equal(
+    validatePartnersFormData({ nome: "Ana", whatsapp: "11999999999", ideia: "App", problema: "Y", estagio: "Ideia" }),
+    null
+  );
+});
+
+test("buildPartnersWhatsAppUrl monta mensagem encoded corretamente", () => {
+  const data = {
+    nome: "Ana Silva",
+    whatsapp: "(11) 99999-9999",
+    ideia: "Marketplace local",
+    problema: "Conecta produtores e consumidores",
+    estagio: "Validação",
+  };
+
+  const message = buildPartnersWhatsAppMessage(data);
+  assert.match(message, /FISAM TECH Parceiros/);
+  assert.match(message, /Nome: Ana Silva/);
+  assert.match(message, /Estágio: Validação/);
+
+  const url = buildPartnersWhatsAppUrl(data);
+  assert.equal(url.startsWith(`https://wa.me/${PARTNERS_WHATSAPP_NUMBER}?text=`), true);
+  const encoded = url.split("?text=")[1];
+  const decoded = decodeURIComponent(encoded);
+  assert.equal(decoded, message);
+});
+
+test("normalizeWhatsApp remove caracteres nao numericos", () => {
+  assert.equal(normalizeWhatsApp("(11) 99999-9999"), "11999999999");
+});
+
+test("showPartnersForm revela secao e foca primeiro campo", () => {
+  const section = {
+    hidden: true,
+    offsetTop: 420,
+    setAttribute(name, value) {
+      this[name] = value;
+    },
+    querySelector() {
+      return {
+        focus() {
+          this.focused = true;
+        },
+        focused: false,
+      };
+    },
+    scrollIntoView(options) {
+      this.scrolled = options;
+    },
+  };
+
+  showPartnersForm(section);
+
+  assert.equal(section.hidden, false);
+  assert.equal(section["aria-hidden"], "false");
+  assert.deepEqual(section.scrolled, { behavior: "smooth", block: "start" });
+});
+
+test("initPartnersLanding abre formulario ao clicar no CTA", () => {
+  const section = {
+    hidden: true,
+    offsetTop: 100,
+    setAttribute(name, value) {
+      this[name] = value;
+    },
+    querySelector() {
+      return { focus() {} };
+    },
+    scrollIntoView() {},
+  };
+
+  const startBtn = {
+    listeners: {},
+    addEventListener(type, handler) {
+      this.listeners[type] = handler;
+    },
+  };
+
+  const mockDocument = {
+    getElementById(id) {
+      if (id === "partners-start-btn") return startBtn;
+      if (id === "partners-form-section") return section;
+      if (id === "partners-form") return null;
+      if (id === "partners-form-feedback") return null;
+      return null;
+    },
+  };
+
+  initPartnersLanding(mockDocument);
+
+  assert.equal(typeof startBtn.listeners.click, "function");
+  startBtn.listeners.click();
+  assert.equal(section.hidden, false);
+});
+
+test("initPartnersLanding envia inscricao via WhatsApp quando valida", () => {
+  const feedback = { textContent: "", classList: { toggle() {} } };
+  const form = createPartnersFormMock({
+    nome: "João",
+    whatsapp: "11988887777",
+    ideia: "SaaS de logística",
+    problema: "Pequenas transportadoras",
+    estagio: "Protótipo",
+  });
+
+  const opened = [];
+  const mockWindow = {
+    open(url) {
+      opened.push(url);
+    },
+  };
+
+  const mockDocument = {
+    getElementById(id) {
+      if (id === "partners-start-btn") return null;
+      if (id === "partners-form-section") return null;
+      if (id === "partners-form") return form;
+      if (id === "partners-form-feedback") return feedback;
+      return null;
+    },
+  };
+
+  initPartnersLanding(mockDocument, mockWindow);
+  form.dispatchSubmit();
+
+  assert.equal(opened.length, 1);
+  assert.match(opened[0], /wa\.me\/5511979562271/);
+  assert.match(decodeURIComponent(opened[0]), /João/);
+  assert.match(decodeURIComponent(opened[0]), /SaaS de logística/);
+});
+
+test("initPartnersLanding nao abre WhatsApp com formulario invalido", () => {
+  const feedback = {
+    textContent: "",
+    classList: {
+      hasError: false,
+      toggle(className, flag) {
+        if (className === "error") this.hasError = flag;
+      },
+    },
+  };
+  const form = createPartnersFormMock({ nome: "João" });
+  const opened = [];
+  const mockWindow = { open(url) { opened.push(url); } };
+  const mockDocument = {
+    getElementById(id) {
+      if (id === "partners-form") return form;
+      if (id === "partners-form-feedback") return feedback;
+      return null;
+    },
+  };
+
+  initPartnersLanding(mockDocument, mockWindow);
+  form.dispatchSubmit();
+
+  assert.equal(opened.length, 0);
+  assert.equal(feedback.textContent, "Informe um WhatsApp válido.");
+  assert.equal(feedback.classList.hasError, true);
+});
+
+test("getPartnersFormData extrai valores do formulario", () => {
+  const form = createPartnersFormMock({
+    nome: "Maria",
+    whatsapp: "11977776666",
+    ideia: "App fitness",
+    problema: "Personal trainers",
+    estagio: "Ideia",
+  });
+
+  assert.deepEqual(getPartnersFormData(form), {
+    nome: "Maria",
+    whatsapp: "11977776666",
+    ideia: "App fitness",
+    problema: "Personal trainers",
+    estagio: "Ideia",
+  });
 });
