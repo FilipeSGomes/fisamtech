@@ -3,6 +3,10 @@ const assert = require("node:assert/strict");
 const {
   initRevealObserver,
   initScrollTextBuildEffect,
+  initLandingHeaderScroll,
+  prepareRevealItems,
+  revealSection,
+  prefersReducedMotion,
   initPartnersLanding,
   getPartnersFormData,
   validatePartnersFormData,
@@ -35,12 +39,23 @@ function createMockElement() {
     style: {},
     _children: [],
     classList: {
-      add(className) {
-        this._owner.addedClasses.push(className);
+      add(...classNames) {
+        this._owner.addedClasses.push(...classNames);
+      },
+      contains() {
+        return false;
       },
       _owner: null,
     },
-    querySelectorAll() {
+    style: {
+      setProperty() {},
+      getPropertyValue() {
+        return "0ms";
+      },
+    },
+    querySelectorAll(selector) {
+      if (selector === ".reveal-item") return [];
+      if (selector === ".build-text") return this._children;
       return this._children;
     },
   };
@@ -59,9 +74,9 @@ test("observa todos os elementos .reveal", () => {
     },
   };
 
-  const observer = initRevealObserver(mockDocument, MockObserver);
+  const observer = initRevealObserver(mockDocument, MockObserver, { setTimeout: (fn) => fn() });
 
-  assert.equal(observer.options.threshold, 0.2);
+  assert.equal(observer.options.threshold, 0.12);
   assert.deepEqual(observer.observed, [el1, el2]);
 });
 
@@ -77,7 +92,7 @@ test("adiciona classe visible apenas para entradas visiveis", () => {
     },
   };
 
-  const observer = initRevealObserver(mockDocument, MockObserver);
+  const observer = initRevealObserver(mockDocument, MockObserver, { setTimeout: (fn) => fn() });
   observer.trigger([
     { isIntersecting: true, target: elVisible },
     { isIntersecting: false, target: elHidden },
@@ -85,6 +100,81 @@ test("adiciona classe visible apenas para entradas visiveis", () => {
 
   assert.deepEqual(elVisible.addedClasses, ["visible"]);
   assert.deepEqual(elHidden.addedClasses, []);
+});
+
+test("revealSection aplica visible em secao e itens filhos", () => {
+  const originalSetTimeout = global.setTimeout;
+  global.setTimeout = (fn) => {
+    fn();
+    return 0;
+  };
+
+  try {
+    const itemClasses = [];
+    const item = {
+      classList: {
+        add(className) {
+          itemClasses.push(className);
+        },
+      },
+      style: {
+        getPropertyValue() {
+          return "0ms";
+        },
+      },
+    };
+
+    const sectionClasses = [];
+    const section = {
+      classList: {
+        add(className) {
+          sectionClasses.push(className);
+        },
+        contains(className) {
+          return sectionClasses.includes(className);
+        },
+      },
+      querySelectorAll(selector) {
+        return selector === ".reveal-item" ? [item] : [];
+      },
+      _children: [],
+    };
+
+    revealSection(section);
+
+    assert.deepEqual(sectionClasses, ["visible"]);
+    assert.deepEqual(itemClasses, ["visible"]);
+  } finally {
+    global.setTimeout = originalSetTimeout;
+  }
+});
+
+test("prepareRevealItems marca elementos animaveis", () => {
+  const added = [];
+  const item = {
+    classList: {
+      add(className) {
+        added.push(className);
+      },
+    },
+    style: {
+      setProperty() {},
+    },
+  };
+  const section = {
+    querySelectorAll(selector) {
+      if (selector.includes("index-stat")) return [item];
+      return [];
+    },
+  };
+
+  prepareRevealItems({
+    querySelectorAll() {
+      return [section];
+    },
+  });
+
+  assert.deepEqual(added, ["reveal-item"]);
 });
 
 test("marca textos principais com classe build-text e delay", () => {
@@ -176,7 +266,7 @@ test("constroi textos da secao quando ela entra no viewport", () => {
     };
 
     initScrollTextBuildEffect(mockDocument, mockWindow, MockObserver);
-    const observer = initRevealObserver(mockDocument, MockObserver);
+    const observer = initRevealObserver(mockDocument, MockObserver, { setTimeout: (fn) => fn() });
 
     observer.trigger([{ isIntersecting: true, target: section }]);
 

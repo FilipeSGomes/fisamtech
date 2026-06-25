@@ -680,17 +680,74 @@ main > .tile:first-child {
 .reveal {
   opacity: 1;
   transform: none;
+  filter: none;
 }
 
 .js-enabled .reveal {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 420ms ease, transform 420ms ease;
+  transform: translateY(32px);
+  filter: blur(6px);
+  transition:
+    opacity 780ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 780ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 680ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js-enabled .reveal.reveal--dramatic {
+  transform: translateY(48px) scale(0.985);
 }
 
 .js-enabled .reveal.visible {
   opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.reveal-item {
+  opacity: 1;
+  transform: none;
+}
+
+.js-enabled .reveal-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 620ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js-enabled .reveal-item.visible {
+  opacity: 1;
   transform: translateY(0);
+}
+
+.index-section--dark::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--canvas-parchment), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.index-section--light + .index-section--light {
+  padding-top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-enabled .reveal,
+  .js-enabled .reveal-item,
+  .build-text {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
 }
 
 .cookie-banner {
@@ -806,6 +863,11 @@ main > .tile:first-child {
 .partners-header-link:hover,
 .landing-header-link:hover {
   color: var(--ink-muted-80);
+}
+
+.landing-header--scrolled {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
 }
 
 .landing-header-nav {
@@ -1085,12 +1147,12 @@ main > .tile:first-child {
 }
 
 .index-hero {
-  position: relative;
   min-height: 85vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 64px 0 96px;
+  padding: 64px 24px 40px;
   text-align: center;
 }
 
@@ -1099,6 +1161,7 @@ main > .tile:first-child {
   margin: 0 auto;
   display: grid;
   gap: 24px;
+  flex: 0 0 auto;
 }
 
 .index-hero-inner h1 {
@@ -1142,14 +1205,13 @@ main > .tile:first-child {
 }
 
 .index-hero-scroll {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
+  flex: 0 0 auto;
+  margin-top: auto;
+  padding-top: 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-decoration: none;
   color: var(--ink-muted-48);
   transition: color 160ms ease;
@@ -1168,7 +1230,7 @@ main > .tile:first-child {
 
 .index-hero-scroll-line {
   width: 1px;
-  height: 40px;
+  height: 32px;
   background: linear-gradient(
     to bottom,
     transparent,
@@ -1190,6 +1252,7 @@ main > .tile:first-child {
 }
 
 .index-section {
+  position: relative;
   padding: 72px 0;
 }
 
@@ -1205,6 +1268,8 @@ main > .tile:first-child {
 .index-section-inner {
   width: min(1100px, calc(100% - 48px));
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .index-section--dark h2,
@@ -1494,15 +1559,44 @@ main > .tile:first-child {
 
   .index-hero {
     min-height: auto;
-    padding: 48px 0 88px;
+    padding: 40px 16px 32px;
+  }
+
+  .index-hero-inner {
+    width: 100%;
+    gap: 18px;
+  }
+
+  .index-hero-inner h1 {
+    max-width: none;
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+  }
+
+  .index-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    margin-top: 4px;
+  }
+
+  .index-hero-actions .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .index-hero-actions .btn-link {
+    width: 100%;
+    text-align: center;
+    padding: 4px 0;
   }
 
   .index-hero-scroll {
-    bottom: 20px;
+    padding-top: 28px;
+    margin-top: 12px;
   }
 
   .index-hero-scroll-line {
-    height: 32px;
+    height: 24px;
   }
 
   .index-section {
