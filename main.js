@@ -27,6 +27,9 @@ const REVEAL_ITEM_SELECTOR = [
   ".partners-cta-wrap",
   ".partners-form-card",
   ".booking-checklist li",
+  ".cases-theme-grid .index-cap-card",
+  ".cases-proof-grid .index-proof-card",
+  ".cases-hero .index-lead",
 ].join(", ");
 
 function prepareRevealItems(doc = document) {

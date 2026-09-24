@@ -1748,3 +1748,90 @@ main > .tile:first-child {
     gap: 12px;
   }
 }
+
+/* Cases page */
+.cases-page .cases-hero {
+  padding-top: 56px;
+  padding-bottom: 40px;
+}
+
+.cases-page .cases-hero h1 {
+  max-width: 28ch;
+  margin-top: 12px;
+}
+
+.cases-lead {
+  margin-top: 20px;
+  text-align: left;
+  margin-inline: 0;
+  max-width: 62ch;
+}
+
+.cases-lead strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cases-section-lede {
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--ink-muted-80);
+  max-width: 62ch;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.cases-section-lede a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.cases-section-lede a:hover {
+  text-decoration: underline;
+}
+
+.cases-proof-grid {
+  margin-top: 28px;
+}
+
+.cases-aderencia {
+  margin-top: 12px !important;
+  font-size: 0.875rem !important;
+  color: var(--ink-muted-48) !important;
+}
+
+.cases-aderencia strong {
+  color: var(--ink-muted-80);
+  font-weight: 600;
+}
+
+.cases-honesty-note {
+  margin-top: 28px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-muted-48);
+  max-width: 62ch;
+}
+
+.index-proof-card a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.index-proof-card a:hover {
+  text-decoration: underline;
+}
+
+.index-cta-section .cta-alt a {
+  color: var(--primary-on-dark);
+}
+
+@media (max-width: 700px) {
+  .cases-page .cases-hero {
+    padding-top: 40px;
+  }
+
+  .cases-page .cases-hero h1 {
+    max-width: none;
+  }
+}
