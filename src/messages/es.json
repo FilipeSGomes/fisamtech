@@ -1,0 +1,292 @@
+{
+  "meta": {
+    "siteName": "FISAM TECH",
+    "title": "FISAM TECH | Arquitectura e ingeniería para sistemas críticos",
+    "description": "Arquitectura backend, integraciones críticas y GenAI con gobernanza. Experiencia previa del fundador en entornos financieros e industriales — no clientes de FISAM."
+  },
+  "nav": {
+    "process": "Cómo trabajamos",
+    "services": "Servicios",
+    "cases": "Casos",
+    "partners": "Partners",
+    "contact": "Contacto",
+    "discovery": "Technical Discovery",
+    "whatsapp": "WhatsApp",
+    "skip": "Saltar al contenido"
+  },
+  "locale": {
+    "label": "Language",
+    "currency": "Currency",
+    "suggest": "Suggested for your region",
+    "continue": "Continue"
+  },
+  "hero": {
+    "eyebrow": "Ingeniería de sistemas · Arquitectura primero",
+    "title": "Arquitectura e ingeniería para sistemas que no pueden fallar.",
+    "lead": "FISAM TECH diseña y construye backends, integraciones críticas y GenAI gobernada para empresas que ya superaron la improvisación.",
+    "ctaPrimary": "Reservar Technical Discovery",
+    "ctaSecondary": "Hablar con un ingeniero",
+    "ctaWork": "Ver nuestro trabajo",
+    "scroll": "Cómo trabajamos"
+  },
+  "credentials": {
+    "eyebrow": "Credenciales",
+    "title": "Diagnóstico antes del código. Arquitectura que sostiene el negocio.",
+    "lead": "Especializados en arquitectura backend, sistemas distribuidos e integraciones críticas. El fundador Filipe Godinho Gomes aporta 10+ años en entornos de alta disponibilidad — experiencia previa en Bradesco, B3, Itaú, Banco Next y Capgemini Engineering. No son clientes de FISAM TECH.",
+    "exp": "Experiencia",
+    "expValue": "10+ years",
+    "market": "Contexto",
+    "marketValue": "Finance · Industry",
+    "focus": "Foco",
+    "focusValue": "Critical systems",
+    "method": "Método",
+    "methodValue": "Diagnóstico primero"
+  },
+  "problems": {
+    "eyebrow": "When to call us",
+    "title": "Problems we are built for",
+    "items": {
+      "scale": {
+        "title": "Systems that do not scale",
+        "body": "Architecture that worked for the first release is now the bottleneck."
+      },
+      "integrations": {
+        "title": "Fragile integrations",
+        "body": "ERPs, banks, legacy APIs — brittle glue and silent data loss."
+      },
+      "legacy": {
+        "title": "Legacy that blocks product",
+        "body": "Modernization without stopping the operation."
+      },
+      "genai": {
+        "title": "GenAI without governance",
+        "body": "Copilots and RAG need traceability, guardrails, and data discipline."
+      }
+    }
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "What we deliver",
+    "architecture": {
+      "title": "Critical systems architecture",
+      "body": "Microservices, distributed systems, and high-availability design decisions from day one.",
+      "slug": "systems-architecture"
+    },
+    "backend": {
+      "title": "Advanced backend engineering",
+      "body": "Java, Spring Boot, Kafka, AWS. REST APIs, messaging, CI/CD, low failure tolerance.",
+      "slug": "backend-engineering"
+    },
+    "integrations": {
+      "title": "Corporate system integration",
+      "body": "ERPs, CRMs, banks, external APIs, and legacy systems — without rework or data loss.",
+      "slug": "critical-integrations"
+    },
+    "legacy": {
+      "title": "Legacy modernization",
+      "body": "Gradual migration to modern architecture without stopping operations.",
+      "slug": "legacy-modernization"
+    },
+    "genai": {
+      "title": "GenAI with governance",
+      "body": "Natural-language copilots with RAG, traceability, and guardrails for regulated environments.",
+      "slug": "genai-governance"
+    },
+    "field": {
+      "title": "Field, tablet, and mobile web",
+      "body": "Responsive products for teams on the move — light flows, tablet-first design."
+    }
+  },
+  "casesHome": {
+    "eyebrow": "Proof",
+    "title": "Clients and products in operation",
+    "lede": "Deliveries under FISAM TECH and our own products. Founder prior experience at Bradesco, B3, Itaú, Banco Next, Capgemini, and Gerdau is documented on Cases as background — not as current FISAM clients.",
+    "link": "View cases"
+  },
+  "howWeWork": {
+    "eyebrow": "Methodology",
+    "title": "How we work",
+    "steps": {
+      "1": {
+        "title": "Understand",
+        "body": "Map the system, risks, and opportunities before writing code."
+      },
+      "2": {
+        "title": "Document",
+        "body": "Technical decisions recorded, clear scope, evolution plan from the start."
+      },
+      "3": {
+        "title": "Divide",
+        "body": "Structured backlog, incremental delivery, governance at each step."
+      },
+      "4": {
+        "title": "Build",
+        "body": "Code that sustains business growth, with full traceability."
+      }
+    }
+  },
+  "why": {
+    "eyebrow": "Why FISAM",
+    "title": "Serious engineering, honest framing",
+    "items": {
+      "a": "No invented clients, metrics, or testimonials.",
+      "b": "Diagnosis before proposal — we do not sell code first.",
+      "c": "Transferable experience from critical environments, clearly labeled."
+    }
+  },
+  "founder": {
+    "title": "Founder",
+    "body1": "Filipe Godinho Gomes is a Tech Lead with 10+ years in backend development, microservice architecture, and distributed systems. Before founding FISAM TECH, he worked on critical projects for Bradesco, B3, Itaú, Gerdau, and other financial and industrial players.",
+    "body2": "At FISAM TECH, that base is applied to real operational problems — sensitive integrations, field/mobile channels, and GenAI under governance — not slideware that breaks in production.",
+    "prior": "Prior experience (not FISAM clients): Bradesco · B3 · Itaú · Gerdau · Banco Next · Capgemini Engineering",
+    "alt": "Filipe Gomes, founder of FISAM TECH"
+  },
+  "discovery": {
+    "eyebrow": "Entry engagement",
+    "title": "Technical Discovery",
+    "lead": "A paid technical session to map your system, identify architectural risks, and define concrete next steps. Calendar access unlocks after payment.",
+    "includes": {
+      "1": "Current technical landscape diagnosis",
+      "2": "Architecture risks and bottlenecks",
+      "3": "Clear next steps — no fluff"
+    },
+    "priceNote": "Prices are set per currency. We never convert BRL to USD in the interface.",
+    "cta": "Iniciar cualificación",
+    "from": "Desde"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Common questions",
+    "items": {
+      "1": {
+        "q": "Is Technical Discovery free?",
+        "a": "No. International Technical Discovery is a paid engagement. Calendar booking unlocks after payment confirmation."
+      },
+      "2": {
+        "q": "Are Bradesco, B3, Itaú FISAM clients?",
+        "a": "No. They are prior employer/client experience of the founder, clearly labeled as such."
+      },
+      "3": {
+        "q": "Which payment methods?",
+        "a": "Stripe for USD, EUR, and GBP. Mercado Pago for BRL."
+      },
+      "4": {
+        "q": "Do you force my language?",
+        "a": "We suggest language and currency from your region. You can change anytime; we respect your choice."
+      }
+    }
+  },
+  "cta": {
+    "title": "¿Listo para una conversación técnica seria?",
+    "lead": "Start with qualification. After payment, unlock calendar booking for Technical Discovery.",
+    "primary": "Reservar Technical Discovery",
+    "secondary": "Hablar con un ingeniero"
+  },
+  "footer": {
+    "company": "Company",
+    "legal": "Legal",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "partners": "Partners",
+    "rights": "All rights reserved.",
+    "note": "GitHub Pages may still serve the production domain until DNS cutover to Vercel is authorized."
+  },
+  "cookies": {
+    "title": "Cookies",
+    "body": "We use necessary cookies for language and currency preferences. Analytics cookies are optional and off by default until you accept.",
+    "accept": "Accept optional",
+    "reject": "Necessary only",
+    "link": "Cookie policy"
+  },
+  "qualification": {
+    "title": "Qualify for Technical Discovery",
+    "lead": "Tell us enough to prepare a useful session. After submit, you proceed to checkout.",
+    "name": "Full name",
+    "email": "Work email",
+    "company": "Company",
+    "country": "Country",
+    "role": "Your role",
+    "challenge": "Technical challenge",
+    "budget": "Approximate budget range",
+    "currency": "Preferred currency",
+    "submit": "Continue to checkout",
+    "privacy": "By submitting, you agree to our privacy policy. We use this data to prepare your session and process payment."
+  },
+  "checkout": {
+    "title": "Checkout",
+    "pending": "Payment pending",
+    "pendingLead": "We are waiting for payment confirmation. You will receive booking access once approved.",
+    "success": "Payment received",
+    "successLead": "Your Technical Discovery booking is unlocked.",
+    "book": "Open calendar",
+    "error": "Checkout could not start",
+    "configError": "Payment provider keys are not configured yet. Set Stripe or Mercado Pago env vars."
+  },
+  "book": {
+    "title": "Schedule Technical Discovery",
+    "lead": "Your payment is confirmed. Choose a time in the calendar below.",
+    "invalid": "This booking link is invalid or expired.",
+    "open": "Open Google Calendar scheduling"
+  },
+  "cases": {
+    "title": "Cases and experience",
+    "lead": "Public evidence of transferable capability — honest framing, no invented logos or metrics.",
+    "clientsTitle": "FISAM TECH clients",
+    "productsTitle": "FISAM products",
+    "priorTitle": "Founder prior experience",
+    "priorLead": "The following organizations reflect the founder’s prior professional background. They are not FISAM TECH clients.",
+    "sigabr": {
+      "type": "Digital platform for vehicle licensing brokers",
+      "body": "Automated DETRAN integration via RENAVAM and Banco Rendimento. Manual hours became minutes with full transaction traceability."
+    },
+    "tennis": {
+      "type": "Tennis & beach tennis · multi-tenant SaaS",
+      "body": "Court management SaaS with online booking, admin panel, and financial control. Zero schedule conflicts; fully digital operations."
+    },
+    "quote": {
+      "type": "Own product · field sales teams",
+      "body": "Digital quoting and commercial flow for teams on the move."
+    }
+  },
+  "partners": {
+    "title": "Build with FISAM",
+    "lead": "Envía tu idea. Si hay encaje, co-construimos un MVP como partner tecnológico.",
+    "brTitle": "Parceiros FISAM TECH",
+    "brLead": "Inscreva sua ideia e construa com a FISAM TECH como sócia de tecnologia.",
+    "step1": {
+      "title": "You submit",
+      "body": "Answer a few questions about your idea. We respond within 7 days."
+    },
+    "step2": {
+      "title": "Review and pitch",
+      "body": "If there is fit, we schedule a conversation. We approve a small fraction of applications."
+    },
+    "step3": {
+      "title": "We co-build",
+      "body": "We build the first MVP under agreed commercial and equity terms."
+    },
+    "cta": "Start application",
+    "name": "Name",
+    "whatsapp": "WhatsApp / phone",
+    "idea": "Idea",
+    "problem": "Problem you solve",
+    "stage": "Stage",
+    "submit": "Submit",
+    "disclaimer": "Responses are confidential and used only to evaluate your application."
+  },
+  "legal": {
+    "privacyTitle": "Privacy",
+    "termsTitle": "Terms of use",
+    "cookiesTitle": "Cookie policy",
+    "privacyLead": "This page describes how FISAM TECH handles personal data. Structure is prepared for LGPD and GDPR-style rights. This is not a certification of compliance — legal review is pending.",
+    "termsLead": "Terms governing use of this website and commercial engagements. International jurisdiction and refund rules for Technical Discovery will be finalized with legal counsel.",
+    "cookiesLead": "We distinguish necessary preference cookies from optional analytics. Marketing cookies are not enabled by default."
+  },
+  "common": {
+    "learnMore": "Más información",
+    "backHome": "Volver al inicio",
+    "loading": "Cargando…"
+  }
+}

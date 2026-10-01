@@ -1,0 +1,292 @@
+{
+  "meta": {
+    "siteName": "FISAM TECH",
+    "title": "FISAM TECH | Arquitetura e desenvolvimento para sistemas críticos",
+    "description": "Arquitetura backend, integrações críticas, GenAI com governança e desenvolvimento para sistemas críticos. Experiência prévia do fundador em Bradesco, B3, Itaú, Next e Capgemini — não clientes da FISAM."
+  },
+  "nav": {
+    "process": "Processo",
+    "services": "Serviços",
+    "cases": "Cases",
+    "partners": "Parceiros",
+    "contact": "Contato",
+    "discovery": "Diagnóstico técnico",
+    "whatsapp": "WhatsApp",
+    "skip": "Pular para o conteúdo"
+  },
+  "locale": {
+    "label": "Idioma",
+    "currency": "Moeda",
+    "suggest": "Sugerido para sua região",
+    "continue": "Continuar"
+  },
+  "hero": {
+    "eyebrow": "São Paulo · Brasil e internacional",
+    "title": "Arquitetura e desenvolvimento para sistemas que não podem falhar.",
+    "lead": "A FISAM TECH entrega backend, integrações críticas e arquitetura escalável para empresas que já passaram da fase de improviso e precisam de tecnologia séria.",
+    "ctaPrimary": "Agendar Diagnóstico Técnico",
+    "ctaSecondary": "Conversar pelo WhatsApp",
+    "ctaWork": "Ver nosso trabalho",
+    "scroll": "Como trabalhamos"
+  },
+  "credentials": {
+    "eyebrow": "Credenciais",
+    "title": "Diagnóstico antes do código. Arquitetura que sustenta o negócio.",
+    "lead": "Especializada em arquitetura backend, sistemas distribuídos e integrações críticas. Filipe Godinho Gomes, fundador e Tech Lead, traz mais de 10 anos em alta disponibilidade — passagem por Bradesco, B3, Itaú, Banco Next e Capgemini Engineering. Essas organizações são experiência prévia do fundador, não clientes da FISAM TECH.",
+    "exp": "Experiência",
+    "expValue": "10+ anos",
+    "market": "Mercado",
+    "marketValue": "Bradesco · B3 · Next",
+    "focus": "Foco",
+    "focusValue": "Sistemas críticos",
+    "method": "Método",
+    "methodValue": "Diagnóstico primeiro"
+  },
+  "problems": {
+    "eyebrow": "Quando conversar",
+    "title": "Problemas para os quais existimos",
+    "items": {
+      "scale": {
+        "title": "Sistemas que não escalam",
+        "body": "A arquitetura do primeiro release virou gargalo."
+      },
+      "integrations": {
+        "title": "Integrações frágeis",
+        "body": "ERPs, bancos, APIs legadas — cola frágil e perda silenciosa de dados."
+      },
+      "legacy": {
+        "title": "Legado que trava o produto",
+        "body": "Modernização sem parar a operação."
+      },
+      "genai": {
+        "title": "GenAI sem governança",
+        "body": "Copilotos e RAG precisam de rastreabilidade, guardrails e disciplina de dados."
+      }
+    }
+  },
+  "services": {
+    "eyebrow": "Serviços",
+    "title": "O que entregamos",
+    "architecture": {
+      "title": "Arquitetura de Sistemas Críticos",
+      "body": "Microsserviços, sistemas distribuídos e decisões de alta disponibilidade desde o início.",
+      "slug": "systems-architecture"
+    },
+    "backend": {
+      "title": "Desenvolvimento Backend Avançado",
+      "body": "Java, Spring Boot, Kafka, AWS. APIs REST, mensageria, CI/CD e baixa tolerância a falhas.",
+      "slug": "backend-engineering"
+    },
+    "integrations": {
+      "title": "Integração entre Sistemas Corporativos",
+      "body": "ERPs, CRMs, bancos, APIs externas e legados — sem retrabalho, sem perda de dado.",
+      "slug": "critical-integrations"
+    },
+    "legacy": {
+      "title": "Modernização de Sistemas Legados",
+      "body": "Migração gradual sem parar a operação.",
+      "slug": "legacy-modernization"
+    },
+    "genai": {
+      "title": "GenAI com governança",
+      "body": "Copilotos e consultas em linguagem natural com RAG, rastreabilidade e guardrails.",
+      "slug": "genai-governance"
+    },
+    "field": {
+      "title": "Campo, tablet e mobile web",
+      "body": "Interfaces para equipes em deslocamento — fluxos leves e tablet-first."
+    }
+  },
+  "casesHome": {
+    "eyebrow": "Prova social",
+    "title": "Clientes e produtos em operação",
+    "lede": "Entregas sob a FISAM TECH e produtos próprios. A trajetória do fundador em Bradesco, B3, Itaú, Banco Next, Capgemini e Gerdau é detalhada em Cases como experiência prévia — não como clientes atuais da empresa.",
+    "link": "Ver cases"
+  },
+  "howWeWork": {
+    "eyebrow": "Metodologia",
+    "title": "Como trabalhamos",
+    "steps": {
+      "1": {
+        "title": "Entender",
+        "body": "Mapeamos o sistema, riscos e oportunidades antes de escrever código."
+      },
+      "2": {
+        "title": "Documentar",
+        "body": "Decisões técnicas registradas, escopo claro e plano de evolução."
+      },
+      "3": {
+        "title": "Dividir",
+        "body": "Backlog estruturado, entregas incrementais e governança."
+      },
+      "4": {
+        "title": "Construir",
+        "body": "Código que sustenta o crescimento, com rastreabilidade."
+      }
+    }
+  },
+  "why": {
+    "eyebrow": "Por que a FISAM",
+    "title": "Engenharia séria, framing honesto",
+    "items": {
+      "a": "Sem clientes, métricas ou depoimentos inventados.",
+      "b": "Diagnóstico antes da proposta — não vendemos código primeiro.",
+      "c": "Experiência transferível de ambientes críticos, claramente rotulada."
+    }
+  },
+  "founder": {
+    "title": "Fundador",
+    "body1": "Filipe Godinho Gomes é Tech Lead com mais de 10 anos em backend, microsserviços e sistemas distribuídos. Antes de fundar a FISAM TECH, atuou em projetos críticos para Bradesco, B3, Itaú, Gerdau e outros players financeiros e industriais.",
+    "body2": "Na FISAM TECH, aplica essa base para problemas reais de operação — integrações sensíveis, canais mobile/campo e GenAI sob governança.",
+    "prior": "Experiência anterior (não clientes FISAM): Bradesco · B3 · Itaú · Gerdau · Banco Next · Capgemini Engineering",
+    "alt": "Filipe Gomes, fundador da FISAM TECH"
+  },
+  "discovery": {
+    "eyebrow": "Engajamento de entrada",
+    "title": "Diagnóstico Técnico",
+    "lead": "Sessão técnica paga para mapear o sistema, riscos de arquitetura e próximos passos. O calendário libera após o pagamento.",
+    "includes": {
+      "1": "Diagnóstico do cenário técnico",
+      "2": "Riscos e gargalos de arquitetura",
+      "3": "Próximos passos concretos"
+    },
+    "priceNote": "Preços por moeda. Nunca convertemos BRL→USD na interface.",
+    "cta": "Iniciar qualificação",
+    "from": "A partir de"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Perguntas frequentes",
+    "items": {
+      "1": {
+        "q": "O diagnóstico é gratuito?",
+        "a": "No Brasil o modelo comercial pode incluir WhatsApp e planos em BRL. Internacionalmente, o Technical Discovery é pago e o calendário libera após confirmação."
+      },
+      "2": {
+        "q": "Bradesco, B3 e Itaú são clientes FISAM?",
+        "a": "Não. São experiência prévia do fundador, rotulada como tal."
+      },
+      "3": {
+        "q": "Quais meios de pagamento?",
+        "a": "Mercado Pago para BRL. Stripe para USD, EUR e GBP."
+      },
+      "4": {
+        "q": "Vocês forçam o idioma?",
+        "a": "Sugerimos idioma e moeda pela região. Você pode trocar; respeitamos a escolha."
+      }
+    }
+  },
+  "cta": {
+    "title": "Pronto para uma conversa técnica séria?",
+    "lead": "Comece pela qualificação. Após o pagamento, libere o agendamento do Diagnóstico Técnico.",
+    "primary": "Agendar Diagnóstico Técnico",
+    "secondary": "Conversar pelo WhatsApp"
+  },
+  "footer": {
+    "company": "Empresa",
+    "legal": "Legal",
+    "contact": "Contato",
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "cookies": "Cookies",
+    "partners": "Parceiros",
+    "rights": "Todos os direitos reservados.",
+    "note": "O GitHub Pages pode continuar servindo o domínio até o cutover DNS para a Vercel ser autorizado."
+  },
+  "cookies": {
+    "title": "Cookies",
+    "body": "Usamos cookies necessários para idioma e moeda. Cookies de analytics são opcionais e ficam desligados até você aceitar.",
+    "accept": "Aceitar opcionais",
+    "reject": "Somente necessários",
+    "link": "Política de cookies"
+  },
+  "qualification": {
+    "title": "Qualificação para Diagnóstico Técnico",
+    "lead": "Conte o suficiente para prepararmos uma sessão útil. Depois, você segue para o checkout.",
+    "name": "Nome completo",
+    "email": "E-mail profissional",
+    "company": "Empresa",
+    "country": "País",
+    "role": "Seu cargo",
+    "challenge": "Desafio técnico",
+    "budget": "Faixa de orçamento",
+    "currency": "Moeda preferida",
+    "submit": "Continuar para checkout",
+    "privacy": "Ao enviar, você concorda com a política de privacidade. Usamos os dados para preparar a sessão e processar o pagamento."
+  },
+  "checkout": {
+    "title": "Checkout",
+    "pending": "Pagamento pendente",
+    "pendingLead": "Aguardando confirmação. O agendamento libera após aprovação.",
+    "success": "Pagamento recebido",
+    "successLead": "Seu agendamento de Diagnóstico Técnico está liberado.",
+    "book": "Abrir calendário",
+    "error": "Não foi possível iniciar o checkout",
+    "configError": "Chaves do provedor de pagamento ainda não configuradas."
+  },
+  "book": {
+    "title": "Agendar Diagnóstico Técnico",
+    "lead": "Pagamento confirmado. Escolha um horário no calendário.",
+    "invalid": "Este link de agendamento é inválido ou expirou.",
+    "open": "Abrir agendamento Google Calendar"
+  },
+  "cases": {
+    "title": "Cases e experiências",
+    "lead": "Evidências públicas de capacidade transferível — framing honesto, sem logos ou métricas inventadas.",
+    "clientsTitle": "Clientes FISAM TECH",
+    "productsTitle": "Produtos FISAM",
+    "priorTitle": "Experiência prévia do fundador",
+    "priorLead": "As organizações abaixo refletem a trajetória profissional prévia do fundador. Não são clientes da FISAM TECH.",
+    "sigabr": {
+      "type": "Plataforma digital para despachantes e licenciamento",
+      "body": "Integração DETRAN via RENAVAM e Banco Rendimento. Horas manuais viraram minutos, com rastreabilidade."
+    },
+    "tennis": {
+      "type": "Tênis e beach tennis · SaaS multicliente",
+      "body": "SaaS de gestão de quadras com reservas online, admin e financeiro."
+    },
+    "quote": {
+      "type": "Produto próprio · equipes de campo",
+      "body": "Cotação e fluxo comercial digital para operação em deslocamento."
+    }
+  },
+  "partners": {
+    "title": "Parceiros FISAM TECH",
+    "lead": "Inscreva sua ideia e construa com a FISAM TECH como sócia de tecnologia.",
+    "brTitle": "Parceiros FISAM TECH",
+    "brLead": "Submeta, faça o pitch e, se aprovada, desenvolvemos seu MVP juntos.",
+    "step1": {
+      "title": "Você submete",
+      "body": "Responda perguntas sobre a ideia. Retorno em até 7 dias."
+    },
+    "step2": {
+      "title": "Avaliação e pitch",
+      "body": "Havendo fit, marcamos conversa. Aprovamos uma fração pequena das inscrições."
+    },
+    "step3": {
+      "title": "Viramos sócios",
+      "body": "Construímos o primeiro MVP sob termos comerciais e de equity acordados."
+    },
+    "cta": "Começar inscrição",
+    "name": "Nome",
+    "whatsapp": "WhatsApp",
+    "idea": "Ideia",
+    "problem": "Problema que resolve",
+    "stage": "Estágio",
+    "submit": "Enviar",
+    "disclaimer": "Respostas confidenciais, usadas apenas para avaliar a inscrição."
+  },
+  "legal": {
+    "privacyTitle": "Privacidade",
+    "termsTitle": "Termos de uso",
+    "cookiesTitle": "Política de cookies",
+    "privacyLead": "Como a FISAM TECH trata dados pessoais. Estrutura preparada para LGPD e direitos no estilo GDPR. Isto não é certificação de conformidade — revisão jurídica pendente.",
+    "termsLead": "Termos do site e engajamentos comerciais. Jurisdição internacional e regras de reembolso do Diagnóstico Técnico serão finalizadas com assessoria jurídica.",
+    "cookiesLead": "Distinguimos cookies necessários de preferência e analytics opcionais. Cookies de marketing não vêm ligados por padrão."
+  },
+  "common": {
+    "learnMore": "Saiba mais",
+    "backHome": "Voltar ao início",
+    "loading": "Carregando…"
+  }
+}
