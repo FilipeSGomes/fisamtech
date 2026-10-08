@@ -12,13 +12,37 @@
     "contact": "Kontakt",
     "discovery": "Technical Discovery",
     "whatsapp": "WhatsApp",
-    "skip": "Zum Inhalt"
+    "skip": "Zum Inhalt",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
   },
   "locale": {
-    "label": "Language",
-    "currency": "Currency",
-    "suggest": "Suggested for your region",
-    "continue": "Continue"
+    "label": "Sprache",
+    "currency": "Währung",
+    "suggest": "Für Ihre Region vorgeschlagen",
+    "continue": "Weiter",
+    "chooseRegion": "Sprache & Währung",
+    "latamGroup": "Lateinamerika",
+    "advancedCurrency": "Nur Währung ändern",
+    "advancedHint": "Die meisten können dies überspringen. Eine Zeile oben setzt Sprache und Währung gemeinsam.",
+    "confirm": "Bestätigen",
+    "change": "Ändern",
+    "suggestPrompt": "Mit {region} fortfahren?",
+    "regions": {
+      "br": { "country": "Brasilien", "language": "Português" },
+      "us": { "country": "Vereinigte Staaten", "language": "English" },
+      "gb": { "country": "Vereinigtes Königreich", "language": "English" },
+      "es": { "country": "Spanien", "language": "Español" },
+      "fr": { "country": "Frankreich", "language": "Français" },
+      "de": { "country": "Deutschland", "language": "Deutsch" },
+      "pt": { "country": "Portugal", "language": "Português" },
+      "ar": { "country": "Argentinien", "language": "Español" },
+      "mx": { "country": "Mexiko", "language": "Español" },
+      "co": { "country": "Kolumbien", "language": "Español" },
+      "cl": { "country": "Chile", "language": "Español" },
+      "pe": { "country": "Peru", "language": "Español" },
+      "uy": { "country": "Uruguay", "language": "Español" }
+    }
   },
   "hero": {
     "eyebrow": "System Engineering · Architektur zuerst",

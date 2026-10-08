@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { CookieBanner } from "@/components/layout/CookieBanner";
 import { AnalyticsListener } from "@/components/layout/AnalyticsListener";
+import { GeoSuggestionBanner } from "@/components/layout/GeoSuggestionBanner";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -33,6 +34,7 @@ export default async function LocaleLayout({
           <SiteHeader locale={locale} />
           <main id="content">{children}</main>
           <SiteFooter locale={locale} />
+          <GeoSuggestionBanner />
           <CookieBanner />
           <AnalyticsListener />
         </NextIntlClientProvider>

@@ -12,13 +12,37 @@
     "contact": "Contato",
     "discovery": "Diagnóstico técnico",
     "whatsapp": "WhatsApp",
-    "skip": "Pular para o conteúdo"
+    "skip": "Pular para o conteúdo",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu"
   },
   "locale": {
     "label": "Idioma",
     "currency": "Moeda",
     "suggest": "Sugerido para sua região",
-    "continue": "Continuar"
+    "continue": "Continuar",
+    "chooseRegion": "Idioma e moeda",
+    "latamGroup": "América Latina",
+    "advancedCurrency": "Alterar só a moeda",
+    "advancedHint": "A maioria pode ignorar isto. Uma linha acima já define idioma e moeda juntos.",
+    "confirm": "Confirmar",
+    "change": "Alterar",
+    "suggestPrompt": "Continuar com {region}?",
+    "regions": {
+      "br": { "country": "Brasil", "language": "Português" },
+      "us": { "country": "Estados Unidos", "language": "English" },
+      "gb": { "country": "Reino Unido", "language": "English" },
+      "es": { "country": "Espanha", "language": "Español" },
+      "fr": { "country": "França", "language": "Français" },
+      "de": { "country": "Alemanha", "language": "Deutsch" },
+      "pt": { "country": "Portugal", "language": "Português" },
+      "ar": { "country": "Argentina", "language": "Español" },
+      "mx": { "country": "México", "language": "Español" },
+      "co": { "country": "Colômbia", "language": "Español" },
+      "cl": { "country": "Chile", "language": "Español" },
+      "pe": { "country": "Peru", "language": "Español" },
+      "uy": { "country": "Uruguai", "language": "Español" }
+    }
   },
   "hero": {
     "eyebrow": "São Paulo · Brasil e internacional",

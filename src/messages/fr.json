@@ -12,13 +12,37 @@
     "contact": "Contact",
     "discovery": "Technical Discovery",
     "whatsapp": "WhatsApp",
-    "skip": "Aller au contenu"
+    "skip": "Aller au contenu",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
   },
   "locale": {
-    "label": "Language",
-    "currency": "Currency",
-    "suggest": "Suggested for your region",
-    "continue": "Continue"
+    "label": "Langue",
+    "currency": "Devise",
+    "suggest": "Suggéré pour votre région",
+    "continue": "Continuer",
+    "chooseRegion": "Langue et devise",
+    "latamGroup": "Amérique latine",
+    "advancedCurrency": "Changer uniquement la devise",
+    "advancedHint": "La plupart peuvent ignorer ceci. Une ligne ci-dessus définit déjà langue et devise ensemble.",
+    "confirm": "Confirmer",
+    "change": "Changer",
+    "suggestPrompt": "Continuer avec {region} ?",
+    "regions": {
+      "br": { "country": "Brésil", "language": "Português" },
+      "us": { "country": "États-Unis", "language": "English" },
+      "gb": { "country": "Royaume-Uni", "language": "English" },
+      "es": { "country": "Espagne", "language": "Español" },
+      "fr": { "country": "France", "language": "Français" },
+      "de": { "country": "Allemagne", "language": "Deutsch" },
+      "pt": { "country": "Portugal", "language": "Português" },
+      "ar": { "country": "Argentine", "language": "Español" },
+      "mx": { "country": "Mexique", "language": "Español" },
+      "co": { "country": "Colombie", "language": "Español" },
+      "cl": { "country": "Chili", "language": "Español" },
+      "pe": { "country": "Pérou", "language": "Español" },
+      "uy": { "country": "Uruguay", "language": "Español" }
+    }
   },
   "hero": {
     "eyebrow": "Ingénierie systèmes · Architecture d'abord",

@@ -138,6 +138,16 @@ export function isLocale(value: string): value is Locale {
   return (SUPPORTED_LANGUAGES as readonly string[]).includes(value);
 }
 
+export {
+  REGION_PRESETS,
+  REGION_CONFIRMED_KEY,
+  findPresetByCountry,
+  resolveActivePreset,
+  getCookieValue,
+  type RegionPreset,
+  type RegionGroup,
+} from "./regions";
+
 export function suggestFromCountry(country?: string | null): {
   locale: Locale;
   country: string;

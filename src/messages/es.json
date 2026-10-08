@@ -12,13 +12,37 @@
     "contact": "Contacto",
     "discovery": "Technical Discovery",
     "whatsapp": "WhatsApp",
-    "skip": "Saltar al contenido"
+    "skip": "Saltar al contenido",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
   },
   "locale": {
-    "label": "Language",
-    "currency": "Currency",
-    "suggest": "Suggested for your region",
-    "continue": "Continue"
+    "label": "Idioma",
+    "currency": "Moneda",
+    "suggest": "Sugerido para tu región",
+    "continue": "Continuar",
+    "chooseRegion": "Idioma y moneda",
+    "latamGroup": "América Latina",
+    "advancedCurrency": "Cambiar solo la moneda",
+    "advancedHint": "La mayoría puede omitir esto. Una fila arriba ya define idioma y moneda juntos.",
+    "confirm": "Confirmar",
+    "change": "Cambiar",
+    "suggestPrompt": "¿Continuar con {region}?",
+    "regions": {
+      "br": { "country": "Brasil", "language": "Português" },
+      "us": { "country": "Estados Unidos", "language": "English" },
+      "gb": { "country": "Reino Unido", "language": "English" },
+      "es": { "country": "España", "language": "Español" },
+      "fr": { "country": "Francia", "language": "Français" },
+      "de": { "country": "Alemania", "language": "Deutsch" },
+      "pt": { "country": "Portugal", "language": "Português" },
+      "ar": { "country": "Argentina", "language": "Español" },
+      "mx": { "country": "México", "language": "Español" },
+      "co": { "country": "Colombia", "language": "Español" },
+      "cl": { "country": "Chile", "language": "Español" },
+      "pe": { "country": "Perú", "language": "Español" },
+      "uy": { "country": "Uruguay", "language": "Español" }
+    }
   },
   "hero": {
     "eyebrow": "Ingeniería de sistemas · Arquitectura primero",

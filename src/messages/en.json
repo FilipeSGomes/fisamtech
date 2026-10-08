@@ -12,13 +12,37 @@
     "contact": "Contact",
     "discovery": "Technical Discovery",
     "whatsapp": "WhatsApp",
-    "skip": "Skip to content"
+    "skip": "Skip to content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "locale": {
     "label": "Language",
     "currency": "Currency",
     "suggest": "Suggested for your region",
-    "continue": "Continue"
+    "continue": "Continue",
+    "chooseRegion": "Language & currency",
+    "latamGroup": "Latin America",
+    "advancedCurrency": "Change currency only",
+    "advancedHint": "Most people can skip this. One row above already sets language and currency together.",
+    "confirm": "Confirm",
+    "change": "Change",
+    "suggestPrompt": "Continue with {region}?",
+    "regions": {
+      "br": { "country": "Brazil", "language": "Portuguese" },
+      "us": { "country": "United States", "language": "English" },
+      "gb": { "country": "United Kingdom", "language": "English" },
+      "es": { "country": "Spain", "language": "Spanish" },
+      "fr": { "country": "France", "language": "French" },
+      "de": { "country": "Germany", "language": "German" },
+      "pt": { "country": "Portugal", "language": "Portuguese" },
+      "ar": { "country": "Argentina", "language": "Spanish" },
+      "mx": { "country": "Mexico", "language": "Spanish" },
+      "co": { "country": "Colombia", "language": "Spanish" },
+      "cl": { "country": "Chile", "language": "Spanish" },
+      "pe": { "country": "Peru", "language": "Spanish" },
+      "uy": { "country": "Uruguay", "language": "Spanish" }
+    }
   },
   "hero": {
     "eyebrow": "Systems engineering · Architecture first",
