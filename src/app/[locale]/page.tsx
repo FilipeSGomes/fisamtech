@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
+import { ArchitectureVisual } from "@/components/layout/ArchitectureVisual";
 import { Link } from "@/i18n/routing";
 import {
   FOUNDER_PRIOR_EXPERIENCE,
@@ -57,12 +58,12 @@ export default async function HomePage({
   const price = getDiscoveryPrice(currency);
 
   return (
-    <>
+    <div className="home-page">
       <section className="hero">
-        <div className="shell">
+        <div className="shell hero-grid">
+          <div className="hero-copy">
           <p className="eyebrow">{t("hero.eyebrow")}</p>
-          <h1>FISAM TECH</h1>
-          <h2 style={{ marginTop: 12, fontWeight: 600 }}>{t("hero.title")}</h2>
+          <h1>{t("hero.title")}</h1>
           <p className="lead">{t("hero.lead")}</p>
           <div className="hero-actions">
             <Link className="btn btn-primary" href="/qualify">
@@ -86,15 +87,19 @@ export default async function HomePage({
               {t("hero.ctaWork")}
             </Link>
           </div>
+          <div className="hero-footnote"><span className="hero-line" /> Java · Spring Boot · APIs · Cloud</div>
+          </div>
+          <ArchitectureVisual labels={{ title: t("hero.visual.title"), applications: t("hero.visual.applications"), apis: t("hero.visual.apis"), data: t("hero.visual.data"), operations: t("hero.visual.operations"), caption: t("hero.visual.caption"), hint: t("hero.visual.hint"), descriptions: { applications: t("hero.visual.descriptions.applications"), apis: t("hero.visual.descriptions.apis"), data: t("hero.visual.descriptions.data"), operations: t("hero.visual.descriptions.operations") } }} />
         </div>
+        <div className="shell hero-bottom"><span>{t("credentials.focusValue")}</span><a href="#process">{t("hero.scroll")} <span aria-hidden="true">↓</span></a></div>
       </section>
 
-      <section id="process" className="section section--dark">
+      <section id="credentials" className="section section--dark credentials-section">
         <div className="shell">
           <p className="eyebrow">{t("credentials.eyebrow")}</p>
           <h2>{t("credentials.title")}</h2>
           <p className="lead">{t("credentials.lead")}</p>
-          <div className="grid-2" style={{ marginTop: 36 }}>
+          <div className="grid-2 credential-grid">
             <div>
               <span className="muted">{t("credentials.exp")}</span>
               <span className="stat-value">{t("credentials.expValue")}</span>
@@ -115,13 +120,14 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="section section--light">
+      <section className="section section--light problems-section">
         <div className="shell">
           <p className="eyebrow">{t("problems.eyebrow")}</p>
           <h2>{t("problems.title")}</h2>
           <div className="grid-2">
-            {(["scale", "integrations", "legacy", "genai"] as const).map((k) => (
-              <article key={k} className="card">
+            {(["scale", "integrations", "legacy", "genai"] as const).map((k, index) => (
+              <article key={k} className="card problem-card">
+                <span className="card-index">0{index + 1}</span>
                 <h3>{t(`problems.items.${k}.title`)}</h3>
                 <p style={{ marginTop: 8 }}>{t(`problems.items.${k}.body`)}</p>
               </article>
@@ -144,8 +150,9 @@ export default async function HomePage({
                 "genai",
                 "field",
               ] as const
-            ).map((k) => (
-              <article key={k} className="card">
+            ).map((k, index) => (
+              <article key={k} className={`card service-card service-card--${k}`}>
+                <span className="card-index">0{index + 1} / ENGINEERING</span>
                 <h3>{t(`services.${k}.title`)}</h3>
                 <p style={{ marginTop: 8 }}>{t(`services.${k}.body`)}</p>
                 {k !== "field" && (
@@ -162,7 +169,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="section section--light">
+      <section className="section section--light cases-section">
         <div className="shell">
           <p className="eyebrow">{t("casesHome.eyebrow")}</p>
           <h2>{t("casesHome.title")}</h2>
@@ -172,7 +179,7 @@ export default async function HomePage({
               <article key={c} className="card">
                 <h3>{c}</h3>
                 <p className="muted" style={{ marginTop: 6 }}>
-                  FISAM TECH client
+                  {t("cases.clientsTitle")}
                 </p>
               </article>
             ))}
@@ -191,14 +198,14 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="section">
+      <section id="process" className="section process-section">
         <div className="shell">
           <p className="eyebrow">{t("howWeWork.eyebrow")}</p>
           <h2>{t("howWeWork.title")}</h2>
           <div className="grid-2">
             {(["1", "2", "3", "4"] as const).map((n) => (
-              <article key={n} className="card">
-                <p className="muted">{n}</p>
+              <article key={n} className="card process-card">
+                <p className="process-number">0{n}</p>
                 <h3>{t(`howWeWork.steps.${n}.title`)}</h3>
                 <p style={{ marginTop: 8 }}>{t(`howWeWork.steps.${n}.body`)}</p>
               </article>
@@ -207,7 +214,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="section section--light">
+      <section className="section section--light principles-section">
         <div className="shell">
           <p className="eyebrow">{t("why.eyebrow")}</p>
           <h2>{t("why.title")}</h2>
@@ -221,7 +228,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="section">
+      <section className="section founder-section">
         <div className="shell founder">
           <div>
             <picture>
@@ -231,6 +238,7 @@ export default async function HomePage({
                 alt={t("founder.alt")}
                 width={760}
                 height={950}
+                loading="lazy"
               />
             </picture>
           </div>
@@ -248,7 +256,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section id="discovery" className="section section--dark">
+      <section id="discovery" className="section section--dark discovery-section">
         <div className="shell">
           <p className="eyebrow">{t("discovery.eyebrow")}</p>
           <h2>{t("discovery.title")}</h2>
@@ -272,7 +280,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="section section--light">
+      <section className="section section--light faq-section">
         <div className="shell faq">
           <p className="eyebrow">{t("faq.eyebrow")}</p>
           <h2>{t("faq.title")}</h2>
@@ -285,7 +293,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="section section--dark">
+      <section className="section section--dark closing-section">
         <div className="shell">
           <h2>{t("cta.title")}</h2>
           <p className="lead">{t("cta.lead")}</p>
@@ -310,6 +318,6 @@ export default async function HomePage({
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

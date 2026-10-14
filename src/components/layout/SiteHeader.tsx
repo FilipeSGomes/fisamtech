@@ -53,7 +53,7 @@ export function SiteHeader({ locale }: { locale: string }) {
           aria-label="FISAM TECH"
           onClick={closeMenu}
         >
-          <img src="/images/perfil-small.png" alt="" width={28} height={28} />
+          <img src="/images/perfil-512.webp" alt="" width={48} height={48} />
           <span>FISAM TECH</span>
         </Link>
 

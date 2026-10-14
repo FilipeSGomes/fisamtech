@@ -29,29 +29,83 @@
     "change": "Alterar",
     "suggestPrompt": "Continuar com {region}?",
     "regions": {
-      "br": { "country": "Brasil", "language": "Português" },
-      "us": { "country": "Estados Unidos", "language": "English" },
-      "gb": { "country": "Reino Unido", "language": "English" },
-      "es": { "country": "Espanha", "language": "Español" },
-      "fr": { "country": "França", "language": "Français" },
-      "de": { "country": "Alemanha", "language": "Deutsch" },
-      "pt": { "country": "Portugal", "language": "Português" },
-      "ar": { "country": "Argentina", "language": "Español" },
-      "mx": { "country": "México", "language": "Español" },
-      "co": { "country": "Colômbia", "language": "Español" },
-      "cl": { "country": "Chile", "language": "Español" },
-      "pe": { "country": "Peru", "language": "Español" },
-      "uy": { "country": "Uruguai", "language": "Español" }
+      "br": {
+        "country": "Brasil",
+        "language": "Português"
+      },
+      "us": {
+        "country": "Estados Unidos",
+        "language": "English"
+      },
+      "gb": {
+        "country": "Reino Unido",
+        "language": "English"
+      },
+      "es": {
+        "country": "Espanha",
+        "language": "Español"
+      },
+      "fr": {
+        "country": "França",
+        "language": "Français"
+      },
+      "de": {
+        "country": "Alemanha",
+        "language": "Deutsch"
+      },
+      "pt": {
+        "country": "Portugal",
+        "language": "Português"
+      },
+      "ar": {
+        "country": "Argentina",
+        "language": "Español"
+      },
+      "mx": {
+        "country": "México",
+        "language": "Español"
+      },
+      "co": {
+        "country": "Colômbia",
+        "language": "Español"
+      },
+      "cl": {
+        "country": "Chile",
+        "language": "Español"
+      },
+      "pe": {
+        "country": "Peru",
+        "language": "Español"
+      },
+      "uy": {
+        "country": "Uruguai",
+        "language": "Español"
+      }
     }
   },
   "hero": {
     "eyebrow": "São Paulo · Brasil e internacional",
-    "title": "Arquitetura e desenvolvimento para sistemas que não podem falhar.",
-    "lead": "A FISAM TECH entrega backend, integrações críticas e arquitetura escalável para empresas que já passaram da fase de improviso e precisam de tecnologia séria.",
-    "ctaPrimary": "Agendar Diagnóstico Técnico",
+    "title": "Engenharia que conecta tecnologia e negócio.",
+    "lead": "Sistemas sob medida, backend e integrações para operações que precisam evoluir. Entendemos o seu processo e construímos a base técnica para o próximo passo.",
+    "ctaPrimary": "Iniciar diagnóstico técnico",
     "ctaSecondary": "Conversar pelo WhatsApp",
     "ctaWork": "Ver nosso trabalho",
-    "scroll": "Como trabalhamos"
+    "scroll": "Como trabalhamos",
+    "visual": {
+      "title": "Arquitetura de sistemas",
+      "applications": "Aplicações",
+      "apis": "APIs e integrações",
+      "data": "Dados",
+      "operations": "Operação",
+      "caption": "Do processo de negócio à arquitetura técnica.",
+      "hint": "Explore a arquitetura: passe o mouse, use o teclado ou toque em um dos blocos.",
+      "descriptions": {
+        "applications": "Sistemas web e interfaces sob medida para transformar regras de negócio em ferramentas claras para a equipe.",
+        "apis": "Conectamos sistemas, ERPs e CRMs com APIs, tratamento de falhas e rastreabilidade do fluxo de informações.",
+        "data": "Organizamos o caminho dos dados, os controles de acesso e a rastreabilidade para apoiar decisões e auditoria.",
+        "operations": "Automatizamos rotinas e definimos fluxos para reduzir retrabalho e dar mais clareza à operação."
+      }
+    }
   },
   "credentials": {
     "eyebrow": "Credenciais",
@@ -151,11 +205,11 @@
   },
   "why": {
     "eyebrow": "Por que a FISAM",
-    "title": "Engenharia séria, framing honesto",
+    "title": "Clareza para decidir. Engenharia para executar.",
     "items": {
-      "a": "Sem clientes, métricas ou depoimentos inventados.",
-      "b": "Diagnóstico antes da proposta — não vendemos código primeiro.",
-      "c": "Experiência transferível de ambientes críticos, claramente rotulada."
+      "a": "Entregas incrementais, com prioridades e escopo definidos.",
+      "b": "Diagnóstico antes da proposta: a solução acompanha o problema.",
+      "c": "Decisões documentadas e experiência em ambientes críticos."
     }
   },
   "founder": {
@@ -168,13 +222,13 @@
   "discovery": {
     "eyebrow": "Engajamento de entrada",
     "title": "Diagnóstico Técnico",
-    "lead": "Sessão técnica paga para mapear o sistema, riscos de arquitetura e próximos passos. O calendário libera após o pagamento.",
+    "lead": "Uma sessão técnica para entender seu cenário, identificar riscos e definir os próximos passos. O agendamento é liberado após a confirmação do pagamento.",
     "includes": {
       "1": "Diagnóstico do cenário técnico",
       "2": "Riscos e gargalos de arquitetura",
       "3": "Próximos passos concretos"
     },
-    "priceNote": "Preços por moeda. Nunca convertemos BRL→USD na interface.",
+    "priceNote": "O valor é apresentado na moeda selecionada. Confirme o escopo e as condições antes da contratação.",
     "cta": "Iniciar qualificação",
     "from": "A partir de"
   },
@@ -215,7 +269,9 @@
     "cookies": "Cookies",
     "partners": "Parceiros",
     "rights": "Todos os direitos reservados.",
-    "note": "O GitHub Pages pode continuar servindo o domínio até o cutover DNS para a Vercel ser autorizado."
+    "note": "Tecnologia com clareza, do diagnóstico à entrega.",
+    "work": "Clientes e projetos",
+    "discovery": "Diagnóstico técnico"
   },
   "cookies": {
     "title": "Cookies",

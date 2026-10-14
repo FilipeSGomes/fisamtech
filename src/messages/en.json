@@ -29,29 +29,83 @@
     "change": "Change",
     "suggestPrompt": "Continue with {region}?",
     "regions": {
-      "br": { "country": "Brazil", "language": "Portuguese" },
-      "us": { "country": "United States", "language": "English" },
-      "gb": { "country": "United Kingdom", "language": "English" },
-      "es": { "country": "Spain", "language": "Spanish" },
-      "fr": { "country": "France", "language": "French" },
-      "de": { "country": "Germany", "language": "German" },
-      "pt": { "country": "Portugal", "language": "Portuguese" },
-      "ar": { "country": "Argentina", "language": "Spanish" },
-      "mx": { "country": "Mexico", "language": "Spanish" },
-      "co": { "country": "Colombia", "language": "Spanish" },
-      "cl": { "country": "Chile", "language": "Spanish" },
-      "pe": { "country": "Peru", "language": "Spanish" },
-      "uy": { "country": "Uruguay", "language": "Spanish" }
+      "br": {
+        "country": "Brazil",
+        "language": "Portuguese"
+      },
+      "us": {
+        "country": "United States",
+        "language": "English"
+      },
+      "gb": {
+        "country": "United Kingdom",
+        "language": "English"
+      },
+      "es": {
+        "country": "Spain",
+        "language": "Spanish"
+      },
+      "fr": {
+        "country": "France",
+        "language": "French"
+      },
+      "de": {
+        "country": "Germany",
+        "language": "German"
+      },
+      "pt": {
+        "country": "Portugal",
+        "language": "Portuguese"
+      },
+      "ar": {
+        "country": "Argentina",
+        "language": "Spanish"
+      },
+      "mx": {
+        "country": "Mexico",
+        "language": "Spanish"
+      },
+      "co": {
+        "country": "Colombia",
+        "language": "Spanish"
+      },
+      "cl": {
+        "country": "Chile",
+        "language": "Spanish"
+      },
+      "pe": {
+        "country": "Peru",
+        "language": "Spanish"
+      },
+      "uy": {
+        "country": "Uruguay",
+        "language": "Spanish"
+      }
     }
   },
   "hero": {
     "eyebrow": "Systems engineering · Architecture first",
-    "title": "Architecture and engineering for systems that cannot fail.",
+    "title": "Engineering that connects technology and business.",
     "lead": "FISAM TECH designs and builds backend systems, critical integrations, and governed GenAI for companies past improvisation — when architecture, reliability, and clear decisions matter.",
     "ctaPrimary": "Book Technical Discovery",
     "ctaSecondary": "Talk to an Engineer",
     "ctaWork": "See Our Work",
-    "scroll": "How we work"
+    "scroll": "How we work",
+    "visual": {
+      "title": "Systems architecture",
+      "applications": "Applications",
+      "apis": "APIs & integrations",
+      "data": "Data",
+      "operations": "Operations",
+      "caption": "From business processes to technical architecture.",
+      "hint": "Explore the architecture: hover, use your keyboard or tap a block.",
+      "descriptions": {
+        "applications": "Custom web systems and interfaces that turn business rules into clear tools for your team.",
+        "apis": "We connect systems, ERPs and CRMs through APIs, failure handling and traceable information flows.",
+        "data": "We structure data flows, access controls and traceability to support decisions and audits.",
+        "operations": "We automate routines and define workflows to reduce manual rework and clarify operations."
+      }
+    }
   },
   "credentials": {
     "eyebrow": "Credentials",
@@ -215,7 +269,9 @@
     "cookies": "Cookies",
     "partners": "Partners",
     "rights": "All rights reserved.",
-    "note": "GitHub Pages may still serve the production domain until DNS cutover to Vercel is authorized."
+    "note": "Technology with clarity, from discovery to delivery.",
+    "work": "Clients and projects",
+    "discovery": "Technical discovery"
   },
   "cookies": {
     "title": "Cookies",

@@ -29,29 +29,83 @@
     "change": "Ändern",
     "suggestPrompt": "Mit {region} fortfahren?",
     "regions": {
-      "br": { "country": "Brasilien", "language": "Português" },
-      "us": { "country": "Vereinigte Staaten", "language": "English" },
-      "gb": { "country": "Vereinigtes Königreich", "language": "English" },
-      "es": { "country": "Spanien", "language": "Español" },
-      "fr": { "country": "Frankreich", "language": "Français" },
-      "de": { "country": "Deutschland", "language": "Deutsch" },
-      "pt": { "country": "Portugal", "language": "Português" },
-      "ar": { "country": "Argentinien", "language": "Español" },
-      "mx": { "country": "Mexiko", "language": "Español" },
-      "co": { "country": "Kolumbien", "language": "Español" },
-      "cl": { "country": "Chile", "language": "Español" },
-      "pe": { "country": "Peru", "language": "Español" },
-      "uy": { "country": "Uruguay", "language": "Español" }
+      "br": {
+        "country": "Brasilien",
+        "language": "Português"
+      },
+      "us": {
+        "country": "Vereinigte Staaten",
+        "language": "English"
+      },
+      "gb": {
+        "country": "Vereinigtes Königreich",
+        "language": "English"
+      },
+      "es": {
+        "country": "Spanien",
+        "language": "Español"
+      },
+      "fr": {
+        "country": "Frankreich",
+        "language": "Français"
+      },
+      "de": {
+        "country": "Deutschland",
+        "language": "Deutsch"
+      },
+      "pt": {
+        "country": "Portugal",
+        "language": "Português"
+      },
+      "ar": {
+        "country": "Argentinien",
+        "language": "Español"
+      },
+      "mx": {
+        "country": "Mexiko",
+        "language": "Español"
+      },
+      "co": {
+        "country": "Kolumbien",
+        "language": "Español"
+      },
+      "cl": {
+        "country": "Chile",
+        "language": "Español"
+      },
+      "pe": {
+        "country": "Peru",
+        "language": "Español"
+      },
+      "uy": {
+        "country": "Uruguay",
+        "language": "Español"
+      }
     }
   },
   "hero": {
     "eyebrow": "System Engineering · Architektur zuerst",
-    "title": "Architektur und Engineering für Systeme, die nicht ausfallen dürfen.",
+    "title": "Engineering, das Technologie und Business verbindet.",
     "lead": "FISAM TECH entwirft und baut Backends, kritische Integrationen und gesteuerte GenAI für Unternehmen jenseits der Improvisation.",
     "ctaPrimary": "Technical Discovery buchen",
     "ctaSecondary": "Mit einem Engineer sprechen",
     "ctaWork": "Unsere Arbeit",
-    "scroll": "So arbeiten wir"
+    "scroll": "So arbeiten wir",
+    "visual": {
+      "title": "Systemarchitektur",
+      "applications": "Anwendungen",
+      "apis": "APIs & Integration",
+      "data": "Daten",
+      "operations": "Betrieb",
+      "caption": "Vom Geschäftsprozess zur technischen Architektur.",
+      "hint": "Architektur entdecken: mit Maus, Tastatur oder durch Antippen eines Bausteins.",
+      "descriptions": {
+        "applications": "Individuelle Websysteme und Oberflächen, die Geschäftsregeln in verständliche Werkzeuge für Ihr Team übersetzen.",
+        "apis": "Wir verbinden Systeme, ERPs und CRMs über APIs mit Fehlerbehandlung und nachvollziehbaren Datenflüssen.",
+        "data": "Wir strukturieren Datenflüsse, Zugriffsrechte und Nachvollziehbarkeit für Entscheidungen und Audits.",
+        "operations": "Wir automatisieren Abläufe und definieren Workflows, um manuelle Doppelarbeit zu reduzieren."
+      }
+    }
   },
   "credentials": {
     "eyebrow": "Referenzen",
@@ -215,7 +269,9 @@
     "cookies": "Cookies",
     "partners": "Partners",
     "rights": "All rights reserved.",
-    "note": "GitHub Pages may still serve the production domain until DNS cutover to Vercel is authorized."
+    "note": "Technologie mit Klarheit, von der Analyse bis zur Umsetzung.",
+    "work": "Kunden und Projekte",
+    "discovery": "Technische Analyse"
   },
   "cookies": {
     "title": "Cookies",

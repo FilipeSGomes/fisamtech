@@ -10,14 +10,15 @@ export async function SiteFooter({ locale }: { locale: string }) {
     <footer className="site-footer">
       <div className="shell footer-grid">
         <div>
+          <div className="footer-brand"><img src="/images/perfil-512.webp" alt="" width={64} height={64} /><span>FISAM TECH</span></div>
           <h3>{CONTACT.company}</h3>
           <p>CNPJ {CONTACT.cnpj}</p>
           <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
         </div>
         <div>
           <h3>{t("company")}</h3>
-          <Link href="/cases">Cases</Link>
-          <Link href="/qualify">Technical Discovery</Link>
+          <Link href="/cases">{t("work")}</Link>
+          <Link href="/qualify">{t("discovery")}</Link>
           <Link href={locale === "pt-br" ? "/parceiros" : "/partners"}>
             {t("partners")}
           </Link>
