@@ -69,11 +69,23 @@ function getPgPool(): pg.Pool | null {
     return null;
   }
   // Supabase direct db.* hosts are often IPv6-only; Vercel needs the
-  // pooler (IPv4) URL. Always enable TLS for hosted Postgres.
+  // pooler (IPv4) URL. Strip sslmode so pg does not force verify-full
+  // against Supabase's chain on serverless.
+  const isLocal = url.includes("localhost") || url.includes("127.0.0.1");
+  let connectionString = url;
+  if (!isLocal) {
+    try {
+      const parsed = new URL(url);
+      parsed.searchParams.delete("sslmode");
+      connectionString = parsed.toString();
+    } catch {
+      connectionString = url;
+    }
+  }
   pgPool = new pg.Pool({
-    connectionString: url,
+    connectionString,
     max: 3,
-    ssl: url.includes("localhost") ? undefined : { rejectUnauthorized: false },
+    ssl: isLocal ? undefined : { rejectUnauthorized: false },
   });
   return pgPool;
 }
