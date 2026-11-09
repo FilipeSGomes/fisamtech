@@ -7,7 +7,8 @@ export type EmailTemplateId =
   | "payment_confirmation"
   | "booking_unlocked"
   | "internal_briefing"
-  | "partners_ack";
+  | "partners_ack"
+  | "whistleblowing_alert";
 
 export async function sendEmail(opts: {
   to: string;

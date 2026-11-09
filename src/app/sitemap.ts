@@ -12,6 +12,8 @@ const paths = [
   "/privacy",
   "/terms",
   "/cookies",
+  "/compliance",
+  "/denuncia",
   "/services/systems-architecture",
   "/services/backend-engineering",
   "/services/critical-integrations",

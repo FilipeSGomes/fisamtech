@@ -271,6 +271,109 @@ export async function markBookingUsed(id: string) {
   }
 }
 
+export type WhistleblowingInsert = {
+  category: string;
+  description: string;
+  approximate_date?: string | null;
+  relation: string;
+  anonymous: boolean;
+  reporter_name?: string | null;
+  reporter_email?: string | null;
+  reporter_phone?: string | null;
+  locale: string;
+  consent?: boolean;
+  metadata?: Record<string, unknown>;
+};
+
+function makeWhistleblowingProtocol(): string {
+  const stamp = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+  const suffix = crypto.randomUUID().replace(/-/g, "").slice(0, 8).toUpperCase();
+  return `FT-WB-${stamp}-${suffix}`;
+}
+
+export async function insertWhistleblowingReport(
+  report: WhistleblowingInsert
+): Promise<
+  | { id: string; protocol: string }
+  | { id: string; protocol: string; error: string; degraded: true }
+> {
+  const protocol = makeWhistleblowingProtocol();
+  const row = {
+    protocol,
+    category: report.category,
+    description: report.description,
+    approximate_date: report.approximate_date ?? null,
+    relation: report.relation,
+    anonymous: report.anonymous,
+    reporter_name: report.anonymous ? null : report.reporter_name ?? null,
+    reporter_email: report.anonymous ? null : report.reporter_email ?? null,
+    reporter_phone: report.anonymous ? null : report.reporter_phone ?? null,
+    locale: report.locale,
+    metadata: {
+      ...(report.metadata ?? {}),
+      consent: Boolean(report.consent),
+    },
+  };
+
+  const sb = getSupabaseAdmin();
+  if (sb) {
+    const { data, error } = await sb
+      .from("whistleblowing_reports")
+      .insert(row)
+      .select("id, protocol")
+      .single();
+    if (error) {
+      console.warn("[db] whistleblowing insert failed — degraded", error.message);
+      return {
+        id: crypto.randomUUID(),
+        protocol,
+        error: error.message,
+        degraded: true,
+      };
+    }
+    return { id: data.id, protocol: data.protocol };
+  }
+
+  const pool = getPgPool();
+  if (pool) {
+    const result = await pool.query<{ id: string; protocol: string }>(
+      `insert into whistleblowing_reports
+        (protocol, category, description, approximate_date, relation, anonymous,
+         reporter_name, reporter_email, reporter_phone, locale, metadata)
+       values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11::jsonb)
+       returning id, protocol`,
+      [
+        row.protocol,
+        row.category,
+        row.description,
+        row.approximate_date,
+        row.relation,
+        row.anonymous,
+        row.reporter_name,
+        row.reporter_email,
+        row.reporter_phone,
+        row.locale,
+        JSON.stringify(row.metadata),
+      ]
+    );
+    return { id: result.rows[0].id, protocol: result.rows[0].protocol };
+  }
+
+  // Graceful degrade: ephemeral protocol for local testing without DB
+  const id = crypto.randomUUID();
+  console.warn(
+    "[db] DATABASE_URL / Supabase not configured — whistleblowing stored ephemerally:",
+    protocol,
+    { category: report.category, relation: report.relation, anonymous: report.anonymous }
+  );
+  return {
+    id,
+    protocol,
+    error: "Database not configured",
+    degraded: true,
+  };
+}
+
 export async function trackEventServer(event: {
   name: string;
   lead_id?: string;

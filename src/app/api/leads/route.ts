@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { BUDGET_RANGE_IDS } from "@/lib/config";
 import { insertLead, trackEventServer } from "@/lib/db";
 
 const schema = z.object({
@@ -11,7 +12,7 @@ const schema = z.object({
   currency: z.string(),
   role: z.string().optional(),
   challenge: z.string().optional(),
-  budget_range: z.string().optional(),
+  budget_range: z.enum(BUDGET_RANGE_IDS).optional(),
   source: z.string().default("qualification"),
   phone: z.string().optional(),
 });

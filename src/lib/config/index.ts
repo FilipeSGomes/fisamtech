@@ -106,8 +106,33 @@ export const WHATSAPP = {
 export const CONTACT = {
   email: "contato@fisamtech.com",
   company: "FISAM TECH",
-  cnpj: "60.870.695/0001-06",
+  cnpj: "59.897.573/0001-02",
 } as const;
+
+/** Fixed project budget bands for qualification (amounts in selected currency). */
+export const BUDGET_RANGES = [
+  { id: "2500-10000", min: 2_500, max: 10_000 },
+  { id: "10000-50000", min: 10_000, max: 50_000 },
+  { id: "50000-150000", min: 50_000, max: 150_000 },
+  { id: "150000-500000", min: 150_000, max: 500_000 },
+  { id: "500000+", min: 500_000, max: null },
+] as const;
+
+export type BudgetRangeId = (typeof BUDGET_RANGES)[number]["id"];
+
+export const BUDGET_RANGE_IDS = BUDGET_RANGES.map((r) => r.id) as [
+  BudgetRangeId,
+  ...BudgetRangeId[],
+];
+
+export function formatBudgetRangeLabel(
+  range: (typeof BUDGET_RANGES)[number],
+  locale: string
+): string {
+  const fmt = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 });
+  if (range.max == null) return `${fmt.format(range.min)}+`;
+  return `${fmt.format(range.min)} – ${fmt.format(range.max)}`;
+}
 
 export const PRODUCTS = [
   { name: "FISAM Quote", url: "https://quote.fisamtech.com" },

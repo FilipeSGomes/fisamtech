@@ -465,6 +465,9 @@ a { color: var(--primary); }
   border: 1px solid var(--hairline); background: #fff;
 }
 .form textarea { min-height: 110px; resize: vertical; }
+.form-check { font-weight: 500; }
+.form-check span { display: flex; align-items: flex-start; gap: 10px; font-weight: 500; }
+.form-check input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; }
 
 .cookie-banner {
   position: fixed; bottom: 16px; left: 16px; right: 16px; z-index: 80;

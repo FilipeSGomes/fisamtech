@@ -271,7 +271,9 @@
     "rights": "All rights reserved.",
     "note": "Technology with clarity, from discovery to delivery.",
     "work": "Clients and projects",
-    "discovery": "Technical discovery"
+    "discovery": "Technical discovery",
+    "compliance": "Compliance & Integrity",
+    "whistleblowing": "Whistleblowing Channel"
   },
   "cookies": {
     "title": "Cookies",
@@ -290,6 +292,7 @@
     "role": "Your role",
     "challenge": "Technical challenge",
     "budget": "Approximate budget range",
+    "budgetPlaceholder": "Select a range",
     "currency": "Preferred currency",
     "submit": "Continue to checkout",
     "privacy": "By submitting, you agree to our privacy policy. We use this data to prepare your session and process payment."
@@ -368,5 +371,96 @@
     "learnMore": "Learn more",
     "backHome": "Back to home",
     "loading": "Loading…"
+  },
+  "compliance": {
+    "title": "Compliance & Integrity Program",
+    "lead": "Code of Ethics and Conduct, anti-corruption guidelines, and whistleblowing channel of FISAM TECH TECNOLOGIA LTDA. A public internal framework for partners, collaborators, suppliers, and service providers.",
+    "effective": "Effective date: 09 Nov 2026",
+    "companyLine": "{company} — Brazilian CNPJ {cnpj}",
+    "privacyLink": "Privacy Policy",
+    "channelLink": "Open the Whistleblowing Channel",
+    "responsibleTitle": "Program owner",
+    "responsibleBody": "Managing Partner / Compliance Officer: Filipe Godinho Gomes — {email}. Questions about this program may be sent to the same address.",
+    "sections": {
+      "code": {
+        "title": "Code of Ethics and Conduct",
+        "body": "FISAM TECH operates with ethics, integrity, transparency, respect, responsibility, equal opportunity, and commitment to legality. We expect honesty, good faith, and professionalism; respectful relationships with clients, suppliers, and partners; compliance with applicable law; protection of confidential information; and a workplace free from discrimination, harassment, intimidation, undue favoritism, corruption, or fraud. Breaches may lead to administrative measures and, where applicable, reporting to authorities."
+      },
+      "anticorruption": {
+        "title": "Anti-corruption and anti-bribery policy",
+        "body": "It is prohibited to offer, promise, authorize, solicit, or accept an undue advantage — cash, goods, favors, or any other benefit — to influence a public or private decision. This includes bribery, kickbacks, improper facilitation, and conduct covered by Brazil’s Anti-Corruption Law (Law No. 12.846/2013) and related rules. Commercial relationships must be based on technical merit and contractual transparency."
+      },
+      "conflict": {
+        "title": "Conflicts of interest",
+        "body": "A conflict of interest exists when personal, family, or third-party interests may influence — or appear to influence — company decisions. Material situations must be disclosed to the Compliance Officer before a decision is made. When in doubt, disclose and refrain until formal guidance is given."
+      },
+      "publicSector": {
+        "title": "Public sector relationships and public tenders",
+        "body": "Participation in public tenders and contracts with government bodies must follow Brazil’s Law No. 14.133/2021 and other applicable rules. Collusion, bid fraud, offering advantages to public officials, misuse of privileged information, and any conduct that undermines equal treatment are forbidden. Official records and communications must be truthful, traceable, and retained as legally required."
+      },
+      "gifts": {
+        "title": "Travel, gifts, and hospitality",
+        "body": "Gifts, hospitality, and travel coverage are allowed only when modest, occasional, without expectation of reciprocal advantage, and consistent with legitimate market practice. High-value items, cash, cash equivalents, or benefits aimed at influencing public officials are prohibited. When unsure, ask the Compliance Officer before accepting or offering."
+      },
+      "privacy": {
+        "title": "Privacy and LGPD",
+        "body": "Personal data processing at FISAM TECH follows Brazil’s LGPD (Law No. 13.709/2018) and the site Privacy Policy. Whistleblowing data is handled confidentially, with minimization and access limited to the Compliance Officer and those strictly needed for investigation."
+      },
+      "channel": {
+        "title": "Whistleblowing channel",
+        "body": "We maintain a formal channel to report suspected corruption, fraud, harassment, conflicts of interest, and other irregularities. Reports may be anonymous. Good-faith retaliation is not tolerated. The channel is available on this website."
+      },
+      "governance": {
+        "title": "Governance and review",
+        "body": "This program is owned by the Managing Partner / Compliance Officer and will be reviewed when operations, legislation, or corporate structure change materially. It is not an ISO certification, external seal, or independent audit — it is the company’s formal integrity commitment."
+      }
+    }
+  },
+  "whistleblowing": {
+    "title": "Whistleblowing Channel",
+    "lead": "Confidential FISAM TECH channel to report irregularities, with optional anonymity and a commitment against good-faith retaliation.",
+    "scopeTitle": "Scope",
+    "scopeBody": "Use this channel to report suspected corruption or bribery, fraud, moral or sexual harassment, conflicts of interest, and other irregularities related to FISAM TECH activities, including public-sector relationships and tenders.",
+    "guaranteesTitle": "Guarantees",
+    "guaranteesBody": "You may remain anonymous. Identification is optional and only used for possible follow-up. FISAM TECH does not tolerate retaliation against good-faith reporters. Bad-faith or deliberately false reports may be handled under applicable law.",
+    "howTitle": "How it works",
+    "howBody": "After submitting the form, you receive a protocol ID. The report goes to the Compliance Officer (Managing Partner) for confidential review. Personal data, when provided, is processed under the Privacy Policy and LGPD.",
+    "complianceLink": "Compliance Program",
+    "privacyLink": "Privacy",
+    "formTitle": "Submit a report",
+    "category": "Category",
+    "categoryPlaceholder": "Select…",
+    "categories": {
+      "corruption": "Corruption / bribery",
+      "fraud": "Fraud",
+      "harassment": "Harassment (moral or sexual)",
+      "conflict_of_interest": "Conflict of interest",
+      "irregularity": "Other irregularity",
+      "other": "Other"
+    },
+    "description": "Description of the facts (required)",
+    "approximateDate": "Approximate date of the fact (optional)",
+    "approximateDateHint": "e.g. March 2026 or 2026-03-15",
+    "relation": "Your relationship to the company",
+    "relationPlaceholder": "Select…",
+    "relations": {
+      "employee": "Employee / collaborator",
+      "supplier": "Supplier",
+      "client": "Client",
+      "other": "Other"
+    },
+    "anonymous": "I want to remain anonymous",
+    "name": "Name (optional)",
+    "email": "Email (optional)",
+    "phone": "Phone (optional)",
+    "consent": "I authorize processing of my identification data to investigate this report, under LGPD and the Privacy Policy.",
+    "disclaimer": "Do not include unnecessary sensitive data about third parties. If you identify yourself, LGPD consent is required.",
+    "submit": "Submit report",
+    "sending": "Sending…",
+    "error": "Could not submit. Please try again.",
+    "successTitle": "Report registered",
+    "successBody": "Keep the protocol below for your records. You do not need to resubmit the same report.",
+    "protocolLabel": "Protocol",
+    "another": "Submit another report"
   }
 }

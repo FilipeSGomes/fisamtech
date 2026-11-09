@@ -271,7 +271,9 @@
     "rights": "All rights reserved.",
     "note": "Technologie mit Klarheit, von der Analyse bis zur Umsetzung.",
     "work": "Kunden und Projekte",
-    "discovery": "Technische Analyse"
+    "discovery": "Technische Analyse",
+    "compliance": "Compliance & Integrität",
+    "whistleblowing": "Hinweisgeberkanal"
   },
   "cookies": {
     "title": "Cookies",
@@ -289,7 +291,8 @@
     "country": "Country",
     "role": "Your role",
     "challenge": "Technical challenge",
-    "budget": "Approximate budget range",
+    "budget": "Ungefähre Budgetspanne",
+    "budgetPlaceholder": "Spanne auswählen",
     "currency": "Preferred currency",
     "submit": "Continue to checkout",
     "privacy": "By submitting, you agree to our privacy policy. We use this data to prepare your session and process payment."
@@ -368,5 +371,96 @@
     "learnMore": "Mehr erfahren",
     "backHome": "Zur Startseite",
     "loading": "Laden…"
+  },
+  "compliance": {
+    "title": "Compliance- und Integritätsprogramm",
+    "lead": "Ethik- und Verhaltenskodex, Antikorruptionsleitlinien und Hinweisgeberkanal der FISAM TECH TECNOLOGIA LTDA. Öffentlicher interner Rahmen für Gesellschafter, Mitarbeitende, Partner und Dienstleister.",
+    "effective": "Gültig ab: 09.11.2026",
+    "companyLine": "{company} — CNPJ {cnpj}",
+    "privacyLink": "Datenschutzrichtlinie",
+    "channelLink": "Zum Hinweisgeberkanal",
+    "responsibleTitle": "Verantwortlich für das Programm",
+    "responsibleBody": "Geschäftsführender Gesellschafter / Compliance Officer: Filipe Godinho Gomes — {email}. Fragen zu diesem Programm können an dieselbe Adresse gesendet werden.",
+    "sections": {
+      "code": {
+        "title": "Ethik- und Verhaltenskodex",
+        "body": "FISAM TECH handelt nach Ethik, Integrität, Transparenz, Respekt, Verantwortung, Chancengleichheit und Rechtskonformität. Wir erwarten Ehrlichkeit, Treu und Glauben sowie Professionalität; respektvollen Umgang mit Kunden, Lieferanten und Partnern; Einhaltung geltenden Rechts; Schutz vertraulicher Informationen; sowie ein Umfeld ohne Diskriminierung, Belästigung, Einschüchterung, unzulässige Bevorzugung, Korruption oder Betrug. Verstöße können administrative Maßnahmen und ggf. Meldungen an Behörden nach sich ziehen."
+      },
+      "anticorruption": {
+        "title": "Antikorruptions- und Anti-Bestechungspolitik",
+        "body": "Es ist untersagt, einen unzulässigen Vorteil — Geld, Waren, Gefälligkeiten oder sonstige Vorteile — anzubieten, zu versprechen, zu genehmigen, zu fordern oder anzunehmen, um eine öffentliche oder private Entscheidung zu beeinflussen. Dazu zählen Bestechung, Schmiergeld, unzulässige Erleichterungen sowie Verhaltensweisen nach dem brasilianischen Antikorruptionsgesetz (Gesetz Nr. 12.846/2013) und verwandten Normen. Geschäftsbeziehungen müssen auf fachlicher Leistung und vertraglicher Transparenz beruhen."
+      },
+      "conflict": {
+        "title": "Interessenkonflikte",
+        "body": "Ein Interessenkonflikt liegt vor, wenn persönliche, familiäre oder fremde Interessen Unternehmensentscheidungen beeinflussen oder den Anschein einer Beeinflussung erwecken können. Wesentliche Situationen sind dem Compliance Officer vor der Entscheidung offenzulegen. Im Zweifel offenlegen und bis zur formalen Weisung zurücktreten."
+      },
+      "publicSector": {
+        "title": "Beziehungen zum öffentlichen Sektor und Ausschreibungen",
+        "body": "Die Teilnahme an öffentlichen Ausschreibungen und Verträgen mit der Verwaltung muss dem brasilianischen Gesetz Nr. 14.133/2021 und sonstigen anwendbaren Regeln entsprechen. Absprachen, Betrug, Vorteile an Amtsträger, Missbrauch privilegierter Information und jedes Verhalten, das die Gleichbehandlung gefährdet, sind untersagt. Offizielle Unterlagen müssen wahrheitsgemäß, nachvollziehbar und gesetzeskonform aufbewahrt werden."
+      },
+      "gifts": {
+        "title": "Reisen, Geschenke und Bewirtung",
+        "body": "Geschenke, Bewirtung und Reiseübernahmen sind nur zulässig, wenn sie bescheiden, gelegentlich, ohne Gegenleistungserwartung und mit legitimer Marktpraxis vereinbar sind. Wertvolle Gegenstände, Bargeld oder Vorteile zur Beeinflussung öffentlicher Amtsträger sind untersagt. Im Zweifel den Compliance Officer fragen."
+      },
+      "privacy": {
+        "title": "Datenschutz und LGPD",
+        "body": "Die Verarbeitung personenbezogener Daten folgt der brasilianischen LGPD (Gesetz Nr. 13.709/2018) und der Datenschutzrichtlinie der Website. Daten aus dem Hinweisgeberkanal werden vertraulich, mit Datenminimierung und restriktivem Zugriff behandelt."
+      },
+      "channel": {
+        "title": "Hinweisgeberkanal",
+        "body": "Wir unterhalten einen formellen Kanal zur Meldung von Verdachtsfällen zu Korruption, Betrug, Belästigung, Interessenkonflikten und sonstigen Unregelmäßigkeiten. Meldungen können anonym erfolgen. Gutgläubige Vergeltung wird nicht geduldet."
+      },
+      "governance": {
+        "title": "Governance und Überprüfung",
+        "body": "Dieses Programm wird vom geschäftsführenden Gesellschafter / Compliance Officer geführt und bei wesentlichen Änderungen überprüft. Es ist keine externe Zertifizierung und keine unabhängige Prüfung — es ist die formelle Integritätsverpflichtung des Unternehmens."
+      }
+    }
+  },
+  "whistleblowing": {
+    "title": "Hinweisgeberkanal",
+    "lead": "Vertraulicher Kanal der FISAM TECH zur Meldung von Unregelmäßigkeiten, mit optionaler Anonymität und Verpflichtung gegen gutgläubige Vergeltung.",
+    "scopeTitle": "Umfang",
+    "scopeBody": "Nutzen Sie diesen Kanal, um Verdachtsfälle zu Korruption oder Bestechung, Betrug, Belästigung, Interessenkonflikten und sonstigen Unregelmäßigkeiten im Zusammenhang mit Aktivitäten der FISAM TECH zu melden — einschließlich Beziehungen zum öffentlichen Sektor und Ausschreibungen.",
+    "guaranteesTitle": "Garantien",
+    "guaranteesBody": "Sie können anonym bleiben. Eine Identifikation ist optional und dient nur einer möglichen Rückfrage. FISAM TECH duldet keine Vergeltung gegen gutgläubige Hinweisgeber.",
+    "howTitle": "Ablauf",
+    "howBody": "Nach dem Absenden erhalten Sie eine Protokollnummer. Die Meldung geht an den Compliance Officer zur vertraulichen Prüfung. Personenbezogene Daten werden, sofern angegeben, gemäß Datenschutzrichtlinie und LGPD verarbeitet.",
+    "complianceLink": "Compliance-Programm",
+    "privacyLink": "Datenschutz",
+    "formTitle": "Meldung einreichen",
+    "category": "Kategorie",
+    "categoryPlaceholder": "Auswählen…",
+    "categories": {
+      "corruption": "Korruption / Bestechung",
+      "fraud": "Betrug",
+      "harassment": "Belästigung (moralisch oder sexuell)",
+      "conflict_of_interest": "Interessenkonflikt",
+      "irregularity": "Sonstige Unregelmäßigkeit",
+      "other": "Sonstiges"
+    },
+    "description": "Beschreibung der Sachverhalte (Pflicht)",
+    "approximateDate": "Ungefähres Datum des Vorfalls (optional)",
+    "approximateDateHint": "z. B. März 2026 oder 15.03.2026",
+    "relation": "Ihre Beziehung zum Unternehmen",
+    "relationPlaceholder": "Auswählen…",
+    "relations": {
+      "employee": "Mitarbeitende(r)",
+      "supplier": "Lieferant(in)",
+      "client": "Kunde",
+      "other": "Sonstiges"
+    },
+    "anonymous": "Ich möchte anonym bleiben",
+    "name": "Name (optional)",
+    "email": "E-Mail (optional)",
+    "phone": "Telefon (optional)",
+    "consent": "Ich willige in die Verarbeitung meiner Identifikationsdaten zur Prüfung dieser Meldung gemäß LGPD und Datenschutzrichtlinie ein.",
+    "disclaimer": "Geben Sie keine unnötigen sensiblen Daten Dritter an. Bei Identifikation ist die Einwilligung Pflicht.",
+    "submit": "Meldung senden",
+    "sending": "Wird gesendet…",
+    "error": "Senden fehlgeschlagen. Bitte erneut versuchen.",
+    "successTitle": "Meldung erfasst",
+    "successBody": "Bewahren Sie das Protokoll unten auf. Dieselbe Meldung muss nicht erneut gesendet werden.",
+    "protocolLabel": "Protokoll",
+    "another": "Weitere Meldung einreichen"
   }
 }

@@ -271,7 +271,9 @@
     "rights": "All rights reserved.",
     "note": "Tecnología con claridad, del diagnóstico a la entrega.",
     "work": "Clientes y proyectos",
-    "discovery": "Diagnóstico técnico"
+    "discovery": "Diagnóstico técnico",
+    "compliance": "Compliance e Integridad",
+    "whistleblowing": "Canal de Denuncias"
   },
   "cookies": {
     "title": "Cookies",
@@ -289,7 +291,8 @@
     "country": "Country",
     "role": "Your role",
     "challenge": "Technical challenge",
-    "budget": "Approximate budget range",
+    "budget": "Rango de presupuesto aproximado",
+    "budgetPlaceholder": "Seleccione un rango",
     "currency": "Preferred currency",
     "submit": "Continue to checkout",
     "privacy": "By submitting, you agree to our privacy policy. We use this data to prepare your session and process payment."
@@ -368,5 +371,96 @@
     "learnMore": "Más información",
     "backHome": "Volver al inicio",
     "loading": "Cargando…"
+  },
+  "compliance": {
+    "title": "Programa de Compliance e Integridad",
+    "lead": "Código de Ética y Conducta, directrices anticorrupción y canal de denuncias de FISAM TECH TECNOLOGIA LTDA. Marco interno público para socios, colaboradores, socios comerciales y prestadores de servicio.",
+    "effective": "Vigencia: 09/11/2026",
+    "companyLine": "{company} — CNPJ {cnpj}",
+    "privacyLink": "Política de Privacidad",
+    "channelLink": "Acceder al Canal de Denuncias",
+    "responsibleTitle": "Responsable del programa",
+    "responsibleBody": "Socio-Administrador / Compliance Officer: Filipe Godinho Gomes — {email}. Las consultas sobre este programa pueden enviarse a la misma dirección.",
+    "sections": {
+      "code": {
+        "title": "Código de Ética y Conducta",
+        "body": "FISAM TECH actúa con ética, integridad, transparencia, respeto, responsabilidad, igualdad de oportunidades y compromiso con la legalidad. Esperamos honestidad, buena fe y profesionalismo; relaciones respetuosas con clientes, proveedores y socios; cumplimiento de la ley aplicable; protección de información confidencial; y un entorno libre de discriminación, acoso, intimidación, favoritismo indebido, corrupción o fraude. El incumplimiento puede generar medidas administrativas y, cuando corresponda, comunicación a las autoridades."
+      },
+      "anticorruption": {
+        "title": "Política anticorrupción y antisoborno",
+        "body": "Está prohibido ofrecer, prometer, autorizar, solicitar o aceptar una ventaja indebida — dinero, bienes, favores u otro beneficio — para influir en una decisión pública o privada. Esto incluye soborno, coimas, facilitación indebida y conductas previstas en la Ley brasileña nº 12.846/2013 y normas correlativas. Las relaciones comerciales deben basarse en mérito técnico y transparencia contractual."
+      },
+      "conflict": {
+        "title": "Conflicto de intereses",
+        "body": "Existe conflicto de intereses cuando intereses personales, familiares o de terceros pueden influir, o parecer influir, en decisiones de la empresa. Las situaciones relevantes deben declararse al Compliance Officer antes de decidir. Ante la duda, declare y absténgase hasta recibir orientación."
+      },
+      "publicSector": {
+        "title": "Relación con el sector público y licitaciones",
+        "body": "La participación en licitaciones y contratos con la Administración Pública debe observar la Ley brasileña nº 14.133/2021 y demás normas aplicables. Quedan prohibidos el acuerdo colusorio, el fraude, ofrecer ventajas a agentes públicos, el uso indebido de información privilegiada y cualquier conducta que comprometa la igualdad del proceso. La documentación oficial debe ser veraz, rastreable y conservada según la ley."
+      },
+      "gifts": {
+        "title": "Viajes, obsequios y hospitalidad",
+        "body": "Obsequios, hospitalidad y cobertura de viajes solo se admiten cuando son modestos, ocasionales, sin expectativa de contraprestación y compatibles con prácticas de mercado legítimas. Está prohibido aceptar u ofrecer ítems de valor relevante, dinero o beneficios dirigidos a agentes públicos para influir decisiones. Ante la duda, consulte al Compliance Officer."
+      },
+      "privacy": {
+        "title": "Privacidad y LGPD",
+        "body": "El tratamiento de datos personales observa la LGPD brasileña (Ley nº 13.709/2018) y la Política de Privacidad del sitio. Los datos del Canal de Denuncias se tratan con confidencialidad, minimización y acceso restringido al Compliance Officer y a quienes resulten estrictamente necesarios para la investigación."
+      },
+      "channel": {
+        "title": "Canal de Denuncias",
+        "body": "Mantenemos un canal formal para reportar sospechas de corrupción, fraude, acoso, conflicto de intereses y otras irregularidades. Las denuncias pueden ser anónimas. La empresa no tolera represalias de buena fe."
+      },
+      "governance": {
+        "title": "Gobernanza y revisión",
+        "body": "Este programa es mantenido por el Socio-Administrador / Compliance Officer y se revisará ante cambios materiales. No constituye certificación externa ni auditoría independiente: es el compromiso formal de la empresa con la integridad."
+      }
+    }
+  },
+  "whistleblowing": {
+    "title": "Canal de Denuncias",
+    "lead": "Canal confidencial de FISAM TECH para reportar irregularidades, con anonimato opcional y compromiso de no represalia de buena fe.",
+    "scopeTitle": "Alcance",
+    "scopeBody": "Use este canal para reportar sospechas de corrupción o soborno, fraude, acoso moral o sexual, conflicto de intereses y otras irregularidades relacionadas con las actividades de FISAM TECH, incluso en relaciones con el sector público y licitaciones.",
+    "guaranteesTitle": "Garantías",
+    "guaranteesBody": "Puede permanecer anónimo. La identificación es opcional y solo sirve para un eventual contacto sobre la investigación. FISAM TECH no tolera represalias contra quien denuncie de buena fe.",
+    "howTitle": "Cómo funciona",
+    "howBody": "Al enviar el formulario, recibe un protocolo. La denuncia se remite al Compliance Officer para análisis confidencial. Los datos personales, cuando se informan, se tratan conforme a la Política de Privacidad y la LGPD.",
+    "complianceLink": "Programa de Compliance",
+    "privacyLink": "Privacidad",
+    "formTitle": "Registrar denuncia",
+    "category": "Categoría",
+    "categoryPlaceholder": "Seleccione…",
+    "categories": {
+      "corruption": "Corrupción / soborno",
+      "fraud": "Fraude",
+      "harassment": "Acoso (moral o sexual)",
+      "conflict_of_interest": "Conflicto de intereses",
+      "irregularity": "Otra irregularidad",
+      "other": "Otro"
+    },
+    "description": "Descripción de los hechos (obligatoria)",
+    "approximateDate": "Fecha aproximada del hecho (opcional)",
+    "approximateDateHint": "Ej.: marzo/2026 o 15/03/2026",
+    "relation": "Su relación con la empresa",
+    "relationPlaceholder": "Seleccione…",
+    "relations": {
+      "employee": "Colaborador(a)",
+      "supplier": "Proveedor(a)",
+      "client": "Cliente",
+      "other": "Otro"
+    },
+    "anonymous": "Quiero permanecer anónimo",
+    "name": "Nombre (opcional)",
+    "email": "Correo (opcional)",
+    "phone": "Teléfono (opcional)",
+    "consent": "Autorizo el tratamiento de mis datos de identificación para investigar esta denuncia, conforme a la LGPD y la Política de Privacidad.",
+    "disclaimer": "No incluya datos sensibles de terceros sin necesidad. Si se identifica, el consentimiento es obligatorio.",
+    "submit": "Enviar denuncia",
+    "sending": "Enviando…",
+    "error": "No fue posible enviar. Intente de nuevo.",
+    "successTitle": "Denuncia registrada",
+    "successBody": "Guarde el protocolo abajo como referencia. No es necesario reenviar la misma denuncia.",
+    "protocolLabel": "Protocolo",
+    "another": "Registrar otra denuncia"
   }
 }

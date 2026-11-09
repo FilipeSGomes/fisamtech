@@ -1,4 +1,5 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
+import { CONTACT } from "@/lib/config";
 
 export default async function PrivacyPage({
   params,
@@ -14,7 +15,9 @@ export default async function PrivacyPage({
         <h1>{t("privacyTitle")}</h1>
         <p className="lead">{t("privacyLead")}</p>
         <h2>Controller</h2>
-        <p>FISAM TECH — contato@fisamtech.com — CNPJ 60.870.695/0001-06.</p>
+        <p>
+          {CONTACT.company} — {CONTACT.email} — CNPJ {CONTACT.cnpj}.
+        </p>
         <h2>Data we process</h2>
         <p>
           Qualification and partner forms: name, email, company, country, role,

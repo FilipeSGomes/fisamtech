@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import { SUPPORTED_CURRENCIES, type Currency } from "@fisamtech/payments";
+import { BUDGET_RANGES, formatBudgetRangeLabel } from "@/lib/config";
 import { track } from "@/lib/analytics";
 
 function getCookie(name: string): string | undefined {
@@ -105,7 +106,16 @@ export function QualifyForm() {
       </label>
       <label>
         {t("budget")}
-        <input name="budget" />
+        <select name="budget" required defaultValue="">
+          <option value="" disabled>
+            {t("budgetPlaceholder")}
+          </option>
+          {BUDGET_RANGES.map((range) => (
+            <option key={range.id} value={range.id}>
+              {formatBudgetRangeLabel(range, locale)}
+            </option>
+          ))}
+        </select>
       </label>
       <label>
         {t("currency")}
