@@ -18,8 +18,15 @@ const schema = z.object({
 });
 
 export async function POST(req: NextRequest) {
+  let body: z.infer<typeof schema>;
   try {
-    const body = schema.parse(await req.json());
+    body = schema.parse(await req.json());
+  } catch (e) {
+    const message = e instanceof Error ? e.message : "Invalid payload";
+    return NextResponse.json({ error: message }, { status: 400 });
+  }
+
+  try {
     const result = await insertLead(body);
     if ("id" in result) {
       await trackEventServer({
@@ -35,7 +42,8 @@ export async function POST(req: NextRequest) {
     }
     return NextResponse.json({ error: "Failed" }, { status: 500 });
   } catch (e) {
-    const message = e instanceof Error ? e.message : "Invalid payload";
-    return NextResponse.json({ error: message }, { status: 400 });
+    const message = e instanceof Error ? e.message : "Database error";
+    console.error("[api/leads]", message);
+    return NextResponse.json({ error: message }, { status: 503 });
   }
 }

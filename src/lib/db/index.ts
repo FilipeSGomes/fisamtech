@@ -68,7 +68,13 @@ function getPgPool(): pg.Pool | null {
     pgPool = null;
     return null;
   }
-  pgPool = new pg.Pool({ connectionString: url, max: 3 });
+  // Supabase direct db.* hosts are often IPv6-only; Vercel needs the
+  // pooler (IPv4) URL. Always enable TLS for hosted Postgres.
+  pgPool = new pg.Pool({
+    connectionString: url,
+    max: 3,
+    ssl: url.includes("localhost") ? undefined : { rejectUnauthorized: false },
+  });
   return pgPool;
 }
 
