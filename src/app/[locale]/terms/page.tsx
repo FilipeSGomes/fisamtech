@@ -1,7 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
-import { PendingNotice } from "@/components/legal/PendingNotice";
 
 type Block = { title: string; paragraphs: string[] };
 
@@ -30,7 +29,6 @@ export default async function TermsPage({
       <div className="shell legal-prose">
         <h1>{t("termsTitle")}</h1>
         <p className="lead">{t("termsLead")}</p>
-        <PendingNotice />
         {blocks.map((block) => (
           <div key={block.title}>
             <h2>{block.title}</h2>

@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Link } from "@/i18n/routing";
 import { CONTACT } from "@/lib/config";
 import { pageMetadata } from "@/lib/seo";
-import { PendingNotice } from "@/components/legal/PendingNotice";
 
 const SECTION_KEYS = [
   "code",
@@ -40,7 +39,6 @@ export default async function CompliancePage({
       <div className="shell legal-prose">
         <h1>{t("title")}</h1>
         <p className="lead">{t("lead")}</p>
-        <PendingNotice />
         <p>
           <strong>{t("effective")}</strong>
         </p>

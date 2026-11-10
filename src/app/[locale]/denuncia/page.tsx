@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Link } from "@/i18n/routing";
 import { WhistleblowingForm } from "@/components/compliance/WhistleblowingForm";
 import { pageMetadata } from "@/lib/seo";
-import { PendingNotice } from "@/components/legal/PendingNotice";
 
 export async function generateMetadata({
   params,
@@ -29,13 +28,18 @@ export default async function DenunciaPage({
       <div className="shell legal-prose">
         <h1>{t("title")}</h1>
         <p className="lead">{t("lead")}</p>
-        <PendingNotice />
         <h2>{t("scopeTitle")}</h2>
         <p>{t("scopeBody")}</p>
         <h2>{t("guaranteesTitle")}</h2>
         <p>{t("guaranteesBody")}</p>
         <h2>{t("howTitle")}</h2>
         <p>{t("howBody")}</p>
+        <h2>{t("receiptTitle")}</h2>
+        <p>{t("receiptBody")}</p>
+        <h2>{t("analysisTitle")}</h2>
+        <p>{t("analysisBody")}</p>
+        <h2>{t("retentionTitle")}</h2>
+        <p>{t("retentionBody")}</p>
         <p>
           <Link href="/compliance">{t("complianceLink")}</Link>
           {" · "}

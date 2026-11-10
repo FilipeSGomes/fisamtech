@@ -18,13 +18,8 @@ export function CookieBanner() {
   if (!visible) return null;
 
   function accept() {
-    localStorage.setItem("fisam_cookie_consent", "optional");
-    track("cookie_accepted");
-    setVisible(false);
-  }
-  function reject() {
     localStorage.setItem("fisam_cookie_consent", "necessary");
-    track("cookie_rejected");
+    track("cookie_accepted");
     setVisible(false);
   }
 
@@ -35,9 +30,6 @@ export function CookieBanner() {
       <div className="cookie-actions">
         <button type="button" className="btn btn-primary" onClick={accept}>
           {t("accept")}
-        </button>
-        <button type="button" className="btn btn-ghost" onClick={reject}>
-          {t("reject")}
         </button>
         <Link href="/cookies">{t("link")}</Link>
       </div>

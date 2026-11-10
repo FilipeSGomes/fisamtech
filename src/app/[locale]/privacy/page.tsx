@@ -2,7 +2,6 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { CONTACT } from "@/lib/config";
 import { pageMetadata } from "@/lib/seo";
-import { PendingNotice } from "@/components/legal/PendingNotice";
 
 type Block = { title: string; paragraphs: string[] };
 
@@ -31,7 +30,6 @@ export default async function PrivacyPage({
       <div className="shell legal-prose">
         <h1>{t("privacyTitle")}</h1>
         <p className="lead">{t("privacyLead")}</p>
-        <PendingNotice />
         <p style={{ marginTop: 16 }}>
           {CONTACT.legalName}. CNPJ {CONTACT.cnpj}. {CONTACT.email}
         </p>

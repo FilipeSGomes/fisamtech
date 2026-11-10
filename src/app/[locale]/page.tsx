@@ -233,14 +233,6 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="section trust-section">
-        <div className="shell legal-prose">
-          <p className="eyebrow">{t("trust.eyebrow")}</p>
-          <h2>{t("trust.title")}</h2>
-          <p className="lead">{t("trust.body")}</p>
-        </div>
-      </section>
-
       <section id="discovery" className="section section--dark discovery-section">
         <div className="shell">
           <p className="eyebrow">{t("discovery.eyebrow")}</p>

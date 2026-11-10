@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "FISAM TECH",
     "title": "FISAM TECH | Ingeniería de software para sistemas en operación",
-    "description": "Arquitectura, backend, integración y modernización para empresas con un sistema en uso. Diagnóstico técnico por R$ 4.990,00. Bradesco, B3, Itaú, Next y Capgemini son experiencia del fundador, no clientes."
+    "description": "Arquitectura, backend, integración y modernización para empresas con un sistema en uso. Diagnóstico técnico por R$ 4.990,00."
   },
   "nav": {
     "process": "Proceso",
@@ -113,11 +113,11 @@
   },
   "credentials": {
     "eyebrow": "Quién ejecuta",
-    "title": "La empresa hace la ingeniería. La trayectoria del fundador no es una cartera de clientes.",
-    "lead": "FISAM TECH trabaja arquitectura, backend, integración y modernización de sistemas que ya están en uso. Filipe Godinho Gomes, fundador y responsable técnico, declara más de 10 años en ese tipo de sistema. Bradesco, B3, Itaú, Banco Next, Capgemini Engineering y Gerdau son empleo y proyectos anteriores de él. No son contratos de FISAM TECH.",
+    "title": "Quién conduce el trabajo",
+    "lead": "FISAM TECH trabaja arquitectura, backend, integración y modernización de sistemas que ya están en uso. Filipe Godinho Gomes, fundador y responsable técnico, declara más de 10 años en ese tipo de sistema.",
     "exp": "Tiempo declarado del fundador",
     "expValue": "Más de 10 años",
-    "market": "Empleadores anteriores",
+    "market": "Experiencia profesional del responsable",
     "marketValue": "Bradesco · B3 · Next",
     "focus": "Contrato de la empresa",
     "focusValue": "Sistemas en operación",
@@ -167,7 +167,7 @@
         "audience": "Empresas con un sistema en uso, en el que el próximo cambio cruza equipos, datos o un proceso que no puede parar.",
         "deliver": "Lectura de la estructura actual, riesgos, lo que se conserva y una secuencia de próximos pasos. No es un diseño cerrado de proyecto ni una garantía de resultado.",
         "method": "El trabajo empieza en el diagnóstico de pago. Si hay proyecto, las decisiones quedan escritas y la construcción sigue en partes que la operación puede acompañar.",
-        "evidence": "No hay métrica de arquitectura publicada. En Casos están los nombres SigaBR y 637 Tennis Club, sin número. Bradesco, B3, Itaú, Banco Next, Capgemini Engineering y Gerdau son experiencia anterior del fundador, no clientes de FISAM TECH.",
+        "evidence": "No hay métrica de arquitectura publicada. En Casos están los nombres SigaBR y 637 Tennis Club, sin número.",
         "cta": "Pedir el diagnóstico técnico"
       }
     },
@@ -180,7 +180,7 @@
         "audience": "Empresas que necesitan backend para un sistema que ya tiene cliente, integración o rutina interna.",
         "deliver": "Servicios, APIs y tratamiento de error acordados en el alcance. El sitio no publica una lista de tecnologías como si eso fuera el servicio.",
         "method": "Después del diagnóstico, el alcance se divide. La construcción sigue lo que quedó escrito, con una forma de ver qué cambió.",
-        "evidence": "No hay métrica de backend publicada en este sitio. La experiencia anterior del fundador en sistemas distribuidos queda separada de los contratos de FISAM TECH.",
+        "evidence": "No hay métrica de backend publicada en este sitio.",
         "cta": "Pedir el diagnóstico técnico"
       }
     },
@@ -227,9 +227,9 @@
   "casesHome": {
     "eyebrow": "Lo que está publicado",
     "title": "Nombres que el sitio puede mostrar",
-    "lede": "Dos nombres están registrados como clientes de FISAM TECH, sin métrica. Las direcciones de producto son de la propia empresa. Los empleadores anteriores del fundador no entran en esta lista.",
+    "lede": "Dos nombres están registrados como clientes de FISAM TECH, sin métrica. Las direcciones de producto son de la propia empresa.",
     "clientLabel": "Nombre publicado como cliente. Sin métrica en este sitio.",
-    "productLabel": "Producto de FISAM TECH, no cliente.",
+    "productLabel": "Producto de la propia empresa.",
     "link": "Ver lo que sostiene la página de casos"
   },
   "howWeWork": {
@@ -260,21 +260,16 @@
     "title": "Qué responde esta página antes de una conversación",
     "items": {
       "a": "El primer paso es una sesión de pago, con precio publicado, entregable descrito y responsable nombrado.",
-      "b": "La experiencia anterior del fundador queda separada del contrato de FISAM TECH.",
-      "c": "El sitio no publica certificación, sello ni resultado sin fuente."
+      "b": "La sesión la conduce Filipe Godinho Gomes, fundador y responsable técnico.",
+      "c": "El trabajo de ingeniería, después de la sesión, depende de una propuesta escrita."
     }
   },
   "founder": {
     "title": "Fundador",
-    "body1": "Filipe Godinho Gomes es el fundador y el responsable técnico de FISAM TECH. El sitio registra más de 10 años en backend y sistemas distribuidos, en empleo anterior.",
+    "body1": "Filipe Godinho Gomes es el fundador y el responsable técnico de FISAM TECH. El sitio registra más de 10 años en backend y sistemas distribuidos.",
     "body2": "En FISAM TECH el trabajo es un sistema en uso: integración, modernización y evolución de un producto que ya tiene cliente. Él conduce el diagnóstico técnico.",
-    "prior": "Empleo y proyectos anteriores. No son clientes de FISAM TECH.",
+    "prior": "Experiencia profesional del responsable.",
     "alt": "Filipe Gomes, fundador de FISAM TECH"
-  },
-  "trust": {
-    "eyebrow": "Datos y acceso",
-    "title": "Qué usa el sitio, y qué no es eso",
-    "body": "Alojamiento en Vercel, base en Supabase o Postgres, correo por Resend, pago en Mercado Pago o Stripe, agenda en Google Calendar y mensaje en WhatsApp. La denuncia, cuando la persona se identifica, guarda nombre, correo y teléfono. Esto describe proveedores y acceso. No es certificación ISO, SOC 2 ni sello de conformidad."
   },
   "discovery": {
     "eyebrow": "Primer paso",
@@ -287,7 +282,7 @@
       "4": "El enlace de agenda aparece en esta confirmación y en el correo, cuando el envío de correo está configurado."
     },
     "priceLabel": "Valor de la sesión",
-    "priceNote": "R$ 4.990,00 es el valor cobrado en el checkout, en reales, por Mercado Pago. En Brasil la sesión no es gratuita. WhatsApp es conversación, no exención. El precio en dólar, euro o libra no está publicado.",
+    "priceNote": "R$ 4.990,00 es el valor de la sesión, cobrado en el checkout en reales. Una conversación por mensaje no dispensa el pago ni abre la agenda. No hay precio publicado en dólar, euro o libra.",
     "cta": "Pedir el diagnóstico técnico"
   },
   "faq": {
@@ -296,15 +291,15 @@
     "items": {
       "1": {
         "q": "¿El diagnóstico es gratuito?",
-        "a": "No. La sesión cuesta R$ 4.990,00. El checkout en reales envía el pago a Mercado Pago. Hablar por WhatsApp no sustituye el pago ni abre el calendario."
+        "a": "No. La sesión cuesta R$ 4.990,00, pagados en el checkout. Una conversación por mensaje no sustituye el pago ni abre la agenda."
       },
       "2": {
-        "q": "¿Bradesco, B3 e Itaú son clientes de FISAM TECH?",
-        "a": "No. Son experiencia profesional anterior de Filipe Godinho Gomes. FISAM TECH no ejecutó esos contratos."
+        "q": "¿Quién conduce el diagnóstico?",
+        "a": "Filipe Godinho Gomes, fundador y responsable técnico de FISAM TECH."
       },
       "3": {
-        "q": "¿Qué medios de pago muestra el sitio?",
-        "a": "El precio publicado es en reales, en Mercado Pago. El código también envía dólar, euro y libra a Stripe, con valores marcados como prueba. Esos valores no aparecen como precio comercial."
+        "q": "¿Hay precio en otra moneda?",
+        "a": "El precio publicado es R$ 4.990,00, en reales, en el checkout. Dólar, euro y libra no tienen precio comercial en esta página."
       },
       "4": {
         "q": "¿Y si el parecer es no hacer el proyecto?",
@@ -339,7 +334,7 @@
   },
   "cookies": {
     "title": "Cookies de este sitio",
-    "body": "El sitio guarda tres cookies durante un año, antes de este aviso: NEXT_LOCALE (idioma), CURRENCY (moneda) y COUNTRY (país). No hay cookie de analítica ni píxel de anuncio. Este aviso solo registra su elección en este navegador.",
+    "body": "El sitio guarda tres cookies durante 12 meses para recordar idioma, moneda y país: NEXT_LOCALE, CURRENCY y COUNTRY. Son necesarias para mostrar el sitio en esa elección.",
     "accept": "Entendido",
     "reject": "Solo las necesarias",
     "link": "Política de cookies"
@@ -388,14 +383,14 @@
     "cancelLink": "Qué cubre la sesión",
     "paidContinue": "Ya completé el pago",
     "loading": "Abriendo el pago.",
-    "errorMissing": "La clave pública de Mercado Pago o la preferencia de pago no está disponible en esta página.",
+    "errorMissing": "La clave pública o la preferencia de pago no está disponible en esta página.",
     "errorHint": "El pago en esta página depende de la configuración del proveedor. Mientras tanto, el canal es contato@fisamtech.com."
   },
   "book": {
     "title": "Agendar el diagnóstico técnico",
     "lead": "El enlace es válido. Elija un horario en el calendario.",
     "invalid": "Este enlace de agenda no es válido o expiró.",
-    "open": "Abrir Google Calendar"
+    "open": "Abrir la agenda"
   },
   "cases": {
     "eyebrow": "Registro público",
@@ -404,9 +399,9 @@
     "limit": "Donde solo existe el nombre, el nombre se queda. Donde había un número sin origen, el número salió.",
     "clientsTitle": "Nombres publicados como clientes",
     "productsTitle": "Productos de la propia empresa",
-    "productsLead": "Las direcciones de abajo son productos de FISAM TECH. No son clientes y esta página no afirma el estado de operación de cada uno.",
-    "priorTitle": "Experiencia anterior del fundador",
-    "priorLead": "Las organizaciones de abajo son empleo y proyectos anteriores de Filipe Godinho Gomes. No son clientes de FISAM TECH.",
+    "productsLead": "Las direcciones de abajo son productos de la propia empresa. Esta página no afirma el estado de operación de cada uno.",
+    "priorTitle": "Experiencia profesional del responsable",
+    "priorLead": "Trayectoria profesional de Filipe Godinho Gomes.",
     "cta": "Pedir el diagnóstico técnico",
     "sigabr": {
       "type": "Nombre publicado como cliente",
@@ -443,7 +438,7 @@
     },
     "step3": {
       "title": "Nada aquí es contrato",
-      "body": "La participación, incluso equity, solo existe si hay un acuerdo que no está publicado en esta página."
+      "body": "El envío de una idea no transfiere participación societaria, no crea sociedad, no obliga a invertir y no sustituye un contrato."
     },
     "cta": "Enviar y abrir WhatsApp",
     "name": "Nombre",
@@ -453,133 +448,195 @@
     "problem": "Problema que enfrenta la idea",
     "stage": "Etapa",
     "submit": "Enviar y abrir WhatsApp",
-    "disclaimer": "Los datos quedan en el registro de contactos y también en el mensaje de WhatsApp. Esto no contrata ingeniería.",
+    "disclaimer": "Los datos quedan en el registro de contactos y en el mensaje que se abre. Esto no contrata ingeniería.",
     "sent": "Los datos fueron enviados y WhatsApp debería haberse abierto con ellos."
   },
   "legal": {
     "privacyTitle": "Privacidad",
     "termsTitle": "Términos de uso",
     "cookiesTitle": "Cookies",
-    "privacyLead": "Minuta institucional sobre los datos que trata este sitio. No fue validada por un abogado y no es una política revisada jurídicamente.",
-    "termsLead": "Minuta institucional sobre lo que vende el checkout. No fue validada por un abogado y no promete garantía, indemnización ni foro.",
-    "cookiesLead": "Minuta institucional de las cookies que graba el código. No hay analítica. No fue validada por un abogado.",
-    "pendingTitle": "Pendiente de aprobación",
-    "pendingLead": "Los puntos de abajo dependen de una decisión de la empresa o de una interpretación jurídica. No están en vigor en esta minuta.",
-    "pendingItems": [
-      "Plazo de conservación de cada conjunto de datos.",
-      "Base legal específica de cada tratamiento.",
-      "Nombramiento de un encargado del tratamiento de datos personales.",
-      "Si las cookies de idioma, moneda y país exigen consentimiento o pueden tratarse como estrictamente necesarias.",
-      "Política de eliminación y plazo de respuesta a pedidos del titular.",
-      "Plazo y procedimiento de análisis de denuncias.",
-      "Reembolso, cancelación y foro del diagnóstico técnico.",
-      "Términos de participación o equity de la página de ideas."
-    ],
+    "privacyLead": "Política de privacidad de FISAM TECH TECNOLOGIA LTDA, vigente desde el 10 de noviembre de 2026.",
+    "termsLead": "Términos de uso del sitio y condiciones del diagnóstico técnico, vigentes desde el 10 de noviembre de 2026.",
+    "cookiesLead": "Política de cookies de FISAM TECH TECNOLOGIA LTDA, vigente desde el 10 de noviembre de 2026.",
     "cookieName": "Cookie",
     "cookieDuration": "Duración",
+    "cookieKind": "Clasificación",
     "cookiePurpose": "Finalidad",
     "cookieRows": [
       {
         "name": "NEXT_LOCALE",
-        "duration": "1 año",
-        "purpose": "Recordar el idioma de la interfaz. La graba el servidor antes del clic en el aviso."
+        "duration": "12 meses, renovados con el uso",
+        "kind": "Necesario",
+        "purpose": "Recordar el idioma de la interfaz."
       },
       {
         "name": "CURRENCY",
-        "duration": "1 año",
-        "purpose": "Recordar la moneda usada para encaminar el pago. Se graba antes del clic en el aviso."
+        "duration": "12 meses, renovados con el uso",
+        "kind": "Necesario",
+        "purpose": "Recordar la moneda de la condición comercial y del pago."
       },
       {
         "name": "COUNTRY",
-        "duration": "1 año",
-        "purpose": "Recordar el país sugerido. Se graba antes del clic en el aviso."
+        "duration": "12 meses, renovados con el uso",
+        "kind": "Necesario",
+        "purpose": "Recordar el país usado para sugerir idioma y moneda."
       }
     ],
     "cookieBlocks": [
       {
-        "title": "Qué no es una cookie",
+        "title": "Clasificación",
         "paragraphs": [
-          "La elección del aviso queda en localStorage, en la clave fisam_cookie_consent. La confirmación de la región queda en otra clave de localStorage. Ninguna de las dos es una cookie.",
-          "El código de un área interna usa la cookie fisam_admin_session. Esa área no forma parte de la navegación del visitante y el aviso público no la cubre."
+          "Las tres cookies son estrictamente necesarias para presentar el sitio en el idioma y en la condición comercial elegidos o sugeridos. Según la Guía Orientativa de la ANPD sobre cookies, la cookie necesaria para el servicio que la persona pidió no exige consentimiento.",
+          "Se graban al entrar en el sitio, antes del aviso, porque no hay cookie de medición de audiencia para la cual el aviso pediría autorización. El aviso solo registra, en este navegador, que la persona vio la información. Esa marca queda en almacenamiento local, en la clave fisam_cookie_consent, y no es una cookie."
         ]
       },
       {
-        "title": "Scripts de terceros",
+        "title": "Rechazo y limpieza",
         "paragraphs": [
-          "No hay píxel de anuncio, Google Analytics, Tag Manager, Meta, Hotjar ni Clarity en el código del sitio.",
-          "En el pago, el checkout carga Stripe.js o el SDK de Mercado Pago, según la moneda. En la página de agenda con token válido, un iframe abre Google Calendar. WhatsApp se abre cuando la persona hace clic en el enlace."
+          "No hay cookie opcional de este sitio para rechazar y, para borrar NEXT_LOCALE, CURRENCY y COUNTRY, la persona limpia las cookies de este dominio en la configuración del navegador."
+        ]
+      },
+      {
+        "title": "Otros registros del navegador",
+        "paragraphs": [
+          "La confirmación de la región también queda en almacenamiento local y no es una cookie. El área administrativa, fuera de la navegación del visitante, usa la cookie fisam_admin_session, limitada a la sesión autorizada, por hasta 12 horas.",
+          "En la pantalla de pago y en la pantalla de agenda, el navegador puede cargar un recurso del operador de ese servicio. La cookie que ese recurso grabe es del operador. La persona puede pedir información sobre el intercambio en contato@fisamtech.com."
         ]
       }
     ],
     "privacyBlocks": [
       {
-        "title": "Quién trata",
+        "title": "Responsable",
         "paragraphs": [
-          "FISAM TECH TECNOLOGIA LTDA, CNPJ 59.897.573/0001-02. Canal para pedidos del titular: contato@fisamtech.com. No hay encargado nombrado en esta minuta."
+          "FISAM TECH TECNOLOGIA LTDA, sociedad empresaria limitada, microempresa, inscrita en el CNPJ bajo el n.º 59.897.573/0001-02, con sede en Inácio Pires de Moraes, n.º 549, apto. 42, bloque 5 B, Centro, Embu-Guaçu, Estado de São Paulo, CEP 06900-070, es la responsable de los datos personales tratados en este sitio. La dirección es la de la sede que consta en el registro público del CNPJ. El canal del titular es contato@fisamtech.com."
         ]
       },
       {
-        "title": "Datos que pide el sitio",
+        "title": "Canal del titular",
         "paragraphs": [
-          "Cualificación: nombre, correo, empresa, cargo, descripción del desafío, rango de presupuesto, moneda, país, idioma. El registro va a la tabla leads. El país puede venir de la cookie COUNTRY o de la moneda elegida.",
-          "Ideas: nombre, correo, teléfono, idea, problema y etapa. Los mismos tipos de dato van a leads y a un mensaje de WhatsApp.",
-          "Pago: identificador del lead, país, moneda e idioma. Correo y nombre siguen si fueron enviados. Los datos de tarjeta quedan en Mercado Pago o en Stripe. La tabla payments guarda proveedor, identificador de la transacción, estado, valor y moneda.",
-          "Agenda: token firmado, identificador del lead y dirección del calendario, en la tabla bookings. La página con token válido incrusta Google Calendar.",
-          "Denuncia: categoría, relato, fecha aproximada y relación con la empresa. Si la persona se identifica, también nombre, correo, teléfono y el registro de consentimiento. El destino es la tabla whistleblowing_reports y un intento de correo a contato@fisamtech.com.",
-          "Navegación: el encabezado de país del alojamiento (x-vercel-ip-country o cf-ipcountry) sugiere idioma y moneda. El código visto no guarda la dirección IP en una tabla propia. Si la base está configurada, eventos del recorrido pueden ir a la tabla events."
+          "La inscripción como microempresa en el registro público del CNPJ sitúa a la responsable como agente de tratamiento de pequeño porte, conforme a la Resolución CD/ANPD n.º 2/2022. En ese régimen, el nombramiento de encargado puede dispensarse. El canal de comunicación del titular es obligatorio y queda formalizado en contato@fisamtech.com, para los pedidos del art. 18 de la Ley n.º 13.709/2018 y para el contacto previsto en el art. 41, § 3.º.",
+          "Filipe Godinho Gomes, socio administrador y responsable técnico, recibe esos pedidos en ese canal, en calidad de representante de la responsable."
         ]
       },
       {
-        "title": "Para qué usa el flujo esos datos",
+        "title": "Datos tratados",
         "paragraphs": [
-          "Responder el contacto y preparar el diagnóstico. Ejecutar la sesión de pago y liberar la agenda después de la confirmación del pago. Procesar el pago. Registrar la denuncia. Recordar idioma, moneda y país."
+          "Calificación comercial: nombre, correo, empresa, cargo, descripción del desafío, rango de presupuesto, moneda, país e idioma. El registro entra en el archivo de contactos. El país puede ser el que la persona indicó o el país sugerido a partir de la región de acceso. Ese archivo no tiene campo de dirección IP ni de identificador del navegador.",
+          "Diagnóstico y agenda: tras la confirmación del pago, la empresa libera un enlace con token firmado, válido por 14 días, para elegir el horario. La sesión la conduce Filipe Godinho Gomes. La entrega es la lectura del escenario, de los riesgos observados y de los próximos pasos.",
+          "Pago y documentos fiscales: la sesión publicada cuesta R$ 4.990,00. El operador de pago trata los datos del medio de pago. La empresa guarda la referencia de la operación, el estado, el valor, la moneda y el retorno necesario para confirmar el pago y cumplir la obligación fiscal. El número completo de la tarjeta no queda en el archivo de la empresa.",
+          "Ideas: nombre, correo, teléfono, idea, problema y etapa. Esos datos entran en el archivo de contactos, y el envío abre la aplicación de mensaje publicada en el sitio, con el mismo contenido. El envío es un procedimiento preliminar. No contrata ingeniería, no transfiere participación societaria, no crea sociedad y no obliga a invertir, mientras no exista un instrumento propio.",
+          "Denuncia: categoría, relato, fecha aproximada, relación con la empresa, idioma e indicador de identificación. Si la persona se identifica, también nombre, correo, teléfono y el registro de la autorización. Si no se identifica, el relato sigue sin nombre, correo y teléfono. El registro de la denuncia, en la aplicación, no guarda dirección IP ni identificador del navegador. El texto puede identificar a alguien, y el envío pasa por el alojamiento y por el correo. La empresa intenta avisar a contato@fisamtech.com con el protocolo y un fragmento de hasta 280 caracteres.",
+          "Navegación y área interna: el entorno de alojamiento puede informar el país del acceso para sugerir idioma y moneda, sin que la aplicación guarde la dirección IP en el contacto. El uso del flujo comercial puede registrar el evento, la página, el idioma y el contacto. El área administrativa, restringida a personas autorizadas, usa una sesión de 12 horas y puede guardar, en esa sesión y en la auditoría del acceso, la dirección IP y el identificador del navegador."
         ]
       },
       {
-        "title": "Operadores y transferencia",
+        "title": "Bases legales",
         "paragraphs": [
-          "Vercel aloja el sitio. Es una empresa de Estados Unidos. El código no fija la región del proyecto.",
-          "La base es Supabase y/o Postgres, por la variable DATABASE_URL. Supabase es una empresa de Estados Unidos. La región del proyecto no está en el código.",
-          "Resend envía correo desde contato@fisamtech.com. Es una empresa de Estados Unidos. Sin la clave configurada, el correo no sale.",
-          "Stripe procesa pagos en monedas que no son el real, cuando el flujo llega allí. Mercado Pago procesa el pago en reales. Mercado Pago es una empresa argentina.",
-          "Google Calendar recibe la cita. WhatsApp, de Meta, abre la conversación de la cabecera brasileña y el mensaje de la página de ideas.",
-          "Cuando el proveedor es extranjero, el dato puede tratarse fuera de Brasil. Esta minuta no elige la base legal de esa transferencia."
+          "La calificación comercial se apoya en el art. 7, V, de la Ley n.º 13.709/2018, para procedimientos preliminares y para la ejecución del contrato de diagnóstico, cuando se forma. Mientras no hay contrato, también hay interés legítimo, art. 7, IX, en responder a la solicitud que la propia persona inició, limitado a los datos necesarios para comprender el pedido y contestar.",
+          "El diagnóstico de pago y la agenda se apoyan en el art. 7, V, ejecución de contrato.",
+          "El pago y los registros fiscales se apoyan en el art. 7, V, ejecución de contrato, y en el art. 7, II, cumplimiento de obligación legal tributaria y contable.",
+          "La página de ideas y la apertura del mensaje se apoyan en el art. 7, V, como procedimientos preliminares. El envío no es contratación de ingeniería ni cesión de participación.",
+          "La denuncia se apoya en el art. 7, IX, interés legítimo de examinar una conducta que pueda afectar a la empresa y a las personas con las que se relaciona, y en el art. 7, VI, ejercicio regular de derechos. La identificación es voluntaria. Nombre, correo y teléfono solo entran si la persona los informa y autoriza el registro. Si no se identifica, el relato sigue sin esos datos.",
+          "Las cookies NEXT_LOCALE, CURRENCY y COUNTRY son estrictamente necesarias para la función pedida y no exigen consentimiento, según la lógica de la Guía Orientativa de la ANPD sobre cookies.",
+          "Los registros técnicos de seguridad y de alojamiento, en la medida en que el entorno de alojamiento y la base de datos los generan, y el registro de acceso del área administrativa se apoyan en el art. 7, IX, interés legítimo de seguridad de la aplicación, y en el art. 7, II, cuando la conservación derive de obligación legal."
+        ]
+      },
+      {
+        "title": "Operadores y transferencia internacional",
+        "paragraphs": [
+          "La responsable usa operadores para alojamiento, base de datos, correo transaccional, pago, agenda y mensajería. Parte de esos operadores está en Brasil y parte está en el extranjero, de modo que el dato personal puede tratarse fuera del país.",
+          "La transferencia internacional se apoya en la necesidad de ejecutar el contrato o procedimientos preliminares a pedido del titular, conforme al art. 33, VII, de la Ley n.º 13.709/2018, y, cuando la conservación sea un deber legal, en el cumplimiento de obligación legal. La relación nominal de los operadores se informa al titular que la pida, en contato@fisamtech.com, en ejercicio del art. 18, VII."
+        ]
+      },
+      {
+        "title": "Seguridad",
+        "paragraphs": [
+          "La comunicación del sitio usa HTTPS. El acceso al área administrativa está restringido a personas autorizadas por la empresa. Los secretos de integración no quedan en el repositorio público. El sitio público no carga una etiqueta de publicidad.",
+          "El archivo de contactos y el registro de denuncia no incluyen, en la aplicación, dirección IP ni identificador del navegador. El entorno de alojamiento y la base de datos pueden generar un registro técnico propio de seguridad."
+        ]
+      },
+      {
+        "title": "Experiencia profesional y nombres publicados",
+        "paragraphs": [
+          "Las menciones a Bradesco, B3, Itaú, Banco Next, Capgemini Engineering y Gerdau se refieren al empleo y a la trayectoria profesional anterior de Filipe Godinho Gomes. No son contratos, clientes ni casos de FISAM TECH.",
+          "Los nombres publicados como clientes son SigaBR y 637 Tennis Club, en el límite del texto ya publicado en el sitio. SigaBR aparece como plataforma para despachantes y licenciamiento, con integración al DETRAN vía RENAVAM y al Banco Rendimento. 637 Tennis Club aparece como sistema de tenis y beach tennis, con reservas, administración y finanzas. Esta política no añade métrica, fecha ni resultado medido."
         ]
       },
       {
         "title": "Derechos del titular",
         "paragraphs": [
-          "La LGPD brasileña otorga al titular, en términos generales, confirmación y acceso, corrección, anonimización, bloqueo o eliminación, portabilidad, información sobre el uso compartido y revocación del consentimiento, dentro de los límites de la ley.",
-          "El canal para ejercer esos pedidos es contato@fisamtech.com. El plazo de respuesta, la conservación y la eliminación están en la sección pendiente. No están en vigor aquí."
+          "Por el art. 18 de la Ley n.º 13.709/2018, el titular puede pedir confirmación de la existencia del tratamiento y acceso a los datos; corrección de un dato incompleto, inexacto o desactualizado; anonimización, bloqueo o eliminación de un dato innecesario, excesivo o tratado en disconformidad; portabilidad, observadas la reglamentación y el secreto comercial; información sobre las entidades con las cuales la responsable compartió datos; revocación del consentimiento, cuando la base del tratamiento sea el consentimiento; y oposición a un tratamiento fundado en interés legítimo, en la forma del art. 18, § 2.º.",
+          "El plazo de respuesta es de 15 días, contados desde el pedido, conforme al art. 18, § 5.º, prorrogables por otros 15 días mediante justificación. El canal es único: contato@fisamtech.com."
+        ]
+      },
+      {
+        "title": "Conservación y eliminación",
+        "paragraphs": [
+          "Los contactos y los mensajes comerciales sin contrato se conservan 12 meses después del último contacto. Después, la responsable elimina o anonimiza el registro, salvo si el diálogo continúa o si hay obligación de conservación.",
+          "Los datos de contrato, de diagnóstico, de pago y los documentos fiscales se conservan 5 años después del cierre del contrato o de la prestación, en línea con los plazos de prescripción tributarios y civiles aplicables.",
+          "La denuncia sin desarrollo se conserva 12 meses. La denuncia con investigación o medida se conserva durante la investigación y por 5 años después del cierre.",
+          "Las cookies NEXT_LOCALE, CURRENCY y COUNTRY duran 12 meses y se renuevan con el uso. La dirección IP y el identificador del navegador del área administrativa se conservan por el plazo de la sesión, de 12 horas, y, en la pista de auditoría, por 6 meses, salvo investigación en curso.",
+          "Eliminación: el titular pide por contato@fisamtech.com. La responsable elimina o anonimiza lo que no esté bajo guarda legal e informa lo que tuvo que conservar y por qué."
         ]
       }
     ],
     "termsBlocks": [
       {
-        "title": "Qué vende el checkout",
+        "title": "Partes",
         "paragraphs": [
-          "Una sesión de diagnóstico técnico. El precio publicado en el sitio es R$ 4.990,00, cobrado en reales por Mercado Pago. Los valores de prueba en otras monedas no son precio comercial."
+          "Estos términos regulan el uso del sitio y la contratación del diagnóstico técnico con FISAM TECH TECNOLOGIA LTDA, CNPJ 59.897.573/0001-02, sede en el municipio de Embu-Guaçu, Estado de São Paulo, contacto contato@fisamtech.com. El uso del sitio y el envío del pedido importan conocimiento de estas condiciones y de la política de privacidad."
         ]
       },
       {
-        "title": "Qué entrega la sesión",
+        "title": "Diagnóstico técnico",
         "paragraphs": [
-          "Lectura del escenario enviado en el formulario, riesgos observados y próximos pasos. Filipe Godinho Gomes conduce la sesión. El parecer puede ser que no hay un problema que justifique un proyecto.",
-          "La sesión no es un proyecto de implementación, no garantiza un resultado de negocio y no incluye un reembolso definido. Reembolso y cancelación están pendientes."
+          "El checkout vende una sesión de diagnóstico técnico por R$ 4.990,00 (cuatro mil novecientos noventa reales). El valor remunera el diagnóstico. No es una señal, no es el inicio obligatorio de un proyecto, y un parecer de no seguir en proyecto no genera crédito ni obligación de contratar el resto.",
+          "El servicio se concluye con la entrega de la lectura: escenario, riesgos y próximos pasos. La sesión la conduce Filipe Godinho Gomes, responsable técnico nombrado en el sitio. Un precio en otra moneda no está publicado como precio comercial."
+        ]
+      },
+      {
+        "title": "Cancelación y reembolso",
+        "paragraphs": [
+          "Antes de la confirmación del pago, no hay cobro.",
+          "Después del pago, si el análisis todavía no comenzó y el pedido de cancelación llega en hasta 7 días, hay reembolso integral por el mismo medio, en hasta 10 días hábiles después de la confirmación de la cancelación. El plazo de 7 días observa el art. 49 del Código de Defensa del Consumidor cuando el contratante es el destinatario final. La empresa extiende el mismo plazo a la persona jurídica, si el trabajo no comenzó.",
+          "Después de que la sesión ocurrió o la lectura fue entregada, el servicio está prestado y el valor no es reembolsable.",
+          "El trabajo de ingeniería posterior no es un producto de estantería y depende de una propuesta escrita. Estos términos no prometen reembolso de ese trabajo."
         ]
       },
       {
         "title": "Pago y agenda",
         "paragraphs": [
-          "El checkout crea el cobro en POST /api/checkout/create. La confirmación que abre el calendario viene del webhook de Mercado Pago o de Stripe, cuando el estado queda aprobado.",
-          "El enlace de agenda lleva un token firmado. Sin token válido, la página de agenda no abre el calendario. El correo con el enlace solo sale si el envío por Resend está configurado."
+          "El cobro ocurre en el checkout del sitio. La agenda se abre cuando el pago queda confirmado. El enlace de agenda usa un token firmado, válido por 14 días. Sin token válido, la agenda no se abre. El correo con el enlace se envía cuando el envío de correo está activo."
         ]
       },
       {
-        "title": "Qué no promete el sitio",
+        "title": "Ideas",
         "paragraphs": [
-          "No hay garantía de disponibilidad, indemnización ni alcance más allá de la sesión descrita. La página de ideas no es contrato de sociedad ni de prestación de ingeniería.",
-          "El contenido público describe lo que la empresa está en condiciones de mostrar. Los nombres del empleo anterior del fundador no son clientes."
+          "El envío de una idea guarda el contacto y abre el mensaje con el mismo contenido. Ese envío no transfiere participación societaria, no crea sociedad, no obliga a invertir y no sustituye un contrato. No hay porcentaje ni compromiso de ejecución publicados en el sitio."
+        ]
+      },
+      {
+        "title": "Propiedad intelectual",
+        "paragraphs": [
+          "El contenido del sitio y la marca FISAM TECH pertenecen a la empresa o a quien corresponda. El material del diagnóstico se destina al uso interno de quien contrató la sesión. Quien envía una idea o un relato conserva la titularidad de lo enviado y autoriza a la empresa a leer el material para evaluar la respuesta."
+        ]
+      },
+      {
+        "title": "Uso del sitio y área administrativa",
+        "paragraphs": [
+          "Está vedado usar el sitio para contenido ilícito, para interferir en el funcionamiento o para intentar un acceso no autorizado. El visitante no crea una cuenta. El área administrativa existe para personas autorizadas por la empresa. El acceso usa una sesión propia, de hasta 12 horas, y puede registrar la dirección IP y el identificador del navegador de esa sesión."
+        ]
+      },
+      {
+        "title": "Responsabilidad",
+        "paragraphs": [
+          "FISAM TECH responde por los daños directos que cause en la ejecución del diagnóstico, hasta el valor pagado por la sesión. Esta limitación no cubre el dolo y no aparta un derecho que la ley declare irrenunciable, incluido el derecho del consumidor y del titular de los datos. La sesión es una lectura profesional. No es garantía de resultado de negocio ni de disponibilidad ininterrumpida del sitio."
+        ]
+      },
+      {
+        "title": "Ley y foro",
+        "paragraphs": [
+          "La ley aplicable es la brasileña. Queda elegido el foro de Embu-Guaçu, Estado de São Paulo, municipio de la sede de FISAM TECH TECNOLOGIA LTDA. La elección no aparta el foro del domicilio del consumidor cuando la ley lo imponga."
         ]
       }
     ]
@@ -591,15 +648,15 @@
   },
   "compliance": {
     "title": "Programa de compliance e integridad",
-    "lead": "Texto institucional ya publicado por FISAM TECH TECNOLOGIA LTDA: ética, anticorrupción y canal de denuncias. No es certificación ISO, SOC 2 ni auditoría independiente.",
-    "effective": "Fecha escrita en la página: 09/11/2026",
+    "lead": "Programa de compliance e integridad de FISAM TECH TECNOLOGIA LTDA. Ética, anticorrupción, privacidad y canal de denuncias. Vigente desde el 10 de noviembre de 2026.",
+    "effective": "Vigencia: 10 de noviembre de 2026.",
     "companyLine": "{company}. CNPJ {cnpj}.",
     "privacyLink": "Privacidad",
     "channelLink": "Abrir el canal de denuncias",
     "securityTitle": "Seguridad y datos",
-    "securityBody": "El sitio usa Vercel, Supabase o Postgres, Resend, Mercado Pago, Stripe, Google Calendar y WhatsApp. El relato de denuncia sigue al correo contato@fisamtech.com cuando el envío está configurado. El visitante no crea una cuenta. Esto no es certificación ni declaración de conformidad total.",
+    "securityBody": "La comunicación del sitio usa HTTPS. El acceso al área administrativa está restringido a personas autorizadas y puede quedar registrado. Los secretos de integración quedan fuera del repositorio público. El pedido del titular y el relato de denuncia se reciben en contato@fisamtech.com. En lo que FISAM TECH actúa como proveedora de aplicación de internet, observa la Ley n.º 12.965/2014 en la medida del servicio que el sitio presta. El sitio no es proveedor de conexión. Los registros que la aplicación guarda están descritos en la política de privacidad.",
     "responsibleTitle": "Quién responde por el programa",
-    "responsibleBody": "El texto del programa nombra a Filipe Godinho Gomes como socio administrador y compliance officer, en el correo {email}. Eso no es el nombramiento de un encargado de datos.",
+    "responsibleBody": "Filipe Godinho Gomes, socio administrador, responde por el programa en el correo {email}.",
     "sections": {
       "code": {
         "title": "Código de ética y conducta",
@@ -623,27 +680,27 @@
       },
       "privacy": {
         "title": "Privacidad",
-        "body": "El programa remite el tratamiento de datos a la Ley brasileña n.º 13.709/2018 y a la página de privacidad. La página de privacidad es una minuta y lista lo que todavía depende de aprobación, incluido el encargado y el plazo de conservación."
+        "body": "El tratamiento de datos personales observa la Ley n.º 13.709/2018. La política de privacidad es el texto vigente y describe bases, plazos, derechos y el canal contato@fisamtech.com."
       },
       "channel": {
         "title": "Canal de denuncias",
-        "body": "Existe un formulario. Con la opción de no identificarse marcada, no se envían nombre, correo ni teléfono. El relato puede identificar a la persona, y el envío pasa por alojamiento y correo. No hay plazo de análisis publicado. La empresa declara que no tolera represalias por un relato de buena fe. Esa frase es un compromiso del programa, no un control técnico del sitio."
+        "body": "El formulario guarda el relato y, si la persona los completa, nombre, correo y teléfono. La identificación es facultativa. El destinatario interno es Filipe Godinho Gomes, en el correo contato@fisamtech.com. Si el relato lo involucra, el registro permanece almacenado para tratamiento por quien responda por la empresa. Si hay correo, la empresa acusa recibo en hasta 5 días hábiles y hace un análisis preliminar en hasta 15 días hábiles. La empresa no toma represalias, en la relación comercial que ella misma conduce, contra quien relata de buena fe. El canal no promete investigación penal ni anonimato absoluto."
       },
       "governance": {
         "title": "Revisión",
-        "body": "El programa dice que se revisará cuando cambien la operación, la ley o la estructura. No constituye certificación ISO, sello externo ni auditoría independiente."
+        "body": "El programa se revisa cuando cambian la operación, la ley o la estructura de la empresa."
       }
     }
   },
   "whistleblowing": {
     "title": "Canal de denuncias",
-    "lead": "Formulario que guarda el relato. La identificación es opcional. La página no promete anonimato técnico, plazo de análisis ni protección que el sistema no implementa.",
+    "lead": "Canal para registrar un relato sobre una conducta relacionada con FISAM TECH. La identificación es facultativa. Vigente desde el 10 de noviembre de 2026.",
     "scopeTitle": "Qué se puede registrar",
     "scopeBody": "Categoría, relato, fecha aproximada y relación con la empresa. Las categorías del formulario son corrupción o soborno, fraude, acoso, conflicto de intereses, otra irregularidad y otro.",
     "guaranteesTitle": "Identificación",
-    "guaranteesBody": "La opción de no identificarse viene marcada. En ese caso el formulario no envía nombre, correo ni teléfono. Si la persona la desmarca y se identifica, esos datos se guardan y el consentimiento pasa a ser obligatorio. El texto del relato puede identificar a alguien. El alojamiento y el correo no son un canal de anonimato. La empresa declara, en el programa de compliance, que no tolera represalias por un relato de buena fe. Eso no es un control del software.",
+    "guaranteesBody": "La identificación es facultativa. La opción de no informar nombre, correo y teléfono viene marcada. En ese caso, el relato sigue sin esos datos. Si la persona se identifica, el formulario guarda nombre, correo y teléfono y exige la autorización correspondiente. El texto del relato puede identificar a alguien. El paso por el alojamiento y por el correo no equivale a anonimato absoluto. La empresa no toma represalias, en la relación comercial que ella misma conduce, contra quien relata de buena fe.",
     "howTitle": "Qué hace el envío",
-    "howBody": "Si la base guarda el relato, la página muestra un protocolo con el formato FT-WB, con la fecha y un sufijo. Si el registro no se persiste, la página no muestra protocolo. Hay un intento de correo a contato@fisamtech.com con el protocolo y un fragmento de hasta 280 caracteres. El correo solo sale si Resend está configurada.",
+    "howBody": "El formulario guarda categoría, relato, fecha aproximada, relación con la empresa y, si la persona los completa, nombre, correo y teléfono. Cuando el registro se guarda, la página muestra un protocolo con la forma FT-WB, con la fecha y un sufijo. Si el registro no se guarda, la página no muestra protocolo. La empresa intenta enviar un aviso a contato@fisamtech.com con el protocolo y un fragmento de hasta 280 caracteres, cuando el envío de correo está activo. El destinatario interno es Filipe Godinho Gomes, representante de la responsable. Si el relato lo involucra, el registro permanece almacenado para tratamiento por quien responda por la empresa.",
     "complianceLink": "Programa de compliance",
     "privacyLink": "Privacidad",
     "formTitle": "Registrar relato",
@@ -679,8 +736,14 @@
     "error": "No fue posible enviar.",
     "degraded": "El relato no fue guardado. No hay protocolo. Inténtelo de nuevo o escriba a contato@fisamtech.com.",
     "successTitle": "Relato guardado",
-    "successBody": "Guarde el protocolo. Confirma el registro en la base, no un plazo de análisis.",
+    "successBody": "Guarde el protocolo. Confirma el registro. Si hay correo, el recibo se acusa en hasta 5 días hábiles.",
     "protocolLabel": "Protocolo",
-    "another": "Registrar otro relato"
+    "another": "Registrar otro relato",
+    "receiptTitle": "Recibo",
+    "receiptBody": "Cuando el relato trae correo, la empresa acusa recibo en hasta 5 días hábiles.",
+    "analysisTitle": "Análisis preliminar",
+    "analysisBody": "El análisis preliminar ocurre en hasta 15 días hábiles. El canal registra y examina lo que está al alcance de la empresa. No hay promesa de investigación penal.",
+    "retentionTitle": "Conservación",
+    "retentionBody": "Una denuncia sin desarrollo se conserva 12 meses. Una denuncia con investigación o medida se conserva durante la investigación y por 5 años después del cierre."
   }
 }

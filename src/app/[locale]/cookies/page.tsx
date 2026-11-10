@@ -1,9 +1,8 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
-import { PendingNotice } from "@/components/legal/PendingNotice";
 
-type CookieRow = { name: string; duration: string; purpose: string };
+type CookieRow = { name: string; duration: string; purpose: string; kind: string };
 type Block = { title: string; paragraphs: string[] };
 
 export async function generateMetadata({
@@ -32,12 +31,12 @@ export default async function CookiesPage({
       <div className="shell legal-prose">
         <h1>{t("cookiesTitle")}</h1>
         <p className="lead">{t("cookiesLead")}</p>
-        <PendingNotice />
         <table className="cookie-table">
           <thead>
             <tr>
               <th>{t("cookieName")}</th>
               <th>{t("cookieDuration")}</th>
+              <th>{t("cookieKind")}</th>
               <th>{t("cookiePurpose")}</th>
             </tr>
           </thead>
@@ -46,6 +45,7 @@ export default async function CookiesPage({
               <tr key={row.name}>
                 <td>{row.name}</td>
                 <td>{row.duration}</td>
+                <td>{row.kind}</td>
                 <td>{row.purpose}</td>
               </tr>
             ))}
