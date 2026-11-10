@@ -11,11 +11,15 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { createRequire } from "node:module";
+import { setDefaultResultOrder } from "node:dns";
 import { randomBytes, scryptSync } from "node:crypto";
 import pg from "pg";
 
-const require = createRequire(import.meta.url);
+try {
+  setDefaultResultOrder("ipv4first");
+} catch {
+  // ignore on older Node
+}
 
 function loadEnvLocal() {
   const file = path.resolve(process.cwd(), ".env.local");
@@ -87,8 +91,8 @@ try {
   );
   await client.query(
     `insert into admin_audit_logs (actor_user_id, action, resource_type, resource_id, context)
-     values ($1,'USER_INVITED','admin_user',$1,$2::jsonb)`,
-    [userId, JSON.stringify({ bootstrap: true, email: emailNormalized })]
+     values ($1::uuid,'USER_INVITED','admin_user',$2,$3::jsonb)`,
+    [userId, userId, JSON.stringify({ bootstrap: true, email: emailNormalized })]
   );
   console.log("SUPER_ADMIN created:", userId, emailNormalized);
   console.log("Next: login at /pt-br/super-admin/login and enroll MFA.");
