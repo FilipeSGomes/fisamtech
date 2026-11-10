@@ -5,6 +5,14 @@ import { adminQuery } from "@/lib/db";
 
 const PRIVATE_ROOT = path.join(process.cwd(), "private", "proposals");
 
+function canUseLocalFs(): boolean {
+  // Vercel/AWS Lambda filesystem is read-only except /tmp.
+  if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME) {
+    return false;
+  }
+  return process.env.PROPOSAL_PDF_FS !== "0";
+}
+
 export function proposalStorageKey(
   proposalId: string,
   version: number,
@@ -12,6 +20,17 @@ export function proposalStorageKey(
 ): string {
   const safe = numberDisplay.replace(/[^A-Za-z0-9._-]/g, "_");
   return `${proposalId}/v${version}-${safe}.pdf`;
+}
+
+async function tryWriteLocalFs(storageKey: string, bytes: Buffer): Promise<void> {
+  if (!canUseLocalFs()) return;
+  try {
+    const absolute = path.join(PRIVATE_ROOT, storageKey);
+    await mkdir(path.dirname(absolute), { recursive: true });
+    await writeFile(absolute, bytes);
+  } catch (error) {
+    console.warn("[proposals/storage] local FS write skipped", error);
+  }
 }
 
 export async function storeProposalPdf(opts: {
@@ -26,13 +45,12 @@ export async function storeProposalPdf(opts: {
     opts.version,
     opts.numberDisplay
   );
-  const absolute = path.join(PRIVATE_ROOT, storageKey);
-  await mkdir(path.dirname(absolute), { recursive: true });
-  await writeFile(absolute, opts.bytes);
+
+  // Durable source of truth on serverless is Postgres bytea.
+  await tryWriteLocalFs(storageKey, opts.bytes);
 
   const checksum = createHash("sha256").update(opts.bytes).digest("hex");
 
-  // Also persist bytes so serverless hosts without durable FS can still download.
   const result = await adminQuery<{ id: string }>(
     `insert into proposal_documents (
        proposal_id, version, storage_key, content_type, byte_size, checksum_sha256,
@@ -87,14 +105,26 @@ export async function loadProposalPdf(opts: {
   const row = result.rows[0];
   if (!row) return null;
 
-  if (row.pdf_bytes && row.pdf_bytes.length) {
+  if (row.pdf_bytes && Buffer.isBuffer(row.pdf_bytes) && row.pdf_bytes.length) {
     return {
-      bytes: Buffer.from(row.pdf_bytes),
+      bytes: row.pdf_bytes,
       contentType: row.content_type,
       storageKey: row.storage_key,
       version: row.version,
     };
   }
+
+  // pg may return bytea as Uint8Array depending on type parsers
+  if (row.pdf_bytes && (row.pdf_bytes as unknown as Uint8Array).byteLength) {
+    return {
+      bytes: Buffer.from(row.pdf_bytes as unknown as Uint8Array),
+      contentType: row.content_type,
+      storageKey: row.storage_key,
+      version: row.version,
+    };
+  }
+
+  if (!canUseLocalFs()) return null;
 
   const absolute = path.join(PRIVATE_ROOT, row.storage_key);
   try {
