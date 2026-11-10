@@ -1,6 +1,18 @@
 import { Suspense } from "react";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import { CheckoutClient } from "@/components/funnel/CheckoutClient";
+import { pageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "checkout" });
+  return pageMetadata(locale, `${t("title")} | FISAM TECH`, t("metaDescription"), "/checkout");
+}
 
 export default async function CheckoutPage({
   params,

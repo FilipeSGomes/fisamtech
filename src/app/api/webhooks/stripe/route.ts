@@ -6,7 +6,7 @@ import {
   hashToken,
   getCalendarUrl,
 } from "@/lib/booking/token";
-import { sendEmail } from "@/lib/email";
+import { sendBookingEmail } from "@/lib/booking/issue";
 
 export const runtime = "nodejs";
 
@@ -48,17 +48,11 @@ export async function POST(req: NextRequest) {
         lead_id: result.leadId,
         properties: { provider: "stripe", transactionId: result.transactionId },
       });
-      if (result.customer?.email) {
-        await sendEmail({
-          to: result.customer.email,
-          subject: "FISAM TECH — Technical Discovery unlocked",
-          template: "booking_unlocked",
-          vars: {
-            leadId: result.leadId,
-            bookHint: "Use the success page link or email follow-up",
-          },
-        });
-      }
+      await sendBookingEmail({
+        leadId: result.leadId,
+        token,
+        customerEmail: result.customer?.email,
+      });
     }
 
     return NextResponse.json({ ok: true, status: result.status });

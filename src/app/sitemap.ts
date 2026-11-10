@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SUPPORTED_LANGUAGES } from "@/lib/config";
 
-const site = process.env.NEXT_PUBLIC_SITE_URL || "https://fisamtech.com";
+const site = process.env.NEXT_PUBLIC_SITE_URL || "https://www.fisamtech.com";
 
 const paths = [
   "",

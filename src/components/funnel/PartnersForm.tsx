@@ -77,7 +77,7 @@ export function PartnersForm() {
         <input name="name" required autoComplete="name" />
       </label>
       <label>
-        E-mail
+        {t("email")}
         <input name="email" type="email" required autoComplete="email" />
       </label>
       <label>
@@ -105,7 +105,7 @@ export function PartnersForm() {
       <button className="btn btn-primary" type="submit">
         {t("submit")}
       </button>
-      {sent && <p role="status">OK</p>}
+      {sent && <p role="status">{t("sent")}</p>}
     </form>
   );
 }

@@ -299,6 +299,63 @@ export async function insertBooking(
   return { id: crypto.randomUUID() };
 }
 
+export async function getApprovedPaymentForLead(
+  leadId: string
+): Promise<{ id: string } | null> {
+  const sb = getSupabaseAdmin();
+  if (sb) {
+    const { data, error } = await sb
+      .from("payments")
+      .select("id")
+      .eq("lead_id", leadId)
+      .eq("status", "approved")
+      .limit(1)
+      .maybeSingle();
+    if (error || !data?.id) return null;
+    return { id: data.id as string };
+  }
+
+  const pool = getPgPool();
+  if (pool) {
+    const result = await pool.query<{ id: string }>(
+      `select id from payments where lead_id = $1 and status = 'approved' limit 1`,
+      [leadId]
+    );
+    return result.rows[0] ?? null;
+  }
+
+  return null;
+}
+
+export async function getLeadContact(
+  id: string
+): Promise<{ email: string | null; locale: string | null } | null> {
+  const sb = getSupabaseAdmin();
+  if (sb) {
+    const { data, error } = await sb
+      .from("leads")
+      .select("email, locale")
+      .eq("id", id)
+      .maybeSingle();
+    if (error || !data) return null;
+    return {
+      email: (data.email as string | null) ?? null,
+      locale: (data.locale as string | null) ?? null,
+    };
+  }
+
+  const pool = getPgPool();
+  if (pool) {
+    const result = await pool.query<{ email: string | null; locale: string | null }>(
+      `select email, locale from leads where id = $1`,
+      [id]
+    );
+    return result.rows[0] ?? null;
+  }
+
+  return null;
+}
+
 export async function getBookingByTokenHash(tokenHash: string) {
   const sb = getSupabaseAdmin();
   if (sb) {

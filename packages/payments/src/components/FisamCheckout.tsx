@@ -23,6 +23,7 @@ export function FisamCheckout({
   onComplete,
   onError,
   locale,
+  labels,
 }: FisamCheckoutProps) {
   const [mpReady, setMpReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -45,7 +46,8 @@ export function FisamCheckout({
     if (!session.preferenceId || !session.publicKey) {
       if (!session.configError) {
         setError(
-          "Mercado Pago public key or preference missing. Set NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY_* and access token."
+          labels?.errorMissing ||
+            "Mercado Pago public key or preference missing. Set NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY_* and access token."
         );
       }
       return;
@@ -105,8 +107,8 @@ export function FisamCheckout({
         <div className="fisam-checkout__error" role="alert">
           <p>{error}</p>
           <p className="fisam-checkout__hint">
-            Fill payment env vars in `.env.local` (see `.env.example`). Checkout
-            stays on-site once keys are present.
+            {labels?.errorHint ||
+              "Payment on this page depends on the provider configuration."}
           </p>
         </div>
       )}
@@ -124,27 +126,36 @@ export function FisamCheckout({
 
       {!error && session.provider === "mercadopago_transparent" && (
         <div className="fisam-checkout__embed">
-          {!mpReady && <p className="fisam-checkout__loading">Loading secure checkout…</p>}
+          {!mpReady && (
+            <p className="fisam-checkout__loading">
+              {labels?.loading || "Opening checkout."}
+            </p>
+          )}
           <div id="fisam-mp-wallet-brick" />
         </div>
       )}
 
       <footer className="fisam-checkout__trust">
-        <p>Secure in-site checkout. No dark patterns — cancel anytime before payment.</p>
+        <p>
+          {labels?.secure ||
+            "Payment happens on this page. You can leave before confirming."}
+        </p>
         <ul>
           {termsUrl && (
             <li>
-              <a href={termsUrl}>Terms</a>
+              <a href={termsUrl}>{labels?.terms || "Terms"}</a>
             </li>
           )}
           {privacyUrl && (
             <li>
-              <a href={privacyUrl}>Privacy</a>
+              <a href={privacyUrl}>{labels?.privacy || "Privacy"}</a>
             </li>
           )}
           {cancelPolicyUrl && (
             <li>
-              <a href={cancelPolicyUrl}>Cancel / refund policy</a>
+              <a href={cancelPolicyUrl}>
+                {labels?.cancel || "What the session covers"}
+              </a>
             </li>
           )}
         </ul>
@@ -153,7 +164,7 @@ export function FisamCheckout({
           className="fisam-checkout__done"
           onClick={() => onComplete?.({ status: "navigating", transactionId: session.externalId })}
         >
-          I’ve completed payment — continue
+          {labels?.done || "I have completed payment"}
         </button>
       </footer>
     </div>

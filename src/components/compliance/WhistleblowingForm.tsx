@@ -49,6 +49,10 @@ export function WhistleblowingForm() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || t("error"));
+      if (data.degraded) {
+        setError(t("degraded"));
+        return;
+      }
       setProtocol(data.protocol as string);
       e.currentTarget.reset();
       setAnonymous(true);

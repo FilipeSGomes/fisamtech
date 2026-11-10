@@ -15,6 +15,7 @@ export {
   PRICES,
   resolveRoute,
   getDiscoveryPrice,
+  isCommercialDiscoveryPrice,
   formatMoney,
   mpAccessTokenEnvKey,
   mpPublicKeyEnvKey,

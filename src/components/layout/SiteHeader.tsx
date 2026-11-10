@@ -41,7 +41,7 @@ export function SiteHeader({ locale }: { locale: string }) {
   }
 
   const whatsappHref = `${WHATSAPP.url}?text=${encodeURIComponent(
-    "Olá, quero conversar sobre um desafio técnico."
+    t("whatsappPrefill")
   )}`;
 
   return (
@@ -57,10 +57,10 @@ export function SiteHeader({ locale }: { locale: string }) {
           <span>FISAM TECH</span>
         </Link>
 
-        <nav
+          <nav
           id={menuId}
           className={`nav${menuOpen ? " nav--open" : ""}`}
-          aria-label="Main"
+          aria-label={t("main")}
         >
           <Link href="/#process" onClick={closeMenu}>
             {t("process")}
@@ -71,14 +71,6 @@ export function SiteHeader({ locale }: { locale: string }) {
           <Link href="/cases" onClick={closeMenu}>
             {t("cases")}
           </Link>
-          {(isBr || current === "es") && (
-            <Link
-              href={isBr ? "/parceiros" : "/partners"}
-              onClick={closeMenu}
-            >
-              {t("partners")}
-            </Link>
-          )}
           <Link href="/qualify" onClick={closeMenu}>
             {t("discovery")}
           </Link>

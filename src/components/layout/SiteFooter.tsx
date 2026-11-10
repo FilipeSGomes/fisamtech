@@ -13,6 +13,7 @@ export async function SiteFooter({ locale }: { locale: string }) {
           <div className="footer-brand"><img src="/images/perfil-512.webp" alt="" width={64} height={64} /><span>FISAM TECH</span></div>
           <h3>{CONTACT.company}</h3>
           <p>CNPJ {CONTACT.cnpj}</p>
+          <p>{CONTACT.legalName}</p>
           <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
         </div>
         <div>

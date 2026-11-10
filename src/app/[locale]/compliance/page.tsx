@@ -1,6 +1,9 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import { Link } from "@/i18n/routing";
 import { CONTACT } from "@/lib/config";
+import { pageMetadata } from "@/lib/seo";
+import { PendingNotice } from "@/components/legal/PendingNotice";
 
 const SECTION_KEYS = [
   "code",
@@ -12,6 +15,16 @@ const SECTION_KEYS = [
   "channel",
   "governance",
 ] as const;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "compliance" });
+  return pageMetadata(locale, `${t("title")} | FISAM TECH`, t("lead"), "/compliance");
+}
 
 export default async function CompliancePage({
   params,
@@ -27,10 +40,11 @@ export default async function CompliancePage({
       <div className="shell legal-prose">
         <h1>{t("title")}</h1>
         <p className="lead">{t("lead")}</p>
+        <PendingNotice />
         <p>
           <strong>{t("effective")}</strong>
         </p>
-        <p>{t("companyLine", { company: CONTACT.company, cnpj: CONTACT.cnpj })}</p>
+        <p>{t("companyLine", { company: CONTACT.legalName, cnpj: CONTACT.cnpj })}</p>
 
         {SECTION_KEYS.map((key) => (
           <div key={key}>
@@ -48,6 +62,9 @@ export default async function CompliancePage({
             )}
           </div>
         ))}
+
+        <h2>{t("securityTitle")}</h2>
+        <p>{t("securityBody")}</p>
 
         <h2>{t("responsibleTitle")}</h2>
         <p>{t("responsibleBody", { email: CONTACT.email })}</p>

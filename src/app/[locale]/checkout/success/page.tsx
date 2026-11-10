@@ -1,5 +1,20 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/routing";
+import type { Metadata } from "next";
+import { BookingUnlock } from "@/components/funnel/BookingUnlock";
+import { getApprovedPaymentForLead } from "@/lib/db";
+import { issueBookingToken } from "@/lib/booking/issue";
+import { verifyBookingToken } from "@/lib/booking/token";
+import { pageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "checkout" });
+  return pageMetadata(locale, `${t("success")} | FISAM TECH`, t("successPending"), "/checkout/success");
+}
 
 export default async function CheckoutSuccessPage({
   params,
@@ -13,40 +28,24 @@ export default async function CheckoutSuccessPage({
   setRequestLocale(locale);
   const t = await getTranslations("checkout");
 
-  // Ask unlock API for booking token when leadId present
-  let bookHref = "/book";
-  if (sp.leadId) {
-    try {
-      const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-      const res = await fetch(`${base}/api/booking/unlock`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ leadId: sp.leadId, provisional: true }),
-        cache: "no-store",
-      });
-      if (res.ok) {
-        const data = await res.json();
-        if (data.token) bookHref = `/book?token=${encodeURIComponent(data.token)}`;
-      }
-    } catch {
-      // webhook may unlock later — pending page path
+  let initialToken: string | undefined;
+  if (sp.token && verifyBookingToken(sp.token)) {
+    initialToken = sp.token;
+  } else if (sp.leadId) {
+    const payment = await getApprovedPaymentForLead(sp.leadId);
+    if (payment) {
+      initialToken = await issueBookingToken(sp.leadId, payment.id);
     }
   }
 
   return (
     <section className="section">
-      <div className="shell">
-        <h1>{t("success")}</h1>
-        <p className="lead">{t("successLead")}</p>
-        <p style={{ marginTop: 24 }}>
-          <Link className="btn btn-primary" href={bookHref}>
-            {t("book")}
-          </Link>
+      <div className="shell legal-prose">
+        <h1>{initialToken ? t("success") : t("successTitlePending")}</h1>
+        <p className="lead">
+          {initialToken ? t("successLead") : t("successPending")}
         </p>
-        <p className="muted" style={{ marginTop: 16 }}>
-          If payment is still confirming, you may see a pending state — booking
-          unlocks after the signed webhook.
-        </p>
+        <BookingUnlock leadId={sp.leadId} initialToken={initialToken} />
       </div>
     </section>
   );

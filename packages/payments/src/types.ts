@@ -65,4 +65,14 @@ export type FisamCheckoutProps = {
   onComplete?: (result: { status: string; transactionId?: string }) => void;
   onError?: (message: string) => void;
   locale?: string;
+  labels?: {
+    secure?: string;
+    terms?: string;
+    privacy?: string;
+    cancel?: string;
+    done?: string;
+    loading?: string;
+    errorMissing?: string;
+    errorHint?: string;
+  };
 };

@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 import {
   resolveRoute,
   getDiscoveryPrice,
+  isCommercialDiscoveryPrice,
+  formatMoney,
   LATAM_MP_COUNTRIES,
   PRICES,
 } from "@fisamtech/payments";
@@ -49,5 +51,15 @@ describe("@fisamtech/payments routing", () => {
     );
     expect(getDiscoveryPrice("USD").amount).toBe(9900);
     expect(getDiscoveryPrice("GBP").amount).toBe(8900);
+    expect(getDiscoveryPrice("BRL").amount).toBe(499000);
+  });
+
+  it("publishes only the confirmed BRL amount as a commercial price", () => {
+    expect(isCommercialDiscoveryPrice("BRL")).toBe(true);
+    expect(isCommercialDiscoveryPrice("USD")).toBe(false);
+    expect(isCommercialDiscoveryPrice("EUR")).toBe(false);
+    expect(isCommercialDiscoveryPrice("GBP")).toBe(false);
+    expect(isCommercialDiscoveryPrice("ARS")).toBe(false);
+    expect(formatMoney(499000, "BRL")).toBe("R$ 4.990,00");
   });
 });

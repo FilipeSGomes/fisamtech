@@ -1,5 +1,5 @@
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -23,19 +23,24 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const messages = await getMessages();
+  const tNav = await getTranslations("nav");
 
   return (
     <html lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
           <a className="skip-link" href="#content">
-            Skip
+            {tNav("skip")}
           </a>
           <SiteHeader locale={locale} />
-          <main id="content">{children}</main>
+          <main id="content">
+            <div className="notice-stack">
+              <GeoSuggestionBanner />
+              <CookieBanner />
+            </div>
+            {children}
+          </main>
           <SiteFooter locale={locale} />
-          <GeoSuggestionBanner />
-          <CookieBanner />
           <AnalyticsListener />
         </NextIntlClientProvider>
       </body>

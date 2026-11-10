@@ -265,14 +265,37 @@ export function getDiscoveryPrice(currency: Currency): {
   return entry;
 }
 
+/** Published commercial amount. TEST and HYPOTHESIS notes stay in config but are not a price to show. */
+export function isCommercialDiscoveryPrice(currency: string): boolean {
+  if (!(currency in PRICES.technical_discovery)) return false;
+  const note = PRICES.technical_discovery[currency as Currency].note;
+  return !note.includes("TEST") && !note.includes("HYPOTHESIS");
+}
+
+const CURRENCY_LOCALE: Record<Currency, string> = {
+  BRL: "pt-BR",
+  USD: "en-US",
+  EUR: "de-DE",
+  GBP: "en-GB",
+  ARS: "es-AR",
+  MXN: "es-MX",
+  COP: "es-CO",
+  CLP: "es-CL",
+  PEN: "es-PE",
+  UYU: "es-UY",
+};
+
 export function formatMoney(amountMinor: number, currency: Currency): string {
-  // CLP/COP often treated as zero-decimal in Stripe; we store *100 consistently — display /100
+  const zeroDecimal = currency === "CLP" || currency === "COP";
   const amount = amountMinor / 100;
-  return new Intl.NumberFormat(undefined, {
+  return new Intl.NumberFormat(CURRENCY_LOCALE[currency], {
     style: "currency",
     currency,
-    maximumFractionDigits: ["CLP", "COP", "JPY"].includes(currency) ? 0 : 2,
-  }).format(amount);
+    minimumFractionDigits: zeroDecimal ? 0 : 2,
+    maximumFractionDigits: zeroDecimal ? 0 : 2,
+  })
+    .format(amount)
+    .replace(/\u00a0/g, " ");
 }
 
 /** Env key helpers — secrets server-only */

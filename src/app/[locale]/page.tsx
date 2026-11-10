@@ -7,9 +7,18 @@ import {
   FISAM_CLIENTS,
   PRODUCTS,
   WHATSAPP,
+  formatMoney,
+  getDiscoveryPrice,
 } from "@/lib/config";
-import { formatMoney, getDiscoveryPrice } from "@fisamtech/payments";
-import type { Currency } from "@fisamtech/payments";
+import { pageMetadata } from "@/lib/seo";
+
+const SERVICE_KEYS = [
+  "architecture",
+  "backend",
+  "integrations",
+  "legacy",
+  "genai",
+] as const;
 
 export async function generateMetadata({
   params,
@@ -18,21 +27,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
-  return {
-    title: t("title"),
-    description: t("description"),
-    alternates: {
-      canonical: `/${locale}`,
-      languages: {
-        en: "/en",
-        "pt-BR": "/pt-br",
-        "pt-PT": "/pt-pt",
-        es: "/es",
-        fr: "/fr",
-        de: "/de",
-      },
-    },
-  };
+  return pageMetadata(locale, t("title"), t("description"), "/");
 }
 
 export default async function HomePage({
@@ -44,18 +39,8 @@ export default async function HomePage({
   setRequestLocale(locale);
   const t = await getTranslations();
   const isBr = locale === "pt-br";
-
-  // Default display currency by locale suggestion
-  const currencyByLocale: Record<string, Currency> = {
-    "pt-br": "BRL",
-    "pt-pt": "EUR",
-    en: "USD",
-    es: "EUR",
-    fr: "EUR",
-    de: "EUR",
-  };
-  const currency = currencyByLocale[locale] ?? "USD";
-  const price = getDiscoveryPrice(currency);
+  const price = getDiscoveryPrice("BRL");
+  const priceLabel = formatMoney(price.amount, "BRL");
 
   return (
     <div className="home-page">
@@ -72,14 +57,14 @@ export default async function HomePage({
             {isBr ? (
               <a
                 className="btn btn-ghost"
-                href={`${WHATSAPP.url}?text=${encodeURIComponent("Olá, quero conversar sobre um desafio técnico.")}`}
+                href={`${WHATSAPP.url}?text=${encodeURIComponent(t("hero.whatsappPrefill"))}`}
                 target="_blank"
                 rel="noreferrer"
               >
                 {t("hero.ctaSecondary")}
               </a>
             ) : (
-              <a className="btn btn-ghost" href={`mailto:contato@fisamtech.com`}>
+              <a className="btn btn-ghost" href="mailto:contato@fisamtech.com">
                 {t("hero.ctaSecondary")}
               </a>
             )}
@@ -87,7 +72,7 @@ export default async function HomePage({
               {t("hero.ctaWork")}
             </Link>
           </div>
-          <div className="hero-footnote"><span className="hero-line" /> Java · Spring Boot · APIs · Cloud</div>
+          <div className="hero-footnote"><span className="hero-line" /> {t("hero.footnote")}</div>
           </div>
           <ArchitectureVisual labels={{ title: t("hero.visual.title"), applications: t("hero.visual.applications"), apis: t("hero.visual.apis"), data: t("hero.visual.data"), operations: t("hero.visual.operations"), caption: t("hero.visual.caption"), hint: t("hero.visual.hint"), descriptions: { applications: t("hero.visual.descriptions.applications"), apis: t("hero.visual.descriptions.apis"), data: t("hero.visual.descriptions.data"), operations: t("hero.visual.descriptions.operations") } }} />
         </div>
@@ -124,6 +109,7 @@ export default async function HomePage({
         <div className="shell">
           <p className="eyebrow">{t("problems.eyebrow")}</p>
           <h2>{t("problems.title")}</h2>
+          <p className="lead">{t("problems.lead")}</p>
           <div className="grid-2">
             {(["scale", "integrations", "legacy", "genai"] as const).map((k, index) => (
               <article key={k} className="card problem-card">
@@ -140,29 +126,16 @@ export default async function HomePage({
         <div className="shell">
           <p className="eyebrow">{t("services.eyebrow")}</p>
           <h2>{t("services.title")}</h2>
+          <p className="lead">{t("services.lead")}</p>
           <div className="grid-3">
-            {(
-              [
-                "architecture",
-                "backend",
-                "integrations",
-                "legacy",
-                "genai",
-                "field",
-              ] as const
-            ).map((k, index) => (
+            {SERVICE_KEYS.map((k, index) => (
               <article key={k} className={`card service-card service-card--${k}`}>
-                <span className="card-index">0{index + 1} / ENGINEERING</span>
+                <span className="card-index">0{index + 1}</span>
                 <h3>{t(`services.${k}.title`)}</h3>
                 <p style={{ marginTop: 8 }}>{t(`services.${k}.body`)}</p>
-                {k !== "field" && (
-                  <Link
-                    href={`/services/${t(`services.${k}.slug`)}`}
-                    style={{ display: "inline-block", marginTop: 12 }}
-                  >
-                    {t("common.learnMore")}
-                  </Link>
-                )}
+                <Link href={`/services/${t(`services.${k}.slug`)}`}>
+                  {t("common.learnMore")}
+                </Link>
               </article>
             ))}
           </div>
@@ -179,13 +152,16 @@ export default async function HomePage({
               <article key={c} className="card">
                 <h3>{c}</h3>
                 <p className="muted" style={{ marginTop: 6 }}>
-                  {t("cases.clientsTitle")}
+                  {t("casesHome.clientLabel")}
                 </p>
               </article>
             ))}
             {PRODUCTS.slice(0, 2).map((p) => (
               <article key={p.name} className="card">
                 <h3>{p.name}</h3>
+                <p className="muted" style={{ marginTop: 6 }}>
+                  {t("casesHome.productLabel")}
+                </p>
                 <a href={p.url} target="_blank" rel="noreferrer">
                   {p.url.replace("https://", "")}
                 </a>
@@ -193,7 +169,7 @@ export default async function HomePage({
             ))}
           </div>
           <p style={{ marginTop: 20 }}>
-            <Link href="/cases">{t("casesHome.link")} →</Link>
+            <Link href="/cases">{t("casesHome.link")}</Link>
           </p>
         </div>
       </section>
@@ -202,6 +178,7 @@ export default async function HomePage({
         <div className="shell">
           <p className="eyebrow">{t("howWeWork.eyebrow")}</p>
           <h2>{t("howWeWork.title")}</h2>
+          <p className="lead">{t("howWeWork.lead")}</p>
           <div className="grid-2">
             {(["1", "2", "3", "4"] as const).map((n) => (
               <article key={n} className="card process-card">
@@ -256,18 +233,26 @@ export default async function HomePage({
         </div>
       </section>
 
+      <section className="section trust-section">
+        <div className="shell legal-prose">
+          <p className="eyebrow">{t("trust.eyebrow")}</p>
+          <h2>{t("trust.title")}</h2>
+          <p className="lead">{t("trust.body")}</p>
+        </div>
+      </section>
+
       <section id="discovery" className="section section--dark discovery-section">
         <div className="shell">
           <p className="eyebrow">{t("discovery.eyebrow")}</p>
           <h2>{t("discovery.title")}</h2>
           <p className="lead">{t("discovery.lead")}</p>
           <ul style={{ marginTop: 20 }}>
-            {(["1", "2", "3"] as const).map((n) => (
+            {(["1", "2", "3", "4"] as const).map((n) => (
               <li key={n}>{t(`discovery.includes.${n}`)}</li>
             ))}
           </ul>
           <p style={{ marginTop: 20, fontSize: "1.4rem", fontWeight: 600 }}>
-            {t("discovery.from")} {formatMoney(price.amount, currency)}
+            {t("discovery.priceLabel")} {priceLabel}
           </p>
           <p className="muted" style={{ marginTop: 8 }}>
             {t("discovery.priceNote")}
@@ -284,7 +269,7 @@ export default async function HomePage({
         <div className="shell faq">
           <p className="eyebrow">{t("faq.eyebrow")}</p>
           <h2>{t("faq.title")}</h2>
-          {(["1", "2", "3", "4"] as const).map((n) => (
+          {(["1", "2", "3", "4", "5"] as const).map((n) => (
             <details key={n}>
               <summary>{t(`faq.items.${n}.q`)}</summary>
               <p style={{ marginTop: 8 }}>{t(`faq.items.${n}.a`)}</p>

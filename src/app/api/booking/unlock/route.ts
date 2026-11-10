@@ -1,11 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import {
-  signBookingToken,
-  hashToken,
-  getCalendarUrl,
-} from "@/lib/booking/token";
-import { insertBooking } from "@/lib/db";
+import { getCalendarUrl } from "@/lib/booking/token";
+import { issueBookingToken } from "@/lib/booking/issue";
+import { getApprovedPaymentForLead } from "@/lib/db";
 
 const schema = z.object({
   leadId: z.string().min(1),
@@ -15,41 +12,41 @@ const schema = z.object({
 });
 
 /**
- * Issues a signed booking token after payment approval.
- * Production path: called from webhook handlers.
- * provisional=true allows success-page flow in local without live webhooks
- * (still requires BOOKING_SECRET; calendar remains gated by token validity).
+ * Issues a signed booking token after a confirmed payment.
+ * Production refuses provisional unlocks. A lead id alone is not enough:
+ * there must be an approved payment row for that lead.
+ * Webhooks do not call this route. They sign the token themselves.
  */
 export async function POST(req: NextRequest) {
   try {
     const body = schema.parse(await req.json());
-    const allowProvisional =
-      body.provisional && process.env.NODE_ENV !== "production";
 
-    if (!allowProvisional && !body.paymentId) {
-      // In production without paymentId, refuse — webhook must drive unlock
+    if (body.provisional) {
       if (process.env.NODE_ENV === "production") {
         return NextResponse.json(
           { error: "Unlock requires verified payment" },
           { status: 403 }
         );
       }
+      const token = await issueBookingToken(body.leadId, body.paymentId);
+      return NextResponse.json({ token, calendarUrl: getCalendarUrl() });
     }
 
-    const token = signBookingToken({
-      leadId: body.leadId,
-      paymentId: body.paymentId,
-    });
+    const payment = await getApprovedPaymentForLead(body.leadId);
+    if (!payment) {
+      return NextResponse.json(
+        { error: "Payment not confirmed", pending: true },
+        { status: 409 }
+      );
+    }
+    if (body.paymentId && body.paymentId !== payment.id) {
+      return NextResponse.json(
+        { error: "Unlock requires verified payment" },
+        { status: 403 }
+      );
+    }
 
-    await insertBooking({
-      lead_id: body.leadId,
-      payment_id: body.paymentId,
-      token_hash: hashToken(token),
-      expires_at: new Date(Date.now() + 14 * 86400000).toISOString(),
-      calendar_url: getCalendarUrl(),
-      status: "unlocked",
-    });
-
+    const token = await issueBookingToken(body.leadId, payment.id);
     return NextResponse.json({ token, calendarUrl: getCalendarUrl() });
   } catch (e) {
     const message = e instanceof Error ? e.message : "Unlock failed";

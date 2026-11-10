@@ -3,9 +3,22 @@
 import { FormEvent, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
-import { SUPPORTED_CURRENCIES, type Currency } from "@fisamtech/payments";
-import { BUDGET_RANGES, formatBudgetRangeLabel } from "@/lib/config";
+import { isCommercialDiscoveryPrice, type Currency } from "@fisamtech/payments/price";
+import { BUDGET_RANGES } from "@/lib/config";
+import { Link } from "@/i18n/routing";
 import { track } from "@/lib/analytics";
+
+function formatBudgetBrl(range: (typeof BUDGET_RANGES)[number]): string {
+  const fmt = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    maximumFractionDigits: 0,
+  });
+  const min = fmt.format(range.min).replace(/\u00a0/g, " ");
+  if (range.max == null) return `${min}+`;
+  const max = fmt.format(range.max).replace(/\u00a0/g, " ");
+  return `${min} a ${max}`;
+}
 
 function getCookie(name: string): string | undefined {
   if (typeof document === "undefined") return undefined;
@@ -27,7 +40,7 @@ export function QualifyForm() {
     track("qualification_submitted");
 
     const fd = new FormData(e.currentTarget);
-    const currency = (fd.get("currency") as Currency) || "USD";
+    const currency = (fd.get("currency") as Currency) || "BRL";
     const country =
       getCookie("COUNTRY") ||
       (currency === "BRL"
@@ -112,15 +125,15 @@ export function QualifyForm() {
           </option>
           {BUDGET_RANGES.map((range) => (
             <option key={range.id} value={range.id}>
-              {formatBudgetRangeLabel(range, locale)}
+              {formatBudgetBrl(range)}
             </option>
           ))}
         </select>
       </label>
       <label>
         {t("currency")}
-        <select name="currency" defaultValue={locale === "pt-br" ? "BRL" : "USD"}>
-          {SUPPORTED_CURRENCIES.map((c) => (
+        <select name="currency" defaultValue="BRL">
+          {(["BRL"] as const).filter((c) => isCommercialDiscoveryPrice(c)).map((c) => (
             <option key={c} value={c}>
               {c}
             </option>
@@ -128,7 +141,12 @@ export function QualifyForm() {
         </select>
       </label>
       <p className="muted" style={{ fontSize: "0.9rem" }}>
-        {t("privacy")}
+        {t("priceNote")}
+      </p>
+      <p className="muted" style={{ fontSize: "0.9rem" }}>
+        {t("privacyBefore")}{" "}
+        <Link href="/privacy">{t("privacyLink")}</Link>
+        {t("privacyAfter")}
       </p>
       {error && (
         <p role="alert" style={{ color: "#b00020" }}>

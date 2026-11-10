@@ -1,30 +1,32 @@
 {
   "meta": {
     "siteName": "FISAM TECH",
-    "title": "FISAM TECH | Architecture and engineering for critical systems",
-    "description": "Backend architecture, critical integrations, governed GenAI, and software for systems that cannot fail. Founder experience in financial and industrial environments — not claimed as FISAM clients."
+    "title": "FISAM TECH | Software engineering for systems already in use",
+    "description": "Architecture, backend, integration and modernization for companies with a system in operation. Technical diagnosis at R$ 4.990,00. Bradesco, B3, Itaú, Next and Capgemini are the founder's prior work, not clients."
   },
   "nav": {
-    "process": "How we work",
+    "process": "Process",
     "services": "Services",
-    "cases": "Cases",
-    "partners": "Partners",
+    "cases": "Work",
+    "partners": "Ideas",
     "contact": "Contact",
-    "discovery": "Technical Discovery",
+    "discovery": "Technical diagnosis",
     "whatsapp": "WhatsApp",
+    "whatsappPrefill": "Hello. I want to talk about a system that is already in use.",
     "skip": "Skip to content",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "main": "Main"
   },
   "locale": {
     "label": "Language",
     "currency": "Currency",
     "suggest": "Suggested for your region",
     "continue": "Continue",
-    "chooseRegion": "Language & currency",
+    "chooseRegion": "Language and currency",
     "latamGroup": "Latin America",
     "advancedCurrency": "Change currency only",
-    "advancedHint": "Most people can skip this. One row above already sets language and currency together.",
+    "advancedHint": "Most people can ignore this. One row above already sets language and currency together.",
     "confirm": "Confirm",
     "change": "Change",
     "suggestPrompt": "Continue with {region}?",
@@ -84,383 +86,601 @@
     }
   },
   "hero": {
-    "eyebrow": "Systems engineering · Architecture first",
-    "title": "Engineering that connects technology and business.",
-    "lead": "FISAM TECH designs and builds backend systems, critical integrations, and governed GenAI for companies past improvisation — when architecture, reliability, and clear decisions matter.",
-    "ctaPrimary": "Book Technical Discovery",
-    "ctaSecondary": "Talk to an Engineer",
-    "ctaWork": "See Our Work",
-    "scroll": "How we work",
+    "eyebrow": "São Paulo · software engineering",
+    "title": "Engineering that connects technology and the business.",
+    "lead": "We build systems and integrations for companies that need fewer failures, automated processes, and an operation that keeps running.",
+    "ctaPrimary": "Request a technical diagnosis",
+    "ctaSecondary": "Email the team",
+    "ctaWork": "See what we publish",
+    "footnote": "Architecture, backend, integration and modernization of systems already in use.",
+    "whatsappPrefill": "Hello. I want to talk about a system that is already in use.",
+    "scroll": "How the work starts",
     "visual": {
       "title": "Systems architecture",
       "applications": "Applications",
-      "apis": "APIs & integrations",
+      "apis": "APIs and integrations",
       "data": "Data",
       "operations": "Operations",
-      "caption": "From business processes to technical architecture.",
-      "hint": "Explore the architecture: hover, use your keyboard or tap a block.",
+      "caption": "From the business process to the technical architecture.",
+      "hint": "Explore the diagram with a pointer, the keyboard, or a tap.",
       "descriptions": {
-        "applications": "Custom web systems and interfaces that turn business rules into clear tools for your team.",
-        "apis": "We connect systems, ERPs and CRMs through APIs, failure handling and traceable information flows.",
-        "data": "We structure data flows, access controls and traceability to support decisions and audits.",
-        "operations": "We automate routines and define workflows to reduce manual rework and clarify operations."
+        "applications": "Systems the team uses to run the business rule, with the flow visible to the people who operate it.",
+        "apis": "Connections between systems, with failure handling and a place to see where the information stopped.",
+        "data": "The path of the data, who can access it, and what is recorded so the operation can check it.",
+        "operations": "Routines that leave manual work once the process is understood."
       }
     }
   },
   "credentials": {
-    "eyebrow": "Credentials",
-    "title": "Diagnosis before code. Architecture that sustains the business.",
-    "lead": "Specialized in backend architecture, distributed systems, and critical integrations. Founder Filipe Godinho Gomes brings 10+ years on high-availability work in financial and industrial environments — prior experience at Bradesco, B3, Itaú, Banco Next, and Capgemini Engineering. Those organizations are founder background, not FISAM TECH clients.",
-    "exp": "Experience",
-    "expValue": "10+ years",
-    "market": "Background",
-    "marketValue": "Finance · Industry",
-    "focus": "Focus",
-    "focusValue": "Critical systems",
-    "method": "Method",
-    "methodValue": "Diagnosis first"
+    "eyebrow": "Who does the work",
+    "title": "The company does the engineering. The founder's career is not a client list.",
+    "lead": "FISAM TECH works on architecture, backend, integration and modernization of systems already in use. Filipe Godinho Gomes, founder and technical lead, states more than 10 years in that kind of system. Bradesco, B3, Itaú, Banco Next, Capgemini Engineering and Gerdau are his previous employers and projects. They are not FISAM TECH contracts.",
+    "exp": "Founder's stated experience",
+    "expValue": "More than 10 years",
+    "market": "Previous employers",
+    "marketValue": "Bradesco · B3 · Next",
+    "focus": "What the company contracts",
+    "focusValue": "Systems in operation",
+    "method": "First step",
+    "methodValue": "Paid diagnosis"
   },
   "problems": {
-    "eyebrow": "When to call us",
-    "title": "Problems we are built for",
+    "eyebrow": "Situation",
+    "title": "When a company looks for this kind of engineering",
+    "lead": "The center of the work is a system that already runs. Evolving an MVP, including one built with an AI tool, is an entry situation. It is not the company's category.",
     "items": {
       "scale": {
-        "title": "Systems that do not scale",
-        "body": "Architecture that worked for the first release is now the bottleneck."
+        "title": "The system no longer matches the operation",
+        "body": "The first release became the real system. Failures, queues and rework show up when more customers or more data arrive."
       },
       "integrations": {
-        "title": "Fragile integrations",
-        "body": "ERPs, banks, legacy APIs — brittle glue and silent data loss."
+        "title": "The integration loses or repeats information",
+        "body": "ERP, bank, old API or spreadsheet. The data does not arrive, arrives twice, or nobody knows which step stopped."
       },
       "legacy": {
-        "title": "Legacy that blocks product",
-        "body": "Modernization without stopping the operation."
+        "title": "The old system blocks the change",
+        "body": "The operation depends on a system that is hard to change. The replacement has to live with what already works."
       },
       "genai": {
-        "title": "GenAI without governance",
-        "body": "Copilots and RAG need traceability, guardrails, and data discipline."
+        "title": "The MVP has to hold real use",
+        "body": "The product already opens, including when it was created with an AI tool. It now needs customers, real data, and an operation that cannot stop."
       }
     }
   },
   "services": {
     "eyebrow": "Services",
-    "title": "What we deliver",
+    "title": "What FISAM TECH does",
+    "lead": "Each area below names an operational problem. The service page says who it is for, what the analysis covers, and what the site can show today.",
+    "pageLabels": {
+      "problem": "Problem",
+      "audience": "Who it is for",
+      "deliver": "What will be reviewed or delivered",
+      "method": "How the work happens",
+      "evidence": "What can be shown today"
+    },
     "architecture": {
-      "title": "Critical systems architecture",
-      "body": "Microservices, distributed systems, and high-availability design decisions from day one.",
-      "slug": "systems-architecture"
+      "title": "Software architecture and engineering",
+      "body": "A structural decision for a system that already has users, data and a routine. What changes, what stays, and what another patch will not fix.",
+      "slug": "systems-architecture",
+      "page": {
+        "problem": "The structure of the system no longer fits the operation. Each new change raises the chance of failure, and the team discusses symptoms instead of the decision that has to be made.",
+        "audience": "Companies with a system in use, where the next change crosses teams, data, or a process that cannot stop.",
+        "deliver": "A reading of the current structure, the risks, what is kept, and a sequence of next steps. It is not a closed project design and it is not a guarantee of results.",
+        "method": "The work starts with the paid diagnosis. If there is a project, decisions are written down and the build follows parts the operation can follow.",
+        "evidence": "No architecture metric is published. The cases page names SigaBR and 637 Tennis Club, without numbers. Bradesco, B3, Itaú, Banco Next, Capgemini Engineering and Gerdau are the founder's prior experience, not FISAM TECH clients.",
+        "cta": "Request a technical diagnosis"
+      }
     },
     "backend": {
-      "title": "Advanced backend engineering",
-      "body": "Java, Spring Boot, Kafka, AWS. REST APIs, messaging, CI/CD, low failure tolerance.",
-      "slug": "backend-engineering"
+      "title": "Backend development",
+      "body": "Services and APIs the operation uses every day. The focus is seeing failure early, receiving the data whole, and being able to follow the flow.",
+      "slug": "backend-engineering",
+      "page": {
+        "problem": "The business rule lives in code that fails without a trace, or that nobody can change without fear of stopping the routine.",
+        "audience": "Companies that need backend for a system that already has customers, an integration, or an internal routine.",
+        "deliver": "The services, APIs and error handling agreed in scope. The site does not publish a technology list as if that were the service.",
+        "method": "After the diagnosis, the scope is split. The build follows what was written down, with a way to see what changed.",
+        "evidence": "No backend metric is published on this site. The founder's prior experience in distributed systems is kept apart from FISAM TECH contracts.",
+        "cta": "Request a technical diagnosis"
+      }
     },
     "integrations": {
-      "title": "Corporate system integration",
-      "body": "ERPs, CRMs, banks, external APIs, and legacy systems — without rework or data loss.",
-      "slug": "critical-integrations"
+      "title": "Systems integration",
+      "body": "Connecting what the company already uses, with error handling and a point where you can see where the flow stopped.",
+      "slug": "critical-integrations",
+      "page": {
+        "problem": "Two systems do not tell the same story. An order, a payment, stock or a record is lost, repeated, or stuck in a step nobody can see.",
+        "audience": "Companies that already run on an ERP, a bank, an API or a spreadsheet and need the information to cross those systems.",
+        "deliver": "A map of the flow, the failure points, and what will be connected. The versioned SigaBR text mentions an integration with DETRAN via RENAVAM and Banco Rendimento, without a metric and without an attached document.",
+        "method": "The diagnosis looks at the real flow before the integration is written. If the problem does not justify a project, the opinion says so.",
+        "evidence": "The name SigaBR is published as a client, with the integration named above. This repository has no source, date or measured result.",
+        "cta": "Request a technical diagnosis"
+      }
     },
     "legacy": {
-      "title": "Legacy modernization",
-      "body": "Gradual migration to modern architecture without stopping operations.",
-      "slug": "legacy-modernization"
+      "title": "Application modernization",
+      "body": "Changing an old system while the operation continues. The plan says what stays up and what changes at each step.",
+      "slug": "legacy-modernization",
+      "page": {
+        "problem": "The system that carries the routine is hard to change. Stopping to rewrite everything is not an option the operation will accept.",
+        "audience": "Companies whose current system still runs the business and has to change without treating downtime as a detail.",
+        "deliver": "A reading of what the system does today, what can change in stages, and what stays out. There is no promise of a migration without interruption.",
+        "method": "The diagnosis separates what the operation cannot lose from what can be rewritten. A project, if there is one, follows that order.",
+        "evidence": "There is no modernization case with a measured result on this site. The cases page says what is published and what is not.",
+        "cta": "Request a technical diagnosis"
+      }
     },
     "genai": {
-      "title": "GenAI with governance",
-      "body": "Natural-language copilots with RAG, traceability, and guardrails for regulated environments.",
-      "slug": "genai-governance"
-    },
-    "field": {
-      "title": "Field, tablet, and mobile web",
-      "body": "Responsive products for teams on the move — light flows, tablet-first design."
+      "title": "Evolution of MVPs and products created with AI",
+      "body": "When the first version has to become a customer system. A review of what exists, what is kept, and what has to be rebuilt.",
+      "slug": "genai-governance",
+      "page": {
+        "problem": "The MVP works in a demo, or it was generated with an AI tool, and it now has to hold customers, real data, and an operation that cannot stop.",
+        "audience": "Companies in that situation. It is an entry scenario. FISAM TECH does not present itself as a firm that fixes AI-generated code.",
+        "deliver": "A reading of what the system already does, of the risks in data, access, integration and operations, and of what would make sense to keep or rebuild. The opinion may be that there is no project.",
+        "method": "The diagnosis session comes before any rewrite. There is no published standard timeline for turning an MVP into a production system.",
+        "evidence": "There is no public case of MVP hardening in this repository. The published names are on the cases page, without metrics.",
+        "cta": "Request a technical diagnosis"
+      }
     }
   },
   "casesHome": {
-    "eyebrow": "Proof",
-    "title": "Clients and products in operation",
-    "lede": "Deliveries under FISAM TECH and our own products. Founder prior experience at Bradesco, B3, Itaú, Banco Next, Capgemini, and Gerdau is documented on Cases as background — not as current FISAM clients.",
-    "link": "View cases"
+    "eyebrow": "What is published",
+    "title": "Names the site can show",
+    "lede": "Two names are recorded as FISAM TECH clients, without metrics. Product addresses belong to the company itself. The founder's previous employers are not on this list.",
+    "clientLabel": "Name published as a client. No metric on this site.",
+    "productLabel": "A FISAM TECH product, not a client.",
+    "link": "See what the cases page can support"
   },
   "howWeWork": {
-    "eyebrow": "Methodology",
-    "title": "How we work",
+    "eyebrow": "Process",
+    "title": "How a piece of work starts",
+    "lead": "There is no published standard timeline. The order below is the path from the diagnosis to a possible project.",
     "steps": {
       "1": {
         "title": "Understand",
-        "body": "Map the system, risks, and opportunities before writing code."
+        "body": "Read the system, what the operation cannot stop, and where the data is lost."
       },
       "2": {
-        "title": "Document",
-        "body": "Technical decisions recorded, clear scope, evolution plan from the start."
+        "title": "Write it down",
+        "body": "Record the decision and what stays out of scope."
       },
       "3": {
-        "title": "Divide",
-        "body": "Structured backlog, incremental delivery, governance at each step."
+        "title": "Split",
+        "body": "Separate deliveries the company can follow."
       },
       "4": {
         "title": "Build",
-        "body": "Code that sustains business growth, with full traceability."
+        "body": "Implement what was agreed, with a way to see what changed."
       }
     }
   },
   "why": {
-    "eyebrow": "Why FISAM",
-    "title": "Serious engineering, honest framing",
+    "eyebrow": "Hiring",
+    "title": "What this page answers before a conversation",
     "items": {
-      "a": "No invented clients, metrics, or testimonials.",
-      "b": "Diagnosis before proposal — we do not sell code first.",
-      "c": "Transferable experience from critical environments, clearly labeled."
+      "a": "The first step is a paid session, with a published price, a described deliverable and a named person.",
+      "b": "The founder's prior experience stays separate from a FISAM TECH contract.",
+      "c": "The site does not publish a certification, a badge, or a result without a source."
     }
   },
   "founder": {
     "title": "Founder",
-    "body1": "Filipe Godinho Gomes is a Tech Lead with 10+ years in backend development, microservice architecture, and distributed systems. Before founding FISAM TECH, he worked on critical projects for Bradesco, B3, Itaú, Gerdau, and other financial and industrial players.",
-    "body2": "At FISAM TECH, that base is applied to real operational problems — sensitive integrations, field/mobile channels, and GenAI under governance — not slideware that breaks in production.",
-    "prior": "Prior experience (not FISAM clients): Bradesco · B3 · Itaú · Gerdau · Banco Next · Capgemini Engineering",
+    "body1": "Filipe Godinho Gomes is the founder and technical lead of FISAM TECH. The site records more than 10 years in backend and distributed systems, in previous employment.",
+    "body2": "At FISAM TECH the work is a system in use: integration, modernization, and evolution of a product that already has customers. He conducts the technical diagnosis.",
+    "prior": "Previous employment and projects. Not FISAM TECH clients.",
     "alt": "Filipe Gomes, founder of FISAM TECH"
   },
+  "trust": {
+    "eyebrow": "Data and access",
+    "title": "What the site uses, and what that is not",
+    "body": "Hosting on Vercel, a database on Supabase or Postgres, email through Resend, payment on Mercado Pago or Stripe, scheduling on Google Calendar, and messages on WhatsApp. A report, when the person identifies themselves, stores name, email and phone. This describes providers and access. It is not an ISO certification, SOC 2, or a compliance seal."
+  },
   "discovery": {
-    "eyebrow": "Entry engagement",
-    "title": "Technical Discovery",
-    "lead": "A paid technical session to map your system, identify architectural risks, and define concrete next steps. Calendar access unlocks after payment.",
+    "eyebrow": "First step",
+    "title": "Technical diagnosis",
+    "lead": "A paid session to read a system that already exists. Filipe Godinho Gomes, founder and technical lead, conducts the session. Before it, the company sends on the form its name, email, company, role, a description of the challenge, and a budget range.",
     "includes": {
-      "1": "Current technical landscape diagnosis",
-      "2": "Architecture risks and bottlenecks",
-      "3": "Clear next steps — no fluff"
+      "1": "Deliverable: a reading of the situation, the risks observed, and next steps. It is not a closed project.",
+      "2": "The opinion may be that there is no problem that justifies a project.",
+      "3": "The calendar opens after the payment is confirmed in the system.",
+      "4": "The scheduling link appears on this confirmation and in the email, when email sending is configured."
     },
-    "priceNote": "Prices are set per currency. We never convert BRL to USD in the interface.",
-    "cta": "Start qualification",
-    "from": "From"
+    "priceLabel": "Session price",
+    "priceNote": "R$ 4.990,00 is the amount charged at checkout, in Brazilian reais, through Mercado Pago. In Brazil the session is not free. WhatsApp is a conversation, not a waiver. A price in dollars, euros or pounds is not published.",
+    "cta": "Request the technical diagnosis"
   },
   "faq": {
-    "eyebrow": "FAQ",
-    "title": "Common questions",
+    "eyebrow": "Questions",
+    "title": "Frequent questions",
     "items": {
       "1": {
-        "q": "Is Technical Discovery free?",
-        "a": "No. International Technical Discovery is a paid engagement. Calendar booking unlocks after payment confirmation."
+        "q": "Is the diagnosis free?",
+        "a": "No. The session costs R$ 4.990,00. Checkout in reais sends the payment to Mercado Pago. A WhatsApp conversation does not replace payment and does not open the calendar."
       },
       "2": {
-        "q": "Are Bradesco, B3, Itaú FISAM clients?",
-        "a": "No. They are prior employer/client experience of the founder, clearly labeled as such."
+        "q": "Are Bradesco, B3 and Itaú FISAM TECH clients?",
+        "a": "No. They are prior professional experience of Filipe Godinho Gomes. FISAM TECH did not execute those contracts."
       },
       "3": {
-        "q": "Which payment methods?",
-        "a": "Stripe for USD, EUR, and GBP. Mercado Pago for BRL."
+        "q": "Which payment methods does the site show?",
+        "a": "The published price is in reais, on Mercado Pago. The code also routes dollars, euros and pounds to Stripe, with amounts marked as test. Those amounts are not shown as a commercial price."
       },
       "4": {
-        "q": "Do you force my language?",
-        "a": "We suggest language and currency from your region. You can change anytime; we respect your choice."
+        "q": "What if the opinion is not to do the project?",
+        "a": "The session delivers the reading that was paid for. There is no obligation to open a project afterwards."
+      },
+      "5": {
+        "q": "Is the language forced?",
+        "a": "The site suggests language, currency and country from the region and stores three cookies for one year. The choice can be changed in the header."
       }
     }
   },
   "cta": {
-    "title": "Ready for a serious technical conversation?",
-    "lead": "Start with qualification. After payment, unlock calendar booking for Technical Discovery.",
-    "primary": "Book Technical Discovery",
-    "secondary": "Talk to an Engineer"
+    "title": "The next step is the technical diagnosis",
+    "lead": "Qualification asks for the company's context and continues to the payment of R$ 4.990,00. The calendar opens after confirmation.",
+    "primary": "Request a technical diagnosis",
+    "secondary": "Email the team"
   },
   "footer": {
     "company": "Company",
-    "legal": "Legal",
+    "legal": "Institutional",
     "contact": "Contact",
     "privacy": "Privacy",
     "terms": "Terms",
     "cookies": "Cookies",
-    "partners": "Partners",
+    "partners": "Ideas",
     "rights": "All rights reserved.",
-    "note": "Technology with clarity, from discovery to delivery.",
-    "work": "Clients and projects",
-    "discovery": "Technical discovery",
-    "compliance": "Compliance & Integrity",
-    "whistleblowing": "Whistleblowing Channel"
+    "note": "Software engineering for systems in operation.",
+    "work": "What we publish",
+    "discovery": "Technical diagnosis",
+    "compliance": "Compliance and integrity",
+    "whistleblowing": "Reporting channel"
   },
   "cookies": {
-    "title": "Cookies",
-    "body": "We use necessary cookies for language and currency preferences. Analytics cookies are optional and off by default until you accept.",
-    "accept": "Accept optional",
+    "title": "Cookies on this site",
+    "body": "The site stores three cookies for one year, before this notice: NEXT_LOCALE (language), CURRENCY (currency) and COUNTRY (country). There is no analytics cookie and no advertising pixel. This notice only records your choice in this browser.",
+    "accept": "Understood",
     "reject": "Necessary only",
     "link": "Cookie policy"
   },
   "qualification": {
-    "title": "Qualify for Technical Discovery",
-    "lead": "Tell us enough to prepare a useful session. After submit, you proceed to checkout.",
+    "eyebrow": "Technical diagnosis",
+    "metaTitle": "Request a technical diagnosis",
+    "metaDescription": "Form for the FISAM TECH technical diagnosis. The session costs R$ 4.990,00 and the calendar opens after the payment is confirmed.",
+    "title": "Request the technical diagnosis",
+    "lead": "Describe the system and the problem. Checkout then charges R$ 4.990,00. Filipe Godinho Gomes conducts the session. The opinion may be that there is no project.",
     "name": "Full name",
     "email": "Work email",
     "company": "Company",
     "country": "Country",
-    "role": "Your role",
-    "challenge": "Technical challenge",
-    "budget": "Approximate budget range",
+    "role": "Role",
+    "challenge": "Describe the system and the problem",
+    "budget": "Project budget range",
     "budgetPlaceholder": "Select a range",
-    "currency": "Preferred currency",
-    "submit": "Continue to checkout",
-    "privacy": "By submitting, you agree to our privacy policy. We use this data to prepare your session and process payment."
+    "currency": "Session currency",
+    "submit": "Continue to payment",
+    "priceNote": "The published session costs R$ 4.990,00. Other currencies have no commercial price on the site.",
+    "privacyBefore": "By sending, the data is used to prepare the session and the payment, as described in the",
+    "privacyLink": "privacy notice",
+    "privacyAfter": "."
   },
   "checkout": {
-    "title": "Checkout",
-    "pending": "Payment pending",
-    "pendingLead": "We are waiting for payment confirmation. You will receive booking access once approved.",
-    "success": "Payment received",
-    "successLead": "Your Technical Discovery booking is unlocked.",
-    "book": "Open calendar",
-    "error": "Checkout could not start",
-    "configError": "Payment provider keys are not configured yet. Set Stripe or Mercado Pago env vars."
+    "title": "Diagnosis payment",
+    "metaDescription": "Payment for the technical diagnosis session. The published price is R$ 4.990,00.",
+    "pending": "Payment not confirmed yet",
+    "pendingLead": "The calendar opens when the payment is recorded as confirmed.",
+    "success": "Payment confirmed",
+    "successTitlePending": "Payment being confirmed",
+    "successLead": "The payment is confirmed. Choose a time on the calendar.",
+    "successPending": "The payment return arrived, but the confirmation is not recorded yet. Refresh this page in a moment. The link is also sent by email when sending is configured.",
+    "successWaiting": "Waiting for payment confirmation before the calendar opens.",
+    "book": "Open the calendar",
+    "error": "The payment could not continue",
+    "configError": "The payment provider keys are not configured yet.",
+    "missingLead": "The qualification id is missing. Go back to the form and send it again.",
+    "backToQualify": "Back to qualification",
+    "unpublished": "There is no published commercial price in this currency. The published session costs R$ 4.990,00, in Brazilian reais.",
+    "serviceLabel": "Technical diagnosis",
+    "secure": "Payment happens on this page. You can leave before confirming.",
+    "termsLink": "Terms",
+    "privacyLink": "Privacy",
+    "cancelLink": "What the session covers",
+    "paidContinue": "I have completed payment",
+    "loading": "Opening checkout.",
+    "errorMissing": "The Mercado Pago public key or the payment preference is not available on this page.",
+    "errorHint": "Payment on this page depends on the provider configuration. Until then, write to contato@fisamtech.com."
   },
   "book": {
-    "title": "Schedule Technical Discovery",
-    "lead": "Your payment is confirmed. Choose a time in the calendar below.",
-    "invalid": "This booking link is invalid or expired.",
-    "open": "Open Google Calendar scheduling"
+    "title": "Schedule the technical diagnosis",
+    "lead": "The link is valid. Choose a time on the calendar.",
+    "invalid": "This scheduling link is invalid or has expired.",
+    "open": "Open Google Calendar"
   },
   "cases": {
-    "title": "Cases and experience",
-    "lead": "Public evidence of transferable capability — honest framing, no invented logos or metrics.",
-    "clientsTitle": "FISAM TECH clients",
-    "productsTitle": "FISAM products",
-    "priorTitle": "Founder prior experience",
-    "priorLead": "The following organizations reflect the founder’s prior professional background. They are not FISAM TECH clients.",
+    "eyebrow": "Public record",
+    "title": "What FISAM TECH is in a position to show",
+    "lead": "This page lists what is already written on the site. There is no testimonial, no authorized logo, and no metric with a source.",
+    "limit": "Where only a name exists, the name stays. Where a number had no origin, the number was removed.",
+    "clientsTitle": "Names published as clients",
+    "productsTitle": "The company's own products",
+    "productsLead": "The addresses below are FISAM TECH products. They are not clients, and this page does not state the operating status of each one.",
+    "priorTitle": "The founder's prior experience",
+    "priorLead": "The organizations below are previous employment and projects of Filipe Godinho Gomes. They are not FISAM TECH clients.",
+    "cta": "Request a technical diagnosis",
     "sigabr": {
-      "type": "Digital platform for vehicle licensing brokers",
-      "body": "Automated DETRAN integration via RENAVAM and Banco Rendimento. Manual hours became minutes with full transaction traceability."
+      "type": "Name published as a client",
+      "situation": "The versioned text describes a platform for vehicle-registration agents and licensing.",
+      "published": "It also says there was an integration with DETRAN via RENAVAM and with Banco Rendimento.",
+      "missing": "This repository has no project constraint, recorded decision, date, document or measured result. That is why no number is published."
     },
     "tennis": {
-      "type": "Tennis & beach tennis · multi-tenant SaaS",
-      "body": "Court management SaaS with online booking, admin panel, and financial control. Zero schedule conflicts; fully digital operations."
+      "type": "Name published as a client",
+      "situation": "The versioned text describes a tennis and beach-tennis system, with bookings, administration and finance.",
+      "published": "The name 637 Tennis Club is on the company's client list.",
+      "missing": "There is no metric, date, constraint or measured result in this repository."
     },
     "quote": {
-      "type": "Own product · field sales teams",
-      "body": "Digital quoting and commercial flow for teams on the move."
+      "type": "Own product",
+      "body": "FISAM Quote is described in the older text as a house product for field quotations. It is not a client case and it has no metric here."
     }
   },
   "partners": {
-    "title": "Build with FISAM",
-    "lead": "Submit your idea. If there is fit, we co-build an MVP as a technology partner.",
-    "brTitle": "Parceiros FISAM TECH",
-    "brLead": "Inscreva sua ideia e construa com a FISAM TECH como sócia de tecnologia.",
+    "eyebrow": "A different subject",
+    "metaTitle": "Submit an idea for review",
+    "metaDescription": "A page separate from the engineering service. The form stores the idea and opens WhatsApp. It does not hire architecture, backend or integration.",
+    "title": "Submit an idea for review",
+    "notTheService": "This page is not the engineering service. Anyone who needs to hire a system, an integration or modernization should request the technical diagnosis.",
+    "hireCta": "Go to the technical diagnosis",
+    "lead": "The form is for someone who wants to submit an idea. It stores the data and opens WhatsApp with the same content. There is no published response time and no participation agreement on this site.",
     "step1": {
-      "title": "You submit",
-      "body": "Answer a few questions about your idea. We respond within 7 days."
+      "title": "You send it",
+      "body": "Name, email, phone, idea, problem and stage go into the lead record and into the WhatsApp message."
     },
     "step2": {
-      "title": "Review and pitch",
-      "body": "If there is fit, we schedule a conversation. We approve a small fraction of applications."
+      "title": "The company reads it",
+      "body": "There is no published deadline and no published number of accepted ideas."
     },
     "step3": {
-      "title": "We co-build",
-      "body": "We build the first MVP under agreed commercial and equity terms."
+      "title": "Nothing here is a contract",
+      "body": "Participation, including equity, exists only if there is an agreement that is not published on this page."
     },
-    "cta": "Start application",
+    "cta": "Send and open WhatsApp",
     "name": "Name",
-    "whatsapp": "WhatsApp / phone",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
     "idea": "Idea",
-    "problem": "Problem you solve",
+    "problem": "Problem the idea addresses",
     "stage": "Stage",
-    "submit": "Submit",
-    "disclaimer": "Responses are confidential and used only to evaluate your application."
+    "submit": "Send and open WhatsApp",
+    "disclaimer": "The data stays in the lead record and also in the WhatsApp message. This does not hire engineering.",
+    "sent": "The data was sent and WhatsApp should have opened with it."
   },
   "legal": {
     "privacyTitle": "Privacy",
     "termsTitle": "Terms of use",
-    "cookiesTitle": "Cookie policy",
-    "privacyLead": "This page describes how FISAM TECH handles personal data. Structure is prepared for LGPD and GDPR-style rights. This is not a certification of compliance — legal review is pending.",
-    "termsLead": "Terms governing use of this website and commercial engagements. International jurisdiction and refund rules for Technical Discovery will be finalized with legal counsel.",
-    "cookiesLead": "We distinguish necessary preference cookies from optional analytics. Marketing cookies are not enabled by default."
+    "cookiesTitle": "Cookies",
+    "privacyLead": "An institutional draft of the data this site handles. It has not been reviewed by a lawyer and it is not a legally reviewed policy.",
+    "termsLead": "An institutional draft of what checkout sells. It has not been reviewed by a lawyer and it does not promise a warranty, indemnity or forum.",
+    "cookiesLead": "An institutional draft of the cookies the code stores. There is no analytics. It has not been reviewed by a lawyer.",
+    "pendingTitle": "Pending approval",
+    "pendingLead": "The items below depend on a company decision or on a legal interpretation. They are not in force in this draft.",
+    "pendingItems": [
+      "Retention period for each set of data.",
+      "The specific legal basis for each processing activity.",
+      "Appointment of a data protection officer.",
+      "Whether the language, currency and country cookies require consent or can be treated as strictly necessary.",
+      "A deletion policy and the time to answer a data subject request.",
+      "The time and procedure for looking into a report.",
+      "Refund, cancellation and forum for the technical diagnosis.",
+      "Participation or equity terms for the ideas page."
+    ],
+    "cookieName": "Cookie",
+    "cookieDuration": "Duration",
+    "cookiePurpose": "Purpose",
+    "cookieRows": [
+      {
+        "name": "NEXT_LOCALE",
+        "duration": "1 year",
+        "purpose": "Remember the interface language. Set by the server before the notice is clicked."
+      },
+      {
+        "name": "CURRENCY",
+        "duration": "1 year",
+        "purpose": "Remember the currency used to route payment. Set before the notice is clicked."
+      },
+      {
+        "name": "COUNTRY",
+        "duration": "1 year",
+        "purpose": "Remember the suggested country. Set before the notice is clicked."
+      }
+    ],
+    "cookieBlocks": [
+      {
+        "title": "What is not a cookie",
+        "paragraphs": [
+          "The notice choice is stored in localStorage, under fisam_cookie_consent. Region confirmation uses another localStorage key. Neither is a cookie.",
+          "Internal admin code uses the cookie fisam_admin_session. That area is not part of the visitor navigation, and the public notice does not cover it."
+        ]
+      },
+      {
+        "title": "Third-party scripts",
+        "paragraphs": [
+          "The site code has no advertising pixel, Google Analytics, Tag Manager, Meta pixel, Hotjar or Clarity.",
+          "At payment, checkout loads Stripe.js or the Mercado Pago SDK, depending on the currency. On the scheduling page with a valid token, an iframe opens Google Calendar. WhatsApp opens when the person clicks the link."
+        ]
+      }
+    ],
+    "privacyBlocks": [
+      {
+        "title": "Who processes",
+        "paragraphs": [
+          "FISAM TECH TECNOLOGIA LTDA, CNPJ 59.897.573/0001-02. Channel for data subject requests: contato@fisamtech.com. No data protection officer is named in this draft."
+        ]
+      },
+      {
+        "title": "Data the site asks for",
+        "paragraphs": [
+          "Qualification: name, email, company, role, challenge description, budget range, currency, country, language. The record goes to the leads table. Country may come from the COUNTRY cookie or from the chosen currency.",
+          "Ideas: name, email, phone, idea, problem and stage. The same kinds of data go to leads and to a WhatsApp message.",
+          "Payment: lead id, country, currency and language. Email and name follow if they were sent. Card data stays with Mercado Pago or Stripe. The payments table stores provider, transaction id, status, amount and currency.",
+          "Scheduling: a signed token, the lead id and the calendar address, in the bookings table. The page with a valid token embeds Google Calendar.",
+          "Report: category, narrative, approximate date and relation to the company. If the person identifies themselves, also name, email, phone and a consent record. The destination is the whistleblowing_reports table and an attempted email to contato@fisamtech.com.",
+          "Navigation: the hosting country header (x-vercel-ip-country or cf-ipcountry) suggests language and currency. The code reviewed does not store the IP address in its own table. If the database is configured, funnel events may go to the events table."
+        ]
+      },
+      {
+        "title": "Why the flow uses this data",
+        "paragraphs": [
+          "To answer the contact and prepare the diagnosis. To carry out the paid session and open scheduling after payment confirmation. To process the payment. To record the report. To remember language, currency and country."
+        ]
+      },
+      {
+        "title": "Operators and transfers",
+        "paragraphs": [
+          "Vercel hosts the site. It is a United States company. The code does not fix the project region.",
+          "The database is Supabase and/or Postgres, through DATABASE_URL. Supabase is a United States company. The project region is not in the code.",
+          "Resend sends email from contato@fisamtech.com. It is a United States company. Without the key configured, the email is not sent.",
+          "Stripe processes payments in currencies other than the real, when the flow reaches it. Mercado Pago processes the payment in reais. Mercado Pago is an Argentine company.",
+          "Google Calendar receives the appointment. WhatsApp, from Meta, opens the Brazilian header conversation and the message from the ideas page.",
+          "When the provider is foreign, the data may be processed outside Brazil. This draft does not choose the legal basis for that transfer."
+        ]
+      },
+      {
+        "title": "Data subject rights",
+        "paragraphs": [
+          "Brazil's LGPD gives the data subject, in general terms, confirmation and access, correction, anonymization, blocking or deletion, portability, information about sharing, and withdrawal of consent, within the limits of the law.",
+          "The channel for those requests is contato@fisamtech.com. Response time, retention and deletion are in the pending section. They are not in force here."
+        ]
+      }
+    ],
+    "termsBlocks": [
+      {
+        "title": "What checkout sells",
+        "paragraphs": [
+          "One technical diagnosis session. The price published on the site is R$ 4.990,00, charged in reais through Mercado Pago. Test amounts in other currencies are not a commercial price."
+        ]
+      },
+      {
+        "title": "What the session delivers",
+        "paragraphs": [
+          "A reading of the situation sent on the form, the risks observed, and next steps. Filipe Godinho Gomes conducts the session. The opinion may be that there is no problem that justifies a project.",
+          "The session is not an implementation project, does not guarantee a business result, and does not include a defined refund. Refund and cancellation are pending."
+        ]
+      },
+      {
+        "title": "Payment and calendar",
+        "paragraphs": [
+          "Checkout creates the charge at POST /api/checkout/create. The confirmation that opens the calendar comes from the Mercado Pago or Stripe webhook, when the status is approved.",
+          "The scheduling link carries a signed token. Without a valid token, the calendar page does not open the calendar. The email with the link is sent only if Resend is configured."
+        ]
+      },
+      {
+        "title": "What the site does not promise",
+        "paragraphs": [
+          "There is no availability warranty, indemnity, or scope beyond the session described. The ideas page is not a partnership contract and not an engineering contract.",
+          "The public content describes what the company is in a position to show. Names from the founder's previous employment are not clients."
+        ]
+      }
+    ]
   },
   "common": {
-    "learnMore": "Learn more",
-    "backHome": "Back to home",
+    "learnMore": "See the service",
+    "backHome": "Back to the start",
     "loading": "Loading…"
   },
   "compliance": {
-    "title": "Compliance & Integrity Program",
-    "lead": "Code of Ethics and Conduct, anti-corruption guidelines, and whistleblowing channel of FISAM TECH TECNOLOGIA LTDA. A public internal framework for partners, collaborators, suppliers, and service providers.",
-    "effective": "Effective date: 09 Nov 2026",
-    "companyLine": "{company} — Brazilian CNPJ {cnpj}",
-    "privacyLink": "Privacy Policy",
-    "channelLink": "Open the Whistleblowing Channel",
-    "responsibleTitle": "Program owner",
-    "responsibleBody": "Managing Partner / Compliance Officer: Filipe Godinho Gomes — {email}. Questions about this program may be sent to the same address.",
+    "title": "Compliance and integrity program",
+    "lead": "Institutional text already published by FISAM TECH TECNOLOGIA LTDA: ethics, anti-corruption and a reporting channel. It is not an ISO certification, SOC 2, or an independent audit.",
+    "effective": "Date written on the page: 09/11/2026",
+    "companyLine": "{company}. CNPJ {cnpj}.",
+    "privacyLink": "Privacy",
+    "channelLink": "Open the reporting channel",
+    "securityTitle": "Security and data",
+    "securityBody": "The site uses Vercel, Supabase or Postgres, Resend, Mercado Pago, Stripe, Google Calendar and WhatsApp. A report goes to contato@fisamtech.com when sending is configured. A visitor does not create an account. This is not a certification and not a statement of full compliance.",
+    "responsibleTitle": "Who answers for the program",
+    "responsibleBody": "The program text names Filipe Godinho Gomes as managing partner and compliance officer, at {email}. That is not the appointment of a data protection officer.",
     "sections": {
       "code": {
-        "title": "Code of Ethics and Conduct",
-        "body": "FISAM TECH operates with ethics, integrity, transparency, respect, responsibility, equal opportunity, and commitment to legality. We expect honesty, good faith, and professionalism; respectful relationships with clients, suppliers, and partners; compliance with applicable law; protection of confidential information; and a workplace free from discrimination, harassment, intimidation, undue favoritism, corruption, or fraud. Breaches may lead to administrative measures and, where applicable, reporting to authorities."
+        "title": "Code of ethics and conduct",
+        "body": "FISAM TECH states ethics, integrity, transparency, respect, responsibility, equal opportunity and a commitment to the law. The text asks for honesty with clients, suppliers and partners, compliance with applicable law, protection of confidential information, and a workplace without discrimination, harassment, intimidation, improper favor, corruption or fraud. A breach may lead to an administrative measure and, where it fits, notice to the authorities."
       },
       "anticorruption": {
-        "title": "Anti-corruption and anti-bribery policy",
-        "body": "It is prohibited to offer, promise, authorize, solicit, or accept an undue advantage — cash, goods, favors, or any other benefit — to influence a public or private decision. This includes bribery, kickbacks, improper facilitation, and conduct covered by Brazil’s Anti-Corruption Law (Law No. 12.846/2013) and related rules. Commercial relationships must be based on technical merit and contractual transparency."
+        "title": "Anti-corruption and anti-bribery",
+        "body": "The program forbids offering, promising, authorizing, requesting or accepting an improper advantage to influence a public or private decision. It cites Brazilian Law 12.846/2013. Commercial relationships should rest on technical merit and contractual transparency."
       },
       "conflict": {
-        "title": "Conflicts of interest",
-        "body": "A conflict of interest exists when personal, family, or third-party interests may influence — or appear to influence — company decisions. Material situations must be disclosed to the Compliance Officer before a decision is made. When in doubt, disclose and refrain until formal guidance is given."
+        "title": "Conflict of interest",
+        "body": "The program asks that a situation in which a personal, family or third-party interest could influence a company decision be declared to the compliance officer before the decision."
       },
       "publicSector": {
-        "title": "Public sector relationships and public tenders",
-        "body": "Participation in public tenders and contracts with government bodies must follow Brazil’s Law No. 14.133/2021 and other applicable rules. Collusion, bid fraud, offering advantages to public officials, misuse of privileged information, and any conduct that undermines equal treatment are forbidden. Official records and communications must be truthful, traceable, and retained as legally required."
+        "title": "Public sector and bids",
+        "body": "The program says bids and contracts with the public administration follow Brazilian Law 14.133/2021, and forbids collusion, fraud, an advantage to a public agent, and misuse of privileged information."
       },
       "gifts": {
-        "title": "Travel, gifts, and hospitality",
-        "body": "Gifts, hospitality, and travel coverage are allowed only when modest, occasional, without expectation of reciprocal advantage, and consistent with legitimate market practice. High-value items, cash, cash equivalents, or benefits aimed at influencing public officials are prohibited. When unsure, ask the Compliance Officer before accepting or offering."
+        "title": "Gifts, travel and hospitality",
+        "body": "The program allows a gift, hospitality or travel only when it is modest, occasional and without an expected return. It forbids cash and a benefit to a public agent meant to influence a decision."
       },
       "privacy": {
-        "title": "Privacy and LGPD",
-        "body": "Personal data processing at FISAM TECH follows Brazil’s LGPD (Law No. 13.709/2018) and the site Privacy Policy. Whistleblowing data is handled confidentially, with minimization and access limited to the Compliance Officer and those strictly needed for investigation."
+        "title": "Privacy",
+        "body": "The program points personal-data handling to Brazilian Law 13.709/2018 and to the privacy page. The privacy page is a draft and lists what still depends on approval, including a data protection officer and a retention period."
       },
       "channel": {
-        "title": "Whistleblowing channel",
-        "body": "We maintain a formal channel to report suspected corruption, fraud, harassment, conflicts of interest, and other irregularities. Reports may be anonymous. Good-faith retaliation is not tolerated. The channel is available on this website."
+        "title": "Reporting channel",
+        "body": "A form exists. With the option not to identify oneself left on, name, email and phone are not sent. The narrative may identify the person, and the submission passes through hosting and email. No investigation deadline is published. The company states that it does not tolerate retaliation for a good-faith report. That sentence is a commitment of the program, not a technical control of the site."
       },
       "governance": {
-        "title": "Governance and review",
-        "body": "This program is owned by the Managing Partner / Compliance Officer and will be reviewed when operations, legislation, or corporate structure change materially. It is not an ISO certification, external seal, or independent audit — it is the company’s formal integrity commitment."
+        "title": "Review",
+        "body": "The program says it will be reviewed when operations, the law or the corporate structure change. It is not an ISO certification, an external badge, or an independent audit."
       }
     }
   },
   "whistleblowing": {
-    "title": "Whistleblowing Channel",
-    "lead": "Confidential FISAM TECH channel to report irregularities, with optional anonymity and a commitment against good-faith retaliation.",
-    "scopeTitle": "Scope",
-    "scopeBody": "Use this channel to report suspected corruption or bribery, fraud, moral or sexual harassment, conflicts of interest, and other irregularities related to FISAM TECH activities, including public-sector relationships and tenders.",
-    "guaranteesTitle": "Guarantees",
-    "guaranteesBody": "You may remain anonymous. Identification is optional and only used for possible follow-up. FISAM TECH does not tolerate retaliation against good-faith reporters. Bad-faith or deliberately false reports may be handled under applicable law.",
-    "howTitle": "How it works",
-    "howBody": "After submitting the form, you receive a protocol ID. The report goes to the Compliance Officer (Managing Partner) for confidential review. Personal data, when provided, is processed under the Privacy Policy and LGPD.",
-    "complianceLink": "Compliance Program",
+    "title": "Reporting channel",
+    "lead": "A form that stores the report. Identification is optional. The page does not promise technical anonymity, an investigation deadline, or protection the system does not implement.",
+    "scopeTitle": "What can be recorded",
+    "scopeBody": "Category, narrative, approximate date and relation to the company. The form categories are corruption or bribery, fraud, harassment, conflict of interest, another irregularity, and other.",
+    "guaranteesTitle": "Identification",
+    "guaranteesBody": "The option not to identify oneself starts checked. In that case the form does not send name, email or phone. If the person unchecks it and identifies themselves, those data are stored and consent becomes required. The text of the report may identify someone. Hosting and email are not an anonymity channel. The company states, in the compliance program, that it does not tolerate retaliation for a good-faith report. That is not a software control.",
+    "howTitle": "What sending does",
+    "howBody": "If the database stores the report, the page shows a protocol in the form FT-WB, with the date and a suffix. If the record is not persisted, the page does not show a protocol. There is an attempt to email contato@fisamtech.com with the protocol and an excerpt of up to 280 characters. The email leaves only if Resend is configured.",
+    "complianceLink": "Compliance program",
     "privacyLink": "Privacy",
-    "formTitle": "Submit a report",
+    "formTitle": "Record a report",
     "category": "Category",
-    "categoryPlaceholder": "Select…",
+    "categoryPlaceholder": "Select",
     "categories": {
-      "corruption": "Corruption / bribery",
+      "corruption": "Corruption or bribery",
       "fraud": "Fraud",
-      "harassment": "Harassment (moral or sexual)",
+      "harassment": "Harassment",
       "conflict_of_interest": "Conflict of interest",
-      "irregularity": "Other irregularity",
+      "irregularity": "Another irregularity",
       "other": "Other"
     },
-    "description": "Description of the facts (required)",
-    "approximateDate": "Approximate date of the fact (optional)",
-    "approximateDateHint": "e.g. March 2026 or 2026-03-15",
-    "relation": "Your relationship to the company",
-    "relationPlaceholder": "Select…",
+    "description": "Report",
+    "approximateDate": "Approximate date (optional)",
+    "approximateDateHint": "Example: March 2026",
+    "relation": "Relation to the company",
+    "relationPlaceholder": "Select",
     "relations": {
-      "employee": "Employee / collaborator",
+      "employee": "Employee",
       "supplier": "Supplier",
       "client": "Client",
       "other": "Other"
     },
-    "anonymous": "I want to remain anonymous",
-    "name": "Name (optional)",
-    "email": "Email (optional)",
-    "phone": "Phone (optional)",
-    "consent": "I authorize processing of my identification data to investigate this report, under LGPD and the Privacy Policy.",
-    "disclaimer": "Do not include unnecessary sensitive data about third parties. If you identify yourself, LGPD consent is required.",
-    "submit": "Submit report",
+    "anonymous": "I do not want to give my name, email or phone",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "consent": "I authorize storing my name, email and phone with this report.",
+    "disclaimer": "Do not include someone else's data without need. If you identify yourself, consent is required to send.",
+    "submit": "Send report",
     "sending": "Sending…",
-    "error": "Could not submit. Please try again.",
-    "successTitle": "Report registered",
-    "successBody": "Keep the protocol below for your records. You do not need to resubmit the same report.",
+    "error": "The report could not be sent.",
+    "degraded": "The report was not stored. There is no protocol. Try again or write to contato@fisamtech.com.",
+    "successTitle": "Report stored",
+    "successBody": "Keep the protocol. It confirms the database record, not an investigation deadline.",
     "protocolLabel": "Protocol",
-    "another": "Submit another report"
+    "another": "Record another report"
   }
 }

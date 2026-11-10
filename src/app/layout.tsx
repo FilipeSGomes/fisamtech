@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "FISAM TECH",
-  description: "Architecture and engineering for critical systems",
+  description: "Engenharia de software para sistemas em operação.",
   icons: {
     icon: "/favicon.png",
     apple: "/apple-touch-icon.png",

@@ -7,9 +7,10 @@ export {
   resolveRoute,
   PRICES,
   getDiscoveryPrice,
+  isCommercialDiscoveryPrice,
   formatMoney,
   LATAM_MP_COUNTRIES,
-} from "@fisamtech/payments";
+} from "@fisamtech/payments/price";
 
 export const SUPPORTED_LANGUAGES = [
   "en",
@@ -106,6 +107,7 @@ export const WHATSAPP = {
 export const CONTACT = {
   email: "contato@fisamtech.com",
   company: "FISAM TECH",
+  legalName: "FISAM TECH TECNOLOGIA LTDA",
   cnpj: "59.897.573/0001-02",
 } as const;
 

@@ -6,7 +6,7 @@ import {
   hashToken,
   getCalendarUrl,
 } from "@/lib/booking/token";
-import { sendEmail } from "@/lib/email";
+import { sendBookingEmail } from "@/lib/booking/issue";
 
 export const runtime = "nodejs";
 
@@ -51,14 +51,11 @@ export async function POST(req: NextRequest) {
           transactionId: result.transactionId,
         },
       });
-      if (result.customer?.email) {
-        await sendEmail({
-          to: result.customer.email,
-          subject: "FISAM TECH — Diagnóstico técnico liberado",
-          template: "booking_unlocked",
-          vars: { leadId: result.leadId },
-        });
-      }
+      await sendBookingEmail({
+        leadId: result.leadId,
+        token,
+        customerEmail: result.customer?.email,
+      });
     }
 
     return NextResponse.json({ ok: true, status: result.status });
