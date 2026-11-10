@@ -10,6 +10,7 @@ const NAV = [
   { href: "/pt-br/super-admin/contacts", label: "Contatos" },
   { href: "/pt-br/super-admin/opportunities", label: "Oportunidades" },
   { href: "/pt-br/super-admin/proposals", label: "Propostas" },
+  { href: "/pt-br/super-admin/ndas", label: "NDAs" },
   { href: "/pt-br/super-admin/users", label: "Usuários" },
   { href: "/pt-br/super-admin/roles", label: "Papéis" },
   { href: "/pt-br/super-admin/audit", label: "Auditoria" },

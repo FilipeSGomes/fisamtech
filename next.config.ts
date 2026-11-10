@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
   // Keep letterhead available to serverless PDF generation.
   outputFileTracingIncludes: {
     "/api/admin/proposals/**": ["./private/branding/**"],
+    "/api/admin/ndas/**": ["./private/branding/**"],
   },
   async redirects() {
     return [
