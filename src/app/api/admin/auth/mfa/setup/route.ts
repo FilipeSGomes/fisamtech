@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import QRCode from "qrcode";
 import { z } from "zod";
 import { completeMfaEnrollment } from "@/lib/super-admin/auth/login";
 import { generateTotpSecret } from "@/lib/super-admin/auth/mfa";
@@ -14,10 +15,17 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: "MFA já ativo" }, { status: 400 });
     }
     const secret = generateTotpSecret(session.email);
+    const qrDataUrl = await QRCode.toDataURL(secret.otpauthUrl, {
+      errorCorrectionLevel: "M",
+      margin: 2,
+      width: 240,
+      color: { dark: "#0f1724", light: "#ffffff" },
+    });
     // secret returned once for enrollment UI; not persisted until POST confirm
     return NextResponse.json({
       secretBase32: secret.secretBase32,
       otpauthUrl: secret.otpauthUrl,
+      qrDataUrl,
     });
   } catch (error) {
     return jsonError(error);

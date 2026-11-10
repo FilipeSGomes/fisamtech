@@ -865,3 +865,31 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
   .cookie-actions .btn,
   .cookie-actions a { min-height: 48px; display: inline-flex; align-items: center; }
 }
+
+.sa-mfa-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 8px 0 16px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e6e8ec;
+  border-radius: 12px;
+  width: fit-content;
+}
+.sa-mfa-qr img {
+  display: block;
+  border-radius: 8px;
+}
+.sa-mfa-manual {
+  margin: 0 0 16px;
+  font-size: .9rem;
+}
+.sa-mfa-manual summary {
+  cursor: pointer;
+  color: #475569;
+}
+.sa-mfa-manual code {
+  word-break: break-all;
+}
