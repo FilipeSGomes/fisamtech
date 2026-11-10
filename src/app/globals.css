@@ -807,10 +807,116 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
   background: #fff;
 }
 .sa-panel.form textarea { min-height: 88px; resize: vertical; }
+
+/* Proposal editor — full-width spreadsheet-like items */
+.sa-proposal { display: grid; gap: 16px; }
+.sa-proposal-toolbar { display: grid; gap: 14px; }
+.sa-proposal-toolbar-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: start;
+}
+.sa-proposal-kicker {
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  letter-spacing: .06em;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+.sa-proposal-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.sa-proposal-status strong { font-size: 1.15rem; }
+.sa-proposal-actions,
+.sa-proposal-send,
+.sa-proposal-footer,
+.sa-proposal-section-head,
+.sa-proposal-items-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.sa-proposal-section-head,
+.sa-proposal-items-head {
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 4px;
+}
+.sa-proposal-section-head h2,
+.sa-proposal-items-head h3 { margin: 0 0 4px; }
+.sa-proposal-send { margin-top: 2px; }
+.sa-proposal-send input { min-width: min(320px, 100%); flex: 1; }
+.sa-proposal-form { display: grid; gap: 18px; max-width: none; }
+.sa-proposal-form label {
+  display: grid;
+  gap: 6px;
+  font-size: .86rem;
+  font-weight: 600;
+}
+.sa-proposal-form input,
+.sa-proposal-form select,
+.sa-proposal-form textarea,
+.sa-items-table input,
+.sa-items-table textarea {
+  width: 100%;
+  border: 1px solid #d7dbe3;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+  background: #fff;
+}
+.sa-proposal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.sa-proposal-span-2 { grid-column: 1 / -1; }
+.sa-items-wrap { border-radius: 12px; }
+.sa-items-table { min-width: 920px; }
+.sa-items-table th,
+.sa-items-table td { vertical-align: middle; }
+.sa-items-table textarea {
+  min-height: 64px;
+  resize: vertical;
+  line-height: 1.35;
+}
+.sa-items-table tfoot td {
+  border-bottom: 0;
+  background: #f8fafc;
+  font-weight: 600;
+}
+.sa-col-num { width: 48px; color: #6b7280; }
+.sa-col-desc { min-width: 280px; }
+.sa-col-qty { width: 96px; }
+.sa-col-unit { width: 88px; }
+.sa-col-money { width: 128px; text-align: right; }
+.sa-col-money input { text-align: right; font-variant-numeric: tabular-nums; }
+.sa-col-actions { width: 148px; }
+.sa-items-total {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.sa-items-foot-label { text-align: right; color: #6b7280; }
+.sa-item-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+}
+.sa-btn-danger { color: #b00020; }
+.sa-proposal-footer { justify-content: space-between; margin-top: 4px; }
 @media (max-width: 900px) {
   .sa-shell { grid-template-columns: 1fr; }
   .sa-sidebar { flex-direction: row; flex-wrap: wrap; align-items: center; }
   .sa-nav { flex-direction: row; flex-wrap: wrap; }
+  .sa-proposal-grid { grid-template-columns: 1fr; }
 }
 
 /* Notices sit in the page flow so they do not cover the primary action. */

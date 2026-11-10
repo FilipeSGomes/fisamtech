@@ -20,7 +20,12 @@ export default async function NewProposalPage() {
       <p>
         <Link href="/pt-br/super-admin/proposals">← Propostas</Link>
       </p>
-      <h1>Nova proposta</h1>
+      <div className="sa-page-head">
+        <div>
+          <h1>Nova proposta</h1>
+          <p className="muted">Monte o cabeçalho e adicione os itens na tabela.</p>
+        </div>
+      </div>
       <ProposalEditor
         mode="create"
         templates={templates}

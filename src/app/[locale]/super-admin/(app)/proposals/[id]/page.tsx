@@ -35,7 +35,14 @@ export default async function ProposalDetailPage({
       <p>
         <Link href="/pt-br/super-admin/proposals">← Propostas</Link>
       </p>
-      <h1>{proposal.title}</h1>
+      <div className="sa-page-head">
+        <div>
+          <h1>{proposal.title}</h1>
+          <p className="muted">
+            {proposal.number_display} · v{proposal.current_version}
+          </p>
+        </div>
+      </div>
       <ProposalEditor
         mode="edit"
         proposal={proposal}
