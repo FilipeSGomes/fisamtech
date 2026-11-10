@@ -6,6 +6,10 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   transpilePackages: ["@fisamtech/payments"],
+  // Keep letterhead available to serverless PDF generation.
+  outputFileTracingIncludes: {
+    "/api/admin/proposals/**": ["./private/branding/**"],
+  },
   async redirects() {
     return [
       {
