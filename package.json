@@ -11,13 +11,15 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "admin:bootstrap": "node scripts/bootstrap-super-admin.mjs"
   },
   "dependencies": {
     "@fisamtech/payments": "*",
     "@supabase/supabase-js": "^2.49.1",
     "next": "^15.2.4",
     "next-intl": "^4.0.2",
+    "otpauth": "^9.6.0",
     "pg": "^8.14.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

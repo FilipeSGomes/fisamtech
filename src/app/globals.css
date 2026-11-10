@@ -741,3 +741,54 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
  .architecture-detail { padding: 20px; min-height: 164px; }
  .architecture-detail p { font-size: .83rem; }
 }
+
+/* ===== Super Admin ===== */
+.sa-shell { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; background: #f5f6f8; color: var(--ink); }
+.sa-sidebar { background: #0f1724; color: #e8eef7; padding: 24px 16px; display: flex; flex-direction: column; gap: 28px; }
+.sa-brand { display: flex; flex-direction: column; gap: 4px; padding: 0 8px; }
+.sa-brand-mark { font-family: var(--font-display); letter-spacing: .12em; font-weight: 600; }
+.sa-brand-sub { font-family: var(--font-mono); font-size: .7rem; color: #9fb0c7; text-transform: uppercase; letter-spacing: .08em; }
+.sa-nav { display: flex; flex-direction: column; gap: 4px; }
+.sa-nav-link { color: #c4d0e0; text-decoration: none; padding: 10px 12px; border-radius: 8px; font-size: .92rem; }
+.sa-nav-link:hover, .sa-nav-link.is-active { background: #1c2a3f; color: #fff; }
+.sa-main { display: flex; flex-direction: column; min-width: 0; }
+.sa-topbar { display: flex; justify-content: space-between; align-items: center; padding: 16px 28px; background: #fff; border-bottom: 1px solid #e6e8ec; }
+.sa-topbar-user { display: flex; align-items: center; gap: 12px; }
+.sa-content { padding: 28px; }
+.sa-page h1 { font-size: 1.75rem; margin-bottom: 6px; }
+.sa-page-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 20px; }
+.sa-kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 24px 0; }
+.sa-kpi { background: #fff; border: 1px solid #e6e8ec; border-radius: 12px; padding: 16px; }
+.sa-kpi-label { display: block; color: #6b7280; font-size: .8rem; margin-bottom: 8px; }
+.sa-kpi-value { font-family: var(--font-display); font-size: 1.5rem; }
+.sa-panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.sa-panel { background: #fff; border: 1px solid #e6e8ec; border-radius: 12px; padding: 18px; }
+.sa-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.sa-list li { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
+.sa-table-wrap { overflow: auto; background: #fff; border: 1px solid #e6e8ec; border-radius: 12px; }
+.sa-table { width: 100%; border-collapse: collapse; }
+.sa-table th, .sa-table td { text-align: left; padding: 12px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+.sa-table th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: #6b7280; }
+.sa-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+.sa-filters input, .sa-filters select { min-width: 180px; }
+.sa-pill { display: inline-block; padding: 4px 8px; border-radius: 999px; background: #eef3fb; font-size: .78rem; }
+.sa-pagination { display: flex; gap: 16px; align-items: center; margin-top: 16px; }
+.sa-dl { display: grid; gap: 12px; }
+.sa-dl div { display: grid; gap: 2px; }
+.sa-dl dt { font-size: .75rem; color: #6b7280; text-transform: uppercase; letter-spacing: .04em; }
+.sa-timeline { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.sa-timeline-meta { font-size: .78rem; color: #6b7280; }
+.sa-login { min-height: 100vh; display: grid; place-items: center; background: linear-gradient(160deg, #0f1724, #1c2a3f 45%, #f5f6f8 45%); padding: 24px; }
+.sa-login-card { width: min(420px, 100%); background: #fff; border-radius: 16px; padding: 28px; box-shadow: 0 20px 50px #00000018; }
+.sa-login-eyebrow { font-family: var(--font-mono); letter-spacing: .12em; font-size: .72rem; color: #6b7280; }
+.sa-error { color: #b00020; }
+.sa-ok { color: #0b6b3a; }
+.sa-banner { background: #fff4df; border: 1px solid #f0d69f; color: #6a4b12; padding: 12px 16px; border-radius: 10px; margin-bottom: 16px; }
+.sa-btn { border: 0; background: transparent; cursor: pointer; }
+.sa-btn-ghost { color: #334155; }
+.sa-mono { word-break: break-all; font-size: .8rem; }
+@media (max-width: 900px) {
+  .sa-shell { grid-template-columns: 1fr; }
+  .sa-sidebar { flex-direction: row; flex-wrap: wrap; align-items: center; }
+  .sa-nav { flex-direction: row; flex-wrap: wrap; }
+}

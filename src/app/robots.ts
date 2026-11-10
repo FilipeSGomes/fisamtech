@@ -3,7 +3,11 @@ import type { MetadataRoute } from "next";
 export default function robots(): MetadataRoute.Robots {
   const site = process.env.NEXT_PUBLIC_SITE_URL || "https://fisamtech.com";
   return {
-    rules: { userAgent: "*", allow: "/" },
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/*/super-admin", "/api/admin"],
+    },
     sitemap: `${site}/sitemap.xml`,
   };
 }

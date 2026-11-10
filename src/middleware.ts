@@ -23,6 +23,27 @@ export default function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Super Admin is pt-BR only — normalize other locales early.
+  const saMatch = pathname.match(/^\/(en|pt-pt|es|fr|de)\/super-admin(\/.*)?$/);
+  if (saMatch) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/pt-br/super-admin${saMatch[2] || ""}`;
+    return NextResponse.redirect(url);
+  }
+
+  const isSuperAdmin =
+    pathname === "/pt-br/super-admin" ||
+    pathname.startsWith("/pt-br/super-admin/");
+  const isLogin = pathname === "/pt-br/super-admin/login";
+  if (isSuperAdmin && !isLogin) {
+    const session = request.cookies.get("fisam_admin_session")?.value;
+    if (!session) {
+      const url = request.nextUrl.clone();
+      url.pathname = "/pt-br/super-admin/login";
+      return NextResponse.redirect(url);
+    }
+  }
+
   const countryHeader =
     request.headers.get("x-vercel-ip-country") ||
     request.headers.get("cf-ipcountry") ||

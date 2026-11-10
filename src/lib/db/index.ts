@@ -1,5 +1,14 @@
+import { setDefaultResultOrder } from "node:dns";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import pg from "pg";
+
+// Prefer IPv4 — Supabase direct/pooler backends are often IPv6-first and
+// unreachable from some build/serverless networks.
+try {
+  setDefaultResultOrder("ipv4first");
+} catch {
+  // older Node without the API
+}
 
 export type LeadInsert = {
   name: string;
@@ -90,9 +99,43 @@ function getPgPool(): pg.Pool | null {
   return pgPool;
 }
 
+/** Direct Postgres access for Super Admin services (requires DATABASE_URL). */
+export async function adminQuery<T extends pg.QueryResultRow = pg.QueryResultRow>(
+  text: string,
+  params: unknown[] = []
+): Promise<pg.QueryResult<T>> {
+  const pool = getPgPool();
+  if (!pool) throw new Error("DATABASE_URL not configured");
+  return pool.query<T>(text, params);
+}
+
+export async function withAdminTransaction<T>(
+  fn: (client: pg.PoolClient) => Promise<T>
+): Promise<T> {
+  const pool = getPgPool();
+  if (!pool) throw new Error("DATABASE_URL not configured");
+  const client = await pool.connect();
+  try {
+    await client.query("begin");
+    const result = await fn(client);
+    await client.query("commit");
+    return result;
+  } catch (error) {
+    await client.query("rollback");
+    throw error;
+  } finally {
+    client.release();
+  }
+}
+
 export async function insertLead(
   lead: LeadInsert
 ): Promise<{ id: string } | { error: string; degraded: true }> {
+  const emailNormalized = lead.email.trim().toLowerCase();
+  const phoneNormalized = lead.phone
+    ? lead.phone.replace(/\D/g, "") || null
+    : null;
+
   const sb = getSupabaseAdmin();
   if (sb) {
     const { data, error } = await sb
@@ -110,6 +153,9 @@ export async function insertLead(
         source: lead.source,
         phone: lead.phone ?? null,
         metadata: lead.metadata ?? {},
+        status: "NEW",
+        email_normalized: emailNormalized,
+        phone_normalized: phoneNormalized,
       })
       .select("id")
       .single();
@@ -120,8 +166,11 @@ export async function insertLead(
   const pool = getPgPool();
   if (pool) {
     const result = await pool.query<{ id: string }>(
-      `insert into leads (name, email, company, country, locale, currency, role, challenge, budget_range, source, phone, metadata)
-       values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12::jsonb)
+      `insert into leads (
+         name, email, company, country, locale, currency, role, challenge,
+         budget_range, source, phone, metadata, status, email_normalized, phone_normalized
+       )
+       values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12::jsonb,'NEW',$13,$14)
        returning id`,
       [
         lead.name,
@@ -136,6 +185,8 @@ export async function insertLead(
         lead.source,
         lead.phone ?? null,
         JSON.stringify(lead.metadata ?? {}),
+        emailNormalized,
+        phoneNormalized,
       ]
     );
     return { id: result.rows[0].id };
