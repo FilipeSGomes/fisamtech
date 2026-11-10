@@ -4,36 +4,29 @@
 
 Modular monolith inside the existing Next.js app. Private UI under `/pt-br/super-admin`, APIs under `/api/admin/*`.
 
-```text
-Browser → Middleware (locale + admin session gate)
-       → RSC pages / Client forms
-       → /api/admin/* (zod + requirePermission)
-       → src/lib/super-admin services
-       → pg (Supabase Postgres pooler)
-```
+## Layers
 
-## Packages / folders
+1. UI — App Router RSC pages + client forms (`sa-*` CSS)
+2. Route handlers — `/api/admin/**` with `requireAdminApi`
+3. Domain services — `src/lib/super-admin/{auth,rbac,crm,proposals,identity,audit}`
+4. Persistence — `adminQuery` / `withAdminTransaction` via `pg` pooler
+5. Audit — append-only `admin_audit_logs`
 
-| Path | Responsibility |
+## Domains delivered
+
+| Domain | Status |
 |---|---|
-| `src/lib/super-admin/auth` | password, session, MFA |
-| `src/lib/super-admin/rbac` | roles, permissions, authorize |
-| `src/lib/super-admin/audit` | append-only audit events |
-| `src/lib/super-admin/crm` | leads, companies, contacts, opportunities |
-| `src/lib/super-admin/proposals` | proposals, versions, PDF, money math |
-| `src/components/super-admin` | shell UI |
-| `src/app/[locale]/super-admin` | pages |
-| `src/app/api/admin` | HTTP boundary |
-| `private/branding` | letterhead (not publicly served) |
+| Identity / sessions / MFA | Phase 1 |
+| RBAC | Phase 1 |
+| Leads CRM | Phase 1–2 |
+| Companies / contacts / opportunities | Phase 2 |
+| Proposals + PDF + send registry | Phase 3 |
+| Users / roles / audit / settings KPIs | Phase 4 |
+| Hardening tests + docs | Phase 5 |
 
-## Security posture
+## Constraints
 
-- AuthZ always on server.
-- Public lead capture remains unauthenticated.
-- Admin cookies HttpOnly; sessions revocable.
-- Audit for sensitive mutations.
-- Documents generated server-side; private storage paths.
-
-## Evolution
-
-WhatsApp Business, e-sign, and AI assistant are **out of scope** until contracts exist. Integration ports can be added later without rewriting CRM core.
+- AuthZ always server-side (`requirePermission` + ownership)
+- No secrets in repo; bootstrap via env only
+- Additive SQL migrations only
+- Do not pull `pg` into client components (constants split into `*-status` / `workflow` modules)

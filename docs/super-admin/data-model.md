@@ -4,24 +4,29 @@
 
 - `leads`, `payments`, `bookings`, `events`, `whistleblowing_reports`
 
-## Added in `003_super_admin_foundation.sql`
+## IAM
 
-### IAM
-- `admin_users`, `admin_roles`, `admin_permissions`, `admin_role_permissions`, `admin_user_roles`
-- `admin_sessions`, `admin_invites`
+- `admin_users`, `admin_roles`, `admin_permissions`, `admin_role_permissions`
+- `admin_user_roles`, `admin_sessions`, `admin_invites`, `admin_audit_logs`
 
-### CRM
-- Extended `leads` columns
+## CRM
+
 - `companies`, `contacts`
+- `leads` extended: `status`, `owner_id`, `company_id`, `contact_id`, normalized email/phone, next action, lost reason, UTM, service interest
 - `opportunities`, `crm_activities`
 
-### Proposals (foundation)
-- `proposal_templates`, `proposals`, `proposal_versions`, `proposal_items`, `proposal_documents`
-- `proposal_number_seq` (transactional yearly sequence)
+## Proposals
 
-### Audit
-- `admin_audit_logs` (append-only by app convention)
+- `proposal_templates`, `proposal_number_counters`
+- `proposals` (display `FISAM-YYYY-NNNN`, version, workflow status)
+- `proposal_versions` (snapshot + totals; immutable after PDF issue)
+- `proposal_items` (per version; line totals in cents math)
+- `proposal_documents` (`storage_key`, optional `pdf_bytes`)
+- `proposal_sends` (sent / pending_config / failed)
 
-Financial amounts use `numeric(14,2)`. Timestamps are `timestamptz` (UTC).
+## Migrations
 
-See migration file for exact DDL.
+1. `001_initial.sql`
+2. `002_whistleblowing.sql`
+3. `003_super_admin_foundation.sql`
+4. `004_super_admin_proposals_ops.sql`

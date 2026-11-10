@@ -2,28 +2,26 @@
 
 ## Prerequisites
 
-1. Apply migrations through `003_super_admin_foundation.sql` on Supabase (pooler URL).
-2. Set on Vercel / `.env.local`:
-   - `DATABASE_URL` (pooler)
+1. Apply migrations through `004_super_admin_proposals_ops.sql` on Supabase (pooler URL).
+2. Env:
+   - `DATABASE_URL` (pooler IPv4)
    - `ADMIN_SESSION_SECRET` (≥16 chars)
-3. Bootstrap first Super Admin (once):
+   - Optional: `RESEND_API_KEY` for real proposal e-mail
+   - Bootstrap only once: `ADMIN_BOOTSTRAP_EMAIL`, `ADMIN_BOOTSTRAP_NAME`, `ADMIN_BOOTSTRAP_PASSWORD`
+3. Private assets:
+   - `private/branding/papel-timbrado-fisam-tech.png`
+   - `private/proposals/` (runtime PDFs; gitignored)
+
+## Bootstrap
 
 ```bash
-export ADMIN_BOOTSTRAP_EMAIL="you@fisamtech.com"
-export ADMIN_BOOTSTRAP_NAME="Filipe"
-export ADMIN_BOOTSTRAP_PASSWORD="********"
 npm run admin:bootstrap
 ```
 
-4. Open `/pt-br/super-admin/login` and enroll MFA.
+Denied if any `admin_users` already exist. Then login at `/pt-br/super-admin/login` and enroll MFA.
 
-## Production rules
+## Deploy notes
 
-- Do **not** deploy Super Admin secrets in the repo.
-- Do **not** run destructive SQL without explicit approval.
-- Prefer feature branch → preview → production with authorization.
-- Letterhead path: `private/branding/papel-timbrado-fisam-tech.png` (server-only).
-
-## Rollback
-
-Phase 1 migrations are additive. Rollback of IAM tables requires explicit approval (DROP).
+- Feature branch / preview first; production only with explicit approval.
+- Serverless FS is ephemeral — PDF bytes also stored in `proposal_documents.pdf_bytes`.
+- Public funnel routes (`/api/leads`, checkout, etc.) remain unauthenticated.

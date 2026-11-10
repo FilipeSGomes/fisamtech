@@ -8,7 +8,8 @@ export type EmailTemplateId =
   | "booking_unlocked"
   | "internal_briefing"
   | "partners_ack"
-  | "whistleblowing_alert";
+  | "whistleblowing_alert"
+  | "proposal_sent";
 
 export async function sendEmail(opts: {
   to: string;
@@ -46,16 +47,31 @@ export async function sendEmail(opts: {
   return { sent: true };
 }
 
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 function renderStubHtml(
   template: EmailTemplateId,
   vars: Record<string, string>
 ): string {
   const rows = Object.entries(vars)
-    .map(([k, v]) => `<tr><td><strong>${k}</strong></td><td>${v}</td></tr>`)
+    .map(
+      ([k, v]) =>
+        `<tr><td><strong>${escapeHtml(k)}</strong></td><td>${escapeHtml(v)}</td></tr>`
+    )
     .join("");
-  return `<!doctype html><html><body style="font-family:system-ui,sans-serif;color:#1d1d1f">
-  <h1>FISAM TECH — ${template}</h1>
+  const bookLink = vars.bookUrl
+    ? `<p><a href="${escapeHtml(vars.bookUrl)}">${escapeHtml(vars.bookUrl)}</a></p>`
+    : "";
+  return `<!doctype html><html><body style="font-family:system-ui,sans-serif;color:#172337">
+  <h1>FISAM TECH: ${escapeHtml(template)}</h1>
+  ${bookLink}
   <table>${rows}</table>
-  <p style="color:#7a7a7a;font-size:14px">This is an automated message from FISAM TECH.</p>
+  <p style="color:#627085;font-size:14px">Mensagem automática da FISAM TECH.</p>
   </body></html>`;
 }

@@ -1,26 +1,46 @@
 import { adminQuery } from "@/lib/db";
 import { LEAD_STATUS_LABELS, type LeadStatus } from "@/lib/super-admin/crm/leads";
+import {
+  PROPOSAL_STATUS_LABELS,
+  type ProposalStatus,
+} from "@/lib/super-admin/proposals/workflow";
 
 export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
-  const [byStatus, bySource, openOpps, proposals, totalLeads] = await Promise.all([
-    adminQuery<{ status: string; n: number }>(
-      `select status, count(*)::int as n from leads group by status`
-    ),
-    adminQuery<{ source: string; n: number }>(
-      `select source, count(*)::int as n from leads group by source order by n desc`
-    ),
-    adminQuery<{ n: number; pipeline: string }>(
-      `select count(*)::int as n, coalesce(sum(estimated_value),0)::text as pipeline
-       from opportunities where status = 'OPEN'`
-    ),
-    adminQuery<{ n: number }>(`select count(*)::int as n from proposals`),
-    adminQuery<{ n: number }>(`select count(*)::int as n from leads`),
-  ]);
+  const [byStatus, bySource, openOpps, proposals, totalLeads, stale, accepted] =
+    await Promise.all([
+      adminQuery<{ status: string; n: number }>(
+        `select status, count(*)::int as n from leads group by status`
+      ),
+      adminQuery<{ source: string; n: number }>(
+        `select source, count(*)::int as n from leads group by source order by n desc`
+      ),
+      adminQuery<{ n: number; pipeline: string }>(
+        `select count(*)::int as n, coalesce(sum(estimated_value),0)::text as pipeline
+         from opportunities where status = 'OPEN'`
+      ),
+      adminQuery<{ status: string; n: number }>(
+        `select status, count(*)::int as n from proposals group by status`
+      ),
+      adminQuery<{ n: number }>(`select count(*)::int as n from leads`),
+      adminQuery<{ n: number }>(
+        `select count(*)::int as n from leads
+         where status not in ('WON','LOST')
+           and (next_action_at is null or next_action_at < now())`
+      ),
+      adminQuery<{ n: number }>(
+        `select count(*)::int as n from proposals where status = 'ACCEPTED'`
+      ),
+    ]);
 
   const newLeads = byStatus.rows.find((r) => r.status === "NEW")?.n ?? 0;
   const qualified = byStatus.rows.find((r) => r.status === "QUALIFIED")?.n ?? 0;
+  const proposalsIssued = proposals.rows
+    .filter((r) =>
+      ["SENT", "VIEWED", "ACCEPTED", "REJECTED", "APPROVED"].includes(r.status)
+    )
+    .reduce((a, b) => a + b.n, 0);
 
   return (
     <div className="sa-page">
@@ -45,11 +65,21 @@ export default async function DashboardPage() {
         </div>
         <div className="sa-kpi">
           <span className="sa-kpi-label">Pipeline (estimado)</span>
-          <strong className="sa-kpi-value">{openOpps.rows[0]?.pipeline ?? "0"}</strong>
+          <strong className="sa-kpi-value">
+            {openOpps.rows[0]?.pipeline ?? "0"}
+          </strong>
         </div>
         <div className="sa-kpi">
-          <span className="sa-kpi-label">Propostas</span>
-          <strong className="sa-kpi-value">{proposals.rows[0]?.n ?? 0}</strong>
+          <span className="sa-kpi-label">Propostas emitidas</span>
+          <strong className="sa-kpi-value">{proposalsIssued}</strong>
+        </div>
+        <div className="sa-kpi">
+          <span className="sa-kpi-label">Propostas aceitas</span>
+          <strong className="sa-kpi-value">{accepted.rows[0]?.n ?? 0}</strong>
+        </div>
+        <div className="sa-kpi">
+          <span className="sa-kpi-label">Leads sem follow-up</span>
+          <strong className="sa-kpi-value">{stale.rows[0]?.n ?? 0}</strong>
         </div>
       </div>
 
@@ -80,6 +110,24 @@ export default async function DashboardPage() {
               {bySource.rows.map((row) => (
                 <li key={row.source}>
                   <span>{row.source}</span>
+                  <strong>{row.n}</strong>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+        <section className="sa-panel">
+          <h2>Propostas por status</h2>
+          {proposals.rows.length === 0 ? (
+            <p className="muted">Sem propostas.</p>
+          ) : (
+            <ul className="sa-list">
+              {proposals.rows.map((row) => (
+                <li key={row.status}>
+                  <span>
+                    {PROPOSAL_STATUS_LABELS[row.status as ProposalStatus] ||
+                      row.status}
+                  </span>
                   <strong>{row.n}</strong>
                 </li>
               ))}

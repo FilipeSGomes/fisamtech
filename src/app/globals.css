@@ -787,6 +787,25 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
 .sa-btn { border: 0; background: transparent; cursor: pointer; }
 .sa-btn-ghost { color: #334155; }
 .sa-mono { word-break: break-all; font-size: .8rem; }
+.sa-panel.form,
+.sa-login-card.form { display: grid; gap: 12px; }
+.sa-panel.form label,
+.sa-login-card.form label,
+.sa-filters label { display: grid; gap: 6px; font-size: .86rem; }
+.sa-panel.form input,
+.sa-panel.form select,
+.sa-panel.form textarea,
+.sa-login-card.form input,
+.sa-filters input,
+.sa-filters select {
+  width: 100%;
+  border: 1px solid #d7dbe3;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+  background: #fff;
+}
+.sa-panel.form textarea { min-height: 88px; resize: vertical; }
 @media (max-width: 900px) {
   .sa-shell { grid-template-columns: 1fr; }
   .sa-sidebar { flex-direction: row; flex-wrap: wrap; align-items: center; }

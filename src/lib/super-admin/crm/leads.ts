@@ -27,6 +27,8 @@ export type LeadRow = {
   status: LeadStatus;
   owner_id: string | null;
   owner_name: string | null;
+  company_id: string | null;
+  contact_id: string | null;
   next_action_at: Date | null;
   next_action_note: string | null;
   lost_reason: string | null;
@@ -91,8 +93,8 @@ export async function listLeads(opts: {
   const items = await adminQuery<LeadRow>(
     `select l.id, l.created_at, l.updated_at, l.name, l.email, l.company, l.country,
             l.locale, l.currency, l.role, l.challenge, l.budget_range, l.source, l.phone,
-            l.status, l.owner_id, u.name as owner_name, l.next_action_at, l.next_action_note,
-            l.lost_reason, l.service_interest
+            l.status, l.owner_id, u.name as owner_name, l.company_id, l.contact_id,
+            l.next_action_at, l.next_action_note, l.lost_reason, l.service_interest
      from leads l
      left join admin_users u on u.id = l.owner_id
      ${whereSql}
@@ -108,8 +110,8 @@ export async function getLead(id: string): Promise<LeadRow | null> {
   const result = await adminQuery<LeadRow>(
     `select l.id, l.created_at, l.updated_at, l.name, l.email, l.company, l.country,
             l.locale, l.currency, l.role, l.challenge, l.budget_range, l.source, l.phone,
-            l.status, l.owner_id, u.name as owner_name, l.next_action_at, l.next_action_note,
-            l.lost_reason, l.service_interest
+            l.status, l.owner_id, u.name as owner_name, l.company_id, l.contact_id,
+            l.next_action_at, l.next_action_note, l.lost_reason, l.service_interest
      from leads l
      left join admin_users u on u.id = l.owner_id
      where l.id = $1`,

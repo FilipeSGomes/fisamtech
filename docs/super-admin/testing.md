@@ -1,25 +1,27 @@
 # Super Admin — Testing
 
-## Automated (current)
+## Automated
 
 ```bash
 npm test
+npm run build
 ```
 
-Covers:
+Coverage (Vitest):
 
-- Money math (cents, line totals)
-- Password hash/verify
-- RBAC `hasPermission`
+- Money helpers (`toCents` / line totals)
+- Proposal totals aggregation (`computeProposalTotals`)
+- Proposal workflow transition guards
+- Lead status vocabulary
+- RBAC deny / ownership checks
+- Password scrypt hash/verify
 
-## Manual smoke (Phase 1)
+## Manual smoke
 
-1. Public `/pt-br/qualify` creates lead → appears in Super Admin leads.
-2. Unauthenticated `/pt-br/super-admin/dashboard` redirects to login.
-3. `GET /api/admin/leads` without cookie → 401.
-4. Login → dashboard KPIs reflect DB counts.
-5. SUPER_ADMIN without MFA sees banner and `/mfa` enrollment.
-
-## Planned E2E (Phases 3–5)
-
-Scenarios 1–10 from the product mission (proposal PDF, concurrent numbering, webhook idempotency, session revoke).
+1. Bootstrap: `ADMIN_BOOTSTRAP_*` + `npm run admin:bootstrap`
+2. Login `/pt-br/super-admin/login` → enroll MFA if SUPER_ADMIN
+3. Create company/contact → opportunity (or convert lead)
+4. Create proposal with items → transition DRAFT→IN_REVIEW→APPROVED
+5. Generate PDF download via authenticated `/api/admin/proposals/:id/pdf`
+6. Send: if Resend missing/misconfigured expect `pending_config` (never fake success)
+7. Invite user, accept via `?invite=`, revoke sessions, check audit log

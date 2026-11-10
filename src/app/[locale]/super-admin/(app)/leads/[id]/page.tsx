@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { LeadConvertButton } from "@/components/super-admin/LeadConvertButton";
 import { LeadDetailClient } from "@/components/super-admin/LeadDetailClient";
 import {
   LEAD_STATUS_LABELS,
@@ -73,7 +74,12 @@ export default async function LeadDetailPage({
           </dl>
         </section>
 
-        <LeadDetailClient leadId={lead.id} status={lead.status as LeadStatus} />
+        <div>
+          <LeadDetailClient leadId={lead.id} status={lead.status as LeadStatus} />
+          <div style={{ marginTop: 16 }}>
+            <LeadConvertButton leadId={lead.id} />
+          </div>
+        </div>
       </div>
 
       <section className="sa-panel" style={{ marginTop: 24 }}>
