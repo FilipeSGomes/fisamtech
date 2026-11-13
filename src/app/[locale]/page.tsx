@@ -7,8 +7,6 @@ import {
   FISAM_CLIENTS,
   PRODUCTS,
   WHATSAPP,
-  formatMoney,
-  getDiscoveryPrice,
 } from "@/lib/config";
 import { pageMetadata } from "@/lib/seo";
 
@@ -39,8 +37,6 @@ export default async function HomePage({
   setRequestLocale(locale);
   const t = await getTranslations();
   const isBr = locale === "pt-br";
-  const price = getDiscoveryPrice("BRL");
-  const priceLabel = formatMoney(price.amount, "BRL");
 
   return (
     <div className="home-page">
@@ -244,7 +240,7 @@ export default async function HomePage({
             ))}
           </ul>
           <p style={{ marginTop: 20, fontSize: "1.4rem", fontWeight: 600 }}>
-            {t("discovery.priceLabel")} {priceLabel}
+            {t("discovery.priceLabel")}
           </p>
           <p className="muted" style={{ marginTop: 8 }}>
             {t("discovery.priceNote")}

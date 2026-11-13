@@ -41,7 +41,7 @@ export async function sendBookingEmail(opts: {
   const locale = lead?.locale && isLocale(lead.locale) ? lead.locale : "pt-br";
   await sendEmail({
     to,
-    subject: "FISAM TECH: link para agendar o diagnóstico técnico",
+    subject: "FISAM TECH: link para agendar a conversa técnica",
     template: "booking_unlocked",
     vars: {
       leadId: opts.leadId,

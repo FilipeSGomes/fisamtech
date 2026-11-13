@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "FISAM TECH",
     "title": "FISAM TECH | Softwaretechnik für Systeme, die schon laufen",
-    "description": "Architektur, Backend, Integration und Modernisierung für Unternehmen mit einem System im Betrieb. Technische Diagnose für R$ 4.990,00."
+    "description": "Architektur, Backend, Integration und Modernisierung für Unternehmen mit laufendem System. Technisches Gespräch ohne Zahlung terminieren."
   },
   "nav": {
     "process": "Vorgehen",
@@ -10,7 +10,7 @@
     "cases": "Arbeiten",
     "partners": "Ideen",
     "contact": "Kontakt",
-    "discovery": "Technische Diagnose",
+    "discovery": "Gespräch buchen",
     "whatsapp": "WhatsApp",
     "whatsappPrefill": "Guten Tag. Ich möchte über ein System sprechen, das schon im Einsatz ist.",
     "skip": "Zum Inhalt",
@@ -89,7 +89,7 @@
     "eyebrow": "São Paulo · Softwaretechnik",
     "title": "Technik, die Technologie und Geschäft verbindet.",
     "lead": "Wir entwickeln Systeme und Integrationen für Unternehmen, die Ausfälle verringern, Abläufe automatisieren und den Betrieb aufrechterhalten müssen.",
-    "ctaPrimary": "Technische Diagnose anfragen",
+    "ctaPrimary": "Technisches Gespräch buchen",
     "ctaSecondary": "Per E-Mail schreiben",
     "ctaWork": "Sehen, was wir veröffentlichen",
     "footnote": "Architektur, Backend, Integration und Modernisierung von Systemen, die schon im Einsatz sind.",
@@ -122,7 +122,7 @@
     "focus": "Vertrag des Unternehmens",
     "focusValue": "Systeme im Betrieb",
     "method": "Erster Schritt",
-    "methodValue": "Bezahlte Diagnose"
+    "methodValue": "Termin ohne Zahlung"
   },
   "problems": {
     "eyebrow": "Lage",
@@ -168,7 +168,7 @@
         "deliver": "Eine Lesart der heutigen Struktur, der Risiken, dessen, was bleibt, und eine Folge nächster Schritte. Das ist kein geschlossener Projektentwurf und keine Ergebnisgarantie.",
         "method": "Die Arbeit beginnt mit der bezahlten Diagnose. Gibt es ein Projekt, werden Entscheidungen festgehalten und der Bau folgt Teilen, die der Betrieb begleiten kann.",
         "evidence": "Es ist keine Architekturkennzahl veröffentlicht. Auf der Seite der Arbeiten stehen die Namen SigaBR und 637 Tennis Club, ohne Zahl.",
-        "cta": "Technische Diagnose anfragen"
+        "cta": "Technisches Gespräch buchen"
       }
     },
     "backend": {
@@ -181,7 +181,7 @@
         "deliver": "Dienste, APIs und Fehlerbehandlung im vereinbarten Umfang. Die Website veröffentlicht keine Technologieliste, als wäre das die Leistung.",
         "method": "Nach der Diagnose wird der Umfang geteilt. Der Bau folgt dem, was festgehalten wurde, mit einer Möglichkeit zu sehen, was sich geändert hat.",
         "evidence": "Auf dieser Website ist keine Backend-Kennzahl veröffentlicht.",
-        "cta": "Technische Diagnose anfragen"
+        "cta": "Technisches Gespräch buchen"
       }
     },
     "integrations": {
@@ -194,7 +194,7 @@
         "deliver": "Karte des Flusses, der Fehlerstellen und dessen, was verbunden wird. Der versionierte Text zu SigaBR nennt eine Integration mit DETRAN über RENAVAM und Banco Rendimento, ohne Kennzahl und ohne angehängtes Dokument.",
         "method": "Die Diagnose sieht sich den echten Fluss an, bevor die Integration geschrieben wird. Rechtfertigt das Problem kein Projekt, sagt das die Einschätzung.",
         "evidence": "Der Name SigaBR ist als Kunde veröffentlicht, mit der oben genannten Integration. In diesem Repository gibt es keine Quelle, kein Datum und kein gemessenes Ergebnis.",
-        "cta": "Technische Diagnose anfragen"
+        "cta": "Technisches Gespräch buchen"
       }
     },
     "legacy": {
@@ -207,7 +207,7 @@
         "deliver": "Eine Lesart dessen, was das System heute tut, was sich in Schritten ändern kann und was draußen bleibt. Es gibt kein Versprechen einer Migration ohne Unterbrechung.",
         "method": "Die Diagnose trennt, was der Betrieb nicht verlieren darf, von dem, was neu geschrieben werden kann. Ein Projekt, wenn es eines gibt, folgt dieser Reihenfolge.",
         "evidence": "Auf dieser Website gibt es keinen Modernisierungsfall mit gemessenem Ergebnis. Die Seite der Arbeiten sagt, was veröffentlicht ist und was nicht.",
-        "cta": "Technische Diagnose anfragen"
+        "cta": "Technisches Gespräch buchen"
       }
     },
     "genai": {
@@ -220,7 +220,7 @@
         "deliver": "Eine Lesart dessen, was das System schon tut, der Risiken bei Daten, Zugriff, Integration und Betrieb, und dessen, was man behalten oder neu bauen würde. Die Einschätzung kann lauten, dass es kein Projekt gibt.",
         "method": "Die Diagnosesitzung kommt vor jedem Neuschreiben. Es ist keine Standardfrist veröffentlicht, um aus einem MVP ein Betriebssystem zu machen.",
         "evidence": "In diesem Repository gibt es keinen öffentlichen Fall einer MVP-Härtung. Die veröffentlichten Namen stehen auf der Seite der Arbeiten, ohne Kennzahl.",
-        "cta": "Technische Diagnose anfragen"
+        "cta": "Technisches Gespräch buchen"
       }
     }
   },
@@ -273,37 +273,37 @@
   },
   "discovery": {
     "eyebrow": "Erster Schritt",
-    "title": "Technische Diagnose",
-    "lead": "Bezahlte Sitzung, um ein System zu lesen, das schon existiert. Filipe Godinho Gomes, Gründer und technisch Verantwortlicher, führt die Sitzung. Vorher sendet das Unternehmen im Formular Name, E-Mail, Unternehmen, Funktion, Beschreibung der Aufgabe und eine Budgetspanne.",
+    "title": "Technisches Gespräch",
+    "lead": "Sitzung zur Lesung eines bestehenden Systems. Die Terminbuchung ist kostenlos. Filipe Godinho Gomes führt das Gespräch. Zuvor sendet das Unternehmen den Kontext im Formular.",
     "includes": {
       "1": "Ergebnis: eine Lesart der Lage, der gesehenen Risiken und der nächsten Schritte. Das ist kein geschlossenes Projekt.",
       "2": "Die Einschätzung kann lauten, dass es kein Problem gibt, das ein Projekt rechtfertigt.",
-      "3": "Der Kalender öffnet sich, nachdem die Zahlung im System bestätigt ist.",
-      "4": "Der Terminlink erscheint in dieser Bestätigung und in der E-Mail, wenn der Versand eingerichtet ist."
+      "3": "Der Kalender öffnet sich nach dem Formular, ohne Zahlung.",
+      "4": "Der Buchungslink erscheint nach dem Formular und per E-Mail, wenn der Versand konfiguriert ist."
     },
-    "priceLabel": "Preis der Sitzung",
-    "priceNote": "R$ 4.990,00 ist der Preis der Sitzung, erhoben im Checkout in Real. Eine Nachricht erlässt die Zahlung nicht und öffnet den Kalender nicht. Ein Preis in Dollar, Euro oder Pfund ist nicht veröffentlicht.",
-    "cta": "Die technische Diagnose anfragen"
+    "priceLabel": "Termin",
+    "priceNote": "Das Gespräch zu buchen ist kostenlos. Das Formular fragt den Kontext ab und öffnet den Kalender. Ein späteres Projekt wird danach vereinbart, falls sinnvoll.",
+    "cta": "Technisches Gespräch buchen"
   },
   "faq": {
     "eyebrow": "Fragen",
     "title": "Häufige Fragen",
     "items": {
       "1": {
-        "q": "Ist die Diagnose kostenlos?",
-        "a": "Nein. Die Sitzung kostet R$ 4.990,00, zahlbar im Checkout. Eine Nachricht ersetzt die Zahlung nicht und öffnet den Kalender nicht."
+        "q": "Ist das Gespräch kostenlos?",
+        "a": "Ja. Sie füllen das Formular aus und buchen ohne Zahlung. Ein späteres Projekt wird nur vereinbart, wenn es Sinn ergibt."
       },
       "2": {
-        "q": "Wer führt die Diagnose?",
+        "q": "Wer führt das Gespräch?",
         "a": "Filipe Godinho Gomes, Gründer und technischer Verantwortlicher von FISAM TECH."
       },
       "3": {
-        "q": "Gibt es einen Preis in einer anderen Währung?",
-        "a": "Der veröffentlichte Preis ist R$ 4.990,00, in Real, im Checkout. Dollar, Euro und Pfund haben auf dieser Seite keinen Handelspreis."
+        "q": "Muss ich zahlen, um den Kalender zu öffnen?",
+        "a": "Nein. Der Kalender öffnet sich nach dem Formular. Für die Terminbuchung gibt es keine Gebühr."
       },
       "4": {
-        "q": "Was, wenn die Einschätzung lautet, das Projekt nicht zu machen?",
-        "a": "Die Sitzung liefert die Lesart, die bezahlt wurde. Danach besteht keine Pflicht, ein Projekt zu eröffnen."
+        "q": "Was, wenn der Rat lautet, kein Projekt zu starten?",
+        "a": "Das Gespräch liefert eine Lageeinschätzung. Es besteht keine Pflicht, danach ein Projekt zu starten."
       },
       "5": {
         "q": "Wird die Sprache erzwungen?",
@@ -312,9 +312,9 @@
     }
   },
   "cta": {
-    "title": "Der nächste Schritt ist die technische Diagnose",
-    "lead": "Die Qualifizierung fragt den Kontext des Unternehmens und geht weiter zur Zahlung von R$ 4.990,00. Der Kalender öffnet sich nach der Bestätigung.",
-    "primary": "Technische Diagnose anfragen",
+    "title": "Der nächste Schritt ist das technische Gespräch",
+    "lead": "Die Qualifizierung fragt den Unternehmenskontext ab und öffnet den Kalender ohne Zahlung.",
+    "primary": "Technisches Gespräch buchen",
     "secondary": "Per E-Mail schreiben"
   },
   "footer": {
@@ -328,7 +328,7 @@
     "rights": "Alle Rechte vorbehalten.",
     "note": "Softwaretechnik für Systeme im Betrieb.",
     "work": "Was wir veröffentlichen",
-    "discovery": "Technische Diagnose",
+    "discovery": "Gespräch buchen",
     "compliance": "Compliance und Integrität",
     "whistleblowing": "Hinweisgeberkanal"
   },
@@ -340,11 +340,11 @@
     "link": "Cookie-Hinweis"
   },
   "qualification": {
-    "eyebrow": "Technische Diagnose",
-    "metaTitle": "Technische Diagnose anfragen",
-    "metaDescription": "Formular der technischen Diagnose von FISAM TECH. Die Sitzung kostet R$ 4.990,00 und der Kalender öffnet sich nach bestätigter Zahlung.",
-    "title": "Die technische Diagnose anfragen",
-    "lead": "Beschreiben Sie System und Problem. Danach verlangt die Kasse R$ 4.990,00. Filipe Godinho Gomes führt die Sitzung. Die Einschätzung kann lauten, dass es kein Projekt gibt.",
+    "eyebrow": "Technisches Gespräch",
+    "metaTitle": "Technisches Gespräch buchen",
+    "metaDescription": "Formular zur Buchung eines technischen Gesprächs mit FISAM TECH. Keine Zahlung nötig, um den Kalender zu öffnen.",
+    "title": "Technisches Gespräch buchen",
+    "lead": "Beschreiben Sie System und Problem. Danach öffnet sich der Kalender ohne Zahlung. Filipe Godinho Gomes führt das Gespräch. Der Rat kann lauten, dass es kein Projekt gibt.",
     "name": "Vollständiger Name",
     "email": "Geschäftliche E-Mail",
     "company": "Unternehmen",
@@ -354,9 +354,9 @@
     "budget": "Budgetspanne des Projekts",
     "budgetPlaceholder": "Spanne wählen",
     "currency": "Währung der Sitzung",
-    "submit": "Weiter zur Zahlung",
-    "priceNote": "Die veröffentlichte Sitzung kostet R$ 4.990,00. Andere Währungen haben auf der Website keinen kommerziellen Preis.",
-    "privacyBefore": "Mit dem Senden dienen die Daten der Vorbereitung der Sitzung und der Zahlung, gemäß dem",
+    "submit": "Kalender öffnen",
+    "priceNote": "Für die Terminbuchung fällt keine Gebühr an. Die Budgetspanne hilft, das Gespräch vorzubereiten.",
+    "privacyBefore": "Mit dem Absenden werden die Daten zur Vorbereitung des Gesprächs und der Buchung verwendet, wie in der",
     "privacyLink": "Datenschutzhinweis",
     "privacyAfter": "."
   },
@@ -387,8 +387,8 @@
     "errorHint": "Die Zahlung auf dieser Seite hängt von der Konfiguration des Anbieters ab. Bis dahin ist der Kanal contato@fisamtech.com."
   },
   "book": {
-    "title": "Termin für die technische Diagnose",
-    "lead": "Der Link ist gültig. Wählen Sie eine Zeit im Kalender.",
+    "title": "Technisches Gespräch buchen",
+    "lead": "Der Link ist gültig. Wählen Sie einen Termin im Kalender. Es ist keine Zahlung erforderlich.",
     "invalid": "Dieser Terminlink ist ungültig oder abgelaufen.",
     "open": "Kalender öffnen"
   },
@@ -402,7 +402,7 @@
     "productsLead": "Die Adressen unten sind Produkte des Unternehmens. Diese Seite behauptet nicht den Betriebszustand jedes einzelnen.",
     "priorTitle": "Berufserfahrung des Verantwortlichen",
     "priorLead": "Beruflicher Werdegang von Filipe Godinho Gomes.",
-    "cta": "Technische Diagnose anfragen",
+    "cta": "Technisches Gespräch buchen",
     "sigabr": {
       "type": "Name als Kunde veröffentlicht",
       "situation": "Der schon versionierte Text beschreibt eine Plattform für Zulassungsagenten und Lizenzen.",

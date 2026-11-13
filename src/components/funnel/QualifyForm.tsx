@@ -3,7 +3,6 @@
 import { FormEvent, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
-import { isCommercialDiscoveryPrice, type Currency } from "@fisamtech/payments/price";
 import { BUDGET_RANGES } from "@/lib/config";
 import { Link } from "@/i18n/routing";
 import { track } from "@/lib/analytics";
@@ -40,28 +39,7 @@ export function QualifyForm() {
     track("qualification_submitted");
 
     const fd = new FormData(e.currentTarget);
-    const currency = (fd.get("currency") as Currency) || "BRL";
-    const country =
-      getCookie("COUNTRY") ||
-      (currency === "BRL"
-        ? "BR"
-        : currency === "ARS"
-          ? "AR"
-          : currency === "MXN"
-            ? "MX"
-            : currency === "COP"
-              ? "CO"
-              : currency === "CLP"
-                ? "CL"
-                : currency === "PEN"
-                  ? "PE"
-                  : currency === "UYU"
-                    ? "UY"
-                    : currency === "GBP"
-                      ? "GB"
-                      : currency === "EUR"
-                        ? "DE"
-                        : "US");
+    const country = getCookie("COUNTRY") || "BR";
 
     const payload = {
       name: String(fd.get("name") || ""),
@@ -71,7 +49,7 @@ export function QualifyForm() {
       role: String(fd.get("role") || ""),
       challenge: String(fd.get("challenge") || ""),
       budget_range: String(fd.get("budget") || ""),
-      currency,
+      currency: "BRL",
       locale,
       source: "qualification",
     };
@@ -84,10 +62,19 @@ export function QualifyForm() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Lead failed");
-      track("checkout_started", { leadId: data.id, currency, country });
-      router.push(
-        `/checkout?leadId=${encodeURIComponent(data.id)}&currency=${currency}&country=${country}`
-      );
+
+      const unlockRes = await fetch("/api/booking/unlock", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ leadId: data.id, free: true }),
+      });
+      const unlock = await unlockRes.json();
+      if (!unlockRes.ok || !unlock.token) {
+        throw new Error(unlock.error || "Booking unlock failed");
+      }
+
+      track("booking_unlocked", { leadId: data.id, free: true });
+      router.push(`/book?token=${encodeURIComponent(unlock.token)}`);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Error");
     } finally {
@@ -126,16 +113,6 @@ export function QualifyForm() {
           {BUDGET_RANGES.map((range) => (
             <option key={range.id} value={range.id}>
               {formatBudgetBrl(range)}
-            </option>
-          ))}
-        </select>
-      </label>
-      <label>
-        {t("currency")}
-        <select name="currency" defaultValue="BRL">
-          {(["BRL"] as const).filter((c) => isCommercialDiscoveryPrice(c)).map((c) => (
-            <option key={c} value={c}>
-              {c}
             </option>
           ))}
         </select>

@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "FISAM TECH",
     "title": "FISAM TECH | Software engineering for systems already in use",
-    "description": "Architecture, backend, integration and modernization for companies with a system in operation. Technical diagnosis at R$ 4.990,00."
+    "description": "Architecture, backend, integration and modernization for companies with a system in operation. Book a technical conversation with no payment required."
   },
   "nav": {
     "process": "Process",
@@ -10,7 +10,7 @@
     "cases": "Work",
     "partners": "Ideas",
     "contact": "Contact",
-    "discovery": "Technical diagnosis",
+    "discovery": "Book a conversation",
     "whatsapp": "WhatsApp",
     "whatsappPrefill": "Hello. I want to talk about a system that is already in use.",
     "skip": "Skip to content",
@@ -89,7 +89,7 @@
     "eyebrow": "São Paulo · software engineering",
     "title": "Engineering that connects technology and the business.",
     "lead": "We build systems and integrations for companies that need fewer failures, automated processes, and an operation that keeps running.",
-    "ctaPrimary": "Request a technical diagnosis",
+    "ctaPrimary": "Book a technical conversation",
     "ctaSecondary": "Email the team",
     "ctaWork": "See what we publish",
     "footnote": "Architecture, backend, integration and modernization of systems already in use.",
@@ -122,7 +122,7 @@
     "focus": "What the company contracts",
     "focusValue": "Systems in operation",
     "method": "First step",
-    "methodValue": "Paid diagnosis"
+    "methodValue": "Free to schedule"
   },
   "problems": {
     "eyebrow": "Situation",
@@ -166,9 +166,9 @@
         "problem": "The structure of the system no longer fits the operation. Each new change raises the chance of failure, and the team discusses symptoms instead of the decision that has to be made.",
         "audience": "Companies with a system in use, where the next change crosses teams, data, or a process that cannot stop.",
         "deliver": "A reading of the current structure, the risks, what is kept, and a sequence of next steps. It is not a closed project design and it is not a guarantee of results.",
-        "method": "The work starts with the paid diagnosis. If there is a project, decisions are written down and the build follows parts the operation can follow.",
+        "method": "The work starts with the technical conversation. If there is a project, decisions are written down and the build follows parts the operation can follow.",
         "evidence": "No architecture metric is published. The cases page names SigaBR and 637 Tennis Club, without numbers.",
-        "cta": "Request a technical diagnosis"
+        "cta": "Book a technical conversation"
       }
     },
     "backend": {
@@ -181,7 +181,7 @@
         "deliver": "The services, APIs and error handling agreed in scope. The site does not publish a technology list as if that were the service.",
         "method": "After the diagnosis, the scope is split. The build follows what was written down, with a way to see what changed.",
         "evidence": "No backend metric is published on this site.",
-        "cta": "Request a technical diagnosis"
+        "cta": "Book a technical conversation"
       }
     },
     "integrations": {
@@ -194,7 +194,7 @@
         "deliver": "A map of the flow, the failure points, and what will be connected. The versioned SigaBR text mentions an integration with DETRAN via RENAVAM and Banco Rendimento, without a metric and without an attached document.",
         "method": "The diagnosis looks at the real flow before the integration is written. If the problem does not justify a project, the opinion says so.",
         "evidence": "The name SigaBR is published as a client, with the integration named above. This repository has no source, date or measured result.",
-        "cta": "Request a technical diagnosis"
+        "cta": "Book a technical conversation"
       }
     },
     "legacy": {
@@ -207,7 +207,7 @@
         "deliver": "A reading of what the system does today, what can change in stages, and what stays out. There is no promise of a migration without interruption.",
         "method": "The diagnosis separates what the operation cannot lose from what can be rewritten. A project, if there is one, follows that order.",
         "evidence": "There is no modernization case with a measured result on this site. The cases page says what is published and what is not.",
-        "cta": "Request a technical diagnosis"
+        "cta": "Book a technical conversation"
       }
     },
     "genai": {
@@ -220,7 +220,7 @@
         "deliver": "A reading of what the system already does, of the risks in data, access, integration and operations, and of what would make sense to keep or rebuild. The opinion may be that there is no project.",
         "method": "The diagnosis session comes before any rewrite. There is no published standard timeline for turning an MVP into a production system.",
         "evidence": "There is no public case of MVP hardening in this repository. The published names are on the cases page, without metrics.",
-        "cta": "Request a technical diagnosis"
+        "cta": "Book a technical conversation"
       }
     }
   },
@@ -273,37 +273,37 @@
   },
   "discovery": {
     "eyebrow": "First step",
-    "title": "Technical diagnosis",
-    "lead": "A paid session to read a system that already exists. Filipe Godinho Gomes, founder and technical lead, conducts the session. Before it, the company sends on the form its name, email, company, role, a description of the challenge, and a budget range.",
+    "title": "Technical conversation",
+    "lead": "A session to read a system that already exists. Scheduling is free. Filipe Godinho Gomes, founder and technical lead, runs the conversation. Before it, the company shares context in the form.",
     "includes": {
       "1": "Deliverable: a reading of the situation, the risks observed, and next steps. It is not a closed project.",
       "2": "The opinion may be that there is no problem that justifies a project.",
-      "3": "The calendar opens after the payment is confirmed in the system.",
-      "4": "The scheduling link appears on this confirmation and in the email, when email sending is configured."
+      "3": "The calendar opens after the form, with no payment.",
+      "4": "The booking link appears right after the form and by email when email sending is configured."
     },
-    "priceLabel": "Session price",
-    "priceNote": "R$ 4.990,00 is the session price, charged at checkout in Brazilian reais. A message does not waive payment and does not open the calendar. No price in dollars, euros or pounds is published.",
-    "cta": "Request the technical diagnosis"
+    "priceLabel": "Scheduling",
+    "priceNote": "Booking the conversation is free. The form asks for company context and opens the calendar. Any project, if there is one, is agreed afterwards.",
+    "cta": "Book a technical conversation"
   },
   "faq": {
     "eyebrow": "Questions",
     "title": "Frequent questions",
     "items": {
       "1": {
-        "q": "Is the diagnosis free?",
-        "a": "No. The session costs R$ 4.990,00, paid at checkout. A message does not replace payment and does not open the calendar."
+        "q": "Is the conversation free?",
+        "a": "Yes. Fill in the form and book the conversation with no payment. A later project is agreed only if it makes sense."
       },
       "2": {
-        "q": "Who conducts the diagnosis?",
+        "q": "Who runs the conversation?",
         "a": "Filipe Godinho Gomes, founder and technical lead of FISAM TECH."
       },
       "3": {
-        "q": "Is there a price in another currency?",
-        "a": "The published price is R$ 4.990,00, in Brazilian reais, at checkout. Dollars, euros and pounds have no commercial price on this page."
+        "q": "Do I need to pay to open the calendar?",
+        "a": "No. The calendar opens after the form. There is no charge to book the conversation."
       },
       "4": {
-        "q": "What if the opinion is not to do the project?",
-        "a": "The session delivers the reading that was paid for. There is no obligation to open a project afterwards."
+        "q": "What if the advice is not to run a project?",
+        "a": "The conversation delivers a reading of the situation. There is no duty to start a project afterwards."
       },
       "5": {
         "q": "Is the language forced?",
@@ -312,9 +312,9 @@
     }
   },
   "cta": {
-    "title": "The next step is the technical diagnosis",
-    "lead": "Qualification asks for the company's context and continues to the payment of R$ 4.990,00. The calendar opens after confirmation.",
-    "primary": "Request a technical diagnosis",
+    "title": "The next step is the technical conversation",
+    "lead": "Qualification asks for company context and opens the calendar, with no payment.",
+    "primary": "Book a technical conversation",
     "secondary": "Email the team"
   },
   "footer": {
@@ -328,7 +328,7 @@
     "rights": "All rights reserved.",
     "note": "Software engineering for systems in operation.",
     "work": "What we publish",
-    "discovery": "Technical diagnosis",
+    "discovery": "Book a conversation",
     "compliance": "Compliance and integrity",
     "whistleblowing": "Reporting channel"
   },
@@ -340,11 +340,11 @@
     "link": "Cookie policy"
   },
   "qualification": {
-    "eyebrow": "Technical diagnosis",
-    "metaTitle": "Request a technical diagnosis",
-    "metaDescription": "Form for the FISAM TECH technical diagnosis. The session costs R$ 4.990,00 and the calendar opens after the payment is confirmed.",
-    "title": "Request the technical diagnosis",
-    "lead": "Describe the system and the problem. Checkout then charges R$ 4.990,00. Filipe Godinho Gomes conducts the session. The opinion may be that there is no project.",
+    "eyebrow": "Technical conversation",
+    "metaTitle": "Book a technical conversation",
+    "metaDescription": "Form to book a technical conversation with FISAM TECH. No payment required to open the calendar.",
+    "title": "Book the technical conversation",
+    "lead": "Describe the system and the problem. Then the calendar opens, with no payment. Filipe Godinho Gomes runs the conversation. The advice may be that there is no project.",
     "name": "Full name",
     "email": "Work email",
     "company": "Company",
@@ -354,9 +354,9 @@
     "budget": "Project budget range",
     "budgetPlaceholder": "Select a range",
     "currency": "Session currency",
-    "submit": "Continue to payment",
-    "priceNote": "The published session costs R$ 4.990,00. Other currencies have no commercial price on the site.",
-    "privacyBefore": "By sending, the data is used to prepare the session and the payment, as described in the",
+    "submit": "Open the calendar",
+    "priceNote": "There is no charge to book the conversation. The budget range helps prepare the talk.",
+    "privacyBefore": "By sending, the data is used to prepare the conversation and the booking, as described in the",
     "privacyLink": "privacy notice",
     "privacyAfter": "."
   },
@@ -387,8 +387,8 @@
     "errorHint": "Payment on this page depends on the provider configuration. Until then, write to contato@fisamtech.com."
   },
   "book": {
-    "title": "Schedule the technical diagnosis",
-    "lead": "The link is valid. Choose a time on the calendar.",
+    "title": "Book the technical conversation",
+    "lead": "The link is valid. Choose a time on the calendar. No payment is required.",
     "invalid": "This scheduling link is invalid or has expired.",
     "open": "Open the calendar"
   },
@@ -402,7 +402,7 @@
     "productsLead": "The addresses below are products of the company. This page does not state the operating status of each one.",
     "priorTitle": "Professional experience of the person in charge",
     "priorLead": "Professional record of Filipe Godinho Gomes.",
-    "cta": "Request a technical diagnosis",
+    "cta": "Book a technical conversation",
     "sigabr": {
       "type": "Name published as a client",
       "situation": "The versioned text describes a platform for vehicle-registration agents and licensing.",
@@ -522,7 +522,7 @@
         "title": "Data processed",
         "paragraphs": [
           "Commercial qualification: name, email, company, role, description of the challenge, budget range, currency, country and language. The record goes into the contact file. The country may be the one the person indicated or the country suggested from the region of access. That file has no field for IP address or browser identifier.",
-          "Diagnosis and scheduling: after payment is confirmed, the company releases a link with a signed token, valid for 14 days, so the person can choose a time. The session is conducted by Filipe Godinho Gomes. The deliverable is a reading of the situation, the risks observed and the next steps.",
+          "Diagnosis and scheduling: after the qualification form, the company releases a link with a signed token, valid for 14 days, so the person can choose a time. The session is conducted by Filipe Godinho Gomes. The deliverable is a reading of the situation, the risks observed and the next steps.",
           "Payment and tax records: the published session costs R$ 4.990,00. The payment operator processes the payment-method data. The company keeps the operation reference, the status, the amount, the currency and the return needed to confirm payment and to meet a tax duty. The full card number does not stay in the company's file.",
           "Ideas: name, email, phone, idea, problem and stage. Those data go into the contact file, and sending opens the messaging application published on the site, with the same content. Sending is a preliminary step. It does not hire engineering, does not transfer an equity interest, does not create a partnership and does not require an investment, until a separate instrument exists.",
           "Report: category, account, approximate date, relationship with the company, language and an identification flag. If the person identifies themselves, also name, email, phone and the record of authorization. If they do not, the account proceeds without name, email and phone. The report record, in the application, does not store an IP address or a browser identifier. The text may identify someone, and sending passes through hosting and email. The company tries to notify contato@fisamtech.com with the protocol and an excerpt of up to 280 characters.",
@@ -606,7 +606,7 @@
       {
         "title": "Payment and scheduling",
         "paragraphs": [
-          "The charge is made at the site checkout. The calendar opens when payment is confirmed. The scheduling link uses a signed token, valid for 14 days. Without a valid token, the calendar does not open. The email with the link is sent when email sending is active."
+          "The calendar opens after the qualification form, with no required payment. The scheduling link uses a signed token, valid for 14 days. Without a valid token, the calendar does not open. The email with the link is sent when email sending is active."
         ]
       },
       {

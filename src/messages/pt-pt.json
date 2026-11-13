@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "FISAM TECH",
     "title": "FISAM TECH | Engenharia de software para sistemas em operação",
-    "description": "Arquitetura, backend, integração e modernização para empresas com um sistema em utilização. Diagnóstico técnico por R$ 4.990,00."
+    "description": "Arquitetura, backend, integração e modernização para empresas com sistema em uso. Conversa técnica sem pagamento para marcar a agenda."
   },
   "nav": {
     "process": "Processo",
@@ -10,7 +10,7 @@
     "cases": "Cases",
     "partners": "Ideias em conjunto",
     "contact": "Contacto",
-    "discovery": "Diagnóstico técnico",
+    "discovery": "Marcar conversa",
     "whatsapp": "WhatsApp",
     "whatsappPrefill": "Olá. Quero conversar sobre um sistema que já está em uso.",
     "skip": "Pular para o conteúdo",
@@ -89,7 +89,7 @@
     "eyebrow": "São Paulo · engenharia de software",
     "title": "Engenharia que liga tecnologia e negócio.",
     "lead": "Desenvolvemos sistemas e integrações para empresas que precisam reduzir falhas, automatizar processos e manter a operação funcionando.",
-    "ctaPrimary": "Pedir diagnóstico técnico",
+    "ctaPrimary": "Marcar conversa técnica",
     "ctaSecondary": "Conversar pelo WhatsApp",
     "ctaWork": "Ver o que publicamos",
     "footnote": "Arquitetura, backend, integração e modernização de sistemas que já estão em uso.",
@@ -122,7 +122,7 @@
     "focus": "Contrato da empresa",
     "focusValue": "Sistemas em operação",
     "method": "Primeiro passo",
-    "methodValue": "Diagnóstico pago"
+    "methodValue": "Conversa sem pagamento"
   },
   "problems": {
     "eyebrow": "Situação",
@@ -166,9 +166,9 @@
         "problem": "A estrutura do sistema deixou de caber na operação. Cada mudança nova aumenta o risco de falha, e a equipa discute sintoma em vez da decisão que precisa ser tomada.",
         "audience": "Empresas com sistema em uso, em que a próxima mudança atravessa times, dados ou um processo que não pode parar.",
         "deliver": "Leitura da estrutura atual, riscos, o que se preserva e uma sequência de próximos passos. Não é um desenho fechado de projeto nem uma garantia de resultado.",
-        "method": "O trabalho começa no diagnóstico pago. Se houver projeto, as decisões ficam registradas e a construção segue em partes que a operação consegue acompanhar.",
+        "method": "O trabalho começa no conversa técnica. Se houver projeto, as decisões ficam registradas e a construção segue em partes que a operação consegue acompanhar.",
         "evidence": "Não há métrica de arquitetura publicada. Em Cases estão os nomes SigaBR e 637 Tennis Club, sem número.",
-        "cta": "Pedir diagnóstico técnico"
+        "cta": "Marcar conversa técnica"
       }
     },
     "backend": {
@@ -181,7 +181,7 @@
         "deliver": "Serviços, APIs e o tratamento de erro combinados no escopo. O site não publica uma lista de tecnologias como se isso fosse o serviço.",
         "method": "Depois do diagnóstico, o escopo é dividido. A construção segue o que foi registado, com um jeito de ver o que mudou.",
         "evidence": "Não há métrica de backend publicada neste site.",
-        "cta": "Pedir diagnóstico técnico"
+        "cta": "Marcar conversa técnica"
       }
     },
     "integrations": {
@@ -194,7 +194,7 @@
         "deliver": "Mapa do fluxo, dos pontos de falha e do que será ligado. O texto versionado do SigaBR cita integração com DETRAN via RENAVAM e Banco Rendimento, sem métrica e sem documento anexo.",
         "method": "O diagnóstico olha o fluxo real antes de escrever a integração. Se o problema não justificar um projeto, o parecer diz isso.",
         "evidence": "O nome SigaBR está publicado como cliente, com a integração citada acima. Não há fonte, data nem número de resultado neste repositório.",
-        "cta": "Pedir diagnóstico técnico"
+        "cta": "Marcar conversa técnica"
       }
     },
     "legacy": {
@@ -207,7 +207,7 @@
         "deliver": "Leitura do que o sistema faz hoje, do que pode mudar em etapas e do que fica de fora. Não há promessa de migração sem interrupção.",
         "method": "O diagnóstico separa o que a operação não pode perder do que pode ser reescrito. O projeto, se existir, segue essa ordem.",
         "evidence": "Não há case de modernização com resultado medido neste site. A página de cases diz o que está publicado e o que não está.",
-        "cta": "Pedir diagnóstico técnico"
+        "cta": "Marcar conversa técnica"
       }
     },
     "genai": {
@@ -220,7 +220,7 @@
         "deliver": "Leitura do que o sistema já faz, dos riscos de dado, acesso, integração e operação, e do que faria sentido preservar ou refazer. O parecer pode ser o de que não há projeto.",
         "method": "A sessão de diagnóstico vem antes de qualquer reescrita. Não há prazo padrão publicado para transformar um MVP.",
         "evidence": "Não há case público de profissionalização de MVP neste repositório. Os nomes publicados estão na página de cases, sem métrica.",
-        "cta": "Pedir diagnóstico técnico"
+        "cta": "Marcar conversa técnica"
       }
     }
   },
@@ -273,37 +273,37 @@
   },
   "discovery": {
     "eyebrow": "Primeiro passo",
-    "title": "Diagnóstico técnico",
-    "lead": "Sessão paga para ler um sistema que já existe. Filipe Godinho Gomes, fundador e responsável técnico, conduz a sessão. Antes dela, a empresa envia no formulário o nome, o e-mail, a empresa, o cargo, a descrição do desafio e uma faixa de orçamento.",
+    "title": "Conversa técnica",
+    "lead": "Sessão para ler um sistema que já existe, sem cobrança para marcar a agenda. Filipe Godinho Gomes conduz a conversa. Antes, a empresa envia o contexto no formulário.",
     "includes": {
       "1": "Entrega: leitura do cenário, riscos observados e próximos passos. Não é um projeto fechado.",
       "2": "O parecer pode ser o de que não há um problema que justifique um projeto.",
-      "3": "O calendário abre depois que o pagamento fica confirmado no sistema.",
-      "4": "O link de agendamento aparece nesta confirmação e no e-mail, quando o envio de e-mail está configurado."
+      "3": "O calendário abre depois do formulário, sem pagamento.",
+      "4": "O link de agendamento aparece a seguir ao formulário e no e-mail, quando o envio está configurado."
     },
-    "priceLabel": "Valor da sessão",
-    "priceNote": "R$ 4.990,00 é o valor da sessão, cobrado no checkout em reais. Uma conversa por mensagem não dispensa o pagamento nem abre a agenda. Preço em dólar, euro ou libra não está publicado.",
-    "cta": "Pedir o diagnóstico técnico"
+    "priceLabel": "Agendamento",
+    "priceNote": "Marcar a conversa é gratuito. O formulário pede o contexto da empresa e liberta a agenda. Um projeto, se existir, é combinado depois.",
+    "cta": "Marcar conversa técnica"
   },
   "faq": {
     "eyebrow": "Perguntas",
     "title": "Perguntas frequentes",
     "items": {
       "1": {
-        "q": "O diagnóstico é gratuito?",
-        "a": "Não. A sessão custa R$ 4.990,00, pagos no checkout. Uma conversa por mensagem não substitui o pagamento nem abre a agenda."
+        "q": "A conversa é gratuita?",
+        "a": "Sim. Preenche o formulário e marca a conversa sem pagamento. Um eventual projeto é combinado depois, se fizer sentido."
       },
       "2": {
-        "q": "Quem conduz o diagnóstico?",
+        "q": "Quem conduz a conversa?",
         "a": "Filipe Godinho Gomes, fundador e responsável técnico da FISAM TECH."
       },
       "3": {
-        "q": "Há preço noutra moeda?",
-        "a": "O preço publicado é R$ 4.990,00, em reais, no checkout. Dólar, euro e libra não têm preço comercial nesta página."
+        "q": "Preciso pagar para abrir a agenda?",
+        "a": "Não. A agenda abre após o formulário. Não há cobrança para marcar a conversa."
       },
       "4": {
         "q": "E se o parecer for não fazer o projeto?",
-        "a": "A sessão entrega a leitura que foi paga. Não há obrigação de abrir um projeto depois dela."
+        "a": "A conversa entrega a leitura do cenário. Não há obrigação de abrir um projeto depois."
       },
       "5": {
         "q": "O idioma é imposto?",
@@ -312,9 +312,9 @@
     }
   },
   "cta": {
-    "title": "O próximo passo é o diagnóstico técnico",
-    "lead": "A qualificação pede o contexto da empresa e segue para o pagamento de R$ 4.990,00. O calendário abre depois da confirmação.",
-    "primary": "Pedir diagnóstico técnico",
+    "title": "O próximo passo é a conversa técnica",
+    "lead": "A qualificação pede o contexto da empresa e liberta a agenda, sem pagamento.",
+    "primary": "Marcar conversa técnica",
     "secondary": "Conversar pelo WhatsApp"
   },
   "footer": {
@@ -328,7 +328,7 @@
     "rights": "Todos os direitos reservados.",
     "note": "Engenharia de software para sistemas em operação.",
     "work": "O que publicamos",
-    "discovery": "Diagnóstico técnico",
+    "discovery": "Marcar conversa",
     "compliance": "Compliance e integridade",
     "whistleblowing": "Canal de denúncias"
   },
@@ -340,11 +340,11 @@
     "link": "Política de cookies"
   },
   "qualification": {
-    "eyebrow": "Diagnóstico técnico",
-    "metaTitle": "Pedir diagnóstico técnico",
-    "metaDescription": "Formulário do diagnóstico técnico da FISAM TECH. A sessão custa R$ 4.990,00 e o calendário abre depois do pagamento confirmado.",
-    "title": "Pedir o diagnóstico técnico",
-    "lead": "Conte o sistema e o problema. Em seguida o checkout cobra R$ 4.990,00. Quem conduz a sessão é Filipe Godinho Gomes. O parecer pode ser o de que não há projeto.",
+    "eyebrow": "Conversa técnica",
+    "metaTitle": "Marcar conversa técnica",
+    "metaDescription": "Formulário para marcar uma conversa técnica com a FISAM TECH. Sem pagamento para abrir a agenda.",
+    "title": "Marcar a conversa técnica",
+    "lead": "Conte o sistema e o problema. Em seguida a agenda abre, sem pagamento. Quem conduz a conversa é Filipe Godinho Gomes. O parecer pode ser o de que não há projeto.",
     "name": "Nome completo",
     "email": "E-mail profissional",
     "company": "Empresa",
@@ -354,9 +354,9 @@
     "budget": "Faixa de orçamento do projeto",
     "budgetPlaceholder": "Selecione uma faixa",
     "currency": "Moeda da sessão",
-    "submit": "Continuar para o pagamento",
-    "priceNote": "A sessão publicada custa R$ 4.990,00. Outras moedas não têm preço comercial no site.",
-    "privacyBefore": "Ao enviar, os dados vão para a preparação da sessão e para o pagamento, conforme a",
+    "submit": "Abrir a agenda",
+    "priceNote": "Não há cobrança para marcar a conversa. A faixa de orçamento ajuda a preparar a conversa.",
+    "privacyBefore": "Ao enviar, os dados vão para a preparação da conversa e do agendamento, conforme a",
     "privacyLink": "política de privacidade",
     "privacyAfter": "."
   },
@@ -387,8 +387,8 @@
     "errorHint": "O pagamento nesta página depende da configuração do fornecedor. O canal, enquanto isso, é contato@fisamtech.com."
   },
   "book": {
-    "title": "Agendar o diagnóstico técnico",
-    "lead": "O link é válido. Escolha um horário no calendário.",
+    "title": "Marcar a conversa técnica",
+    "lead": "O link é válido. Escolha um horário no calendário. Não é necessário pagamento.",
     "invalid": "Este link de agendamento é inválido ou expirou.",
     "open": "Abrir a agenda"
   },
@@ -402,7 +402,7 @@
     "productsLead": "Os endereços abaixo são de produtos da própria empresa. Esta página não afirma o estado de operação de cada um.",
     "priorTitle": "Experiência profissional do responsável",
     "priorLead": "Trajetória profissional de Filipe Godinho Gomes.",
-    "cta": "Pedir diagnóstico técnico",
+    "cta": "Marcar conversa técnica",
     "sigabr": {
       "type": "Nome publicado como cliente",
       "situation": "O texto já versionado descreve uma plataforma para despachantes e licenciamento.",

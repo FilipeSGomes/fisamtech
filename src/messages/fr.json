@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "FISAM TECH",
     "title": "FISAM TECH | Ingénierie logicielle pour des systèmes déjà en service",
-    "description": "Architecture, backend, intégration et modernisation pour des entreprises dont le système est déjà en service. Diagnostic technique à R$ 4.990,00."
+    "description": "Architecture, backend, intégration et modernisation pour des entreprises dont le système est déjà en service. Conversation technique sans paiement pour ouvrir l'agenda."
   },
   "nav": {
     "process": "Démarche",
@@ -10,7 +10,7 @@
     "cases": "Réalisations",
     "partners": "Idées",
     "contact": "Contact",
-    "discovery": "Diagnostic technique",
+    "discovery": "Planifier une conversation",
     "whatsapp": "WhatsApp",
     "whatsappPrefill": "Bonjour. Je veux parler d'un système déjà en service.",
     "skip": "Aller au contenu",
@@ -89,7 +89,7 @@
     "eyebrow": "São Paulo · ingénierie logicielle",
     "title": "Une ingénierie qui relie la technologie et l'activité.",
     "lead": "Nous développons des systèmes et des intégrations pour des entreprises qui doivent réduire les défaillances, automatiser des processus et maintenir l'exploitation.",
-    "ctaPrimary": "Demander le diagnostic technique",
+    "ctaPrimary": "Planifier une conversation technique",
     "ctaSecondary": "Écrire par e-mail",
     "ctaWork": "Voir ce que nous publions",
     "footnote": "Architecture, backend, intégration et modernisation de systèmes déjà en service.",
@@ -122,7 +122,7 @@
     "focus": "Contrat de l'entreprise",
     "focusValue": "Systèmes en exploitation",
     "method": "Premier pas",
-    "methodValue": "Diagnostic payant"
+    "methodValue": "Agenda sans paiement"
   },
   "problems": {
     "eyebrow": "Situation",
@@ -168,7 +168,7 @@
         "deliver": "Lecture de la structure actuelle, des risques, de ce qui est conservé et d'une suite d'étapes. Ce n'est pas un dessin de projet fermé ni une garantie de résultat.",
         "method": "Le travail commence par le diagnostic payant. S'il y a un projet, les décisions sont écrites et la construction suit des parties que l'exploitation peut suivre.",
         "evidence": "Aucune métrique d'architecture n'est publiée. La page des réalisations nomme SigaBR et 637 Tennis Club, sans chiffre.",
-        "cta": "Demander le diagnostic technique"
+        "cta": "Planifier une conversation technique"
       }
     },
     "backend": {
@@ -181,7 +181,7 @@
         "deliver": "Services, API et traitement d'erreur convenus dans le périmètre. Le site ne publie pas une liste de technologies comme si c'était le service.",
         "method": "Après le diagnostic, le périmètre est découpé. La construction suit ce qui a été écrit, avec un moyen de voir ce qui a changé.",
         "evidence": "Aucune métrique de backend n'est publiée sur ce site.",
-        "cta": "Demander le diagnostic technique"
+        "cta": "Planifier une conversation technique"
       }
     },
     "integrations": {
@@ -194,7 +194,7 @@
         "deliver": "Carte du flux, des points de défaillance et de ce qui sera relié. Le texte versionné de SigaBR cite une intégration avec le DETRAN via RENAVAM et Banco Rendimento, sans métrique et sans document joint.",
         "method": "Le diagnostic regarde le flux réel avant d'écrire l'intégration. Si le problème ne justifie pas un projet, l'avis le dit.",
         "evidence": "Le nom SigaBR est publié comme client, avec l'intégration citée ci-dessus. Ce dépôt n'a ni source, ni date, ni résultat mesuré.",
-        "cta": "Demander le diagnostic technique"
+        "cta": "Planifier une conversation technique"
       }
     },
     "legacy": {
@@ -207,7 +207,7 @@
         "deliver": "Lecture de ce que le système fait aujourd'hui, de ce qui peut changer par étapes et de ce qui reste dehors. Il n'y a pas de promesse de migration sans interruption.",
         "method": "Le diagnostic sépare ce que l'exploitation ne peut pas perdre de ce qui peut être réécrit. Le projet, s'il existe, suit cet ordre.",
         "evidence": "Il n'y a pas de cas de modernisation avec un résultat mesuré sur ce site. La page des réalisations dit ce qui est publié et ce qui ne l'est pas.",
-        "cta": "Demander le diagnostic technique"
+        "cta": "Planifier une conversation technique"
       }
     },
     "genai": {
@@ -220,7 +220,7 @@
         "deliver": "Lecture de ce que le système fait déjà, des risques de donnée, d'accès, d'intégration et d'exploitation, et de ce qu'il serait sensé conserver ou refaire. L'avis peut être qu'il n'y a pas de projet.",
         "method": "La session de diagnostic vient avant toute réécriture. Aucun délai type n'est publié pour transformer un MVP.",
         "evidence": "Il n'y a pas de cas public de mise en exploitation d'un MVP dans ce dépôt. Les noms publiés sont sur la page des réalisations, sans métrique.",
-        "cta": "Demander le diagnostic technique"
+        "cta": "Planifier une conversation technique"
       }
     }
   },
@@ -273,37 +273,37 @@
   },
   "discovery": {
     "eyebrow": "Premier pas",
-    "title": "Diagnostic technique",
-    "lead": "Session payante pour lire un système qui existe déjà. Filipe Godinho Gomes, fondateur et responsable technique, conduit la session. Avant, l'entreprise envoie dans le formulaire le nom, l'e-mail, l'entreprise, la fonction, la description du défi et une fourchette de budget.",
+    "title": "Conversation technique",
+    "lead": "Séance pour lire un système déjà en place. La prise de rendez-vous est gratuite. Filipe Godinho Gomes conduit la conversation. Avant, l'entreprise envoie le contexte via le formulaire.",
     "includes": {
       "1": "Livrable : lecture de la situation, risques observés et prochaines étapes. Ce n'est pas un projet fermé.",
       "2": "L'avis peut être qu'il n'y a pas de problème qui justifie un projet.",
-      "3": "Le calendrier s'ouvre après confirmation du paiement dans le système.",
-      "4": "Le lien de rendez-vous apparaît sur cette confirmation et dans l'e-mail, lorsque l'envoi d'e-mail est configuré."
+      "3": "Le calendrier s'ouvre après le formulaire, sans paiement.",
+      "4": "Le lien d'agenda apparaît après le formulaire et par e-mail lorsque l'envoi est configuré."
     },
-    "priceLabel": "Prix de la session",
-    "priceNote": "R$ 4.990,00 est le prix de la session, encaissé au paiement en réaux. Un message ne dispense pas du paiement et n'ouvre pas l'agenda. Aucun prix en dollar, euro ou livre n'est publié.",
-    "cta": "Demander le diagnostic technique"
+    "priceLabel": "Agenda",
+    "priceNote": "Planifier la conversation est gratuit. Le formulaire demande le contexte et ouvre le calendrier. Un projet, s'il existe, se discute ensuite.",
+    "cta": "Planifier une conversation technique"
   },
   "faq": {
     "eyebrow": "Questions",
     "title": "Questions fréquentes",
     "items": {
       "1": {
-        "q": "Le diagnostic est-il gratuit ?",
-        "a": "Non. La session coûte R$ 4.990,00, payés au paiement. Un message ne remplace pas le paiement et n'ouvre pas l'agenda."
+        "q": "La conversation est-elle gratuite ?",
+        "a": "Oui. Vous remplissez le formulaire et planifiez sans paiement. Un projet éventuel se discute ensuite, s'il y a lieu."
       },
       "2": {
-        "q": "Qui conduit le diagnostic ?",
+        "q": "Qui conduit la conversation ?",
         "a": "Filipe Godinho Gomes, fondateur et responsable technique de FISAM TECH."
       },
       "3": {
-        "q": "Y a-t-il un prix dans une autre monnaie ?",
-        "a": "Le prix publié est de R$ 4.990,00, en réaux, au paiement. Le dollar, l'euro et la livre n'ont pas de prix commercial sur cette page."
+        "q": "Faut-il payer pour ouvrir l'agenda ?",
+        "a": "Non. L'agenda s'ouvre après le formulaire. Il n'y a pas de frais pour prendre rendez-vous."
       },
       "4": {
-        "q": "Et si l'avis est de ne pas faire le projet ?",
-        "a": "La session livre la lecture qui a été payée. Il n'y a pas d'obligation d'ouvrir un projet ensuite."
+        "q": "Et si l'avis est de ne pas faire de projet ?",
+        "a": "La conversation livre une lecture de la situation. Il n'y a aucune obligation d'ouvrir un projet ensuite."
       },
       "5": {
         "q": "La langue est-elle imposée ?",
@@ -312,9 +312,9 @@
     }
   },
   "cta": {
-    "title": "L'étape suivante est le diagnostic technique",
-    "lead": "La qualification demande le contexte de l'entreprise puis le paiement de R$ 4.990,00. Le calendrier s'ouvre après confirmation.",
-    "primary": "Demander le diagnostic technique",
+    "title": "La prochaine étape est la conversation technique",
+    "lead": "La qualification demande le contexte de l'entreprise et ouvre l'agenda, sans paiement.",
+    "primary": "Planifier une conversation technique",
     "secondary": "Écrire par e-mail"
   },
   "footer": {
@@ -328,7 +328,7 @@
     "rights": "Tous droits réservés.",
     "note": "Ingénierie logicielle pour des systèmes en exploitation.",
     "work": "Ce que nous publions",
-    "discovery": "Diagnostic technique",
+    "discovery": "Planifier une conversation",
     "compliance": "Conformité et intégrité",
     "whistleblowing": "Canal de signalement"
   },
@@ -340,11 +340,11 @@
     "link": "Politique de cookies"
   },
   "qualification": {
-    "eyebrow": "Diagnostic technique",
-    "metaTitle": "Demander le diagnostic technique",
-    "metaDescription": "Formulaire du diagnostic technique FISAM TECH. La session coûte R$ 4.990,00 et le calendrier s'ouvre après confirmation du paiement.",
-    "title": "Demander le diagnostic technique",
-    "lead": "Décrivez le système et le problème. Le paiement demande ensuite R$ 4.990,00. Filipe Godinho Gomes conduit la session. L'avis peut être qu'il n'y a pas de projet.",
+    "eyebrow": "Conversation technique",
+    "metaTitle": "Planifier une conversation technique",
+    "metaDescription": "Formulaire pour planifier une conversation technique avec FISAM TECH. Sans paiement pour ouvrir l'agenda.",
+    "title": "Planifier la conversation technique",
+    "lead": "Décrivez le système et le problème. Ensuite l'agenda s'ouvre, sans paiement. Filipe Godinho Gomes conduit la conversation. L'avis peut être qu'il n'y a pas de projet.",
     "name": "Nom complet",
     "email": "E-mail professionnel",
     "company": "Entreprise",
@@ -354,9 +354,9 @@
     "budget": "Fourchette de budget du projet",
     "budgetPlaceholder": "Choisissez une fourchette",
     "currency": "Devise de la session",
-    "submit": "Continuer vers le paiement",
-    "priceNote": "La session publiée coûte R$ 4.990,00. Les autres devises n'ont pas de prix commercial sur le site.",
-    "privacyBefore": "En envoyant, les données servent à préparer la session et le paiement, selon la",
+    "submit": "Ouvrir l'agenda",
+    "priceNote": "Il n'y a pas de frais pour planifier la conversation. La fourchette budgétaire aide à préparer l'échange.",
+    "privacyBefore": "En envoyant, les données servent à préparer la conversation et le rendez-vous, comme décrit dans la",
     "privacyLink": "notice de confidentialité",
     "privacyAfter": "."
   },
@@ -387,8 +387,8 @@
     "errorHint": "Le paiement sur cette page dépend de la configuration du prestataire. En attendant, le canal est contato@fisamtech.com."
   },
   "book": {
-    "title": "Prendre rendez-vous pour le diagnostic",
-    "lead": "Le lien est valable. Choisissez un horaire dans le calendrier.",
+    "title": "Planifier la conversation technique",
+    "lead": "Le lien est valide. Choisissez un créneau dans le calendrier. Aucun paiement n'est requis.",
     "invalid": "Ce lien de rendez-vous est invalide ou a expiré.",
     "open": "Ouvrir l'agenda"
   },
@@ -402,7 +402,7 @@
     "productsLead": "Les adresses ci-dessous sont des produits de l'entreprise. Cette page ne dit pas l'état d'exploitation de chacun.",
     "priorTitle": "Expérience professionnelle du responsable",
     "priorLead": "Parcours professionnel de Filipe Godinho Gomes.",
-    "cta": "Demander le diagnostic technique",
+    "cta": "Planifier une conversation technique",
     "sigabr": {
       "type": "Nom publié comme client",
       "situation": "Le texte déjà versionné décrit une plateforme pour des agents d'immatriculation et de licences.",
