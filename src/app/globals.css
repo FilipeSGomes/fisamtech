@@ -999,3 +999,70 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
 .sa-mfa-manual code {
   word-break: break-all;
 }
+
+/* Cinematic public homepage — navy chamber, champagne light, editorial reveal. */
+.home-page .hero {
+  background:
+    radial-gradient(ellipse 55% 70% at 82% 18%, rgba(218, 187, 118, 0.16), transparent 62%),
+    radial-gradient(ellipse 40% 50% at 8% 90%, rgba(41, 72, 112, 0.45), transparent 70%),
+    #0b1524;
+}
+.home-page .hero::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+.home-page .hero-copy > * {
+  animation: cine-rise 900ms cubic-bezier(0.22, 0.8, 0.24, 1) both;
+}
+.home-page .hero-copy > *:nth-child(1) { animation-delay: 40ms; }
+.home-page .hero-copy > *:nth-child(2) { animation-delay: 140ms; }
+.home-page .hero-copy > *:nth-child(3) { animation-delay: 240ms; }
+.home-page .hero-copy > *:nth-child(4) { animation-delay: 340ms; }
+.home-page .hero-copy > *:nth-child(5) { animation-delay: 440ms; }
+.home-page.cine-ready [data-cine] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 780ms cubic-bezier(0.22, 0.8, 0.24, 1),
+    transform 780ms cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+.home-page.cine-ready [data-cine].is-in {
+  opacity: 1;
+  transform: none;
+}
+.home-page.cine-ready .architecture-visual.is-in {
+  transition-delay: 180ms;
+}
+.home-page .btn-primary:active {
+  transform: translateY(0) scale(0.985);
+}
+.home-page .process-card.is-in,
+.home-page .process-section .process-card {
+  transition-delay: 0ms;
+}
+.home-page .discovery-section {
+  background:
+    radial-gradient(ellipse 70% 80% at 100% 0%, rgba(218, 187, 118, 0.12), transparent 55%),
+    #17263b;
+}
+.home-page .closing-section {
+  background:
+    radial-gradient(ellipse 50% 80% at 0% 100%, rgba(218, 187, 118, 0.1), transparent 60%),
+    #0b1524;
+}
+@keyframes cine-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-page .hero-copy > * { animation: none; }
+  .home-page.cine-ready [data-cine] {
+    opacity: 1;
+    transform: none;
+  }
+}

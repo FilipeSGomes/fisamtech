@@ -29,7 +29,7 @@ export function ArchitectureVisual({ labels }: { labels: Labels }) {
   const coreId = `${id}-core`;
 
   return (
-    <div className="architecture-visual">
+    <div className="architecture-visual" data-cine="panel">
       <div className="architecture-heading">
         <span className="architecture-mark" />{labels.title}
         <span className="architecture-index">{active ? `0${nodes.findIndex(n => n.key === active) + 1} / 04` : "01 — 04"}</span>

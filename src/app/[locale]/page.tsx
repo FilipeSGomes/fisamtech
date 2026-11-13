@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { ArchitectureVisual } from "@/components/layout/ArchitectureVisual";
+import { CinematicStage } from "@/components/layout/CinematicStage";
 import { Link } from "@/i18n/routing";
 import {
   FOUNDER_PRIOR_EXPERIENCE,
@@ -40,6 +41,7 @@ export default async function HomePage({
 
   return (
     <div className="home-page">
+      <CinematicStage />
       <section className="hero">
         <div className="shell hero-grid">
           <div className="hero-copy">
@@ -75,7 +77,7 @@ export default async function HomePage({
         <div className="shell hero-bottom"><span>{t("credentials.focusValue")}</span><a href="#process">{t("hero.scroll")} <span aria-hidden="true">↓</span></a></div>
       </section>
 
-      <section id="credentials" className="section section--dark credentials-section">
+      <section id="credentials" className="section section--dark credentials-section" data-cine="rise">
         <div className="shell">
           <p className="eyebrow">{t("credentials.eyebrow")}</p>
           <h2>{t("credentials.title")}</h2>
@@ -101,7 +103,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="section section--light problems-section">
+      <section className="section section--light problems-section" data-cine="rise">
         <div className="shell">
           <p className="eyebrow">{t("problems.eyebrow")}</p>
           <h2>{t("problems.title")}</h2>
@@ -118,7 +120,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section id="services" className="section">
+      <section id="services" className="section" data-cine="rise">
         <div className="shell">
           <p className="eyebrow">{t("services.eyebrow")}</p>
           <h2>{t("services.title")}</h2>
@@ -138,7 +140,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="section section--light cases-section">
+      <section className="section section--light cases-section" data-cine="rise">
         <div className="shell">
           <p className="eyebrow">{t("casesHome.eyebrow")}</p>
           <h2>{t("casesHome.title")}</h2>
@@ -170,7 +172,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section id="process" className="section process-section">
+      <section id="process" className="section process-section" data-cine="rise">
         <div className="shell">
           <p className="eyebrow">{t("howWeWork.eyebrow")}</p>
           <h2>{t("howWeWork.title")}</h2>
@@ -187,7 +189,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="section section--light principles-section">
+      <section className="section section--light principles-section" data-cine="rise">
         <div className="shell">
           <p className="eyebrow">{t("why.eyebrow")}</p>
           <h2>{t("why.title")}</h2>
@@ -201,7 +203,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="section founder-section">
+      <section className="section founder-section" data-cine="rise">
         <div className="shell founder">
           <div>
             <picture>
@@ -229,7 +231,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section id="discovery" className="section section--dark discovery-section">
+      <section id="discovery" className="section section--dark discovery-section" data-cine="rise">
         <div className="shell">
           <p className="eyebrow">{t("discovery.eyebrow")}</p>
           <h2>{t("discovery.title")}</h2>
@@ -253,7 +255,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="section section--light faq-section">
+      <section className="section section--light faq-section" data-cine="rise">
         <div className="shell faq">
           <p className="eyebrow">{t("faq.eyebrow")}</p>
           <h2>{t("faq.title")}</h2>
@@ -266,7 +268,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="section section--dark closing-section">
+      <section className="section section--dark closing-section" data-cine="rise">
         <div className="shell">
           <h2>{t("cta.title")}</h2>
           <p className="lead">{t("cta.lead")}</p>
