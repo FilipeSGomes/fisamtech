@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { ArchitectureVisual } from "@/components/layout/ArchitectureVisual";
 import { CinematicStage } from "@/components/layout/CinematicStage";
+import { EnergyField } from "@/components/layout/EnergyField";
 import { Link } from "@/i18n/routing";
 import {
   FOUNDER_PRIOR_EXPERIENCE,
@@ -43,6 +44,8 @@ export default async function HomePage({
     <div className="home-page">
       <CinematicStage />
       <section className="hero">
+        <EnergyField />
+        <span className="hero-glow" aria-hidden="true" />
         <div className="shell hero-grid">
           <div className="hero-copy">
           <p className="eyebrow">{t("hero.eyebrow")}</p>
