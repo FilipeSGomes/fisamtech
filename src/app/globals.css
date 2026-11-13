@@ -1078,6 +1078,36 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
 }
 
 /* Living circuit currents — the mark's traces, scaled to the page. */
+.energy-flow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0 38%, #000 58%);
+  mask-image: linear-gradient(90deg, transparent 0 38%, #000 58%);
+}
+.home-page .architecture-visual {
+  background: linear-gradient(160deg, rgba(24, 38, 59, 0.55), rgba(13, 25, 41, 0.72));
+  box-shadow:
+    0 24px 80px #0003,
+    inset 0 0 80px rgba(218, 187, 118, 0.06);
+}
+.home-page .architecture-stage::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 240px;
+  height: 240px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(246, 231, 196, 0.42), rgba(218, 187, 118, 0.08) 42%, transparent 70%);
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: 0;
+}
 .energy-field {
   position: absolute;
   pointer-events: none;
@@ -1219,6 +1249,10 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
   .scroll-rail { display: none; }
   .energy-field--edge { width: 36px; opacity: 0.55; }
   .hero-glow { width: 280px; height: 280px; }
+  .energy-flow {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0 16%, #000 38%);
+    mask-image: linear-gradient(180deg, transparent 0 16%, #000 38%);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .energy-trace,
@@ -1229,4 +1263,5 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
     animation: none;
   }
   .hero-glow { transition: none; }
+  .home-page .architecture-stage::before { filter: none; }
 }

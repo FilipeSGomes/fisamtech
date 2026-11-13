@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ArchitectureVisual } from "@/components/layout/ArchitectureVisual";
 import { CinematicStage } from "@/components/layout/CinematicStage";
 import { EnergyField } from "@/components/layout/EnergyField";
+import { EnergyFlow } from "@/components/layout/EnergyFlow";
 import { Link } from "@/i18n/routing";
 import {
   FOUNDER_PRIOR_EXPERIENCE,
@@ -44,6 +45,7 @@ export default async function HomePage({
     <div className="home-page">
       <CinematicStage />
       <section className="hero">
+        <EnergyFlow />
         <EnergyField />
         <span className="hero-glow" aria-hidden="true" />
         <div className="shell hero-grid">
