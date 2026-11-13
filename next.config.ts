@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/api/admin/proposals/**": ["./private/branding/**"],
     "/api/admin/ndas/**": ["./private/branding/**"],
+    "/api/admin/contracts/**": ["./private/branding/**"],
   },
   async redirects() {
     return [
