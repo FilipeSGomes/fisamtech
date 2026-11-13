@@ -1094,20 +1094,47 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
     0 24px 80px #0003,
     inset 0 0 80px rgba(218, 187, 118, 0.06);
 }
-.home-page .architecture-stage::before {
-  content: "";
+.energy-nucleus {
   position: absolute;
   left: 50%;
-  top: 46%;
-  width: 240px;
-  height: 240px;
+  top: 50%;
+  width: 280px;
+  height: 280px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(246, 231, 196, 0.42), rgba(218, 187, 118, 0.08) 42%, transparent 70%);
-  filter: blur(2px);
   pointer-events: none;
   z-index: 0;
+  background: radial-gradient(circle, rgba(255, 244, 214, 0.95) 0%, rgba(218, 187, 118, 0.55) 18%, rgba(218, 187, 118, 0.16) 42%, transparent 70%);
 }
+.energy-nucleus span {
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  top: 30%;
+  bottom: 30%;
+  border-radius: 50%;
+  border: 1px solid rgba(246, 231, 196, 0.7);
+  animation: energy-orbit 14s linear infinite;
+}
+.energy-nucleus span:nth-child(2) {
+  left: 8%;
+  right: 8%;
+  top: 34%;
+  bottom: 34%;
+  border-color: rgba(218, 187, 118, 0.4);
+  animation-duration: 22s;
+  animation-direction: reverse;
+}
+.energy-nucleus span:nth-child(3) {
+  left: 4%;
+  right: 4%;
+  top: 38%;
+  bottom: 38%;
+  border-color: rgba(246, 231, 196, 0.28);
+  animation-duration: 28s;
+}
+.home-page .architecture-stage svg { z-index: 1; }
+.home-page .architecture-node { z-index: 2; }
 .energy-field {
   position: absolute;
   pointer-events: none;
@@ -1245,6 +1272,9 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
 @keyframes energy-seam {
   to { background-position: 220% 0; }
 }
+@keyframes energy-orbit {
+  to { transform: rotate(360deg); }
+}
 @media (max-width: 900px) {
   .scroll-rail { display: none; }
   .energy-field--edge { width: 36px; opacity: 0.55; }
@@ -1263,5 +1293,5 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
     animation: none;
   }
   .hero-glow { transition: none; }
-  .home-page .architecture-stage::before { filter: none; }
+  .energy-nucleus span { animation: none; }
 }

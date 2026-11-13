@@ -35,6 +35,11 @@ export function ArchitectureVisual({ labels }: { labels: Labels }) {
         <span className="architecture-index">{active ? `0${nodes.findIndex(n => n.key === active) + 1} / 04` : "01 — 04"}</span>
       </div>
       <div className="architecture-stage">
+        <div className="energy-nucleus" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+        </div>
         <svg viewBox="0 0 520 450" aria-hidden="true" focusable="false">
           <defs>
             <radialGradient id={coreId}><stop stopColor="#29354a"/><stop offset="1" stopColor="#101c2d"/></radialGradient>
@@ -46,7 +51,7 @@ export function ArchitectureVisual({ labels }: { labels: Labels }) {
             <path d="M260 15V435M30 225H490" strokeDasharray="3 9"/>
           </g>
           {nodes.map(node => <path key={node.key} d={node.path} className={`architecture-connection${active === node.key ? " architecture-connection--active" : ""}`} />)}
-          <circle cx="260" cy="225" r="72" fill={`url(#${coreId})`} stroke="#c3a16b" strokeWidth="1.2"/>
+          <circle cx="260" cy="225" r="72" fill={`url(#${coreId})`} fillOpacity="0.2" stroke="#c3a16b" strokeWidth="1.2"/>
           <circle cx="260" cy="225" r="86" fill="none" stroke="#c3a16b" strokeOpacity={active ? .6 : .23}/>
           <image href="/images/perfil-512.webp" x="207" y="172" width="106" height="106" clipPath={`url(#${clipId})`}/>
         </svg>

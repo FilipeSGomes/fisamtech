@@ -5,10 +5,10 @@ import { useEffect, useRef } from "react";
 type Strand = {
   ax: number;
   ay: number;
-  cx: number;
-  cy: number;
-  bx: number;
-  by: number;
+  cdx: number;
+  cdy: number;
+  bdx: number;
+  bdy: number;
   phase: number;
   speed: number;
   width: number;
@@ -32,7 +32,7 @@ export function EnergyFlow() {
     const light = narrow || saveData;
     const count = light ? 12 : 36;
     const contours = light ? 5 : 11;
-    const core = { x: narrow ? 0.5 : 0.76, y: narrow ? 0.74 : 0.48 };
+    const stage = hero.querySelector<HTMLElement>(".architecture-stage");
 
     const strands: Strand[] = Array.from({ length: count }, (_, index) => {
       const turn = (index / count) * Math.PI * 2;
@@ -43,10 +43,10 @@ export function EnergyFlow() {
       return {
         ax,
         ay,
-        cx: core.x + Math.cos(turn) * 0.22,
-        cy: core.y + Math.sin(turn) * 0.16,
-        bx: core.x + Math.cos(turn) * 0.035,
-        by: core.y + Math.sin(turn) * 0.03,
+        cdx: Math.cos(turn) * 0.2,
+        cdy: Math.sin(turn) * 0.14,
+        bdx: Math.cos(turn) * 0.02,
+        bdy: Math.sin(turn) * 0.015,
         phase: (index * 0.137) % 1,
         speed: 0.72 + (index % 5) * 0.08,
         width: index % 6 === 0 ? 1.35 : 0.65,
@@ -73,10 +73,26 @@ export function EnergyFlow() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
+    const corePoint = () => {
+      const heroBox = hero.getBoundingClientRect();
+      const box = stage?.getBoundingClientRect();
+      if (!box || box.width < 8) {
+        return {
+          x: width * (narrow ? 0.5 : 0.76),
+          y: height * (narrow ? 0.74 : 0.48),
+        };
+      }
+      return {
+        x: box.left - heroBox.left + box.width / 2,
+        y: box.top - heroBox.top + box.height / 2,
+      };
+    };
+
     const draw = (time: number) => {
       ctx.clearRect(0, 0, width, height);
-      const cx = core.x * width;
-      const cy = core.y * height;
+      const core = corePoint();
+      const cx = core.x;
+      const cy = core.y;
       const reach = Math.min(width, height);
 
       const glow = ctx.createRadialGradient(cx, cy, 4, cx, cy, reach * 0.46);
@@ -136,8 +152,8 @@ export function EnergyFlow() {
         for (let step = 0; step <= steps; step += 1) {
           const t = step / steps;
           const drift = Math.sin(time * 0.00035 + strand.phase * 8 + t * 5) * 8;
-          const x = curve(strand.ax * width, strand.cx * width, strand.bx * width, t);
-          const y = curve(strand.ay * height, strand.cy * height + drift, strand.by * height, t);
+          const x = curve(strand.ax * width, cx + strand.cdx * reach, cx + strand.bdx * reach, t);
+          const y = curve(strand.ay * height, cy + strand.cdy * reach + drift, cy + strand.bdy * reach, t);
           if (step === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
@@ -148,8 +164,8 @@ export function EnergyFlow() {
         for (let bead = 0; bead < 3; bead += 1) {
           const t = (strand.phase + bead * 0.28 + (time / 9000) * strand.speed) % 1;
           const drift = Math.sin(time * 0.00035 + strand.phase * 8 + t * 5) * 8;
-          const x = curve(strand.ax * width, strand.cx * width, strand.bx * width, t);
-          const y = curve(strand.ay * height, strand.cy * height + drift, strand.by * height, t);
+          const x = curve(strand.ax * width, cx + strand.cdx * reach, cx + strand.bdx * reach, t);
+          const y = curve(strand.ay * height, cy + strand.cdy * reach + drift, cy + strand.bdy * reach, t);
           ctx.beginPath();
           ctx.fillStyle = bead === 0 ? "rgba(255, 244, 214, 0.95)" : "rgba(218, 187, 118, 0.75)";
           ctx.arc(x, y, strand.width + (bead === 0 ? 1.3 : 0.7), 0, Math.PI * 2);
