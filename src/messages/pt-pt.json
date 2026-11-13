@@ -393,10 +393,26 @@
     "open": "Abrir a agenda"
   },
   "cases": {
-    "eyebrow": "Registo público",
-    "title": "O que a FISAM TECH está em condições de mostrar",
-    "lead": "Esta página lista o que já está escrito no site. Não há depoimento, logo autorizado nem métrica com fonte.",
+    "eyebrow": "Atuação",
+    "title": "Sistemas, provas de conceito e licitações públicas.",
+    "lead": "A FISAM TECH desenvolve sistemas de operação, provas de conceito e sistemas para licitações públicas.",
     "limit": "Onde só existe o nome, o nome fica. Onde havia número sem origem, o número saiu.",
+    "practiceTitle": "Onde o trabalho entra",
+    "practiceLead": "Três frentes de engenharia. Os nomes que o site pode publicar ficam mais abaixo, sem métrica.",
+    "practices": {
+      "bids": {
+        "title": "Sistemas para licitações públicas",
+        "body": "Sistemas para o ciclo de uma licitação: registo, fluxo, documento e integração com o que o organismo ou a empresa já usa."
+      },
+      "poc": {
+        "title": "Desenvolvimento de POC",
+        "body": "Prova de conceito para testar uma decisão técnica antes do sistema completo. Âmbito curto, o que fica de fora escrito, e um caminho para o produto se a prova se sustentar."
+      },
+      "systems": {
+        "title": "Desenvolvimento de sistemas",
+        "body": "Arquitetura, backend, dados e integração para um sistema que a operação usa. Inclui evoluir um MVP, inclusive um que nasceu numa ferramenta de IA, até um sistema de cliente."
+      }
+    },
     "clientsTitle": "Nomes publicados como clientes",
     "productsTitle": "Produtos da própria empresa",
     "productsLead": "Os endereços abaixo são de produtos da própria empresa. Esta página não afirma o estado de operação de cada um.",

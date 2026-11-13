@@ -393,10 +393,26 @@
     "open": "Ouvrir l'agenda"
   },
   "cases": {
-    "eyebrow": "Trace publique",
-    "title": "Ce que FISAM TECH est en mesure de montrer",
-    "lead": "Cette page liste ce qui est déjà écrit sur le site. Il n'y a pas de témoignage, de logo autorisé ni de métrique sourcée.",
+    "eyebrow": "Pratique",
+    "title": "Systèmes, preuves de concept et marchés publics.",
+    "lead": "FISAM TECH développe des systèmes d'exploitation, des preuves de concept et des systèmes pour les marchés publics.",
     "limit": "Là où il n'y a qu'un nom, le nom reste. Là où un chiffre n'avait pas d'origine, le chiffre a été retiré.",
+    "practiceTitle": "Où le travail se place",
+    "practiceLead": "Trois axes d'ingénierie. Les noms que le site peut publier sont plus bas, sans métrique.",
+    "practices": {
+      "bids": {
+        "title": "Systèmes pour marchés publics",
+        "body": "Systèmes pour le cycle d'un marché public : dossier, flux, document et intégration avec ce que l'organisme ou l'entreprise utilise déjà."
+      },
+      "poc": {
+        "title": "Développement de POC",
+        "body": "Une preuve de concept pour tester une décision technique avant le système complet. Un périmètre court, ce qui reste dehors écrit, et un chemin vers le produit si la preuve tient."
+      },
+      "systems": {
+        "title": "Développement de systèmes",
+        "body": "Architecture, backend, données et intégration pour un système que l'exploitation utilise. Cela comprend faire évoluer un MVP, y compris un MVP né dans un outil d'IA, jusqu'à un système client."
+      }
+    },
     "clientsTitle": "Noms publiés comme clients",
     "productsTitle": "Produits de l'entreprise",
     "productsLead": "Les adresses ci-dessous sont des produits de l'entreprise. Cette page ne dit pas l'état d'exploitation de chacun.",

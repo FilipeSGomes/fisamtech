@@ -393,10 +393,26 @@
     "open": "Open the calendar"
   },
   "cases": {
-    "eyebrow": "Public record",
-    "title": "What FISAM TECH is in a position to show",
-    "lead": "This page lists what is already written on the site. There is no testimonial, no authorized logo, and no metric with a source.",
+    "eyebrow": "Practice",
+    "title": "Systems, proofs of concept, and public procurement.",
+    "lead": "FISAM TECH builds operational systems, proofs of concept, and systems for public procurement.",
     "limit": "Where only a name exists, the name stays. Where a number had no origin, the number was removed.",
+    "practiceTitle": "Where the work sits",
+    "practiceLead": "Three lines of engineering. The names this site can publish are further down, without a metric.",
+    "practices": {
+      "bids": {
+        "title": "Systems for public procurement",
+        "body": "Systems for a procurement cycle: records, workflow, documents, and integration with what the agency or the company already runs."
+      },
+      "poc": {
+        "title": "Proof-of-concept development",
+        "body": "A proof of concept to test a technical decision before the full system. A short scope, a written list of what stays out, and a path to the product if the proof holds."
+      },
+      "systems": {
+        "title": "Systems development",
+        "body": "Architecture, backend, data, and integration for a system the operation uses. That includes taking an MVP, including one built with an AI tool, into a client system."
+      }
+    },
     "clientsTitle": "Names published as clients",
     "productsTitle": "The company's own products",
     "productsLead": "The addresses below are products of the company. This page does not state the operating status of each one.",

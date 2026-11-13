@@ -393,10 +393,26 @@
     "open": "Kalender öffnen"
   },
   "cases": {
-    "eyebrow": "Öffentliche Aufzeichnung",
-    "title": "Was FISAM TECH zeigen kann",
-    "lead": "Diese Seite listet, was auf der Website schon geschrieben steht. Es gibt kein Zitat, kein freigegebenes Logo und keine Kennzahl mit Quelle.",
+    "eyebrow": "Tätigkeit",
+    "title": "Systeme, Proofs of Concept und öffentliche Ausschreibungen.",
+    "lead": "FISAM TECH entwickelt betriebliche Systeme, Proofs of Concept und Systeme für öffentliche Ausschreibungen.",
     "limit": "Wo nur ein Name steht, bleibt der Name. Wo eine Zahl ohne Herkunft stand, ist die Zahl entfernt.",
+    "practiceTitle": "Wo die Arbeit ansetzt",
+    "practiceLead": "Drei Ingenieurlinien. Die Namen, die diese Website nennen kann, stehen weiter unten, ohne Kennzahl.",
+    "practices": {
+      "bids": {
+        "title": "Systeme für öffentliche Ausschreibungen",
+        "body": "Systeme für den Zyklus einer Ausschreibung: Erfassung, Ablauf, Dokument und Anbindung an das, was Behörde oder Unternehmen schon betreibt."
+      },
+      "poc": {
+        "title": "Entwicklung von POCs",
+        "body": "Ein Proof of Concept, um eine technische Entscheidung vor dem vollständigen System zu prüfen. Kurzer Umfang, schriftlich was draußen bleibt, und ein Weg zum Produkt, wenn der Beweis trägt."
+      },
+      "systems": {
+        "title": "Systementwicklung",
+        "body": "Architektur, Backend, Daten und Integration für ein System, das der Betrieb nutzt. Dazu gehört, ein MVP, auch eines aus einem KI-Werkzeug, zu einem Kundensystem zu machen."
+      }
+    },
     "clientsTitle": "Namen, die als Kunden veröffentlicht sind",
     "productsTitle": "Eigene Produkte des Unternehmens",
     "productsLead": "Die Adressen unten sind Produkte des Unternehmens. Diese Seite behauptet nicht den Betriebszustand jedes einzelnen.",

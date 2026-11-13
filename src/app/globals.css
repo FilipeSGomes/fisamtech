@@ -966,6 +966,52 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
 .audience-note p + p { margin-top: 10px; }
 .legal-prose h2 { margin-top: 28px; }
 .inner-page .lead { max-width: 42rem; }
+
+.cases-page .cases-hero {
+  padding-top: 72px;
+  padding-bottom: 72px;
+  background:
+    radial-gradient(ellipse 50% 80% at 100% 0%, rgba(218, 187, 118, 0.16), transparent 55%),
+    #0b1524;
+}
+.cases-page h1 {
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
+  line-height: 1.08;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+.cases-page .cases-hero .lead { max-width: 38rem; color: #c5d0de; }
+.cases-practice-grid,
+.cases-client-grid,
+.cases-product-grid { margin-top: 36px; }
+.cases-practice-card .card-index { margin-bottom: 18px; }
+.cases-client-card p { margin-top: 10px; }
+.cases-practice-card h3,
+.cases-client-card h3 { margin-top: 8px; }
+.cases-client-card h3 { font-size: clamp(1.6rem, 2vw, 2rem); }
+.cases-product-card a {
+  display: inline-block;
+  margin-top: 12px;
+  color: #795a2e;
+  overflow-wrap: anywhere;
+}
+.cases-note { margin-top: 20px; max-width: 42rem; color: #536177; }
+.cases-prior-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 36px;
+}
+.cases-prior-list li {
+  border: 1px solid rgba(218, 187, 118, 0.35);
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #f6e7c4;
+  font-size: 0.92rem;
+}
+.cases-page .cases-prior .lead { color: #c5d0de; }
 @media (max-width: 640px) {
   .cookie-actions { flex-direction: column; align-items: stretch; }
   .cookie-actions .btn,
