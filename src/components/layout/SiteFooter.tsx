@@ -19,6 +19,9 @@ export async function SiteFooter({ locale }: { locale: string }) {
         <div>
           <h3>{t("company")}</h3>
           <Link href="/cases">{t("work")}</Link>
+          <Link href="/services/public-procurement">{t("procurement")}</Link>
+          <Link href="/services/proof-of-concept">{t("poc")}</Link>
+          <Link href="/services/systems-development">{t("systems")}</Link>
           <Link href="/qualify">{t("discovery")}</Link>
           <Link href={locale === "pt-br" ? "/parceiros" : "/partners"}>
             {t("partners")}

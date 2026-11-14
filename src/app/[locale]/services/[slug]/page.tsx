@@ -1,6 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { InstitutionalShell } from "@/components/layout/InstitutionalShell";
 import { Link } from "@/i18n/routing";
 import { pageMetadata } from "@/lib/seo";
 
@@ -10,6 +11,9 @@ const SLUGS = [
   "critical-integrations",
   "legacy-modernization",
   "genai-governance",
+  "public-procurement",
+  "proof-of-concept",
+  "systems-development",
 ] as const;
 
 const SLUG_TO_KEY: Record<(typeof SLUGS)[number], string> = {
@@ -18,9 +22,12 @@ const SLUG_TO_KEY: Record<(typeof SLUGS)[number], string> = {
   "critical-integrations": "integrations",
   "legacy-modernization": "legacy",
   "genai-governance": "genai",
+  "public-procurement": "procurement",
+  "proof-of-concept": "poc",
+  "systems-development": "systems",
 };
 
-const PAGE_PARTS = ["problem", "audience", "deliver", "method", "evidence"] as const;
+const PAGE_PARTS = ["problem", "audience", "deliver"] as const;
 
 export function generateStaticParams() {
   return SLUGS.map((slug) => ({ slug }));
@@ -55,39 +62,40 @@ export default async function ServicePage({
   const key = SLUG_TO_KEY[slug as (typeof SLUGS)[number]];
 
   return (
-    <section className="section inner-page">
-      <div className="shell legal-prose">
-        <p className="eyebrow">{t("eyebrow")}</p>
-        <h1>{t(`${key}.title`)}</h1>
-        <p className="lead">{t(`${key}.body`)}</p>
-        {PAGE_PARTS.map((part) => (
-          <div key={part}>
-            <h2>{t(`pageLabels.${part}`)}</h2>
-            <p>{t(`${key}.page.${part}`)}</p>
-          </div>
-        ))}
-        <p style={{ marginTop: 28 }}>
-          <Link className="btn btn-primary" href="/qualify">
-            {t(`${key}.page.cta`)}
-          </Link>
+    <InstitutionalShell
+      prose
+      eyebrow={t("eyebrow")}
+      title={t(`${key}.title`)}
+      lead={t(`${key}.body`)}
+      cta={{ href: "/qualify", label: t(`${key}.page.cta`) }}
+    >
+      {PAGE_PARTS.map((part) => (
+        <div key={part}>
+          <h2>{t(`pageLabels.${part}`)}</h2>
+          <p>{t(`${key}.page.${part}`)}</p>
+        </div>
+      ))}
+      {slug === "public-procurement" ? (
+        <p>
+          <Link href="/compliance">{t("procurement.complianceLink")}</Link>
         </p>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Service",
-              name: t(`${key}.title`),
-              description: t(`${key}.page.problem`),
-              provider: {
-                "@type": "Organization",
-                name: "FISAM TECH TECNOLOGIA LTDA",
-                url: "https://www.fisamtech.com",
-              },
-            }),
-          }}
-        />
-      </div>
-    </section>
+      ) : null}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: t(`${key}.title`),
+            description: t(`${key}.page.problem`),
+            provider: {
+              "@type": "Organization",
+              name: "FISAM TECH TECNOLOGIA LTDA",
+              url: "https://www.fisamtech.com",
+            },
+          }),
+        }}
+      />
+    </InstitutionalShell>
   );
 }

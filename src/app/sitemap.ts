@@ -19,6 +19,9 @@ const paths = [
   "/services/critical-integrations",
   "/services/legacy-modernization",
   "/services/genai-governance",
+  "/services/public-procurement",
+  "/services/proof-of-concept",
+  "/services/systems-development",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
