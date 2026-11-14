@@ -127,7 +127,7 @@
   "problems": {
     "eyebrow": "Situation",
     "title": "When a company looks for this kind of engineering",
-    "lead": "The center of the work is a system that already runs. Evolving an MVP, including one built with an AI tool, is an entry situation. It is not the company's category.",
+    "lead": "The center of the work is a system already in operation. Taking an MVP forward, including one born in an AI tool, belongs to systems development.",
     "items": {
       "scale": {
         "title": "The system no longer matches the operation",
@@ -135,7 +135,7 @@
       },
       "integrations": {
         "title": "The integration loses or repeats information",
-        "body": "ERP, bank, old API or spreadsheet. The data does not arrive, arrives twice, or nobody knows which step stopped."
+        "body": "ERP, bank, old API or spreadsheet. The data arrives late, arrives twice, or the step where it stopped stays unclear."
       },
       "legacy": {
         "title": "The old system blocks the change",
@@ -150,24 +150,24 @@
   "services": {
     "eyebrow": "Services",
     "title": "What FISAM TECH does",
-    "lead": "Each area below names an operational problem. The service page says who it is for, what the analysis covers, and what the site can show today.",
+    "lead": "Three practices open the work: public procurement, proof of concept, and systems development. The disciplines that support that work follow.",
     "pageLabels": {
       "problem": "Problem",
       "audience": "Who it is for",
-      "deliver": "What will be reviewed or delivered",
+      "deliver": "What is included",
       "method": "How the work happens",
       "evidence": "What can be shown today"
     },
     "architecture": {
       "title": "Software architecture and engineering",
-      "body": "A structural decision for a system that already has users, data and a routine. What changes, what stays, and what another patch will not fix.",
+      "body": "A structural decision for a system that already has users, data and a routine. The work decides what changes, what stays, and the next engineering decision.",
       "slug": "systems-architecture",
       "page": {
         "problem": "The structure of the system no longer fits the operation. Each new change raises the chance of failure, and the team discusses symptoms instead of the decision that has to be made.",
         "audience": "Companies with a system in use, where the next change crosses teams, data, or a process that cannot stop.",
-        "deliver": "A reading of the current structure, the risks, what is kept, and a sequence of next steps. It is not a closed project design and it is not a guarantee of results.",
-        "method": "The work starts with the technical conversation. If there is a project, decisions are written down and the build follows parts the operation can follow.",
-        "evidence": "No architecture metric is published. The cases page names SigaBR and 637 Tennis Club, without numbers.",
+        "deliver": "A reading of the current structure, the risks, what is kept, and a sequence of next steps. The work starts with the technical conversation. When there is a project, decisions are written down and the build follows parts the operation can follow. The cases page publishes the names SigaBR and 637 Tennis Club.",
+        "method": "The work starts with the technical conversation. When there is a project, decisions are written down and the build follows parts the operation can follow.",
+        "evidence": "The cases page publishes the names SigaBR and 637 Tennis Club.",
         "cta": "Book a technical conversation"
       }
     },
@@ -178,9 +178,9 @@
       "page": {
         "problem": "The business rule lives in code that fails without a trace, or that nobody can change without fear of stopping the routine.",
         "audience": "Companies that need backend for a system that already has customers, an integration, or an internal routine.",
-        "deliver": "The services, APIs and error handling agreed in scope. The site does not publish a technology list as if that were the service.",
-        "method": "After the diagnosis, the scope is split. The build follows what was written down, with a way to see what changed.",
-        "evidence": "No backend metric is published on this site.",
+        "deliver": "The services, APIs and error handling agreed in scope. After the technical conversation, the scope is split and the build follows what was written down, with a way to see what changed.",
+        "method": "After the technical conversation, the scope is split and the build follows what was written down, with a way to see what changed.",
+        "evidence": "The published service is the set of services, APIs and error handling agreed in scope.",
         "cta": "Book a technical conversation"
       }
     },
@@ -189,11 +189,11 @@
       "body": "Connecting what the company already uses, with error handling and a point where you can see where the flow stopped.",
       "slug": "critical-integrations",
       "page": {
-        "problem": "Two systems do not tell the same story. An order, a payment, stock or a record is lost, repeated, or stuck in a step nobody can see.",
+        "problem": "Two systems tell different stories. An order, a payment, stock or a record is lost, repeated, or stuck in a step nobody can see.",
         "audience": "Companies that already run on an ERP, a bank, an API or a spreadsheet and need the information to cross those systems.",
-        "deliver": "A map of the flow, the failure points, and what will be connected. The versioned SigaBR text mentions an integration with DETRAN via RENAVAM and Banco Rendimento, without a metric and without an attached document.",
-        "method": "The diagnosis looks at the real flow before the integration is written. If the problem does not justify a project, the opinion says so.",
-        "evidence": "The name SigaBR is published as a client, with the integration named above. This repository has no source, date or measured result.",
+        "deliver": "A map of the flow, the failure points, and what will be connected. The technical conversation reads the real flow before the integration is written and records the opinion with the next steps. The published SigaBR text describes an integration with DETRAN via RENAVAM and with Banco Rendimento.",
+        "method": "The technical conversation reads the real flow before the integration is written and records the opinion with the next steps.",
+        "evidence": "The name SigaBR is published as a client, with an integration to DETRAN via RENAVAM and to Banco Rendimento.",
         "cta": "Book a technical conversation"
       }
     },
@@ -202,11 +202,11 @@
       "body": "Changing an old system while the operation continues. The plan says what stays up and what changes at each step.",
       "slug": "legacy-modernization",
       "page": {
-        "problem": "The system that carries the routine is hard to change. Stopping to rewrite everything is not an option the operation will accept.",
+        "problem": "The system that carries the routine is hard to change. The change happens while the operation stays up.",
         "audience": "Companies whose current system still runs the business and has to change without treating downtime as a detail.",
-        "deliver": "A reading of what the system does today, what can change in stages, and what stays out. There is no promise of a migration without interruption.",
-        "method": "The diagnosis separates what the operation cannot lose from what can be rewritten. A project, if there is one, follows that order.",
-        "evidence": "There is no modernization case with a measured result on this site. The cases page says what is published and what is not.",
+        "deliver": "A reading of what the system does today, what changes in stages, and what stays up at each stage. The technical conversation separates what the operation needs to keep from what can be rewritten, and a project follows that order.",
+        "method": "The technical conversation separates what the operation needs to keep from what can be rewritten, and a project follows that order.",
+        "evidence": "The published plan describes what stays up and what changes at each stage.",
         "cta": "Book a technical conversation"
       }
     },
@@ -216,26 +216,66 @@
       "slug": "genai-governance",
       "page": {
         "problem": "The MVP works in a demo, or it was generated with an AI tool, and it now has to hold customers, real data, and an operation that cannot stop.",
-        "audience": "Companies in that situation. It is an entry scenario. FISAM TECH does not present itself as a firm that fixes AI-generated code.",
-        "deliver": "A reading of what the system already does, of the risks in data, access, integration and operations, and of what would make sense to keep or rebuild. The opinion may be that there is no project.",
-        "method": "The diagnosis session comes before any rewrite. There is no published standard timeline for turning an MVP into a production system.",
-        "evidence": "There is no public case of MVP hardening in this repository. The published names are on the cases page, without metrics.",
+        "audience": "Companies whose MVP needs to become a client system, including when the first version was built with an AI tool.",
+        "deliver": "A reading of what the system already does, of the risks in data, access, integration and operations, and of what is kept or rebuilt on the way to a client system. The technical conversation comes before the rewrite. The cases page publishes the names already on record.",
+        "method": "The technical conversation comes before the rewrite and records what is kept and what is rebuilt.",
+        "evidence": "The cases page publishes the names already on record.",
+        "cta": "Book a technical conversation"
+      }
+    },
+    "procurement": {
+      "title": "Systems for public procurement",
+      "body": "Systems for a procurement cycle: records, workflow, documents, and integration with what the agency or the company already runs.",
+      "slug": "public-procurement",
+      "page": {
+        "problem": "A procurement cycle brings together records, workflow, documents and integration. When that lives in spreadsheets and messages, the record scatters and the team loses the step.",
+        "audience": "Agencies and companies that run procurement and need a system for the cycle, with the public-sector rules described in the integrity program.",
+        "deliver": "Process records, workflow, document keeping and integration with what the organization already runs. The compliance page describes the public-sector and procurement rules.",
+        "method": "Process records, workflow, document keeping and integration with what the organization already runs. The compliance page describes the public-sector and procurement rules.",
+        "evidence": "Process records, workflow, document keeping and integration with what the organization already runs. The compliance page describes the public-sector and procurement rules.",
+        "cta": "Book a technical conversation"
+      },
+      "complianceLink": "Integrity program"
+    },
+    "poc": {
+      "title": "Proof-of-concept development",
+      "body": "A short proof of concept to test a technical decision before the full system.",
+      "slug": "proof-of-concept",
+      "page": {
+        "problem": "A technical decision needs to be seen in use before the full system. The team needs a trial with a start, an end and a way to read the result.",
+        "audience": "Companies that want to validate an architecture, integration or product decision before opening the full system.",
+        "deliver": "A short-scope trial, with what the proof shows and the path to the full system when the proof holds. Architecture, backend and integration enter to the measure of the trial.",
+        "method": "A short-scope trial, with what the proof shows and the path to the full system when the proof holds. Architecture, backend and integration enter to the measure of the trial.",
+        "evidence": "A short-scope trial, with what the proof shows and the path to the full system when the proof holds. Architecture, backend and integration enter to the measure of the trial.",
+        "cta": "Book a technical conversation"
+      }
+    },
+    "systems": {
+      "title": "Systems development",
+      "body": "Architecture, backend, data and integration for a system the operation uses, including one that starts from an MVP.",
+      "slug": "systems-development",
+      "page": {
+        "problem": "The operation needs a system that runs the business rule, with data, access and integration the team can follow.",
+        "audience": "Companies putting a system into use, including from an MVP and including when the first version was built with an AI tool.",
+        "deliver": "Architecture, backend, data and integration for the operational system. When the starting point is an MVP, the work reads what already exists and takes it into a client system.",
+        "method": "Architecture, backend, data and integration for the operational system. When the starting point is an MVP, the work reads what already exists and takes it into a client system.",
+        "evidence": "Architecture, backend, data and integration for the operational system. When the starting point is an MVP, the work reads what already exists and takes it into a client system.",
         "cta": "Book a technical conversation"
       }
     }
   },
   "casesHome": {
-    "eyebrow": "What is published",
-    "title": "Names the site can show",
-    "lede": "Two names are recorded as FISAM TECH clients, without metrics. Product addresses belong to the company itself.",
-    "clientLabel": "Name published as a client. No metric on this site.",
+    "eyebrow": "Practice",
+    "title": "Three lines of engineering",
+    "lede": "Public procurement, proof of concept, and systems development. Each line has its own page. Below, the names published as clients and the company's own products.",
+    "clientLabel": "Name published as a client.",
     "productLabel": "A product of the company.",
-    "link": "See what the cases page can support"
+    "link": "See the cases page"
   },
   "howWeWork": {
     "eyebrow": "Process",
     "title": "How a piece of work starts",
-    "lead": "There is no published standard timeline. The order below is the path from the diagnosis to a possible project.",
+    "lead": "The order below runs from the technical conversation to a possible project.",
     "steps": {
       "1": {
         "title": "Understand",
@@ -276,8 +316,8 @@
     "title": "Technical conversation",
     "lead": "A session to read a system that already exists. Scheduling is free. Filipe Godinho Gomes, founder and technical lead, runs the conversation. Before it, the company shares context in the form.",
     "includes": {
-      "1": "Deliverable: a reading of the situation, the risks observed, and next steps. It is not a closed project.",
-      "2": "The opinion may be that there is no problem that justifies a project.",
+      "1": "Deliverable: a reading of the situation, the risks observed, and the next steps.",
+      "2": "The conversation records the opinion and the next steps.",
       "3": "The calendar opens after the form, with no payment.",
       "4": "The booking link appears right after the form and by email when email sending is configured."
     },
@@ -299,11 +339,11 @@
       },
       "3": {
         "q": "Do I need to pay to open the calendar?",
-        "a": "No. The calendar opens after the form. There is no charge to book the conversation."
+        "a": "The calendar opens after the form. Booking the conversation is free."
       },
       "4": {
-        "q": "What if the advice is not to run a project?",
-        "a": "The conversation delivers a reading of the situation. There is no duty to start a project afterwards."
+        "q": "What if the conversation points another way?",
+        "a": "The conversation delivers a reading of the situation. A project, when it makes sense, is agreed afterwards in a written proposal."
       },
       "5": {
         "q": "Is the language forced?",
@@ -330,7 +370,10 @@
     "work": "What we publish",
     "discovery": "Book a conversation",
     "compliance": "Compliance and integrity",
-    "whistleblowing": "Reporting channel"
+    "whistleblowing": "Reporting channel",
+    "procurement": "Public procurement",
+    "poc": "Proof of concept",
+    "systems": "Systems development"
   },
   "cookies": {
     "title": "Cookies on this site",
@@ -342,9 +385,9 @@
   "qualification": {
     "eyebrow": "Technical conversation",
     "metaTitle": "Book a technical conversation",
-    "metaDescription": "Form to book a technical conversation with FISAM TECH. No payment required to open the calendar.",
+    "metaDescription": "Form to book a technical conversation with FISAM TECH. The calendar opens after the form is sent.",
     "title": "Book the technical conversation",
-    "lead": "Describe the system and the problem. Then the calendar opens, with no payment. Filipe Godinho Gomes runs the conversation. The advice may be that there is no project.",
+    "lead": "Describe the system and the problem. The calendar opens next. Filipe Godinho Gomes runs the conversation.",
     "name": "Full name",
     "email": "Work email",
     "company": "Company",
@@ -355,10 +398,17 @@
     "budgetPlaceholder": "Select a range",
     "currency": "Session currency",
     "submit": "Open the calendar",
-    "priceNote": "There is no charge to book the conversation. The budget range helps prepare the talk.",
+    "priceNote": "Booking the conversation is free. The budget range helps prepare the talk.",
     "privacyBefore": "By sending, the data is used to prepare the conversation and the booking, as described in the",
     "privacyLink": "privacy notice",
-    "privacyAfter": "."
+    "privacyAfter": ".",
+    "deliversTitle": "What the conversation delivers",
+    "delivers": {
+      "1": "A reading of the system, the risks observed, and the next steps.",
+      "2": "The conversation is run by Filipe Godinho Gomes, founder and technical lead.",
+      "3": "The calendar opens after the form. The conversation is free.",
+      "4": "The booking link appears right after sending and by email when email sending is active."
+    }
   },
   "checkout": {
     "title": "Diagnosis payment",
@@ -396,9 +446,9 @@
     "eyebrow": "Practice",
     "title": "Systems, proofs of concept, and public procurement.",
     "lead": "FISAM TECH builds operational systems, proofs of concept, and systems for public procurement.",
-    "limit": "Where only a name exists, the name stays. Where a number had no origin, the number was removed.",
-    "practiceTitle": "Where the work sits",
-    "practiceLead": "Three lines of engineering. The names this site can publish are further down, without a metric.",
+    "limit": "The names published as clients are SigaBR and 637 Tennis Club. Each card records the description already published.",
+    "practiceTitle": "The three practices",
+    "practiceLead": "Public procurement, proof of concept, and systems development. Each practice opens its own page.",
     "practices": {
       "bids": {
         "title": "Systems for public procurement",
@@ -406,7 +456,7 @@
       },
       "poc": {
         "title": "Proof-of-concept development",
-        "body": "A proof of concept to test a technical decision before the full system. A short scope, a written list of what stays out, and a path to the product if the proof holds."
+        "body": "A short proof of concept to test a technical decision before the full system, with a path to the system when the proof holds."
       },
       "systems": {
         "title": "Systems development",
@@ -415,46 +465,48 @@
     },
     "clientsTitle": "Names published as clients",
     "productsTitle": "The company's own products",
-    "productsLead": "The addresses below are products of the company. This page does not state the operating status of each one.",
-    "priorTitle": "Professional experience of the person in charge",
-    "priorLead": "Professional record of Filipe Godinho Gomes.",
+    "productsLead": "The addresses below are products of the company, published with a name and a domain.",
+    "priorTitle": "Professional record of Filipe Godinho Gomes",
+    "priorLead": "These names are the professional record of Filipe Godinho Gomes, founder of FISAM TECH.",
     "cta": "Book a technical conversation",
     "sigabr": {
       "type": "Name published as a client",
       "situation": "The versioned text describes a platform for vehicle-registration agents and licensing.",
       "published": "It also says there was an integration with DETRAN via RENAVAM and with Banco Rendimento.",
-      "missing": "This repository has no project constraint, recorded decision, date, document or measured result. That is why no number is published."
+      "missing": "The published record of this name is the platform for vehicle-registration agents and licensing, with integration to DETRAN via RENAVAM and to Banco Rendimento."
     },
     "tennis": {
       "type": "Name published as a client",
       "situation": "The versioned text describes a tennis and beach-tennis system, with bookings, administration and finance.",
       "published": "The name 637 Tennis Club is on the company's client list.",
-      "missing": "There is no metric, date, constraint or measured result in this repository."
+      "missing": "The published record of this name is the tennis and beach-tennis system, with bookings, administration and finance."
     },
     "quote": {
       "type": "Own product",
-      "body": "FISAM Quote is described in the older text as a house product for field quotations. It is not a client case and it has no metric here."
-    }
+      "body": "FISAM Quote is a product of the company for field quotations. The address is in the list above."
+    },
+    "openPractice": "Open the page",
+    "complianceLink": "Integrity program"
   },
   "partners": {
     "eyebrow": "A different subject",
     "metaTitle": "Submit an idea for review",
-    "metaDescription": "A page separate from the engineering service. The form stores the idea and opens WhatsApp. It does not hire architecture, backend or integration.",
+    "metaDescription": "A page for submitting an idea for review. The form stores the record and opens WhatsApp. A system, an integration or modernization continues through the technical conversation.",
     "title": "Submit an idea for review",
-    "notTheService": "This page is not the engineering service. Anyone who needs to hire a system, an integration or modernization should request the technical diagnosis.",
-    "hireCta": "Go to the technical diagnosis",
-    "lead": "The form is for someone who wants to submit an idea. It stores the data and opens WhatsApp with the same content. There is no published response time and no participation agreement on this site.",
+    "notTheService": "This page receives an idea for review, and a system, an integration or modernization continues through the technical conversation.",
+    "hireCta": "Book a technical conversation",
+    "lead": "The form stores the data and opens WhatsApp with the same content.",
     "step1": {
       "title": "You send it",
       "body": "Name, email, phone, idea, problem and stage go into the lead record and into the WhatsApp message."
     },
     "step2": {
       "title": "The company reads it",
-      "body": "There is no published deadline and no published number of accepted ideas."
+      "body": "FISAM TECH reads the record and answers on the channel the submission opened."
     },
     "step3": {
-      "title": "Nothing here is a contract",
-      "body": "Sending an idea does not transfer an equity interest, does not create a partnership, does not require an investment and does not replace a contract."
+      "title": "A separate instrument",
+      "body": "Sending stores the idea and opens the message. A partnership, an investment and a contract live in their own instrument, when the parties sign one."
     },
     "cta": "Send and open WhatsApp",
     "name": "Name",
@@ -464,7 +516,7 @@
     "problem": "Problem the idea addresses",
     "stage": "Stage",
     "submit": "Send and open WhatsApp",
-    "disclaimer": "The data stays in the contact record and in the message that opens. This does not hire engineering.",
+    "disclaimer": "The data stays in the contact record and in the message that opens. Engineering continues through the technical conversation.",
     "sent": "The data was sent and WhatsApp should have opened with it."
   },
   "legal": {
@@ -655,7 +707,8 @@
           "The applicable law is Brazilian law. The forum of Embu-Guaçu, State of São Paulo, the municipality of the seat of FISAM TECH TECNOLOGIA LTDA, is elected. The election does not displace the forum of the consumer's domicile when the law requires it."
         ]
       }
-    ]
+    ],
+    "eyebrow": "Institutional"
   },
   "common": {
     "learnMore": "See the service",
@@ -706,7 +759,8 @@
         "title": "Review",
         "body": "The program is reviewed when operations, the law or the company's structure change."
       }
-    }
+    },
+    "eyebrow": "Integrity"
   },
   "whistleblowing": {
     "title": "Reporting channel",
@@ -760,6 +814,7 @@
     "analysisTitle": "Preliminary review",
     "analysisBody": "The preliminary review takes place within 15 business days. The channel records and reviews what is within the company's reach. There is no promise of a criminal investigation.",
     "retentionTitle": "Retention",
-    "retentionBody": "A report with no follow-up is kept for 12 months. A report with an inquiry or a measure is kept for the time of the inquiry and for 5 years after it ends."
+    "retentionBody": "A report with no follow-up is kept for 12 months. A report with an inquiry or a measure is kept for the time of the inquiry and for 5 years after it ends.",
+    "eyebrow": "Channel"
   }
 }

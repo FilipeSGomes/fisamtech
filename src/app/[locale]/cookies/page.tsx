@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import { InstitutionalShell } from "@/components/layout/InstitutionalShell";
 import { pageMetadata } from "@/lib/seo";
 
 type CookieRow = { name: string; duration: string; purpose: string; kind: string };
@@ -27,10 +28,12 @@ export default async function CookiesPage({
   const blocks = t.raw("cookieBlocks") as Block[];
 
   return (
-    <section className="section inner-page">
-      <div className="shell legal-prose">
-        <h1>{t("cookiesTitle")}</h1>
-        <p className="lead">{t("cookiesLead")}</p>
+    <InstitutionalShell
+      prose
+      eyebrow={t("eyebrow")}
+      title={t("cookiesTitle")}
+      lead={t("cookiesLead")}
+    >
         <table className="cookie-table">
           <thead>
             <tr>
@@ -59,7 +62,6 @@ export default async function CookiesPage({
             ))}
           </div>
         ))}
-      </div>
-    </section>
+    </InstitutionalShell>
   );
 }

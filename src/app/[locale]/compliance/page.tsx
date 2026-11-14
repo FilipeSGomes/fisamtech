@@ -1,6 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/routing";
+import { InstitutionalShell } from "@/components/layout/InstitutionalShell";
 import { CONTACT } from "@/lib/config";
 import { pageMetadata } from "@/lib/seo";
 
@@ -34,39 +35,56 @@ export default async function CompliancePage({
   setRequestLocale(locale);
   const t = await getTranslations("compliance");
 
+  const steps = [
+    ...SECTION_KEYS.map((key) => ({
+      key,
+      title: t(`sections.${key}.title`),
+      body: t(`sections.${key}.body`),
+    })),
+    {
+      key: "security",
+      title: t("securityTitle"),
+      body: t("securityBody"),
+    },
+    {
+      key: "responsible",
+      title: t("responsibleTitle"),
+      body: t("responsibleBody", { email: CONTACT.email }),
+    },
+  ];
+
   return (
-    <section className="section">
-      <div className="shell legal-prose">
-        <h1>{t("title")}</h1>
-        <p className="lead">{t("lead")}</p>
-        <p>
-          <strong>{t("effective")}</strong>
-        </p>
-        <p>{t("companyLine", { company: CONTACT.legalName, cnpj: CONTACT.cnpj })}</p>
-
-        {SECTION_KEYS.map((key) => (
-          <div key={key}>
-            <h2>{t(`sections.${key}.title`)}</h2>
-            <p>{t(`sections.${key}.body`)}</p>
-            {key === "privacy" && (
-              <p>
-                <Link href="/privacy">{t("privacyLink")}</Link>
-              </p>
-            )}
-            {key === "channel" && (
-              <p>
-                <Link href="/denuncia">{t("channelLink")}</Link>
-              </p>
-            )}
-          </div>
+    <InstitutionalShell
+      prose
+      eyebrow={t("eyebrow")}
+      title={t("title")}
+      lead={t("lead")}
+    >
+      <p>
+        <strong>{t("effective")}</strong>
+      </p>
+      <p>{t("companyLine", { company: CONTACT.legalName, cnpj: CONTACT.cnpj })}</p>
+      <ol className="institutional-steps">
+        {steps.map((step, index) => (
+          <li key={step.key}>
+            <span className="step-index">{String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <h2>{step.title}</h2>
+              <p>{step.body}</p>
+              {step.key === "privacy" ? (
+                <p>
+                  <Link href="/privacy">{t("privacyLink")}</Link>
+                </p>
+              ) : null}
+              {step.key === "channel" ? (
+                <p>
+                  <Link href="/denuncia">{t("channelLink")}</Link>
+                </p>
+              ) : null}
+            </div>
+          </li>
         ))}
-
-        <h2>{t("securityTitle")}</h2>
-        <p>{t("securityBody")}</p>
-
-        <h2>{t("responsibleTitle")}</h2>
-        <p>{t("responsibleBody", { email: CONTACT.email })}</p>
-      </div>
-    </section>
+      </ol>
+    </InstitutionalShell>
   );
 }

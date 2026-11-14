@@ -21,6 +21,12 @@ const SERVICE_KEYS = [
   "genai",
 ] as const;
 
+const PRACTICE_LINKS = [
+  { key: "bids", href: "/services/public-procurement" },
+  { key: "poc", href: "/services/proof-of-concept" },
+  { key: "systems", href: "/services/systems-development" },
+] as const;
+
 export async function generateMetadata({
   params,
 }: {
@@ -131,6 +137,16 @@ export default async function HomePage({
           <h2>{t("services.title")}</h2>
           <p className="lead">{t("services.lead")}</p>
           <div className="grid-3">
+            {PRACTICE_LINKS.map((item, index) => (
+              <article key={item.key} className="card service-card practice-card">
+                <span className="card-index">0{index + 1}</span>
+                <h3>{t(`cases.practices.${item.key}.title`)}</h3>
+                <p style={{ marginTop: 8 }}>{t(`cases.practices.${item.key}.body`)}</p>
+                <Link href={item.href}>{t("common.learnMore")}</Link>
+              </article>
+            ))}
+          </div>
+          <div className="grid-3">
             {SERVICE_KEYS.map((k, index) => (
               <article key={k} className={`card service-card service-card--${k}`}>
                 <span className="card-index">0{index + 1}</span>
@@ -150,6 +166,16 @@ export default async function HomePage({
           <p className="eyebrow">{t("casesHome.eyebrow")}</p>
           <h2>{t("casesHome.title")}</h2>
           <p className="lead">{t("casesHome.lede")}</p>
+          <div className="grid-3">
+            {PRACTICE_LINKS.map((item, index) => (
+              <article key={item.key} className="card practice-card">
+                <span className="card-index">0{index + 1}</span>
+                <h3>{t(`cases.practices.${item.key}.title`)}</h3>
+                <p style={{ marginTop: 8 }}>{t(`cases.practices.${item.key}.body`)}</p>
+                <Link href={item.href}>{t("common.learnMore")}</Link>
+              </article>
+            ))}
+          </div>
           <div className="grid-2">
             {FISAM_CLIENTS.map((c) => (
               <article key={c} className="card">

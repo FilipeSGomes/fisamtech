@@ -127,7 +127,7 @@
   "problems": {
     "eyebrow": "Situação",
     "title": "Quando uma empresa procura este tipo de engenharia",
-    "lead": "O centro do trabalho é sistema que já opera. Evoluir um MVP, inclusive um que nasceu em ferramenta de IA, é um cenário de entrada. Não é a categoria da empresa.",
+    "lead": "O centro do trabalho é um sistema que já opera. Evoluir um MVP, inclusive um que nasceu numa ferramenta de IA, entra no desenvolvimento de sistemas.",
     "items": {
       "scale": {
         "title": "O sistema não acompanha a operação",
@@ -135,7 +135,7 @@
       },
       "integrations": {
         "title": "A integração perde ou repete informação",
-        "body": "ERP, banco, API antiga ou planilha. O dado não chega, chega duas vezes, ou ninguém sabe em que passo parou."
+        "body": "ERP, banco, API antiga ou planilha. O dado chega tarde, chega duas vezes, ou o passo em que parou fica invisível para a equipa."
       },
       "legacy": {
         "title": "O sistema antigo trava a mudança",
@@ -150,24 +150,24 @@
   "services": {
     "eyebrow": "Serviços",
     "title": "O que a FISAM TECH faz",
-    "lead": "Cada frente abaixo descreve um problema de operação. A página do serviço diz para quem é, o que entra na análise e o que o site consegue mostrar hoje.",
+    "lead": "Três frentes abrem o trabalho: licitações públicas, prova de conceito e desenvolvimento de sistemas. As disciplinas que sustentam esse trabalho vêm a seguir.",
     "pageLabels": {
       "problem": "Problema",
       "audience": "Para quem é",
-      "deliver": "O que será analisado ou entregue",
+      "deliver": "O que está incluído",
       "method": "Como o trabalho acontece",
       "evidence": "O que dá para mostrar hoje"
     },
     "architecture": {
       "title": "Arquitetura e engenharia de software",
-      "body": "Decisão de estrutura para um sistema que já tem utilizador, dado e rotina. O que muda, o que permanece e o que não se resolve com mais uma correção.",
+      "body": "Decisão de estrutura para um sistema que já tem utilizador, dado e rotina. O trabalho define o que muda, o que permanece e a próxima decisão de engenharia.",
       "slug": "systems-architecture",
       "page": {
         "problem": "A estrutura do sistema deixou de caber na operação. Cada mudança nova aumenta o risco de falha, e a equipa discute sintoma em vez da decisão que precisa ser tomada.",
         "audience": "Empresas com sistema em uso, em que a próxima mudança atravessa times, dados ou um processo que não pode parar.",
-        "deliver": "Leitura da estrutura atual, riscos, o que se preserva e uma sequência de próximos passos. Não é um desenho fechado de projeto nem uma garantia de resultado.",
-        "method": "O trabalho começa no conversa técnica. Se houver projeto, as decisões ficam registradas e a construção segue em partes que a operação consegue acompanhar.",
-        "evidence": "Não há métrica de arquitetura publicada. Em Cases estão os nomes SigaBR e 637 Tennis Club, sem número.",
+        "deliver": "Leitura da estrutura atual, dos riscos, do que se preserva e de uma sequência de próximos passos. O trabalho começa na conversa técnica. Quando há projeto, as decisões ficam registadas e a construção segue em partes que a operação acompanha. A página de cases publica os nomes SigaBR e 637 Tennis Club.",
+        "method": "O trabalho começa na conversa técnica. Quando há projeto, as decisões ficam registadas e a construção segue em partes que a operação acompanha.",
+        "evidence": "A página de cases publica os nomes SigaBR e 637 Tennis Club.",
         "cta": "Marcar conversa técnica"
       }
     },
@@ -178,9 +178,9 @@
       "page": {
         "problem": "A regra do negócio está em código que falha sem deixar rastro, ou que ninguém consegue alterar sem medo de parar a rotina.",
         "audience": "Empresas que precisam de backend para um sistema que já tem cliente, integração ou rotina interna.",
-        "deliver": "Serviços, APIs e o tratamento de erro combinados no escopo. O site não publica uma lista de tecnologias como se isso fosse o serviço.",
-        "method": "Depois do diagnóstico, o escopo é dividido. A construção segue o que foi registado, com um jeito de ver o que mudou.",
-        "evidence": "Não há métrica de backend publicada neste site.",
+        "deliver": "Serviços, APIs e o tratamento de erro combinados no âmbito. Depois da conversa técnica, o âmbito é dividido e a construção segue o que foi registado, com uma forma de ver o que mudou.",
+        "method": "Depois da conversa técnica, o âmbito é dividido e a construção segue o que foi registado, com uma forma de ver o que mudou.",
+        "evidence": "O serviço publicado é o conjunto de serviços, APIs e tratamento de erro combinados no âmbito.",
         "cta": "Marcar conversa técnica"
       }
     },
@@ -189,11 +189,11 @@
       "body": "Ligar o que a empresa já usa, com tratamento de erro e um ponto em que se vê onde o fluxo parou.",
       "slug": "critical-integrations",
       "page": {
-        "problem": "Dois sistemas não contam a mesma história. Pedido, pagamento, estoque ou cadastro se perde, se repete ou fica preso num passo invisível.",
+        "problem": "Dois sistemas contam histórias diferentes. Pedido, pagamento, estoque ou cadastro se perde, se repete ou fica preso num passo invisível.",
         "audience": "Empresas que já operam com ERP, banco, API ou planilha e precisam que a informação atravesse esses sistemas.",
-        "deliver": "Mapa do fluxo, dos pontos de falha e do que será ligado. O texto versionado do SigaBR cita integração com DETRAN via RENAVAM e Banco Rendimento, sem métrica e sem documento anexo.",
-        "method": "O diagnóstico olha o fluxo real antes de escrever a integração. Se o problema não justificar um projeto, o parecer diz isso.",
-        "evidence": "O nome SigaBR está publicado como cliente, com a integração citada acima. Não há fonte, data nem número de resultado neste repositório.",
+        "deliver": "Mapa do fluxo, dos pontos de falha e do que será ligado. A conversa técnica olha o fluxo real antes de escrever a integração e regista o parecer com os próximos passos. O texto publicado do SigaBR descreve integração com o DETRAN via RENAVAM e com o Banco Rendimento.",
+        "method": "A conversa técnica olha o fluxo real antes de escrever a integração e regista o parecer com os próximos passos.",
+        "evidence": "O nome SigaBR está publicado como cliente, com integração ao DETRAN via RENAVAM e ao Banco Rendimento.",
         "cta": "Marcar conversa técnica"
       }
     },
@@ -202,11 +202,11 @@
       "body": "Mudar um sistema antigo enquanto a operação continua. O plano diz o que permanece no ar e o que muda em cada etapa.",
       "slug": "legacy-modernization",
       "page": {
-        "problem": "O sistema que sustenta a rotina é difícil de alterar. Parar para reescrever tudo não é uma opção que a operação aceite.",
+        "problem": "O sistema que sustenta a rotina é difícil de alterar. A mudança acontece com a operação em funcionamento.",
         "audience": "Empresas cujo sistema atual ainda executa o negócio e precisa mudar sem tratar a parada como detalhe.",
-        "deliver": "Leitura do que o sistema faz hoje, do que pode mudar em etapas e do que fica de fora. Não há promessa de migração sem interrupção.",
-        "method": "O diagnóstico separa o que a operação não pode perder do que pode ser reescrito. O projeto, se existir, segue essa ordem.",
-        "evidence": "Não há case de modernização com resultado medido neste site. A página de cases diz o que está publicado e o que não está.",
+        "deliver": "Leitura do que o sistema faz hoje, do que muda em etapas e do que permanece no ar em cada etapa. A conversa técnica separa o que a operação precisa manter do que pode ser reescrito, e um projeto segue essa ordem.",
+        "method": "A conversa técnica separa o que a operação precisa manter do que pode ser reescrito, e um projeto segue essa ordem.",
+        "evidence": "O plano publicado descreve o que permanece no ar e o que muda em cada etapa.",
         "cta": "Marcar conversa técnica"
       }
     },
@@ -216,26 +216,66 @@
       "slug": "genai-governance",
       "page": {
         "problem": "O MVP funciona na demonstração, ou foi gerado com ferramenta de IA, e agora precisa aguentar cliente, dado real e uma operação que não pode parar.",
-        "audience": "Empresas nessa situação. É um cenário de entrada. A FISAM TECH não se apresenta como empresa de correção de código gerado por IA.",
-        "deliver": "Leitura do que o sistema já faz, dos riscos de dado, acesso, integração e operação, e do que faria sentido preservar ou refazer. O parecer pode ser o de que não há projeto.",
-        "method": "A sessão de diagnóstico vem antes de qualquer reescrita. Não há prazo padrão publicado para transformar um MVP.",
-        "evidence": "Não há case público de profissionalização de MVP neste repositório. Os nomes publicados estão na página de cases, sem métrica.",
+        "audience": "Empresas cujo MVP precisa de se tornar um sistema de cliente, inclusive quando a primeira versão nasceu numa ferramenta de IA.",
+        "deliver": "Leitura do que o sistema já faz, dos riscos de dado, acesso, integração e operação, e do que se preserva ou se refaz até um sistema de cliente. A conversa técnica vem antes da reescrita. A página de cases publica os nomes já registados.",
+        "method": "A conversa técnica vem antes da reescrita e regista o que se preserva e o que se refaz.",
+        "evidence": "A página de cases publica os nomes já registados.",
+        "cta": "Marcar conversa técnica"
+      }
+    },
+    "procurement": {
+      "title": "Sistemas para licitações públicas",
+      "body": "Sistemas para o ciclo de uma licitação: registo, fluxo, documento e integração com o que o organismo ou a empresa já usa.",
+      "slug": "public-procurement",
+      "page": {
+        "problem": "O ciclo de uma licitação reúne registo, fluxo, documento e integração. Quando isso vive em folha de cálculo e mensagem, o registo dispersa-se e a equipa perde o passo.",
+        "audience": "Organismos e empresas que conduzem licitação e precisam de um sistema para o ciclo, com as regras de setor público descritas no programa de integridade.",
+        "deliver": "Registo dos processos, fluxo de trabalho, guarda de documentos e integração com o que a organização já opera. A página de compliance descreve as regras de setor público e licitações.",
+        "method": "Registo dos processos, fluxo de trabalho, guarda de documentos e integração com o que a organização já opera. A página de compliance descreve as regras de setor público e licitações.",
+        "evidence": "Registo dos processos, fluxo de trabalho, guarda de documentos e integração com o que a organização já opera. A página de compliance descreve as regras de setor público e licitações.",
+        "cta": "Marcar conversa técnica"
+      },
+      "complianceLink": "Programa de integridade"
+    },
+    "poc": {
+      "title": "Desenvolvimento de POC",
+      "body": "Prova de conceito curta para testar uma decisão técnica antes do sistema completo.",
+      "slug": "proof-of-concept",
+      "page": {
+        "problem": "Uma decisão técnica precisa de ser vista em uso antes do sistema completo. A equipa precisa de um ensaio com começo, fim e critério de leitura.",
+        "audience": "Empresas que querem validar uma decisão de arquitetura, integração ou produto antes de abrir o sistema completo.",
+        "deliver": "Um ensaio de âmbito curto, com o que a prova demonstra e o caminho para o sistema completo quando a prova se sustenta. Arquitetura, backend e integração entram na medida do ensaio.",
+        "method": "Um ensaio de âmbito curto, com o que a prova demonstra e o caminho para o sistema completo quando a prova se sustenta. Arquitetura, backend e integração entram na medida do ensaio.",
+        "evidence": "Um ensaio de âmbito curto, com o que a prova demonstra e o caminho para o sistema completo quando a prova se sustenta. Arquitetura, backend e integração entram na medida do ensaio.",
+        "cta": "Marcar conversa técnica"
+      }
+    },
+    "systems": {
+      "title": "Desenvolvimento de sistemas",
+      "body": "Arquitetura, backend, dados e integração para um sistema que a operação usa, inclusive a partir de um MVP.",
+      "slug": "systems-development",
+      "page": {
+        "problem": "A operação precisa de um sistema que execute a regra do negócio, com dado, acesso e integração que a equipa consegue acompanhar.",
+        "audience": "Empresas que vão colocar um sistema em uso, inclusive a partir de um MVP e inclusive quando a primeira versão nasceu numa ferramenta de IA.",
+        "deliver": "Arquitetura, backend, dados e integração do sistema de operação. Quando a partida é um MVP, o trabalho lê o que já existe e leva isso a um sistema de cliente.",
+        "method": "Arquitetura, backend, dados e integração do sistema de operação. Quando a partida é um MVP, o trabalho lê o que já existe e leva isso a um sistema de cliente.",
+        "evidence": "Arquitetura, backend, dados e integração do sistema de operação. Quando a partida é um MVP, o trabalho lê o que já existe e leva isso a um sistema de cliente.",
         "cta": "Marcar conversa técnica"
       }
     }
   },
   "casesHome": {
-    "eyebrow": "O que está publicado",
-    "title": "Nomes que o site pode mostrar",
-    "lede": "Dois nomes estão registados como clientes da FISAM TECH, sem métrica. Endereços de produto são da própria empresa.",
-    "clientLabel": "Nome publicado como cliente. Sem métrica neste site.",
+    "eyebrow": "Atuação",
+    "title": "Três frentes de engenharia",
+    "lede": "Licitações públicas, prova de conceito e desenvolvimento de sistemas. Cada frente tem página própria. Abaixo, os nomes publicados como clientes e os produtos da casa.",
+    "clientLabel": "Nome publicado como cliente.",
     "productLabel": "Produto da própria empresa.",
-    "link": "Ver o que a página de cases sustenta"
+    "link": "Ver a página de cases"
   },
   "howWeWork": {
     "eyebrow": "Processo",
     "title": "Como um trabalho começa",
-    "lead": "Não há prazo padrão publicado. A ordem abaixo é a do diagnóstico para um eventual projeto.",
+    "lead": "A ordem abaixo vai da conversa técnica a um eventual projeto.",
     "steps": {
       "1": {
         "title": "Entender",
@@ -276,8 +316,8 @@
     "title": "Conversa técnica",
     "lead": "Sessão para ler um sistema que já existe, sem cobrança para marcar a agenda. Filipe Godinho Gomes conduz a conversa. Antes, a empresa envia o contexto no formulário.",
     "includes": {
-      "1": "Entrega: leitura do cenário, riscos observados e próximos passos. Não é um projeto fechado.",
-      "2": "O parecer pode ser o de que não há um problema que justifique um projeto.",
+      "1": "Entrega: leitura do cenário, riscos observados e próximos passos.",
+      "2": "A conversa regista o parecer e os próximos passos.",
       "3": "O calendário abre depois do formulário, sem pagamento.",
       "4": "O link de agendamento aparece a seguir ao formulário e no e-mail, quando o envio está configurado."
     },
@@ -299,11 +339,11 @@
       },
       "3": {
         "q": "Preciso pagar para abrir a agenda?",
-        "a": "Não. A agenda abre após o formulário. Não há cobrança para marcar a conversa."
+        "a": "A agenda abre após o formulário. Marcar a conversa é gratuito."
       },
       "4": {
-        "q": "E se o parecer for não fazer o projeto?",
-        "a": "A conversa entrega a leitura do cenário. Não há obrigação de abrir um projeto depois."
+        "q": "E se a conversa indicar outro caminho?",
+        "a": "A conversa entrega a leitura do cenário. Um projeto, quando fizer sentido, é combinado depois, em proposta escrita."
       },
       "5": {
         "q": "O idioma é imposto?",
@@ -330,7 +370,10 @@
     "work": "O que publicamos",
     "discovery": "Marcar conversa",
     "compliance": "Compliance e integridade",
-    "whistleblowing": "Canal de denúncias"
+    "whistleblowing": "Canal de denúncias",
+    "procurement": "Licitações públicas",
+    "poc": "Desenvolvimento de POC",
+    "systems": "Desenvolvimento de sistemas"
   },
   "cookies": {
     "title": "Cookies deste site",
@@ -342,9 +385,9 @@
   "qualification": {
     "eyebrow": "Conversa técnica",
     "metaTitle": "Marcar conversa técnica",
-    "metaDescription": "Formulário para marcar uma conversa técnica com a FISAM TECH. Sem pagamento para abrir a agenda.",
+    "metaDescription": "Formulário para marcar uma conversa técnica com a FISAM TECH. A agenda abre depois do envio.",
     "title": "Marcar a conversa técnica",
-    "lead": "Conte o sistema e o problema. Em seguida a agenda abre, sem pagamento. Quem conduz a conversa é Filipe Godinho Gomes. O parecer pode ser o de que não há projeto.",
+    "lead": "Conte o sistema e o problema. Em seguida a agenda abre. Quem conduz a conversa é Filipe Godinho Gomes.",
     "name": "Nome completo",
     "email": "E-mail profissional",
     "company": "Empresa",
@@ -355,10 +398,17 @@
     "budgetPlaceholder": "Selecione uma faixa",
     "currency": "Moeda da sessão",
     "submit": "Abrir a agenda",
-    "priceNote": "Não há cobrança para marcar a conversa. A faixa de orçamento ajuda a preparar a conversa.",
+    "priceNote": "Marcar a conversa é gratuito. A faixa de orçamento ajuda a preparar a conversa.",
     "privacyBefore": "Ao enviar, os dados vão para a preparação da conversa e do agendamento, conforme a",
     "privacyLink": "política de privacidade",
-    "privacyAfter": "."
+    "privacyAfter": ".",
+    "deliversTitle": "O que a conversa entrega",
+    "delivers": {
+      "1": "Leitura do sistema, dos riscos observados e dos próximos passos.",
+      "2": "Condução por Filipe Godinho Gomes, fundador e responsável técnico.",
+      "3": "Agenda aberta depois do formulário. A conversa é gratuita.",
+      "4": "Ligação de agendamento na sequência do envio e no e-mail, quando o envio de e-mail está ativo."
+    }
   },
   "checkout": {
     "title": "Pagamento do diagnóstico",
@@ -396,9 +446,9 @@
     "eyebrow": "Atuação",
     "title": "Sistemas, provas de conceito e licitações públicas.",
     "lead": "A FISAM TECH desenvolve sistemas de operação, provas de conceito e sistemas para licitações públicas.",
-    "limit": "Onde só existe o nome, o nome fica. Onde havia número sem origem, o número saiu.",
-    "practiceTitle": "Onde o trabalho entra",
-    "practiceLead": "Três frentes de engenharia. Os nomes que o site pode publicar ficam mais abaixo, sem métrica.",
+    "limit": "Os nomes publicados como clientes são SigaBR e 637 Tennis Club. O texto de cada cartão regista a descrição já publicada.",
+    "practiceTitle": "As três frentes",
+    "practiceLead": "Licitações públicas, prova de conceito e desenvolvimento de sistemas. Cada frente abre a própria página.",
     "practices": {
       "bids": {
         "title": "Sistemas para licitações públicas",
@@ -406,7 +456,7 @@
       },
       "poc": {
         "title": "Desenvolvimento de POC",
-        "body": "Prova de conceito para testar uma decisão técnica antes do sistema completo. Âmbito curto, o que fica de fora escrito, e um caminho para o produto se a prova se sustentar."
+        "body": "Prova de conceito curta para testar uma decisão técnica antes do sistema completo, com o caminho para o sistema quando a prova se sustenta."
       },
       "systems": {
         "title": "Desenvolvimento de sistemas",
@@ -415,46 +465,48 @@
     },
     "clientsTitle": "Nomes publicados como clientes",
     "productsTitle": "Produtos da própria empresa",
-    "productsLead": "Os endereços abaixo são de produtos da própria empresa. Esta página não afirma o estado de operação de cada um.",
-    "priorTitle": "Experiência profissional do responsável",
-    "priorLead": "Trajetória profissional de Filipe Godinho Gomes.",
+    "productsLead": "Os endereços abaixo são produtos da própria empresa, publicados com nome e domínio.",
+    "priorTitle": "Registo profissional de Filipe Godinho Gomes",
+    "priorLead": "Estes nomes formam o registo profissional de Filipe Godinho Gomes, fundador da FISAM TECH.",
     "cta": "Marcar conversa técnica",
     "sigabr": {
       "type": "Nome publicado como cliente",
       "situation": "O texto já versionado descreve uma plataforma para despachantes e licenciamento.",
       "published": "Também está escrito que houve integração com o DETRAN via RENAVAM e com o Banco Rendimento.",
-      "missing": "Não há, neste repositório, restrição do projeto, decisão registada, data, documento ou resultado medido. Por isso não publicamos número."
+      "missing": "O registo publicado deste nome é a plataforma para despachantes e licenciamento, com integração ao DETRAN via RENAVAM e ao Banco Rendimento."
     },
     "tennis": {
       "type": "Nome publicado como cliente",
       "situation": "O texto já versionado descreve um sistema de tênis e beach tennis, com reservas, administração e financeiro.",
       "published": "O nome 637 Tennis Club está na lista de clientes da empresa.",
-      "missing": "Não há métrica, data, restrição nem resultado medido neste repositório."
+      "missing": "O registo publicado deste nome é o sistema de ténis e beach tennis, com reservas, administração e financeiro."
     },
     "quote": {
       "type": "Produto próprio",
-      "body": "FISAM Quote está descrito no texto antigo como produto da casa para cotação em campo. Não é um case de cliente e não tem métrica aqui."
-    }
+      "body": "FISAM Quote é um produto da própria empresa para cotação em campo. O endereço está na lista acima."
+    },
+    "openPractice": "Abrir a página",
+    "complianceLink": "Programa de integridade"
   },
   "partners": {
     "eyebrow": "Outro assunto",
     "metaTitle": "Enviar uma ideia para avaliação",
-    "metaDescription": "Página separada do serviço de engenharia. O formulário grava a ideia e abre o WhatsApp. Não contrata arquitetura, backend ou integração.",
+    "metaDescription": "Página para enviar uma ideia para avaliação. O formulário grava o registo e abre o WhatsApp. Sistema, integração e modernização seguem pela conversa técnica.",
     "title": "Enviar uma ideia para avaliação",
-    "notTheService": "Esta página não é o serviço de engenharia. Quem precisa contratar sistema, integração ou modernização pede o diagnóstico técnico.",
-    "hireCta": "Ir para o diagnóstico técnico",
-    "lead": "O formulário é para quem quer submeter uma ideia. Ele grava os dados e abre o WhatsApp com o mesmo conteúdo. Não há prazo de resposta publicado nem termo de participação neste site.",
+    "notTheService": "Esta página recebe uma ideia para avaliação, e sistema, integração ou modernização seguem pela conversa técnica.",
+    "hireCta": "Marcar conversa técnica",
+    "lead": "O formulário grava os dados e abre o WhatsApp com o mesmo conteúdo.",
     "step1": {
       "title": "Você envia",
       "body": "Nome, e-mail, telefone, ideia, problema e estágio entram no registo de leads e na mensagem de WhatsApp."
     },
     "step2": {
       "title": "A empresa lê",
-      "body": "Não há prazo publicado nem número de ideias aceitas."
+      "body": "A FISAM TECH lê o registo enviado e responde pelo canal que o envio abriu."
     },
     "step3": {
-      "title": "Nada aqui é contrato",
-      "body": "O envio da ideia não transfere participação societária, não cria sociedade, não obriga investimento e não substitui contrato."
+      "title": "Instrumento próprio",
+      "body": "O envio grava a ideia e abre a mensagem. Sociedade, investimento e contrato ficam em instrumento próprio, quando as partes o firmam."
     },
     "cta": "Enviar e abrir o WhatsApp",
     "name": "Nome",
@@ -464,7 +516,7 @@
     "problem": "Problema que a ideia enfrenta",
     "stage": "Estágio",
     "submit": "Enviar e abrir o WhatsApp",
-    "disclaimer": "Os dados ficam no registo de contactos e na mensagem que se abre. Isto não contrata engenharia.",
+    "disclaimer": "Os dados ficam no registo de contactos e na mensagem que se abre. A engenharia segue pela conversa técnica.",
     "sent": "Os dados foram enviados e o WhatsApp deve ter aberto com eles."
   },
   "legal": {
@@ -655,7 +707,8 @@
           "A lei aplicável é a brasileira. Fica eleito o foro de Embu-Guaçu, Estado de São Paulo, município da sede da FISAM TECH TECNOLOGIA LTDA. A eleição não afasta o foro do domicílio do consumidor quando a lei o impuser."
         ]
       }
-    ]
+    ],
+    "eyebrow": "Institucional"
   },
   "common": {
     "learnMore": "Ver o serviço",
@@ -706,7 +759,8 @@
         "title": "Revisão",
         "body": "O programa é revisto quando mudarem a operação, a lei ou a estrutura da empresa."
       }
-    }
+    },
+    "eyebrow": "Integridade"
   },
   "whistleblowing": {
     "title": "Canal de denúncias",
@@ -760,6 +814,7 @@
     "analysisTitle": "Análise preliminar",
     "analysisBody": "A análise preliminar ocorre em até 15 dias úteis. O canal regista e apura o que está ao alcance da empresa. Não há promessa de investigação criminal.",
     "retentionTitle": "Conservação",
-    "retentionBody": "Denúncia sem desenvolvimento fica conservada por 12 meses. Denúncia com apuração ou medida fica conservada pelo tempo da apuração e por 5 anos após o encerramento."
+    "retentionBody": "Denúncia sem desenvolvimento fica conservada por 12 meses. Denúncia com apuração ou medida fica conservada pelo tempo da apuração e por 5 anos após o encerramento.",
+    "eyebrow": "Canal"
   }
 }

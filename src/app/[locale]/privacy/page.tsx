@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import { InstitutionalShell } from "@/components/layout/InstitutionalShell";
 import { CONTACT } from "@/lib/config";
 import { pageMetadata } from "@/lib/seo";
 
@@ -26,22 +27,23 @@ export default async function PrivacyPage({
   const blocks = t.raw("privacyBlocks") as Block[];
 
   return (
-    <section className="section inner-page">
-      <div className="shell legal-prose">
-        <h1>{t("privacyTitle")}</h1>
-        <p className="lead">{t("privacyLead")}</p>
-        <p style={{ marginTop: 16 }}>
-          {CONTACT.legalName}. CNPJ {CONTACT.cnpj}. {CONTACT.email}
-        </p>
-        {blocks.map((block) => (
-          <div key={block.title}>
-            <h2>{block.title}</h2>
-            {block.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        ))}
-      </div>
-    </section>
+    <InstitutionalShell
+      prose
+      eyebrow={t("eyebrow")}
+      title={t("privacyTitle")}
+      lead={t("privacyLead")}
+    >
+      <p>
+        {CONTACT.legalName}. CNPJ {CONTACT.cnpj}. {CONTACT.email}
+      </p>
+      {blocks.map((block) => (
+        <div key={block.title}>
+          <h2>{block.title}</h2>
+          {block.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      ))}
+    </InstitutionalShell>
   );
 }

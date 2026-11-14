@@ -2,7 +2,17 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/routing";
 import { WhistleblowingForm } from "@/components/compliance/WhistleblowingForm";
+import { InstitutionalShell } from "@/components/layout/InstitutionalShell";
 import { pageMetadata } from "@/lib/seo";
+
+const STEPS = [
+  ["scope", "scopeTitle", "scopeBody"],
+  ["guarantees", "guaranteesTitle", "guaranteesBody"],
+  ["how", "howTitle", "howBody"],
+  ["receipt", "receiptTitle", "receiptBody"],
+  ["analysis", "analysisTitle", "analysisBody"],
+  ["retention", "retentionTitle", "retentionBody"],
+] as const;
 
 export async function generateMetadata({
   params,
@@ -24,30 +34,25 @@ export default async function DenunciaPage({
   const t = await getTranslations("whistleblowing");
 
   return (
-    <section className="section">
-      <div className="shell legal-prose">
-        <h1>{t("title")}</h1>
-        <p className="lead">{t("lead")}</p>
-        <h2>{t("scopeTitle")}</h2>
-        <p>{t("scopeBody")}</p>
-        <h2>{t("guaranteesTitle")}</h2>
-        <p>{t("guaranteesBody")}</p>
-        <h2>{t("howTitle")}</h2>
-        <p>{t("howBody")}</p>
-        <h2>{t("receiptTitle")}</h2>
-        <p>{t("receiptBody")}</p>
-        <h2>{t("analysisTitle")}</h2>
-        <p>{t("analysisBody")}</p>
-        <h2>{t("retentionTitle")}</h2>
-        <p>{t("retentionBody")}</p>
-        <p>
-          <Link href="/compliance">{t("complianceLink")}</Link>
-          {" · "}
-          <Link href="/privacy">{t("privacyLink")}</Link>
-        </p>
-        <h2>{t("formTitle")}</h2>
-        <WhistleblowingForm />
-      </div>
-    </section>
+    <InstitutionalShell prose eyebrow={t("eyebrow")} title={t("title")} lead={t("lead")}>
+      <ol className="institutional-steps">
+        {STEPS.map(([key, titleKey, bodyKey], index) => (
+          <li key={key}>
+            <span className="step-index">{String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <h2>{t(titleKey)}</h2>
+              <p>{t(bodyKey)}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p>
+        <Link href="/compliance">{t("complianceLink")}</Link>
+        {" · "}
+        <Link href="/privacy">{t("privacyLink")}</Link>
+      </p>
+      <h2>{t("formTitle")}</h2>
+      <WhistleblowingForm />
+    </InstitutionalShell>
   );
 }

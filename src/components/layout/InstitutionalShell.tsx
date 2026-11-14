@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/routing";
 
-type Cta = { href: string; label: string };
+type Cta = { href: "/qualify"; label: string };
 
 /**
  * Navy header for public inner pages.

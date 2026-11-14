@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import { InstitutionalShell } from "@/components/layout/InstitutionalShell";
 import { pageMetadata } from "@/lib/seo";
 
 type Block = { title: string; paragraphs: string[] };
@@ -25,19 +26,20 @@ export default async function TermsPage({
   const blocks = t.raw("termsBlocks") as Block[];
 
   return (
-    <section className="section inner-page">
-      <div className="shell legal-prose">
-        <h1>{t("termsTitle")}</h1>
-        <p className="lead">{t("termsLead")}</p>
-        {blocks.map((block) => (
-          <div key={block.title}>
-            <h2>{block.title}</h2>
-            {block.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        ))}
-      </div>
-    </section>
+    <InstitutionalShell
+      prose
+      eyebrow={t("eyebrow")}
+      title={t("termsTitle")}
+      lead={t("termsLead")}
+    >
+      {blocks.map((block) => (
+        <div key={block.title}>
+          <h2>{block.title}</h2>
+          {block.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      ))}
+    </InstitutionalShell>
   );
 }
