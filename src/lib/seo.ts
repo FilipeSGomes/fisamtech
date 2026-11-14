@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const SITE = "https://www.fisamtech.com";
+export const SITE = "https://www.fisamtech.com";
 
 const HREFLANG: Record<string, string> = {
   en: "en",
@@ -11,21 +11,35 @@ const HREFLANG: Record<string, string> = {
   de: "de",
 };
 
+function normalizedSuffix(path: string): string {
+  const suffix = path.startsWith("/") ? path : `/${path}`;
+  return suffix === "/" ? "" : suffix;
+}
+
+/** hreflang map for one path, including x-default on the English URL. */
+export function languageAlternates(
+  path: string,
+  site: string = SITE
+): Record<string, string> {
+  const suffix = normalizedSuffix(path);
+  const languages = Object.fromEntries(
+    Object.entries(HREFLANG).map(([code, href]) => [
+      href,
+      `${site}/${code}${suffix}`,
+    ])
+  );
+  languages["x-default"] = `${site}/en${suffix}`;
+  return languages;
+}
+
 export function pageMetadata(
   locale: string,
   title: string,
   description: string,
   path: string
 ): Metadata {
-  const suffix = path.startsWith("/") ? path : `/${path}`;
-  const canonicalPath = `/${locale}${suffix === "/" ? "" : suffix}`;
-  const canonical = `${SITE}${canonicalPath}`;
-  const languages = Object.fromEntries(
-    Object.entries(HREFLANG).map(([code, href]) => [
-      href,
-      `${SITE}/${code}${suffix === "/" ? "" : suffix}`,
-    ])
-  );
+  const canonical = `${SITE}/${locale}${normalizedSuffix(path)}`;
+  const languages = languageAlternates(path);
   return {
     title,
     description,

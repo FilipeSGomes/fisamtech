@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { SUPPORTED_LANGUAGES } from "@/lib/config";
+import { SITE, languageAlternates } from "@/lib/seo";
 
-const site = process.env.NEXT_PUBLIC_SITE_URL || "https://www.fisamtech.com";
+const site = process.env.NEXT_PUBLIC_SITE_URL || SITE;
 
 const paths = [
   "",
@@ -32,9 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${site}/${locale}${path}`,
         lastModified: new Date(),
         alternates: {
-          languages: Object.fromEntries(
-            SUPPORTED_LANGUAGES.map((l) => [l, `${site}/${l}${path}`])
-          ),
+          languages: languageAlternates(path, site),
         },
       });
     }
