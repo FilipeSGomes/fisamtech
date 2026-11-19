@@ -69,6 +69,14 @@ LATAM non-BRL Discovery prices are **HYPOTHESIS** placeholders in `packages/paym
 
 See `.env.example`. All placeholders empty for founder to fill (Stripe signup in progress; per-country MP tokens supported).
 
+## Support tickets (Central de Atendimento)
+
+- Public portal: `/[locale]/chamados` (production: `https://fisamtech.com/pt-br/chamados`)
+- APIs: `POST /api/chamados` (open), `GET /api/chamados?ticket_number=&email=` (track)
+- Persistence: `support_tickets` table (`supabase/migrations/004_support_tickets.sql`); without `DATABASE_URL` / Supabase, tickets fall back to `data/support-tickets.json` (gitignored)
+- Email: internal alert + client confirmation via Resend when `RESEND_API_KEY` is set; otherwise logged to console (`[email:stub]`)
+- Apply migration `004_support_tickets.sql` on production Supabase before go-live
+
 ## Funnel
 
 1. `/[locale]/qualify` → `POST /api/leads`

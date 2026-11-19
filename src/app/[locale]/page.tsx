@@ -1,9 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
-import { ArchitectureVisual } from "@/components/layout/ArchitectureVisual";
 import { CinematicStage } from "@/components/layout/CinematicStage";
-import { EnergyField } from "@/components/layout/EnergyField";
-import { EnergyFlow } from "@/components/layout/EnergyFlow";
 import { Link } from "@/i18n/routing";
 import {
   FOUNDER_PRIOR_EXPERIENCE,
@@ -51,39 +48,55 @@ export default async function HomePage({
     <div className="home-page">
       <CinematicStage />
       <section className="hero">
-        <EnergyFlow />
-        <EnergyField />
         <span className="hero-glow" aria-hidden="true" />
         <div className="shell hero-grid">
           <div className="hero-copy">
-          <p className="eyebrow">{t("hero.eyebrow")}</p>
-          <h1>{t("hero.title")}</h1>
-          <p className="lead">{t("hero.lead")}</p>
-          <div className="hero-actions">
-            <Link className="btn btn-primary" href="/qualify">
-              {t("hero.ctaPrimary")}
-            </Link>
-            {isBr ? (
-              <a
-                className="btn btn-ghost"
-                href={`${WHATSAPP.url}?text=${encodeURIComponent(t("hero.whatsappPrefill"))}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {t("hero.ctaSecondary")}
-              </a>
-            ) : (
-              <a className="btn btn-ghost" href="mailto:contato@fisamtech.com">
-                {t("hero.ctaSecondary")}
-              </a>
-            )}
-            <Link className="btn btn-ghost" href="/cases">
-              {t("hero.ctaWork")}
-            </Link>
+            <p className="eyebrow">{t("hero.eyebrow")}</p>
+            <h1>{t("hero.title")}</h1>
+            <p className="lead">{t("hero.lead")}</p>
+            <div className="hero-actions">
+              <Link className="btn btn-primary" href="/qualify">
+                {t("hero.ctaPrimary")}
+              </Link>
+              {isBr ? (
+                <a
+                  className="btn btn-ghost"
+                  href={`${WHATSAPP.url}?text=${encodeURIComponent(t("hero.whatsappPrefill"))}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t("hero.ctaSecondary")}
+                </a>
+              ) : (
+                <a className="btn btn-ghost" href="mailto:contato@fisamtech.com">
+                  {t("hero.ctaSecondary")}
+                </a>
+              )}
+              <Link className="btn btn-ghost" href="/cases">
+                {t("hero.ctaWork")}
+              </Link>
+            </div>
+            <div className="hero-footnote"><span className="hero-line" /> {t("hero.footnote")}</div>
           </div>
-          <div className="hero-footnote"><span className="hero-line" /> {t("hero.footnote")}</div>
-          </div>
-          <ArchitectureVisual labels={{ title: t("hero.visual.title"), applications: t("hero.visual.applications"), apis: t("hero.visual.apis"), data: t("hero.visual.data"), operations: t("hero.visual.operations"), caption: t("hero.visual.caption"), hint: t("hero.visual.hint"), descriptions: { applications: t("hero.visual.descriptions.applications"), apis: t("hero.visual.descriptions.apis"), data: t("hero.visual.descriptions.data"), operations: t("hero.visual.descriptions.operations") } }} />
+          <figure className="hero-founder" data-cine="panel">
+            <div className="hero-founder-image">
+              <img
+                src="/images/filipe-founder-portrait.webp"
+                alt={t("founder.alt")}
+                width={2400}
+                height={3000}
+                fetchPriority="high"
+              />
+            </div>
+            <figcaption className="hero-founder-caption">
+              <div>
+                <span className="hero-founder-index">FISAM TECH · 01</span>
+                <strong>{t("hero.signature")}</strong>
+                <span>{t("hero.role")}</span>
+              </div>
+              <span className="hero-founder-mark" aria-hidden="true">F</span>
+            </figcaption>
+          </figure>
         </div>
         <div className="shell hero-bottom"><span>{t("credentials.focusValue")}</span><a href="#process">{t("hero.scroll")} <span aria-hidden="true">↓</span></a></div>
       </section>
@@ -136,16 +149,6 @@ export default async function HomePage({
           <p className="eyebrow">{t("services.eyebrow")}</p>
           <h2>{t("services.title")}</h2>
           <p className="lead">{t("services.lead")}</p>
-          <div className="grid-3">
-            {PRACTICE_LINKS.map((item, index) => (
-              <article key={item.key} className="card service-card practice-card">
-                <span className="card-index">0{index + 1}</span>
-                <h3>{t(`cases.practices.${item.key}.title`)}</h3>
-                <p style={{ marginTop: 8 }}>{t(`cases.practices.${item.key}.body`)}</p>
-                <Link href={item.href}>{t("common.learnMore")}</Link>
-              </article>
-            ))}
-          </div>
           <div className="grid-3">
             {SERVICE_KEYS.map((k, index) => (
               <article key={k} className={`card service-card service-card--${k}`}>
@@ -235,21 +238,15 @@ export default async function HomePage({
       </section>
 
       <section className="section founder-section" data-cine="rise">
-        <div className="shell founder">
+        <div className="shell founder founder--editorial">
+          <aside className="founder-signature">
+            <span>FISAM TECH</span>
+            <strong>{t("hero.signature")}</strong>
+            <span>{t("hero.role")}</span>
+          </aside>
           <div>
-            <picture>
-              <source srcSet="/images/filipefundador.webp" type="image/webp" />
-              <img
-                src="/images/filipefundador.png"
-                alt={t("founder.alt")}
-                width={760}
-                height={950}
-                loading="lazy"
-              />
-            </picture>
-          </div>
-          <div>
-            <h2>{t("founder.title")}</h2>
+            <p className="eyebrow">{t("credentials.eyebrow")}</p>
+            <h2>{t("credentials.title")}</h2>
             <p style={{ marginTop: 14 }}>{t("founder.body1")}</p>
             <p style={{ marginTop: 14 }}>{t("founder.body2")}</p>
             <p className="muted" style={{ marginTop: 16 }}>

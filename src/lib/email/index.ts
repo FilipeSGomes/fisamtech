@@ -9,6 +9,8 @@ export type EmailTemplateId =
   | "internal_briefing"
   | "partners_ack"
   | "whistleblowing_alert"
+  | "support_ticket_opened"
+  | "support_ticket_confirmation"
   | "proposal_sent";
 
 export async function sendEmail(opts: {

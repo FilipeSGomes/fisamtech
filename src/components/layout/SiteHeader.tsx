@@ -74,6 +74,9 @@ export function SiteHeader({ locale }: { locale: string }) {
           <Link href="/qualify" onClick={closeMenu}>
             {t("discovery")}
           </Link>
+          <Link href="/chamados" onClick={closeMenu}>
+            {t("support")}
+          </Link>
           {isBr && (
             <a
               className="btn btn-primary btn-nav"

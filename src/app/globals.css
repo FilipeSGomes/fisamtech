@@ -468,6 +468,28 @@ a { color: var(--primary); }
 .form-check { font-weight: 500; }
 .form-check span { display: flex; align-items: flex-start; gap: 10px; font-weight: 500; }
 .form-check input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; }
+.checkbox-label { font-weight: 500; display: flex; align-items: flex-start; gap: 10px; }
+.checkbox-label input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; }
+.form-error { color: #b42318; font-size: 0.9rem; margin: 0; }
+
+.support-portal { margin-top: 24px; max-width: 560px; }
+.support-portal-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.support-portal-tabs button {
+  font: inherit; padding: 10px 16px; border-radius: 999px;
+  border: 1px solid var(--hairline); background: #fff; cursor: pointer;
+}
+.support-portal-tabs button.is-active {
+  background: var(--navy, #172337); color: #fff; border-color: var(--navy, #172337);
+}
+.support-status-legend { list-style: none; padding: 0; display: grid; gap: 10px; margin: 16px 0; }
+.support-channel-list { margin: 12px 0; padding-left: 1.2rem; }
+.support-closure-note {
+  margin: 20px 0; padding: 14px 16px; border-left: 3px solid var(--gold, #c9a227);
+  background: rgba(23, 35, 55, 0.04); font-size: 0.92rem;
+}
+.support-status-list { margin: 12px 0; padding-left: 1.2rem; display: grid; gap: 8px; }
+.support-ticket-detail { max-width: 560px; margin-top: 24px; }
+.support-info-grid { margin-bottom: 24px; }
 
 .cookie-banner {
   position: fixed; bottom: 16px; left: 16px; right: 16px; z-index: 80;
@@ -1461,6 +1483,143 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
 .cases-practice-card .practice-links a:focus-visible {
   color: #644820;
   text-decoration: underline;
+}
+
+/* Founder-first homepage: human presence, restrained motion, editorial light. */
+.home-page .hero {
+  padding-top: clamp(56px, 7vw, 96px);
+  background:
+    radial-gradient(ellipse 42% 64% at 82% 44%, rgba(193, 153, 91, 0.13), transparent 72%),
+    radial-gradient(ellipse 52% 72% at 10% 92%, rgba(41, 72, 112, 0.24), transparent 72%),
+    #0b1524;
+}
+.home-page .hero::before {
+  opacity: 0.11;
+  background-size: 128px 128px;
+  mask-image: linear-gradient(to right, transparent 12%, black 95%);
+}
+.home-page .hero::after { opacity: 0.08; }
+.home-page .hero-grid {
+  grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.88fr);
+  gap: clamp(40px, 7vw, 96px);
+  padding-bottom: clamp(48px, 7vw, 84px);
+}
+.home-page .hero-copy { max-width: 620px; }
+.home-page .hero h1 {
+  max-width: 17ch;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  font-size: clamp(3rem, 4.7vw, 4.25rem);
+  line-height: 1.04;
+  font-weight: 500;
+  letter-spacing: -0.055em;
+}
+.home-page .hero .lead {
+  max-width: 560px;
+  color: #c2cbd6;
+  font-size: clamp(1rem, 1.3vw, 1.13rem);
+  line-height: 1.78;
+}
+.home-page .hero-founder {
+  position: relative;
+  width: min(100%, 500px);
+  justify-self: end;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid rgba(226, 205, 162, 0.2);
+  border-radius: 18px 18px 5px 18px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01));
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.3);
+}
+.hero-founder-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 0.82;
+  border-radius: 12px 12px 3px 12px;
+  background: #182335;
+}
+.hero-founder-image::after {
+  position: absolute;
+  inset: 35% 0 0;
+  content: "";
+  background: linear-gradient(180deg, transparent 10%, rgba(7, 15, 26, 0.72));
+  pointer-events: none;
+}
+.hero-founder-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  filter: saturate(0.88) contrast(1.03);
+}
+.hero-founder-caption {
+  position: absolute;
+  z-index: 1;
+  right: 22px;
+  bottom: 23px;
+  left: 26px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  color: #f7f3ea;
+}
+.hero-founder-caption > div { display: grid; gap: 5px; }
+.hero-founder-index {
+  margin-bottom: 5px;
+  color: #e3c68e;
+  font: 500 0.62rem/1.4 "IBM Plex Mono", monospace;
+  letter-spacing: 0.12em;
+}
+.hero-founder-caption strong { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; }
+.hero-founder-caption > div > span:last-child { color: #d3d7dc; font-size: 0.8rem; }
+.hero-founder-mark {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(227, 198, 142, 0.65);
+  border-radius: 50%;
+  color: #ecd8ac;
+  font: 400 1.25rem/1 "Oxanium", sans-serif;
+}
+.founder--editorial {
+  grid-template-columns: minmax(180px, 0.62fr) minmax(0, 1.38fr);
+  align-items: center;
+}
+.founder-signature {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 28px 24px;
+  border-left: 2px solid #c7a46d;
+  background: linear-gradient(135deg, #f0ede7, transparent 82%);
+}
+.founder-signature > span:first-child {
+  color: #806239;
+  font: 500 0.62rem/1.4 "IBM Plex Mono", monospace;
+  letter-spacing: 0.14em;
+}
+.founder-signature strong { color: #152237; font-size: 1.06rem; }
+.founder-signature > span:last-child { color: #657187; font-size: 0.84rem; }
+
+@media (max-width: 900px) {
+  .home-page .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.85fr); gap: 32px; }
+  .home-page .hero h1 { font-size: clamp(2.8rem, 5.3vw, 3.8rem); }
+  .home-page .hero .hero-actions { flex-direction: column; align-items: stretch; }
+  .home-page .hero .hero-actions .btn { width: 100%; }
+}
+@media (max-width: 700px) {
+  .home-page .hero { padding-top: 46px; }
+  .home-page .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+  .home-page .hero h1 { max-width: 14ch; font-size: clamp(2.65rem, 10vw, 3.45rem); }
+  .home-page .hero .eyebrow { margin-bottom: 18px; }
+  .home-page .hero .lead { margin-top: 20px; }
+  .home-page .hero .hero-actions { flex-direction: column; }
+  .home-page .hero-founder { width: min(100%, 430px); justify-self: center; }
+  .hero-founder-image { aspect-ratio: 0.9; }
+  .founder--editorial { grid-template-columns: 1fr; gap: 28px; }
+  .founder-signature { max-width: 360px; }
 }
 
 @media (max-width: 800px) {

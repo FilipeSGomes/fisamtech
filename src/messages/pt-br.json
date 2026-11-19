@@ -16,7 +16,8 @@
     "skip": "Pular para o conteúdo",
     "openMenu": "Abrir menu",
     "closeMenu": "Fechar menu",
-    "main": "Principal"
+    "main": "Principal",
+    "support": "Central de atendimento"
   },
   "locale": {
     "label": "Idioma",
@@ -87,12 +88,14 @@
   },
   "hero": {
     "eyebrow": "São Paulo · engenharia de software",
-    "title": "Engenharia que conecta tecnologia e negócio.",
-    "lead": "Desenvolvemos sistemas e integrações para empresas que precisam reduzir falhas, automatizar processos e manter a operação funcionando.",
+    "title": "Engenharia próxima para sistemas que não podem parar.",
+    "lead": "Sou Filipe, fundador e responsável técnico da FISAM TECH. Trabalho ao lado de empresas que precisam integrar, modernizar ou evoluir sistemas em operação — com decisões claras, responsabilidade técnica e conversa direta.",
+    "signature": "Filipe Godinho Gomes",
+    "role": "Fundador e responsável técnico",
     "ctaPrimary": "Agendar conversa técnica",
     "ctaSecondary": "Conversar pelo WhatsApp",
     "ctaWork": "Ver o que publicamos",
-    "footnote": "Arquitetura, backend, integração e modernização de sistemas que já estão em uso.",
+    "footnote": "Você conversa diretamente com quem conduz a engenharia.",
     "whatsappPrefill": "Olá. Quero conversar sobre um sistema que já está em uso.",
     "scroll": "Como o trabalho começa",
     "visual": {
@@ -371,6 +374,7 @@
     "discovery": "Agendar conversa",
     "compliance": "Compliance e integridade",
     "whistleblowing": "Canal de denúncias",
+    "supportTickets": "Portal de chamados",
     "procurement": "Licitações públicas",
     "poc": "Desenvolvimento de POC",
     "systems": "Desenvolvimento de sistemas"
@@ -816,5 +820,68 @@
     "retentionTitle": "Guarda",
     "retentionBody": "Denúncia sem desdobramento fica guardada por 12 meses. Denúncia com apuração ou medida fica guardada pelo tempo da apuração e por 5 anos após o encerramento.",
     "eyebrow": "Canal"
+  },
+  "supportTickets": {
+    "title": "Central de atendimento",
+    "lead": "Abertura e acompanhamento de chamados de suporte — disponível 24 horas por dia, 7 dias por semana, incluindo feriados. Cada chamado recebe um número único no formato FT-ANO-XXXXXX.",
+    "eyebrow": "Suporte",
+    "availability": "A FISAM TECH mantém esta central para clientes contratuais e demandas de suporte técnico. Use o portal abaixo ou os contatos indicados.",
+    "channelWeb": "Portal",
+    "channelPhone": "Telefone",
+    "channelEmail": "E-mail",
+    "statusOverviewTitle": "Status do chamado",
+    "closurePolicy": "O encerramento do chamado depende de autorização expressa do solicitante. Mudanças de status são registradas e, quando o e-mail está configurado, notificadas ao contato informado.",
+    "portalTitle": "Portal de chamados",
+    "tabsLabel": "Abrir ou consultar",
+    "tabOpen": "Abrir chamado",
+    "tabTrack": "Consultar status",
+    "name": "Nome completo",
+    "email": "E-mail",
+    "phone": "Telefone",
+    "companyName": "Empresa (opcional)",
+    "companyCnpj": "CNPJ (opcional)",
+    "priority": "Prioridade / criticidade",
+    "priorities": {
+      "low": "Baixa",
+      "medium": "Média",
+      "high": "Alta",
+      "critical": "Crítica"
+    },
+    "subject": "Assunto",
+    "description": "Descrição do problema",
+    "consent": "Autorizo o tratamento dos dados informados para registro e acompanhamento deste chamado, conforme a política de privacidade.",
+    "submit": "Abrir chamado",
+    "sending": "Registrando…",
+    "error": "Não foi possível registrar o chamado.",
+    "degraded": "O chamado foi registrado localmente, mas a persistência principal falhou. Guarde o número e confirme com contato@fisamtech.com se necessário.",
+    "successTitle": "Chamado registrado",
+    "successBody": "Guarde o número do chamado. Use-o com o mesmo e-mail para consultar o status a qualquer momento.",
+    "ticketLabel": "Número do chamado",
+    "trackHint": "Na aba «Consultar status», informe o número e o e-mail usados na abertura.",
+    "goTrack": "Consultar este chamado",
+    "trackLead": "Informe o número do chamado e o e-mail do solicitante.",
+    "ticketNumber": "Número do chamado",
+    "ticketFormat": "Formato: FT-2026-XXXXXX",
+    "lookupSubmit": "Consultar",
+    "looking": "Consultando…",
+    "notFound": "Chamado não encontrado. Verifique o número e o e-mail.",
+    "statusLabel": "Status atual",
+    "updatedAt": "Última atualização",
+    "historyTitle": "Histórico de status",
+    "anotherLookup": "Consultar outro chamado",
+    "statuses": {
+      "open": "Aberto",
+      "in_progress": "Em andamento",
+      "awaiting_client": "Aguardando cliente",
+      "resolved": "Resolvido",
+      "closed": "Encerrado"
+    },
+    "statusHelp": {
+      "open": "chamado recebido e na fila de atendimento",
+      "in_progress": "equipe FISAM atuando no chamado",
+      "awaiting_client": "aguardando retorno ou validação do solicitante",
+      "resolved": "solução entregue; pendente confirmação para encerramento",
+      "closed": "encerrado somente após autorização do solicitante"
+    }
   }
 }

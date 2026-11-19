@@ -56,7 +56,7 @@ export function isDbConfigured(): boolean {
   );
 }
 
-function getSupabaseAdmin(): SupabaseClient | null {
+export function getSupabaseAdmin(): SupabaseClient | null {
   if (supabaseAdmin !== undefined) return supabaseAdmin;
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -70,7 +70,7 @@ function getSupabaseAdmin(): SupabaseClient | null {
   return supabaseAdmin;
 }
 
-function getPgPool(): pg.Pool | null {
+export function getPgPool(): pg.Pool | null {
   if (pgPool !== undefined) return pgPool;
   const url = process.env.DATABASE_URL;
   if (!url) {

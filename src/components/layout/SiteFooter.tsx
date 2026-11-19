@@ -33,6 +33,7 @@ export async function SiteFooter({ locale }: { locale: string }) {
           <Link href="/terms">{t("terms")}</Link>
           <Link href="/cookies">{t("cookies")}</Link>
           <Link href="/compliance">{t("compliance")}</Link>
+          <Link href="/chamados">{t("supportTickets")}</Link>
           <Link href="/denuncia">{t("whistleblowing")}</Link>
         </div>
         <div>

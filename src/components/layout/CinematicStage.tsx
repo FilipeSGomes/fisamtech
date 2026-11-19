@@ -100,9 +100,5 @@ export function CinematicStage() {
     };
   }, []);
 
-  return (
-    <div className="scroll-rail" aria-hidden="true">
-      <span className="scroll-rail-fill" />
-    </div>
-  );
+  return null;
 }

@@ -39,3 +39,6 @@ next-env.d.ts
 
 # vercel
 .vercel
+
+# local ticket store (dev / degraded mode)
+/data/support-tickets.json

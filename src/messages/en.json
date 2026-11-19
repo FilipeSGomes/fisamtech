@@ -16,7 +16,8 @@
     "skip": "Skip to content",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "main": "Main"
+    "main": "Main",
+    "support": "Support center"
   },
   "locale": {
     "label": "Language",
@@ -87,12 +88,14 @@
   },
   "hero": {
     "eyebrow": "São Paulo · software engineering",
-    "title": "Engineering that connects technology and the business.",
-    "lead": "We build systems and integrations for companies that need fewer failures, automated processes, and an operation that keeps running.",
+    "title": "Close-to-the-business engineering for systems that cannot stop.",
+    "lead": "I’m Filipe, founder and technical lead at FISAM TECH. I work alongside companies that need to integrate, modernize, or evolve systems already in operation—with clear decisions, technical ownership, and direct communication.",
+    "signature": "Filipe Godinho Gomes",
+    "role": "Founder and technical lead",
     "ctaPrimary": "Book a technical conversation",
     "ctaSecondary": "Email the team",
     "ctaWork": "See what we publish",
-    "footnote": "Architecture, backend, integration and modernization of systems already in use.",
+    "footnote": "Speak directly with the person leading the engineering.",
     "whatsappPrefill": "Hello. I want to talk about a system that is already in use.",
     "scroll": "How the work starts",
     "visual": {
@@ -371,6 +374,7 @@
     "discovery": "Book a conversation",
     "compliance": "Compliance and integrity",
     "whistleblowing": "Reporting channel",
+    "supportTickets": "Support tickets",
     "procurement": "Public procurement",
     "poc": "Proof of concept",
     "systems": "Systems development"
@@ -816,5 +820,68 @@
     "retentionTitle": "Retention",
     "retentionBody": "A report with no follow-up is kept for 12 months. A report with an inquiry or a measure is kept for the time of the inquiry and for 5 years after it ends.",
     "eyebrow": "Channel"
+  },
+  "supportTickets": {
+    "title": "Support center",
+    "lead": "Open and track support tickets — available 24×7×365. Each ticket gets a unique number in the form FT-YEAR-XXXXXX.",
+    "eyebrow": "Support",
+    "availability": "FISAM TECH runs this center for contractual clients and technical support. Use the portal below or the contacts listed.",
+    "channelWeb": "Portal",
+    "channelPhone": "Phone",
+    "channelEmail": "Email",
+    "statusOverviewTitle": "Ticket status",
+    "closurePolicy": "Closing a ticket requires express authorization from the requester. Status changes are recorded and, when email is configured, sent to the contact provided.",
+    "portalTitle": "Ticket portal",
+    "tabsLabel": "Open or track",
+    "tabOpen": "Open ticket",
+    "tabTrack": "Track status",
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "companyName": "Company (optional)",
+    "companyCnpj": "Tax ID / CNPJ (optional)",
+    "priority": "Priority",
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "critical": "Critical"
+    },
+    "subject": "Subject",
+    "description": "Issue description",
+    "consent": "I authorize processing of the data provided to register and track this ticket, as described in the privacy policy.",
+    "submit": "Open ticket",
+    "sending": "Submitting…",
+    "error": "Could not register the ticket.",
+    "degraded": "The ticket was stored locally but primary persistence failed. Keep the number and contact contato@fisamtech.com if needed.",
+    "successTitle": "Ticket registered",
+    "successBody": "Keep your ticket number. Use it with the same email to check status at any time.",
+    "ticketLabel": "Ticket number",
+    "trackHint": "On «Track status», enter the number and the email used when opening the ticket.",
+    "goTrack": "Track this ticket",
+    "trackLead": "Enter the ticket number and the requester's email.",
+    "ticketNumber": "Ticket number",
+    "ticketFormat": "Format: FT-2026-XXXXXX",
+    "lookupSubmit": "Look up",
+    "looking": "Looking up…",
+    "notFound": "Ticket not found. Check the number and email.",
+    "statusLabel": "Current status",
+    "updatedAt": "Last update",
+    "historyTitle": "Status history",
+    "anotherLookup": "Look up another ticket",
+    "statuses": {
+      "open": "Open",
+      "in_progress": "In progress",
+      "awaiting_client": "Awaiting client",
+      "resolved": "Resolved",
+      "closed": "Closed"
+    },
+    "statusHelp": {
+      "open": "received and queued",
+      "in_progress": "FISAM team working on it",
+      "awaiting_client": "waiting for requester input",
+      "resolved": "solution delivered; closure pending authorization",
+      "closed": "closed only after requester authorization"
+    }
   }
 }

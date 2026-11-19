@@ -16,7 +16,8 @@
     "skip": "Zum Inhalt",
     "openMenu": "Menü öffnen",
     "closeMenu": "Menü schließen",
-    "main": "Hauptnavigation"
+    "main": "Hauptnavigation",
+    "support": "Support-Center"
   },
   "locale": {
     "label": "Sprache",
@@ -87,12 +88,14 @@
   },
   "hero": {
     "eyebrow": "São Paulo · Softwaretechnik",
-    "title": "Technik, die Technologie und Geschäft verbindet.",
-    "lead": "Wir entwickeln Systeme und Integrationen für Unternehmen, die Ausfälle verringern, Abläufe automatisieren und den Betrieb aufrechterhalten müssen.",
+    "title": "Technik auf Augenhöhe für Systeme, die nicht ausfallen dürfen.",
+    "lead": "Ich bin Filipe, Gründer und technischer Leiter von FISAM TECH. Ich arbeite eng mit Unternehmen zusammen, die laufende Systeme integrieren, modernisieren oder weiterentwickeln müssen — mit klaren Entscheidungen, technischer Verantwortung und direkter Kommunikation.",
+    "signature": "Filipe Godinho Gomes",
+    "role": "Gründer und technischer Leiter",
     "ctaPrimary": "Technisches Gespräch buchen",
     "ctaSecondary": "Per E-Mail schreiben",
     "ctaWork": "Sehen, was wir veröffentlichen",
-    "footnote": "Architektur, Backend, Integration und Modernisierung von Systemen, die schon im Einsatz sind.",
+    "footnote": "Sie sprechen direkt mit der Person, die die Technik verantwortet.",
     "whatsappPrefill": "Guten Tag. Ich möchte über ein System sprechen, das schon im Einsatz ist.",
     "scroll": "Wie die Arbeit beginnt",
     "visual": {
@@ -373,7 +376,8 @@
     "whistleblowing": "Hinweisgeberkanal",
     "procurement": "Öffentliche Ausschreibungen",
     "poc": "Proof of Concept",
-    "systems": "Systementwicklung"
+    "systems": "Systementwicklung",
+    "supportTickets": "Ticket-Portal"
   },
   "cookies": {
     "title": "Cookies dieser Website",
@@ -816,5 +820,68 @@
     "retentionTitle": "Aufbewahrung",
     "retentionBody": "Eine Meldung ohne weiteres Vorgehen wird 12 Monate aufbewahrt. Eine Meldung mit Prüfung oder Maßnahme wird für die Dauer der Prüfung und 5 Jahre nach ihrem Abschluss aufbewahrt.",
     "eyebrow": "Kanal"
+  },
+  "supportTickets": {
+    "title": "Support center",
+    "lead": "Open and track support tickets — available 24×7×365. Each ticket gets a unique number in the form FT-YEAR-XXXXXX.",
+    "eyebrow": "Support",
+    "availability": "FISAM TECH runs this center for contractual clients and technical support. Use the portal below or the contacts listed.",
+    "channelWeb": "Portal",
+    "channelPhone": "Phone",
+    "channelEmail": "Email",
+    "statusOverviewTitle": "Ticket status",
+    "closurePolicy": "Closing a ticket requires express authorization from the requester. Status changes are recorded and, when email is configured, sent to the contact provided.",
+    "portalTitle": "Ticket portal",
+    "tabsLabel": "Open or track",
+    "tabOpen": "Open ticket",
+    "tabTrack": "Track status",
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "companyName": "Company (optional)",
+    "companyCnpj": "Tax ID / CNPJ (optional)",
+    "priority": "Priority",
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "critical": "Critical"
+    },
+    "subject": "Subject",
+    "description": "Issue description",
+    "consent": "I authorize processing of the data provided to register and track this ticket, as described in the privacy policy.",
+    "submit": "Open ticket",
+    "sending": "Submitting…",
+    "error": "Could not register the ticket.",
+    "degraded": "The ticket was stored locally but primary persistence failed. Keep the number and contact contato@fisamtech.com if needed.",
+    "successTitle": "Ticket registered",
+    "successBody": "Keep your ticket number. Use it with the same email to check status at any time.",
+    "ticketLabel": "Ticket number",
+    "trackHint": "On «Track status», enter the number and the email used when opening the ticket.",
+    "goTrack": "Track this ticket",
+    "trackLead": "Enter the ticket number and the requester's email.",
+    "ticketNumber": "Ticket number",
+    "ticketFormat": "Format: FT-2026-XXXXXX",
+    "lookupSubmit": "Look up",
+    "looking": "Looking up…",
+    "notFound": "Ticket not found. Check the number and email.",
+    "statusLabel": "Current status",
+    "updatedAt": "Last update",
+    "historyTitle": "Status history",
+    "anotherLookup": "Look up another ticket",
+    "statuses": {
+      "open": "Open",
+      "in_progress": "In progress",
+      "awaiting_client": "Awaiting client",
+      "resolved": "Resolved",
+      "closed": "Closed"
+    },
+    "statusHelp": {
+      "open": "received and queued",
+      "in_progress": "FISAM team working on it",
+      "awaiting_client": "waiting for requester input",
+      "resolved": "solution delivered; closure pending authorization",
+      "closed": "closed only after requester authorization"
+    }
   }
 }
