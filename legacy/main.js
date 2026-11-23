@@ -148,7 +148,7 @@ function initCookieBanner() {
   }
 }
 
-const PARTNERS_WHATSAPP_NUMBER = "5511979562271";
+const PARTNERS_WHATSAPP_NUMBER = "556131999567";
 
 function normalizeWhatsApp(value) {
   return String(value || "").replace(/\D/g, "");
@@ -248,7 +248,7 @@ function initContactForm(doc = document, fetchImpl = fetch) {
 
   const feedback = doc.getElementById("form-feedback");
   const submitBtn = form.querySelector('button[type="submit"]');
-  const whatsappNumber = "5511979562271";
+  const whatsappNumber = PARTNERS_WHATSAPP_NUMBER;
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();

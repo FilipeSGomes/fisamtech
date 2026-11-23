@@ -72,7 +72,7 @@
 | Integração | Uso |
 |---|---|
 | Google Calendar Appointment | CTA diagnóstico gratuito |
-| WhatsApp (`wa.me/5511979562271`) | CTA / partners form |
+| WhatsApp (`wa.me/556131999567`) | CTA / partners form |
 | Mailto `contato@fisamtech.com` | Contato |
 | Subdomínios produtos | quote, fnrh, fintrack, kontrolla, fisamtour |
 

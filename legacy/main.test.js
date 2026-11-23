@@ -449,7 +449,7 @@ test("initPartnersLanding envia inscricao via WhatsApp quando valida", () => {
   form.dispatchSubmit();
 
   assert.equal(opened.length, 1);
-  assert.match(opened[0], /wa\.me\/5511979562271/);
+  assert.match(opened[0], /wa\.me\/556131999567/);
   assert.match(decodeURIComponent(opened[0]), /João/);
   assert.match(decodeURIComponent(opened[0]), /SaaS de logística/);
 });

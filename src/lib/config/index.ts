@@ -99,9 +99,9 @@ export const CALENDAR_LINKS = {
 } as const;
 
 export const WHATSAPP = {
-  e164: "5511979562271",
-  display: "+55 11 97956-2271",
-  url: "https://wa.me/5511979562271",
+  e164: "556131999567",
+  display: "+55 61 3199-9567",
+  url: "https://wa.me/556131999567",
 } as const;
 
 export const CONTACT = {
