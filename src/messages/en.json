@@ -89,7 +89,7 @@
   "hero": {
     "eyebrow": "São Paulo · software engineering",
     "title": "Close-to-the-business engineering for systems that cannot stop.",
-    "lead": "I’m Filipe, founder and technical lead at FISAM TECH. I work alongside companies that need to integrate, modernize, or evolve systems already in operation—with clear decisions, technical ownership, and direct communication.",
+    "lead": "I’m Filipe, founder and technical lead at FISAM TECH. I work alongside companies that need to integrate, modernize, or evolve systems already in operation, with clear decisions, technical ownership, and direct communication.",
     "signature": "Filipe Godinho Gomes",
     "role": "Founder and technical lead",
     "ctaPrimary": "Book a technical conversation",
@@ -124,8 +124,8 @@
     "marketValue": "Bradesco · B3 · Next",
     "focus": "What the company contracts",
     "focusValue": "Systems in operation",
-    "method": "First step",
-    "methodValue": "Free to schedule"
+    "method": "Initial contact",
+    "methodValue": "Technical conversation"
   },
   "problems": {
     "eyebrow": "Situation",
@@ -823,7 +823,7 @@
   },
   "supportTickets": {
     "title": "Support center",
-    "lead": "Open and track support tickets — available 24×7×365. Each ticket gets a unique number in the form FT-YEAR-XXXXXX.",
+    "lead": "Open and track support tickets, available 24×7×365. Each ticket gets a unique number in the form FT-YEAR-XXXXXX.",
     "eyebrow": "Support",
     "availability": "FISAM TECH runs this center for contractual clients and technical support. Use the portal below or the contacts listed.",
     "channelWeb": "Portal",

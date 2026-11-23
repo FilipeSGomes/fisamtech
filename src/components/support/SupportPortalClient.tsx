@@ -200,9 +200,9 @@ function TrackTicketForm() {
               <span className="muted">
                 {new Date(entry.at).toLocaleString(locale)}
               </span>
-              {" — "}
+              {" · "}
               {t(`statuses.${entry.status}`)}
-              {entry.note ? ` — ${entry.note}` : null}
+              {entry.note ? ` · ${entry.note}` : null}
             </li>
           ))}
         </ol>

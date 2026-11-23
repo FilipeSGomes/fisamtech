@@ -56,7 +56,7 @@ export default async function ChamadosPage({
         {STATUS_KEYS.map((key) => (
           <li key={key}>
             <strong>{t(`statuses.${key}`)}</strong>
-            <span className="muted"> — {t(`statusHelp.${key}`)}</span>
+            <span className="muted"> · {t(`statusHelp.${key}`)}</span>
           </li>
         ))}
       </ul>

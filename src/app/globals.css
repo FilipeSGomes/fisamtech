@@ -1500,13 +1500,13 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
 }
 .home-page .hero::after { opacity: 0.08; }
 .home-page .hero-grid {
-  grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.88fr);
-  gap: clamp(40px, 7vw, 96px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   padding-bottom: clamp(48px, 7vw, 84px);
 }
-.home-page .hero-copy { max-width: 620px; }
+.home-page .hero-copy { max-width: 860px; }
 .home-page .hero h1 {
-  max-width: 17ch;
+  max-width: 20ch;
   font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
   font-size: clamp(3rem, 4.7vw, 4.25rem);
   line-height: 1.04;
@@ -1514,74 +1514,10 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
   letter-spacing: -0.055em;
 }
 .home-page .hero .lead {
-  max-width: 560px;
+  max-width: 680px;
   color: #c2cbd6;
   font-size: clamp(1rem, 1.3vw, 1.13rem);
   line-height: 1.78;
-}
-.home-page .hero-founder {
-  position: relative;
-  width: min(100%, 500px);
-  justify-self: end;
-  margin: 0;
-  padding: 10px;
-  border: 1px solid rgba(226, 205, 162, 0.2);
-  border-radius: 18px 18px 5px 18px;
-  background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01));
-  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.3);
-}
-.hero-founder-image {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 0.82;
-  border-radius: 12px 12px 3px 12px;
-  background: #182335;
-}
-.hero-founder-image::after {
-  position: absolute;
-  inset: 35% 0 0;
-  content: "";
-  background: linear-gradient(180deg, transparent 10%, rgba(7, 15, 26, 0.72));
-  pointer-events: none;
-}
-.hero-founder-image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 22%;
-  filter: saturate(0.88) contrast(1.03);
-}
-.hero-founder-caption {
-  position: absolute;
-  z-index: 1;
-  right: 22px;
-  bottom: 23px;
-  left: 26px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 18px;
-  color: #f7f3ea;
-}
-.hero-founder-caption > div { display: grid; gap: 5px; }
-.hero-founder-index {
-  margin-bottom: 5px;
-  color: #e3c68e;
-  font: 500 0.62rem/1.4 "IBM Plex Mono", monospace;
-  letter-spacing: 0.12em;
-}
-.hero-founder-caption strong { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; }
-.hero-founder-caption > div > span:last-child { color: #d3d7dc; font-size: 0.8rem; }
-.hero-founder-mark {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border: 1px solid rgba(227, 198, 142, 0.65);
-  border-radius: 50%;
-  color: #ecd8ac;
-  font: 400 1.25rem/1 "Oxanium", sans-serif;
 }
 .founder--editorial {
   grid-template-columns: minmax(180px, 0.62fr) minmax(0, 1.38fr);
@@ -1604,20 +1540,19 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
 .founder-signature > span:last-child { color: #657187; font-size: 0.84rem; }
 
 @media (max-width: 900px) {
-  .home-page .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.85fr); gap: 32px; }
+  .home-page .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .home-page .hero h1 { font-size: clamp(2.8rem, 5.3vw, 3.8rem); }
-  .home-page .hero .hero-actions { flex-direction: column; align-items: stretch; }
-  .home-page .hero .hero-actions .btn { width: 100%; }
+  .home-page .hero .hero-actions { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+  .home-page .hero .hero-actions .btn { width: auto; }
 }
 @media (max-width: 700px) {
   .home-page .hero { padding-top: 46px; }
-  .home-page .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+  .home-page .hero-grid { grid-template-columns: 1fr; gap: 0; }
   .home-page .hero h1 { max-width: 14ch; font-size: clamp(2.65rem, 10vw, 3.45rem); }
   .home-page .hero .eyebrow { margin-bottom: 18px; }
   .home-page .hero .lead { margin-top: 20px; }
-  .home-page .hero .hero-actions { flex-direction: column; }
-  .home-page .hero-founder { width: min(100%, 430px); justify-self: center; }
-  .hero-founder-image { aspect-ratio: 0.9; }
+  .home-page .hero .hero-actions { flex-direction: column; align-items: stretch; }
+  .home-page .hero .hero-actions .btn { width: 100%; }
   .founder--editorial { grid-template-columns: 1fr; gap: 28px; }
   .founder-signature { max-width: 360px; }
 }

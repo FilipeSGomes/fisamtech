@@ -89,7 +89,7 @@
   "hero": {
     "eyebrow": "São Paulo · Softwaretechnik",
     "title": "Technik auf Augenhöhe für Systeme, die nicht ausfallen dürfen.",
-    "lead": "Ich bin Filipe, Gründer und technischer Leiter von FISAM TECH. Ich arbeite eng mit Unternehmen zusammen, die laufende Systeme integrieren, modernisieren oder weiterentwickeln müssen — mit klaren Entscheidungen, technischer Verantwortung und direkter Kommunikation.",
+    "lead": "Ich bin Filipe, Gründer und technischer Leiter von FISAM TECH. Ich arbeite eng mit Unternehmen zusammen, die laufende Systeme integrieren, modernisieren oder weiterentwickeln müssen, mit klaren Entscheidungen, technischer Verantwortung und direkter Kommunikation.",
     "signature": "Filipe Godinho Gomes",
     "role": "Gründer und technischer Leiter",
     "ctaPrimary": "Technisches Gespräch buchen",
@@ -124,8 +124,8 @@
     "marketValue": "Bradesco · B3 · Next",
     "focus": "Vertrag des Unternehmens",
     "focusValue": "Systeme im Betrieb",
-    "method": "Erster Schritt",
-    "methodValue": "Termin ohne Zahlung"
+    "method": "Erster Kontakt",
+    "methodValue": "Technisches Gespräch"
   },
   "problems": {
     "eyebrow": "Lage",
@@ -823,7 +823,7 @@
   },
   "supportTickets": {
     "title": "Support center",
-    "lead": "Open and track support tickets — available 24×7×365. Each ticket gets a unique number in the form FT-YEAR-XXXXXX.",
+    "lead": "Open and track support tickets, available 24×7×365. Each ticket gets a unique number in the form FT-YEAR-XXXXXX.",
     "eyebrow": "Support",
     "availability": "FISAM TECH runs this center for contractual clients and technical support. Use the portal below or the contacts listed.",
     "channelWeb": "Portal",

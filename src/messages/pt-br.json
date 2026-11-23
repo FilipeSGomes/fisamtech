@@ -89,7 +89,7 @@
   "hero": {
     "eyebrow": "São Paulo · engenharia de software",
     "title": "Engenharia próxima para sistemas que não podem parar.",
-    "lead": "Sou Filipe, fundador e responsável técnico da FISAM TECH. Trabalho ao lado de empresas que precisam integrar, modernizar ou evoluir sistemas em operação — com decisões claras, responsabilidade técnica e conversa direta.",
+    "lead": "Sou Filipe, fundador e responsável técnico da FISAM TECH. Trabalho ao lado de empresas que precisam integrar, modernizar ou evoluir sistemas em operação, com decisões claras, responsabilidade técnica e conversa direta.",
     "signature": "Filipe Godinho Gomes",
     "role": "Fundador e responsável técnico",
     "ctaPrimary": "Agendar conversa técnica",
@@ -124,8 +124,8 @@
     "marketValue": "Bradesco · B3 · Next",
     "focus": "Contrato da empresa",
     "focusValue": "Sistemas em operação",
-    "method": "Primeiro passo",
-    "methodValue": "Conversa sem pagamento"
+    "method": "Contato inicial",
+    "methodValue": "Conversa técnica"
   },
   "problems": {
     "eyebrow": "Situação",
@@ -823,7 +823,7 @@
   },
   "supportTickets": {
     "title": "Central de atendimento",
-    "lead": "Abertura e acompanhamento de chamados de suporte — disponível 24 horas por dia, 7 dias por semana, incluindo feriados. Cada chamado recebe um número único no formato FT-ANO-XXXXXX.",
+    "lead": "Abertura e acompanhamento de chamados de suporte, disponível 24 horas por dia, 7 dias por semana, incluindo feriados. Cada chamado recebe um número único no formato FT-ANO-XXXXXX.",
     "eyebrow": "Suporte",
     "availability": "A FISAM TECH mantém esta central para clientes contratuais e demandas de suporte técnico. Use o portal abaixo ou os contatos indicados.",
     "channelWeb": "Portal",

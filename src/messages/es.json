@@ -124,8 +124,8 @@
     "marketValue": "Bradesco · B3 · Next",
     "focus": "Contrato de la empresa",
     "focusValue": "Sistemas en operación",
-    "method": "Primer paso",
-    "methodValue": "Agenda sin pago"
+    "method": "Contacto inicial",
+    "methodValue": "Conversación técnica"
   },
   "problems": {
     "eyebrow": "Situación",
@@ -823,7 +823,7 @@
   },
   "supportTickets": {
     "title": "Support center",
-    "lead": "Open and track support tickets — available 24×7×365. Each ticket gets a unique number in the form FT-YEAR-XXXXXX.",
+    "lead": "Open and track support tickets, available 24×7×365. Each ticket gets a unique number in the form FT-YEAR-XXXXXX.",
     "eyebrow": "Support",
     "availability": "FISAM TECH runs this center for contractual clients and technical support. Use the portal below or the contacts listed.",
     "channelWeb": "Portal",

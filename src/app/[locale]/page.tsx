@@ -78,25 +78,6 @@ export default async function HomePage({
             </div>
             <div className="hero-footnote"><span className="hero-line" /> {t("hero.footnote")}</div>
           </div>
-          <figure className="hero-founder" data-cine="panel">
-            <div className="hero-founder-image">
-              <img
-                src="/images/filipe-founder-cinematic.webp"
-                alt={t("founder.alt")}
-                width={1086}
-                height={1448}
-                fetchPriority="high"
-              />
-            </div>
-            <figcaption className="hero-founder-caption">
-              <div>
-                <span className="hero-founder-index">FISAM TECH · 01</span>
-                <strong>{t("hero.signature")}</strong>
-                <span>{t("hero.role")}</span>
-              </div>
-              <span className="hero-founder-mark" aria-hidden="true">F</span>
-            </figcaption>
-          </figure>
         </div>
         <div className="shell hero-bottom"><span>{t("credentials.focusValue")}</span><a href="#process">{t("hero.scroll")} <span aria-hidden="true">↓</span></a></div>
       </section>
