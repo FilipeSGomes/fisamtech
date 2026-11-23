@@ -81,10 +81,10 @@ export default async function HomePage({
           <figure className="hero-founder" data-cine="panel">
             <div className="hero-founder-image">
               <img
-                src="/images/filipe-founder-portrait.webp"
+                src="/images/filipe-founder-cinematic.webp"
                 alt={t("founder.alt")}
-                width={2400}
-                height={3000}
+                width={1086}
+                height={1448}
                 fetchPriority="high"
               />
             </div>
