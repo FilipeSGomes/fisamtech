@@ -33,7 +33,9 @@ export function requireAuth(user: AdminSessionUser | null | undefined): AdminSes
     throw new AuthenticationError("MFA pendente");
   }
   if (isSuper && !user.mfaEnabled) {
-    // allow limited access only for MFA enrollment endpoints — callers gate this
+    // Super Admin APIs stay blocked until MFA is enrolled.
+    // MFA setup/login routes must call getSessionFromRequest directly — not requireAuth.
+    throw new AuthenticationError("MFA obrigatório — conclua a ativação");
   }
   return user;
 }

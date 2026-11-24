@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getNda } from "@/lib/super-admin/nda/service";
+import { requireAdminPage } from "@/lib/super-admin/rbac/page-gate";
 
 export const dynamic = "force-dynamic";
 
@@ -16,6 +17,7 @@ export default async function NdaDetailPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
+  await requireAdminPage("ndas:read");
   const { id } = await params;
   const nda = await getNda(id);
   if (!nda) notFound();

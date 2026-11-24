@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { listContracts } from "@/lib/super-admin/contracts/service";
+import { requireAdminPage } from "@/lib/super-admin/rbac/page-gate";
 
 export const dynamic = "force-dynamic";
 
@@ -15,6 +16,7 @@ export default async function ContractsPage({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  await requireAdminPage("contracts:read");
   const sp = await searchParams;
   const q = typeof sp.q === "string" ? sp.q : undefined;
   const page = Number(typeof sp.page === "string" ? sp.page : 1);

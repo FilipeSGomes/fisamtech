@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getContract } from "@/lib/super-admin/contracts/service";
+import { requireAdminPage } from "@/lib/super-admin/rbac/page-gate";
 
 export const dynamic = "force-dynamic";
 
@@ -25,6 +26,7 @@ export default async function ContractDetailPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
+  await requireAdminPage("contracts:read");
   const { id } = await params;
   const contract = await getContract(id);
   if (!contract) notFound();

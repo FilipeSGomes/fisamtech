@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { listAuditLogs } from "@/lib/super-admin/audit/list";
+import { requireAdminPage } from "@/lib/super-admin/rbac/page-gate";
 
 export const dynamic = "force-dynamic";
 
@@ -8,6 +9,7 @@ export default async function AuditPage({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  await requireAdminPage("audit:read");
   const sp = await searchParams;
   const q = typeof sp.q === "string" ? sp.q : undefined;
   const action = typeof sp.action === "string" ? sp.action : undefined;

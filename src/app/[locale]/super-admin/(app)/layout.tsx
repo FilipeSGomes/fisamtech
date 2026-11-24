@@ -21,17 +21,16 @@ export default async function SuperAdminAppLayout({
     redirect("/pt-br/super-admin/login");
   }
 
-  const needsMfaSetup =
-    session.roles.includes("SUPER_ADMIN") && !session.mfaEnabled;
+  if (session.roles.includes("SUPER_ADMIN") && !session.mfaEnabled) {
+    redirect("/pt-br/super-admin/mfa");
+  }
 
   return (
-    <AdminShell userName={session.name}>
-      {needsMfaSetup ? (
-        <div className="sa-banner">
-          MFA obrigatório para Super Admin.{" "}
-          <a href="/pt-br/super-admin/mfa">Ativar agora</a>
-        </div>
-      ) : null}
+    <AdminShell
+      userName={session.name}
+      permissions={session.permissions}
+      roles={session.roles}
+    >
       {children}
     </AdminShell>
   );

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ContactForm } from "@/components/super-admin/ContactForm";
 import { listCompanies } from "@/lib/super-admin/crm/companies";
 import { listContacts } from "@/lib/super-admin/crm/contacts";
+import { requireAdminPage } from "@/lib/super-admin/rbac/page-gate";
 
 export const dynamic = "force-dynamic";
 
@@ -10,6 +11,7 @@ export default async function ContactsPage({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  await requireAdminPage("contacts:read");
   const sp = await searchParams;
   const q = typeof sp.q === "string" ? sp.q : undefined;
   const page = Number(typeof sp.page === "string" ? sp.page : 1);

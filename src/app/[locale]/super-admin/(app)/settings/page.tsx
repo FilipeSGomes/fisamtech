@@ -8,7 +8,7 @@ export default async function SettingsPage() {
   return (
     <div className="sa-page">
       <h1>Configurações</h1>
-      <p className="muted">Sessão atual e referências operacionais.</p>
+      <p className="muted">Sessão atual e status de autenticação.</p>
 
       <div className="sa-panels">
         <section className="sa-panel">
@@ -46,33 +46,6 @@ export default async function SettingsPage() {
               <a href="/pt-br/super-admin/mfa">Ativar MFA agora</a>
             </p>
           ) : null}
-        </section>
-
-        <section className="sa-panel">
-          <h2>Operações</h2>
-          <ul className="sa-list">
-            <li>
-              <span>Bootstrap do primeiro admin</span>
-              <code>npm run admin:bootstrap</code>
-            </li>
-            <li>
-              <span>Documentação</span>
-              <a href="/docs/super-admin/deployment.md">docs/super-admin/</a>
-            </li>
-            <li>
-              <span>PDF letterhead</span>
-              <code>private/branding/papel-timbrado-fisam-tech.png</code>
-            </li>
-            <li>
-              <span>PDFs de propostas</span>
-              <code>private/proposals/</code>
-            </li>
-          </ul>
-          <p className="muted">
-            Variáveis: <code>DATABASE_URL</code>, <code>ADMIN_SESSION_SECRET</code>,{" "}
-            <code>RESEND_API_KEY</code> (envio real), bootstrap via{" "}
-            <code>ADMIN_BOOTSTRAP_*</code>.
-          </p>
         </section>
       </div>
     </div>

@@ -1,15 +1,13 @@
 import { RolesManager } from "@/components/super-admin/RolesManager";
-import { getAdminSessionFromCookies } from "@/lib/super-admin/auth/session";
 import { listRolesWithPermissions } from "@/lib/super-admin/identity/roles";
 import { hasPermission } from "@/lib/super-admin/rbac/authorize";
+import { requireAdminPage } from "@/lib/super-admin/rbac/page-gate";
 
 export const dynamic = "force-dynamic";
 
 export default async function RolesPage() {
-  const [data, session] = await Promise.all([
-    listRolesWithPermissions(),
-    getAdminSessionFromCookies(),
-  ]);
+  const session = await requireAdminPage("users:read");
+  const data = await listRolesWithPermissions();
   const canManage = hasPermission(session, "roles:manage");
 
   return (

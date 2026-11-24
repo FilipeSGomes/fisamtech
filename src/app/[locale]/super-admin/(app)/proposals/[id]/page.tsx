@@ -9,6 +9,7 @@ import {
   listProposalItems,
   listProposalTemplates,
 } from "@/lib/super-admin/proposals/service";
+import { requireAdminPage } from "@/lib/super-admin/rbac/page-gate";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +18,7 @@ export default async function ProposalDetailPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
+  await requireAdminPage("proposals:read");
   const { id } = await params;
   const proposal = await getProposal(id);
   if (!proposal) notFound();

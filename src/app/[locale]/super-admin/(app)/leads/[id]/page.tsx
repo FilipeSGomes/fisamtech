@@ -9,6 +9,7 @@ import {
   listLeadActivities,
   type LeadStatus,
 } from "@/lib/super-admin/crm/leads";
+import { requireAdminPage } from "@/lib/super-admin/rbac/page-gate";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +18,7 @@ export default async function LeadDetailPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
+  await requireAdminPage("leads:read");
   const { id } = await params;
   const lead = await getLead(id);
   if (!lead) notFound();

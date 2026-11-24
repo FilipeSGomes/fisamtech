@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { listLeads, LEAD_STATUS_LABELS, type LeadStatus } from "@/lib/super-admin/crm/leads";
+import { requireAdminPage } from "@/lib/super-admin/rbac/page-gate";
 
 export const dynamic = "force-dynamic";
 
@@ -8,6 +9,7 @@ export default async function LeadsPage({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  await requireAdminPage("leads:read");
   const sp = await searchParams;
   const q = typeof sp.q === "string" ? sp.q : undefined;
   const status = typeof sp.status === "string" ? sp.status : undefined;

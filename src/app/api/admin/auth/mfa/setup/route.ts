@@ -11,8 +11,14 @@ export async function GET(req: NextRequest) {
   try {
     const session = await getSessionFromRequest(req);
     if (!session) throw new AuthenticationError();
-    if (!session.roles.includes("SUPER_ADMIN") && session.mfaEnabled) {
-      return NextResponse.json({ error: "MFA já ativo" }, { status: 400 });
+    if (session.mfaEnabled) {
+      return NextResponse.json(
+        {
+          error:
+            "MFA já está ativo. Use um fluxo dedicado de redefinição para alterar o autenticador.",
+        },
+        { status: 400 }
+      );
     }
     const secret = generateTotpSecret(session.email);
     const qrDataUrl = await QRCode.toDataURL(secret.otpauthUrl, {
@@ -41,6 +47,15 @@ export async function POST(req: NextRequest) {
   try {
     const session = await getSessionFromRequest(req);
     if (!session) throw new AuthenticationError();
+    if (session.mfaEnabled) {
+      return NextResponse.json(
+        {
+          error:
+            "MFA já está ativo. Não é permitido sobrescrever o segredo sem redefinição dedicada.",
+        },
+        { status: 400 }
+      );
+    }
     const body = confirmSchema.parse(await req.json());
     const token = req.cookies.get(ADMIN_SESSION_COOKIE)?.value;
     if (!token) throw new AuthenticationError();

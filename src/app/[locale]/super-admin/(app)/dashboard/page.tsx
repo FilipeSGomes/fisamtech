@@ -4,10 +4,12 @@ import {
   PROPOSAL_STATUS_LABELS,
   type ProposalStatus,
 } from "@/lib/super-admin/proposals/workflow";
+import { requireAdminPage } from "@/lib/super-admin/rbac/page-gate";
 
 export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
+  await requireAdminPage("dashboard:read");
   const [byStatus, bySource, openOpps, proposals, totalLeads, stale, accepted] =
     await Promise.all([
       adminQuery<{ status: string; n: number }>(

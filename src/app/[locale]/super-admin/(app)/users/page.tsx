@@ -1,10 +1,12 @@
 import { UsersManager } from "@/components/super-admin/UsersManager";
 import { listAdminUsers } from "@/lib/super-admin/identity/users";
 import { listRolesWithPermissions } from "@/lib/super-admin/identity/roles";
+import { requireAdminPage } from "@/lib/super-admin/rbac/page-gate";
 
 export const dynamic = "force-dynamic";
 
 export default async function UsersPage() {
+  await requireAdminPage("users:read");
   const [users, rolesData] = await Promise.all([
     listAdminUsers({ pageSize: 100 }),
     listRolesWithPermissions(),

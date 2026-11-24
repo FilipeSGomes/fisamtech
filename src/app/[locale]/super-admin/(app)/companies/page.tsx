@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CompanyForm } from "@/components/super-admin/CompanyForm";
 import { listCompanies } from "@/lib/super-admin/crm/companies";
+import { requireAdminPage } from "@/lib/super-admin/rbac/page-gate";
 
 export const dynamic = "force-dynamic";
 
@@ -9,6 +10,7 @@ export default async function CompaniesPage({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  await requireAdminPage("companies:read");
   const sp = await searchParams;
   const q = typeof sp.q === "string" ? sp.q : undefined;
   const page = Number(typeof sp.page === "string" ? sp.page : 1);

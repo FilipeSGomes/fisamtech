@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { listNdas } from "@/lib/super-admin/nda/service";
+import { requireAdminPage } from "@/lib/super-admin/rbac/page-gate";
 
 export const dynamic = "force-dynamic";
 
@@ -15,6 +16,7 @@ export default async function NdasPage({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  await requireAdminPage("ndas:read");
   const sp = await searchParams;
   const q = typeof sp.q === "string" ? sp.q : undefined;
   const page = Number(typeof sp.page === "string" ? sp.page : 1);

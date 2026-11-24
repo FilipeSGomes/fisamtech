@@ -4,10 +4,12 @@ import { listCompanies } from "@/lib/super-admin/crm/companies";
 import { listContacts } from "@/lib/super-admin/crm/contacts";
 import { listOpportunities } from "@/lib/super-admin/crm/opportunities";
 import { listProposals } from "@/lib/super-admin/proposals/service";
+import { requireAdminPage } from "@/lib/super-admin/rbac/page-gate";
 
 export const dynamic = "force-dynamic";
 
 export default async function NewContractPage() {
+  await requireAdminPage("contracts:create");
   const [companies, contacts, opportunities, proposals] = await Promise.all([
     listCompanies({ pageSize: 200 }),
     listContacts({ pageSize: 200 }),
