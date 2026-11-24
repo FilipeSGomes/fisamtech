@@ -107,6 +107,12 @@ export const BID_DETAIL_FIELDS: Array<{
   },
 ];
 
+/** PDF prints these labels, in this order, and only when the text is filled. */
+export const BID_DETAIL_BLOCKS = BID_DETAIL_FIELDS.map(({ key, label }) => ({
+  key,
+  label,
+}));
+
 const optionalText = z.string().optional().nullable();
 
 export const bidDetailsSchema = z.object({

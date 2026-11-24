@@ -53,6 +53,21 @@ export type ProposalPdfInput = {
   } | null;
 };
 
+const ENGLISH_MONTHS: Record<string, string> = {
+  Jan: "01",
+  Feb: "02",
+  Mar: "03",
+  Apr: "04",
+  May: "05",
+  Jun: "06",
+  Jul: "07",
+  Aug: "08",
+  Sep: "09",
+  Oct: "10",
+  Nov: "11",
+  Dec: "12",
+};
+
 /** Format proposal validity as dd/mm/aaaa (pt-BR). */
 export function formatValidUntilPtBr(
   value?: string | Date | null
@@ -60,15 +75,19 @@ export function formatValidUntilPtBr(
   if (value == null || value === "") return null;
   if (value instanceof Date) {
     if (Number.isNaN(value.getTime())) return null;
-    const dd = String(value.getUTCDate()).padStart(2, "0");
-    const mm = String(value.getUTCMonth() + 1).padStart(2, "0");
-    const yyyy = String(value.getUTCFullYear());
-    return `${dd}/${mm}/${yyyy}`;
+    return formatValidUntilPtBr(value.toString());
   }
   const raw = String(value).trim();
   const isoDate = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
   if (isoDate) {
     return `${isoDate[3]}/${isoDate[2]}/${isoDate[1]}`;
+  }
+  const brDate = raw.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  if (brDate) return raw;
+  // Date#toString(), e.g. "Fri Nov 13 2026 00:00:00 GMT-0300 (...)".
+  const english = raw.match(/^[A-Za-z]{3} ([A-Za-z]{3}) (\d{1,2}) (\d{4})\b/);
+  if (english && ENGLISH_MONTHS[english[1]]) {
+    return `${english[2].padStart(2, "0")}/${ENGLISH_MONTHS[english[1]]}/${english[3]}`;
   }
   const parsed = new Date(raw);
   if (!Number.isNaN(parsed.getTime())) {
@@ -83,6 +102,17 @@ const MARGIN = { left: 52, right: 52, top: 205, bottom: 115 };
 
 function moneyLabel(currency: string, amount: string): string {
   return `${currency} ${amount}`;
+}
+
+function pdfSafe(text: string): string {
+  return text
+    .replace(/\u00A0/g, " ")
+    .replace(/[\u2018\u2019\u201A\u201B]/g, "'")
+    .replace(/[\u201C\u201D\u201E\u201F]/g, '"')
+    .replace(/[\u2013\u2014\u2212]/g, "-")
+    .replace(/\u2026/g, "...")
+    .replace(/[\u2022\u25E6\u25CF]/g, "-")
+    .replace(/[^\n\r\t\x20-\xFF]/g, "?");
 }
 
 function wrapText(
@@ -105,6 +135,23 @@ function wrapText(
   }
   lines.push(current);
   return lines;
+}
+
+function wrapBlock(
+  text: string,
+  font: PDFFont,
+  size: number,
+  maxWidth: number
+): string[] {
+  const lines: string[] = [];
+  for (const paragraph of pdfSafe(text).replace(/\r\n/g, "\n").split("\n")) {
+    if (!paragraph.trim()) {
+      lines.push("");
+      continue;
+    }
+    lines.push(...wrapText(paragraph, font, size, maxWidth));
+  }
+  return lines.length ? lines : [""];
 }
 
 async function loadLetterheadImage(
@@ -269,15 +316,17 @@ export async function generateProposalPdf(
         color: muted,
       });
       y -= 13;
-      for (const line of wrapText(value, font, 9, contentWidth)) {
+      for (const line of wrapBlock(value, font, 9, contentWidth)) {
         need(12);
-        page.drawText(line, {
-          x: MARGIN.left,
-          y,
-          size: 9,
-          font,
-          color: ink,
-        });
+        if (line) {
+          page.drawText(line, {
+            x: MARGIN.left,
+            y,
+            size: 9,
+            font,
+            color: ink,
+          });
+        }
         y -= 12;
       }
       y -= 6;

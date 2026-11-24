@@ -3,7 +3,8 @@
 import { FormEvent, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
-  BID_DETAIL_BLOCKS,
+  BID_DETAIL_FIELDS,
+  normalizeBidDetails,
   type ProposalBidDetails,
 } from "@/lib/super-admin/proposals/bid-details";
 import {
@@ -24,18 +25,51 @@ type BidField = keyof ProposalBidDetails;
 
 const SHORT_BID_FIELDS: BidField[] = [
   "orgao",
-  "editalNumero",
+  "edital",
   "itemTr",
   "prazoExecucao",
   "prazoGarantia",
 ];
 
-function emptyBidDetails(
-  initial?: ProposalBidDetails | null
-): Record<BidField, string> {
+function dateInputValue(value: string | Date | null | undefined): string {
+  if (value == null || value === "") return "";
+  if (value instanceof Date) {
+    if (Number.isNaN(value.getTime())) return "";
+    const month = String(value.getMonth() + 1).padStart(2, "0");
+    const day = String(value.getDate()).padStart(2, "0");
+    return `${value.getFullYear()}-${month}-${day}`;
+  }
+  const raw = String(value);
+  const iso = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (iso) return `${iso[1]}-${iso[2]}-${iso[3]}`;
+  const english = String(value).match(
+    /^[A-Za-z]{3} ([A-Za-z]{3}) (\d{1,2}) (\d{4})\b/
+  );
+  const months: Record<string, string> = {
+    Jan: "01",
+    Feb: "02",
+    Mar: "03",
+    Apr: "04",
+    May: "05",
+    Jun: "06",
+    Jul: "07",
+    Aug: "08",
+    Sep: "09",
+    Oct: "10",
+    Nov: "11",
+    Dec: "12",
+  };
+  if (english && months[english[1]]) {
+    return `${english[3]}-${months[english[1]]}-${english[2].padStart(2, "0")}`;
+  }
+  return raw.slice(0, 10);
+}
+
+function emptyBidDetails(initial?: unknown): Record<BidField, string> {
+  const parsed = normalizeBidDetails(initial);
   const out = {} as Record<BidField, string>;
-  for (const { key } of BID_DETAIL_BLOCKS) {
-    out[key] = initial?.[key]?.trim() || "";
+  for (const { key } of BID_DETAIL_FIELDS) {
+    out[key] = parsed[key] || "";
   }
   return out;
 }
@@ -89,7 +123,7 @@ export function ProposalEditor({
     id: string;
     title: string;
     currency: string;
-    valid_until: string | null;
+    valid_until: string | Date | null;
     bid_details?: ProposalBidDetails | null;
     status: ProposalStatus;
     number_display: string;
@@ -453,11 +487,7 @@ export function ProposalEditor({
               name="validUntil"
               type="date"
               disabled={!editable}
-              defaultValue={
-                proposal?.valid_until
-                  ? String(proposal.valid_until).slice(0, 10)
-                  : ""
-              }
+              defaultValue={dateInputValue(proposal?.valid_until)}
             />
           </label>
         </div>
@@ -474,34 +504,36 @@ export function ProposalEditor({
             </div>
           </div>
           <div className="sa-proposal-grid">
-            {BID_DETAIL_BLOCKS.map(({ key, label }) => {
-              const short = SHORT_BID_FIELDS.includes(key);
+            {BID_DETAIL_FIELDS.map((field) => {
+              const short = SHORT_BID_FIELDS.includes(field.key);
               return (
                 <label
-                  key={key}
+                  key={field.key}
                   className={short ? undefined : "sa-proposal-span-2"}
                 >
-                  {label}
+                  {field.label}
                   {short ? (
                     <input
                       disabled={!editable}
-                      value={bidDetails[key]}
+                      value={bidDetails[field.key]}
+                      placeholder={field.placeholder}
                       onChange={(e) =>
                         setBidDetails((prev) => ({
                           ...prev,
-                          [key]: e.target.value,
+                          [field.key]: e.target.value,
                         }))
                       }
                     />
                   ) : (
                     <textarea
                       disabled={!editable}
-                      rows={key === "objeto" || key === "declaracoes" ? 3 : 2}
-                      value={bidDetails[key]}
+                      rows={field.rows || 3}
+                      value={bidDetails[field.key]}
+                      placeholder={field.placeholder}
                       onChange={(e) =>
                         setBidDetails((prev) => ({
                           ...prev,
-                          [key]: e.target.value,
+                          [field.key]: e.target.value,
                         }))
                       }
                     />
