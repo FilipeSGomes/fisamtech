@@ -8,11 +8,18 @@ import {
   type PDFImage,
   type PDFPage,
 } from "pdf-lib";
+import { CONTACT } from "@/lib/config";
+import {
+  BID_DETAIL_BLOCKS,
+  hasBidDetails,
+  normalizeBidDetails,
+  type ProposalBidDetails,
+} from "@/lib/super-admin/proposals/bid-details";
 
 export const FISAM_LETTERHEAD = {
-  company: "FISAM TECH TECNOLOGIA LTDA",
-  cnpj: "59.897.573/0001-02",
-  email: "contato@fisamtech.com",
+  company: CONTACT.legalName,
+  cnpj: CONTACT.cnpj,
+  email: CONTACT.email,
   tagline: "Engenharia que conecta tecnologia e negócio",
 };
 
@@ -25,6 +32,7 @@ export type ProposalPdfInput = {
   companyName?: string | null;
   contactName?: string | null;
   contactEmail?: string | null;
+  bidDetails?: ProposalBidDetails | null;
   items: Array<{
     description: string;
     quantity: number;
@@ -36,7 +44,38 @@ export type ProposalPdfInput = {
   subtotal: string;
   discountTotal: string;
   total: string;
+  signer?: {
+    name: string;
+    email: string;
+    signedAt: string;
+    mfaVerified: boolean;
+    code: string;
+  } | null;
 };
+
+/** Format proposal validity as dd/mm/aaaa (pt-BR). */
+export function formatValidUntilPtBr(
+  value?: string | Date | null
+): string | null {
+  if (value == null || value === "") return null;
+  if (value instanceof Date) {
+    if (Number.isNaN(value.getTime())) return null;
+    const dd = String(value.getUTCDate()).padStart(2, "0");
+    const mm = String(value.getUTCMonth() + 1).padStart(2, "0");
+    const yyyy = String(value.getUTCFullYear());
+    return `${dd}/${mm}/${yyyy}`;
+  }
+  const raw = String(value).trim();
+  const isoDate = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (isoDate) {
+    return `${isoDate[3]}/${isoDate[2]}/${isoDate[1]}`;
+  }
+  const parsed = new Date(raw);
+  if (!Number.isNaN(parsed.getTime())) {
+    return formatValidUntilPtBr(parsed);
+  }
+  return raw;
+}
 
 const PAGE = { width: 595.28, height: 841.89 };
 /** Content band clears logo header + branded footer already on the letterhead. */
@@ -165,7 +204,8 @@ export async function generateProposalPdf(
       `Contato: ${[input.contactName, input.contactEmail].filter(Boolean).join(" · ")}`
     );
   }
-  if (input.validUntil) meta.push(`Validade: ${input.validUntil}`);
+  const validUntilLabel = formatValidUntilPtBr(input.validUntil);
+  if (validUntilLabel) meta.push(`Validade: ${validUntilLabel}`);
   for (const line of meta) {
     need(14);
     page.drawText(line, {
@@ -176,6 +216,72 @@ export async function generateProposalPdf(
       color: ink,
     });
     y -= 14;
+  }
+
+  const bidDetails = normalizeBidDetails(input.bidDetails);
+  if (hasBidDetails(bidDetails)) {
+    y -= 6;
+    page.drawLine({
+      start: { x: MARGIN.left, y },
+      end: { x: PAGE.width - MARGIN.right, y },
+      thickness: 0.8,
+      color: rule,
+    });
+    y -= 18;
+
+    need(16);
+    page.drawText("Dados do certame", {
+      x: MARGIN.left,
+      y,
+      size: 11,
+      font: fontBold,
+      color: ink,
+    });
+    y -= 16;
+
+    const identity = [
+      `Proponente: ${CONTACT.legalName}`,
+      `CNPJ: ${CONTACT.cnpj}`,
+      `E-mail: ${CONTACT.email}`,
+    ];
+    for (const line of identity) {
+      need(13);
+      page.drawText(line, {
+        x: MARGIN.left,
+        y,
+        size: 9,
+        font,
+        color: ink,
+      });
+      y -= 13;
+    }
+    y -= 6;
+
+    for (const { key, label } of BID_DETAIL_BLOCKS) {
+      const value = bidDetails?.[key]?.trim();
+      if (!value) continue;
+      need(16);
+      page.drawText(label, {
+        x: MARGIN.left,
+        y,
+        size: 9,
+        font: fontBold,
+        color: muted,
+      });
+      y -= 13;
+      for (const line of wrapText(value, font, 9, contentWidth)) {
+        need(12);
+        page.drawText(line, {
+          x: MARGIN.left,
+          y,
+          size: 9,
+          font,
+          color: ink,
+        });
+        y -= 12;
+      }
+      y -= 6;
+    }
   }
 
   y -= 6;
@@ -309,6 +415,42 @@ export async function generateProposalPdf(
       color: ink,
     });
     y -= bold ? 16 : 14;
+  }
+
+  if (input.signer) {
+    const signedAt = new Intl.DateTimeFormat("pt-BR", {
+      timeZone: "America/Sao_Paulo",
+      dateStyle: "short",
+      timeStyle: "short",
+    }).format(new Date(input.signer.signedAt));
+    const lines = [
+      "Assinado eletronicamente",
+      input.signer.name,
+      input.signer.email,
+      `${signedAt} · horário de Brasília`,
+      input.signer.mfaVerified
+        ? "Sessão autenticada com MFA confirmado"
+        : "Sessão autenticada",
+      `Código de autenticidade ${input.signer.code}`,
+    ];
+    need(24 + lines.length * 13);
+    y -= 18;
+    page.drawLine({
+      start: { x: MARGIN.left, y: y + 8 },
+      end: { x: MARGIN.left + 180, y: y + 8 },
+      thickness: 0.6,
+      color: rule,
+    });
+    for (const [index, line] of lines.entries()) {
+      page.drawText(line, {
+        x: MARGIN.left,
+        y,
+        size: index === 0 || index === 1 ? 10 : 9,
+        font: index === 1 ? fontBold : font,
+        color: index === 0 ? muted : ink,
+      });
+      y -= 13;
+    }
   }
 
   // Keep confidentiality note; letterhead already shows contacts. Sit above footer art.

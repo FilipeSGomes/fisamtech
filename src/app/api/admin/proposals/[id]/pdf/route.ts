@@ -23,6 +23,13 @@ export async function POST(req: NextRequest, ctx: Ctx) {
     const stored = await generateAndStoreProposalPdf({
       id,
       actorUserId: user.id,
+      signer: {
+        userId: user.id,
+        name: user.name,
+        email: user.email,
+        mfaEnabled: user.mfaEnabled,
+        mfaVerified: user.mfaVerified,
+      },
     });
     return NextResponse.json(stored);
   } catch (error) {
@@ -45,7 +52,17 @@ export async function GET(req: NextRequest, ctx: Ctx) {
     let pdf = await loadProposalPdf({ proposalId: proposal.id });
     // allow regenerate on demand if missing
     if (!pdf) {
-      await generateAndStoreProposalPdf({ id, actorUserId: user.id });
+      await generateAndStoreProposalPdf({
+        id,
+        actorUserId: user.id,
+        signer: {
+          userId: user.id,
+          name: user.name,
+          email: user.email,
+          mfaEnabled: user.mfaEnabled,
+          mfaVerified: user.mfaVerified,
+        },
+      });
       pdf = await loadProposalPdf({ proposalId: proposal.id });
     }
     if (!pdf) {

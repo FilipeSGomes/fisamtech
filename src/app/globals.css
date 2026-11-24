@@ -899,6 +899,13 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
   gap: 14px;
 }
 .sa-proposal-span-2 { grid-column: 1 / -1; }
+.sa-proposal-bid {
+  display: grid;
+  gap: 14px;
+  padding-top: 4px;
+  border-top: 1px solid #e5e7eb;
+}
+.sa-proposal-bid textarea { min-height: 64px; resize: vertical; line-height: 1.35; }
 .sa-items-wrap { border-radius: 12px; }
 .sa-items-table { min-width: 920px; }
 .sa-items-table th,

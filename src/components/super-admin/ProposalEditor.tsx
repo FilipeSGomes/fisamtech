@@ -3,6 +3,10 @@
 import { FormEvent, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
+  BID_DETAIL_BLOCKS,
+  type ProposalBidDetails,
+} from "@/lib/super-admin/proposals/bid-details";
+import {
   PROPOSAL_STATUS_LABELS,
   PROPOSAL_TRANSITIONS,
   type ProposalStatus,
@@ -15,6 +19,26 @@ type Item = {
   unitPrice: string;
   discount: string;
 };
+
+type BidField = keyof ProposalBidDetails;
+
+const SHORT_BID_FIELDS: BidField[] = [
+  "orgao",
+  "editalNumero",
+  "itemTr",
+  "prazoExecucao",
+  "prazoGarantia",
+];
+
+function emptyBidDetails(
+  initial?: ProposalBidDetails | null
+): Record<BidField, string> {
+  const out = {} as Record<BidField, string>;
+  for (const { key } of BID_DETAIL_BLOCKS) {
+    out[key] = initial?.[key]?.trim() || "";
+  }
+  return out;
+}
 
 function parseMoney(value: string): number {
   const n = Number(String(value).replace(",", "."));
@@ -66,6 +90,7 @@ export function ProposalEditor({
     title: string;
     currency: string;
     valid_until: string | null;
+    bid_details?: ProposalBidDetails | null;
     status: ProposalStatus;
     number_display: string;
     current_version: number;
@@ -93,6 +118,9 @@ export function ProposalEditor({
       unitPrice: i.unit_price,
       discount: i.discount,
     })) || [emptyItem()]
+  );
+  const [bidDetails, setBidDetails] = useState(() =>
+    emptyBidDetails(proposal?.bid_details)
   );
   const [error, setError] = useState<string | null>(null);
   const [ok, setOk] = useState<string | null>(null);
@@ -151,6 +179,12 @@ export function ProposalEditor({
       companyId: String(fd.get("companyId") || "") || null,
       contactId: String(fd.get("contactId") || "") || null,
       opportunityId: String(fd.get("opportunityId") || "") || null,
+      bidDetails: Object.fromEntries(
+        Object.entries(bidDetails).map(([key, value]) => [
+          key,
+          value.trim() || null,
+        ])
+      ) as ProposalBidDetails,
       items: items
         .filter((item) => item.description.trim())
         .map((item, position) => ({
@@ -419,9 +453,63 @@ export function ProposalEditor({
               name="validUntil"
               type="date"
               disabled={!editable}
-              defaultValue={proposal?.valid_until || ""}
+              defaultValue={
+                proposal?.valid_until
+                  ? String(proposal.valid_until).slice(0, 10)
+                  : ""
+              }
             />
           </label>
+        </div>
+
+        <div className="sa-proposal-bid">
+          <div className="sa-proposal-items-head">
+            <div>
+              <h3>Dados do certame</h3>
+              <p className="muted">
+                Opcional. Preencha só quando a proposta for para licitação/TR.
+                Campos vazios não saem no PDF. A identificação da FISAM entra
+                automaticamente no PDF quando houver algum dado aqui.
+              </p>
+            </div>
+          </div>
+          <div className="sa-proposal-grid">
+            {BID_DETAIL_BLOCKS.map(({ key, label }) => {
+              const short = SHORT_BID_FIELDS.includes(key);
+              return (
+                <label
+                  key={key}
+                  className={short ? undefined : "sa-proposal-span-2"}
+                >
+                  {label}
+                  {short ? (
+                    <input
+                      disabled={!editable}
+                      value={bidDetails[key]}
+                      onChange={(e) =>
+                        setBidDetails((prev) => ({
+                          ...prev,
+                          [key]: e.target.value,
+                        }))
+                      }
+                    />
+                  ) : (
+                    <textarea
+                      disabled={!editable}
+                      rows={key === "objeto" || key === "declaracoes" ? 3 : 2}
+                      value={bidDetails[key]}
+                      onChange={(e) =>
+                        setBidDetails((prev) => ({
+                          ...prev,
+                          [key]: e.target.value,
+                        }))
+                      }
+                    />
+                  )}
+                </label>
+              );
+            })}
+          </div>
         </div>
 
         <div className="sa-proposal-items-head">

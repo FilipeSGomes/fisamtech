@@ -1,6 +1,11 @@
 import { adminQuery, withAdminTransaction } from "@/lib/db";
 import { writeAudit } from "@/lib/super-admin/audit/write";
+import {
+  normalizeBidDetails,
+  type ProposalBidDetails,
+} from "@/lib/super-admin/proposals/bid-details";
 import { allocateProposalNumber } from "@/lib/super-admin/proposals/numbering";
+import { createHash } from "node:crypto";
 import { generateProposalPdf } from "@/lib/super-admin/proposals/pdf";
 import { storeProposalPdf, loadProposalPdf } from "@/lib/super-admin/proposals/storage";
 import {
@@ -15,6 +20,12 @@ import {
   type ProposalStatus,
 } from "@/lib/super-admin/proposals/workflow";
 import { sendEmail } from "@/lib/email";
+import {
+  normalizeBidDetails,
+  type ProposalBidDetails,
+} from "@/lib/super-admin/proposals/bid-details";
+
+export type { ProposalBidDetails };
 
 export type ProposalRow = {
   id: string;
@@ -38,6 +49,7 @@ export type ProposalRow = {
   title: string;
   currency: string;
   valid_until: string | null;
+  bid_details: ProposalBidDetails | null;
   created_by: string | null;
   subtotal: string | null;
   discount_total: string | null;
@@ -214,11 +226,13 @@ export async function createProposal(opts: {
   contactId?: string | null;
   templateId?: string | null;
   ownerId?: string | null;
+  bidDetails?: ProposalBidDetails | null;
   items: ProposalItemInput[];
   actorUserId: string;
 }): Promise<string> {
   if (!opts.items.length) throw new Error("Inclua ao menos um item");
   const totals = computeProposalTotals(opts.items);
+  const bidDetails = normalizeBidDetails(opts.bidDetails);
 
   const id = await withAdminTransaction(async (client) => {
     const number = await allocateProposalNumber(client);
@@ -226,8 +240,8 @@ export async function createProposal(opts: {
       `insert into proposals (
          number_year, number_seq, number_display, current_version, status,
          opportunity_id, company_id, contact_id, owner_id, template_id,
-         title, currency, valid_until, created_by
-       ) values ($1,$2,$3,1,'DRAFT',$4,$5,$6,$7,$8,$9,$10,$11,$12)
+         title, currency, valid_until, bid_details, created_by
+       ) values ($1,$2,$3,1,'DRAFT',$4,$5,$6,$7,$8,$9,$10,$11,$12::jsonb,$13)
        returning id`,
       [
         number.year,
@@ -241,6 +255,7 @@ export async function createProposal(opts: {
         opts.title.trim(),
         opts.currency ?? "BRL",
         opts.validUntil ?? null,
+        bidDetails ? JSON.stringify(bidDetails) : null,
         opts.actorUserId,
       ]
     );
@@ -252,7 +267,11 @@ export async function createProposal(opts: {
        ) values ($1,1,'DRAFT',$2::jsonb,$3,$4,$5,$6,false)`,
       [
         proposalId,
-        JSON.stringify({ title: opts.title, items: totals.items }),
+        JSON.stringify({
+          title: opts.title,
+          items: totals.items,
+          bidDetails,
+        }),
         totals.subtotal,
         totals.discountTotal,
         totals.total,
@@ -300,6 +319,7 @@ export async function updateProposalDraft(opts: {
   contactId?: string | null;
   opportunityId?: string | null;
   templateId?: string | null;
+  bidDetails?: ProposalBidDetails | null;
   items?: ProposalItemInput[];
   actorUserId: string;
 }): Promise<void> {
@@ -308,6 +328,11 @@ export async function updateProposalDraft(opts: {
   if (proposal.status !== "DRAFT" && proposal.status !== "IN_REVIEW") {
     throw new Error("Somente rascunho/em revisão podem ser editados");
   }
+
+  const bidDetailsProvided = opts.bidDetails !== undefined;
+  const bidDetails = bidDetailsProvided
+    ? normalizeBidDetails(opts.bidDetails)
+    : normalizeBidDetails(proposal.bid_details);
 
   await withAdminTransaction(async (client) => {
     await client.query(
@@ -319,6 +344,7 @@ export async function updateProposalDraft(opts: {
          contact_id = case when $8::boolean then $9 else contact_id end,
          opportunity_id = case when $10::boolean then $11 else opportunity_id end,
          template_id = case when $12::boolean then $13 else template_id end,
+         bid_details = case when $14::boolean then $15::jsonb else bid_details end,
          updated_at = now()
        where id = $1`,
       [
@@ -335,6 +361,8 @@ export async function updateProposalDraft(opts: {
         opts.opportunityId,
         opts.templateId !== undefined,
         opts.templateId,
+        bidDetailsProvided,
+        bidDetails ? JSON.stringify(bidDetails) : null,
       ]
     );
 
@@ -356,11 +384,26 @@ export async function updateProposalDraft(opts: {
         [
           opts.id,
           proposal.current_version,
-          JSON.stringify({ title: opts.title ?? proposal.title, items: totals.items }),
+          JSON.stringify({
+            title: opts.title ?? proposal.title,
+            items: totals.items,
+            bidDetails,
+          }),
           totals.subtotal,
           totals.discountTotal,
           totals.total,
           opts.currency ?? proposal.currency,
+        ]
+      );
+    } else if (bidDetailsProvided) {
+      await client.query(
+        `update proposal_versions set
+           snapshot = coalesce(snapshot, '{}'::jsonb) || jsonb_build_object('bidDetails', $3::jsonb)
+         where proposal_id = $1 and version = $2 and immutable = false`,
+        [
+          opts.id,
+          proposal.current_version,
+          bidDetails ? JSON.stringify(bidDetails) : "null",
         ]
       );
     }
@@ -448,6 +491,7 @@ export async function bumpProposalVersion(opts: {
     }));
     const totals = computeProposalTotals(mapped);
     const version = proposal.current_version + 1;
+    const bidDetails = normalizeBidDetails(proposal.bid_details);
 
     await client.query(
       `insert into proposal_versions (
@@ -456,7 +500,11 @@ export async function bumpProposalVersion(opts: {
       [
         opts.id,
         version,
-        JSON.stringify({ title: proposal.title, items: totals.items }),
+        JSON.stringify({
+          title: proposal.title,
+          items: totals.items,
+          bidDetails,
+        }),
         totals.subtotal,
         totals.discountTotal,
         totals.total,
@@ -499,14 +547,44 @@ export async function bumpProposalVersion(opts: {
   return nextVersion;
 }
 
+export type ProposalSigner = {
+  userId: string;
+  name: string;
+  email: string;
+  mfaEnabled: boolean;
+  mfaVerified: boolean;
+};
+
 export async function generateAndStoreProposalPdf(opts: {
   id: string;
   actorUserId: string;
-}): Promise<{ documentId: string; storageKey: string }> {
+  signer: ProposalSigner;
+}): Promise<{ documentId: string; storageKey: string; authenticityCode: string }> {
+  if (opts.signer.userId !== opts.actorUserId) {
+    throw new Error("A proposta só pode ser assinada pelo usuário da sessão");
+  }
+  if (opts.signer.mfaEnabled && !opts.signer.mfaVerified) {
+    throw new Error("Confirme o MFA desta sessão antes de assinar a proposta.");
+  }
+
   const proposal = await getProposal(opts.id);
   if (!proposal) throw new Error("Proposta não encontrada");
   const items = await listProposalItems(opts.id, proposal.current_version);
   if (!items.length) throw new Error("Proposta sem itens");
+
+  const signedAt = new Date().toISOString();
+  const authenticityCode = createHash("sha256")
+    .update(
+      [
+        proposal.number_display,
+        String(proposal.current_version),
+        opts.signer.userId,
+        signedAt,
+      ].join("|")
+    )
+    .digest("hex")
+    .slice(0, 16)
+    .toUpperCase();
 
   const bytes = await generateProposalPdf({
     numberDisplay: proposal.number_display,
@@ -517,6 +595,7 @@ export async function generateAndStoreProposalPdf(opts: {
     companyName: proposal.company_name,
     contactName: proposal.contact_name,
     contactEmail: proposal.contact_email,
+    bidDetails: normalizeBidDetails(proposal.bid_details),
     items: items.map((i) => ({
       description: i.description,
       quantity: Number(i.quantity),
@@ -528,6 +607,13 @@ export async function generateAndStoreProposalPdf(opts: {
     subtotal: proposal.subtotal || "0.00",
     discountTotal: proposal.discount_total || "0.00",
     total: proposal.total || "0.00",
+    signer: {
+      name: opts.signer.name,
+      email: opts.signer.email,
+      signedAt,
+      mfaVerified: opts.signer.mfaVerified,
+      code: authenticityCode,
+    },
   });
 
   const stored = await storeProposalPdf({
@@ -550,10 +636,17 @@ export async function generateAndStoreProposalPdf(opts: {
     actorUserId: opts.actorUserId,
     resourceType: "proposal",
     resourceId: opts.id,
-    context: { documentId: stored.documentId, version: proposal.current_version },
+    context: {
+      documentId: stored.documentId,
+      version: proposal.current_version,
+      signerEmail: opts.signer.email,
+      mfaVerified: opts.signer.mfaVerified,
+      signedAt,
+      authenticityCode,
+    },
   });
 
-  return stored;
+  return { ...stored, authenticityCode };
 }
 
 export async function sendProposalEmail(opts: {
@@ -562,6 +655,7 @@ export async function sendProposalEmail(opts: {
   actorUserId: string;
   permissions: string[];
   roles: string[];
+  signer: ProposalSigner;
 }): Promise<{ status: "sent" | "pending_config" | "failed"; reason?: string }> {
   const isElevated =
     opts.roles.includes("SUPER_ADMIN") || opts.roles.includes("ADMIN");
@@ -583,6 +677,7 @@ export async function sendProposalEmail(opts: {
     await generateAndStoreProposalPdf({
       id: opts.id,
       actorUserId: opts.actorUserId,
+      signer: opts.signer,
     });
     pdf = await loadProposalPdf({
       proposalId: opts.id,

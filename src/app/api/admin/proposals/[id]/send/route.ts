@@ -31,6 +31,13 @@ export async function POST(req: NextRequest, ctx: Ctx) {
       actorUserId: user.id,
       permissions: user.permissions,
       roles: user.roles,
+      signer: {
+        userId: user.id,
+        name: user.name,
+        email: user.email,
+        mfaEnabled: user.mfaEnabled,
+        mfaVerified: user.mfaVerified,
+      },
     });
     const statusCode =
       result.status === "sent"
