@@ -227,7 +227,7 @@ export async function createAndIssueContract(opts: {
   const signedCity = opts.signedCity?.trim() || "Embu Guaçu - SP";
   const paymentTerms =
     opts.paymentTerms?.trim() ||
-    "50% na assinatura e 50% na entrega/aceite";
+    "50% na contratação e 50% na entrega/aceite";
   const termMonths = Math.max(1, opts.termMonths ?? 12);
   const startOn = opts.startOn || null;
   const startOnLabel = startOn ? formatDateLabel(startOn) : null;

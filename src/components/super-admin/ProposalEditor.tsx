@@ -113,12 +113,14 @@ export function ProposalEditor({
   opportunities,
   proposal,
   items: initialItems,
+  sessionUser,
 }: {
   mode: "create" | "edit";
   templates: Array<{ id: string; name: string }>;
   companies: Array<{ id: string; legal_name: string }>;
   contacts: Array<{ id: string; name: string; email: string | null }>;
   opportunities: Array<{ id: string; title: string }>;
+  sessionUser?: { name: string; email: string } | null;
   proposal?: {
     id: string;
     title: string;
@@ -158,6 +160,7 @@ export function ProposalEditor({
   );
   const [error, setError] = useState<string | null>(null);
   const [ok, setOk] = useState<string | null>(null);
+  const [authenticityCode, setAuthenticityCode] = useState<string | null>(null);
   const [toEmail, setToEmail] = useState("");
   const [busy, setBusy] = useState(false);
 
@@ -260,67 +263,137 @@ export function ProposalEditor({
     }
   }
 
+  const canSendEmail =
+    !!proposal &&
+    (proposal.status === "APPROVED" ||
+      proposal.status === "SENT" ||
+      proposal.status === "VIEWED");
+
   async function transition(status: ProposalStatus) {
     setError(null);
-    const res = await fetch(`/api/admin/proposals/${proposal!.id}/transition`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status }),
-    });
-    const data = await res.json();
-    if (!res.ok) {
-      setError(data.error || "Falha na transição");
-      return;
+    setOk(null);
+    setAuthenticityCode(null);
+    setBusy(true);
+    try {
+      const res = await fetch(
+        `/api/admin/proposals/${proposal!.id}/transition`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status }),
+        }
+      );
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Falha na transição");
+        return;
+      }
+      router.refresh();
+    } catch {
+      setError("Falha de rede na transição");
+    } finally {
+      setBusy(false);
     }
-    router.refresh();
   }
 
   async function generatePdf() {
     setError(null);
-    const res = await fetch(`/api/admin/proposals/${proposal!.id}/pdf`, {
-      method: "POST",
-    });
-    const data = await res.json();
-    if (!res.ok) {
-      setError(data.error || "Falha ao gerar PDF");
-      return;
+    setOk(null);
+    setAuthenticityCode(null);
+
+    const signerLabel = sessionUser
+      ? `${sessionUser.name} (${sessionUser.email})`
+      : "o usuário da sessão atual";
+    const confirmed = window.confirm(
+      `Ao gerar o PDF, a proposta será assinada eletronicamente como ${signerLabel}. Continuar?`
+    );
+    if (!confirmed) return;
+
+    setBusy(true);
+    try {
+      const res = await fetch(`/api/admin/proposals/${proposal!.id}/pdf`, {
+        method: "POST",
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Falha ao gerar PDF");
+        return;
+      }
+      const code =
+        typeof data.authenticityCode === "string" ? data.authenticityCode : null;
+      setAuthenticityCode(code);
+      setOk(
+        code
+          ? "PDF gerado e assinado eletronicamente"
+          : "PDF gerado e assinado eletronicamente (código indisponível na resposta)"
+      );
+      window.open(`/api/admin/proposals/${proposal!.id}/pdf`, "_blank");
+    } catch {
+      setError("Falha de rede ao gerar PDF");
+    } finally {
+      setBusy(false);
     }
-    setOk("PDF gerado");
-    window.open(`/api/admin/proposals/${proposal!.id}/pdf`, "_blank");
   }
 
   async function sendEmail() {
     setError(null);
-    const res = await fetch(`/api/admin/proposals/${proposal!.id}/send`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ toEmail: toEmail || undefined }),
-    });
-    const data = await res.json();
-    if (!res.ok && res.status !== 202) {
-      setError(data.error || data.reason || "Falha no envio");
+    setOk(null);
+    setAuthenticityCode(null);
+    if (!canSendEmail) {
+      setError(
+        "Envio por e-mail só é permitido com status Aprovada, Enviada ou Visualizada. Aprove a proposta antes."
+      );
       return;
     }
-    if (data.status === "pending_config") {
-      setOk("Registrado como pending_config (e-mail não configurado)");
-    } else if (data.status === "sent") {
-      setOk("Proposta enviada");
-    } else {
-      setError(data.reason || "Falha no envio");
+    setBusy(true);
+    try {
+      const res = await fetch(`/api/admin/proposals/${proposal!.id}/send`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ toEmail: toEmail || undefined }),
+      });
+      const data = await res.json();
+      if (!res.ok && res.status !== 202) {
+        setError(data.error || data.reason || "Falha no envio");
+        return;
+      }
+      if (data.status === "pending_config") {
+        setOk(
+          "Envio registrado como pendente de configuração: o e-mail não foi disparado (provedor/RESEND não configurado)."
+        );
+      } else if (data.status === "sent") {
+        setOk("Proposta enviada por e-mail");
+      } else {
+        setError(data.reason || "Falha no envio");
+      }
+      router.refresh();
+    } catch {
+      setError("Falha de rede no envio");
+    } finally {
+      setBusy(false);
     }
-    router.refresh();
   }
 
   async function newVersion() {
-    const res = await fetch(`/api/admin/proposals/${proposal!.id}/version`, {
-      method: "POST",
-    });
-    const data = await res.json();
-    if (!res.ok) {
-      setError(data.error || "Falha ao versionar");
-      return;
+    setError(null);
+    setOk(null);
+    setAuthenticityCode(null);
+    setBusy(true);
+    try {
+      const res = await fetch(`/api/admin/proposals/${proposal!.id}/version`, {
+        method: "POST",
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Falha ao versionar");
+        return;
+      }
+      router.refresh();
+    } catch {
+      setError("Falha de rede ao versionar");
+    } finally {
+      setBusy(false);
     }
-    router.refresh();
   }
 
   return (
@@ -345,6 +418,7 @@ export function ProposalEditor({
                   key={status}
                   type="button"
                   className="btn btn-secondary"
+                  disabled={busy}
                   onClick={() => transition(status)}
                 >
                   → {PROPOSAL_STATUS_LABELS[status]}
@@ -353,13 +427,15 @@ export function ProposalEditor({
               <button
                 type="button"
                 className="btn btn-secondary"
+                disabled={busy}
                 onClick={generatePdf}
               >
-                Gerar/baixar PDF
+                {busy ? "Processando…" : "Gerar/baixar PDF"}
               </button>
               <button
                 type="button"
                 className="btn btn-secondary"
+                disabled={busy}
                 onClick={newVersion}
               >
                 Nova versão
@@ -367,15 +443,35 @@ export function ProposalEditor({
             </div>
           </div>
           <div className="sa-proposal-send">
-            <input
-              placeholder="E-mail para envio"
-              value={toEmail}
-              onChange={(e) => setToEmail(e.target.value)}
-            />
-            <button type="button" className="btn btn-primary" onClick={sendEmail}>
-              Registrar envio
+            <label className="sa-proposal-send-label">
+              E-mail do destinatário
+              <input
+                type="email"
+                placeholder="cliente@empresa.com"
+                value={toEmail}
+                disabled={busy}
+                onChange={(e) => setToEmail(e.target.value)}
+              />
+            </label>
+            <button
+              type="button"
+              className="btn btn-primary"
+              disabled={busy || !canSendEmail}
+              onClick={sendEmail}
+              title={
+                canSendEmail
+                  ? "Enviar proposta por e-mail"
+                  : "Aprove a proposta (status Aprovada) antes de enviar"
+              }
+            >
+              Enviar por e-mail
             </button>
           </div>
+          <p className="muted sa-proposal-send-hint">
+            {canSendEmail
+              ? "Se o provedor de e-mail não estiver configurado, o envio fica registrado como pendente de configuração."
+              : "Envio liberado apenas com status Aprovada, Enviada ou Visualizada."}
+          </p>
         </section>
       )}
 
@@ -709,6 +805,23 @@ export function ProposalEditor({
 
         {error && <p className="sa-error">{error}</p>}
         {ok && <p className="sa-ok">{ok}</p>}
+        {authenticityCode ? (
+          <div className="sa-proposal-auth-code">
+            <p className="sa-ok">
+              Código de autenticidade (validação):{" "}
+              <code className="sa-mono">{authenticityCode}</code>
+            </p>
+            <p className="muted">
+              Este é o código de validação impresso no PDF. Confira em{" "}
+              <a
+                href={`/pt-br/validar-assinatura?code=${encodeURIComponent(authenticityCode)}`}
+              >
+                /pt-br/validar-assinatura
+              </a>
+              .
+            </p>
+          </div>
+        ) : null}
       </form>
     </div>
   );

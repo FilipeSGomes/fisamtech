@@ -414,7 +414,7 @@ export function ContractForm({
           Condições de pagamento
           <input
             name="paymentTerms"
-            defaultValue="50% na assinatura e 50% na entrega/aceite"
+            defaultValue="50% na contratação e 50% na entrega/aceite"
           />
         </label>
         <label>
@@ -426,11 +426,11 @@ export function ContractForm({
           <input name="startOn" type="date" />
         </label>
         <label>
-          Cidade de assinatura
+          Local do documento
           <input name="signedCity" defaultValue="Embu Guaçu - SP" />
         </label>
         <label>
-          Data
+          Data do documento
           <input name="signedOn" type="date" defaultValue={today} required />
         </label>
         <label className="sa-proposal-span-2">

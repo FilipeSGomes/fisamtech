@@ -93,6 +93,24 @@ export default async function ProposalsPage({
           </tbody>
         </table>
       </div>
+
+      <div className="sa-pagination">
+        {page > 1 && (
+          <Link
+            href={`/pt-br/super-admin/proposals?page=${page - 1}${q ? `&q=${encodeURIComponent(q)}` : ""}${status ? `&status=${encodeURIComponent(status)}` : ""}`}
+          >
+            Anterior
+          </Link>
+        )}
+        <span>Página {data.page}</span>
+        {data.page * data.pageSize < data.total && (
+          <Link
+            href={`/pt-br/super-admin/proposals?page=${page + 1}${q ? `&q=${encodeURIComponent(q)}` : ""}${status ? `&status=${encodeURIComponent(status)}` : ""}`}
+          >
+            Próxima
+          </Link>
+        )}
+      </div>
     </div>
   );
 }

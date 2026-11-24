@@ -39,6 +39,10 @@ export async function storeProposalPdf(opts: {
   numberDisplay: string;
   bytes: Buffer;
   actorUserId: string;
+  authenticityCode?: string;
+  signerName?: string;
+  signerEmail?: string;
+  signedAt?: string;
 }): Promise<{ documentId: string; storageKey: string; checksum: string }> {
   const storageKey = proposalStorageKey(
     opts.proposalId,
@@ -54,8 +58,8 @@ export async function storeProposalPdf(opts: {
   const result = await adminQuery<{ id: string }>(
     `insert into proposal_documents (
        proposal_id, version, storage_key, content_type, byte_size, checksum_sha256,
-       created_by, pdf_bytes
-     ) values ($1,$2,$3,'application/pdf',$4,$5,$6,$7)
+       created_by, pdf_bytes, authenticity_code, signer_name, signer_email, signed_at
+     ) values ($1,$2,$3,'application/pdf',$4,$5,$6,$7,$8,$9,$10,$11::timestamptz)
      returning id`,
     [
       opts.proposalId,
@@ -65,6 +69,10 @@ export async function storeProposalPdf(opts: {
       checksum,
       opts.actorUserId,
       opts.bytes,
+      opts.authenticityCode ?? null,
+      opts.signerName ?? null,
+      opts.signerEmail ?? null,
+      opts.signedAt ?? null,
     ]
   );
 

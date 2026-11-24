@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProposalEditor } from "@/components/super-admin/ProposalEditor";
+import { getAdminSessionFromCookies } from "@/lib/super-admin/auth/session";
 import { listCompanies } from "@/lib/super-admin/crm/companies";
 import { listContacts } from "@/lib/super-admin/crm/contacts";
 import { listOpportunities } from "@/lib/super-admin/crm/opportunities";
@@ -23,13 +24,14 @@ export default async function ProposalDetailPage({
   const proposal = await getProposal(id);
   if (!proposal) notFound();
 
-  const [items, templates, companies, contacts, opportunities] =
+  const [items, templates, companies, contacts, opportunities, session] =
     await Promise.all([
       listProposalItems(id),
       listProposalTemplates(),
       listCompanies({ pageSize: 200 }),
       listContacts({ pageSize: 200 }),
       listOpportunities({ pageSize: 200 }),
+      getAdminSessionFromCookies(),
     ]);
 
   return (
@@ -49,6 +51,11 @@ export default async function ProposalDetailPage({
         mode="edit"
         proposal={proposal}
         items={items}
+        sessionUser={
+          session
+            ? { name: session.name, email: session.email }
+            : null
+        }
         templates={templates}
         companies={companies.items.map((c) => ({
           id: c.id,

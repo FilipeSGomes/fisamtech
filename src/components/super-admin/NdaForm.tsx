@@ -243,11 +243,11 @@ export function NdaForm({
         />
       </label>
       <label>
-        Cidade de assinatura
+        Local do documento
         <input name="signedCity" defaultValue="Embu Guaçu - SP" />
       </label>
       <label>
-        Data
+        Data do documento
         <input name="signedOn" type="date" defaultValue={today} required />
       </label>
 

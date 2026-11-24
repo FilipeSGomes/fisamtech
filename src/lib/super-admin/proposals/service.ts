@@ -618,6 +618,10 @@ export async function generateAndStoreProposalPdf(opts: {
     numberDisplay: proposal.number_display,
     bytes,
     actorUserId: opts.actorUserId,
+    authenticityCode,
+    signerName: opts.signer.name,
+    signerEmail: opts.signer.email,
+    signedAt,
   });
 
   await adminQuery(
@@ -744,6 +748,86 @@ export async function sendProposalEmail(opts: {
   });
 
   return { status, reason: result.reason };
+}
+
+export type ProposalAuthenticityLookup = {
+  valid: boolean;
+  authenticityCode: string;
+  signerName: string | null;
+  signerEmail: string | null;
+  signedAt: string | null;
+  proposalNumber: string | null;
+  proposalTitle: string | null;
+  version: number | null;
+};
+
+export async function lookupProposalAuthenticity(
+  code: string
+): Promise<ProposalAuthenticityLookup> {
+  const normalized = code.trim().toUpperCase();
+  if (!normalized || normalized.length < 8 || normalized.length > 64) {
+    return {
+      valid: false,
+      authenticityCode: normalized,
+      signerName: null,
+      signerEmail: null,
+      signedAt: null,
+      proposalNumber: null,
+      proposalTitle: null,
+      version: null,
+    };
+  }
+
+  const result = await adminQuery<{
+    authenticity_code: string;
+    signer_name: string | null;
+    signer_email: string | null;
+    signed_at: Date | string | null;
+    version: number;
+    number_display: string;
+    title: string;
+  }>(
+    `select d.authenticity_code, d.signer_name, d.signer_email, d.signed_at, d.version,
+            p.number_display, p.title
+     from proposal_documents d
+     join proposals p on p.id = d.proposal_id
+     where d.authenticity_code = $1
+     order by d.created_at desc
+     limit 1`,
+    [normalized]
+  );
+
+  const row = result.rows[0];
+  if (!row) {
+    return {
+      valid: false,
+      authenticityCode: normalized,
+      signerName: null,
+      signerEmail: null,
+      signedAt: null,
+      proposalNumber: null,
+      proposalTitle: null,
+      version: null,
+    };
+  }
+
+  const signedAt =
+    row.signed_at instanceof Date
+      ? row.signed_at.toISOString()
+      : row.signed_at
+        ? String(row.signed_at)
+        : null;
+
+  return {
+    valid: true,
+    authenticityCode: row.authenticity_code,
+    signerName: row.signer_name,
+    signerEmail: row.signer_email,
+    signedAt,
+    proposalNumber: row.number_display,
+    proposalTitle: row.title,
+    version: row.version,
+  };
 }
 
 export { loadProposalPdf };
