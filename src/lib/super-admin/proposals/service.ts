@@ -20,10 +20,6 @@ import {
   type ProposalStatus,
 } from "@/lib/super-admin/proposals/workflow";
 import { sendEmail } from "@/lib/email";
-import {
-  normalizeBidDetails,
-  type ProposalBidDetails,
-} from "@/lib/super-admin/proposals/bid-details";
 
 export type { ProposalBidDetails };
 
@@ -226,7 +222,7 @@ export async function createProposal(opts: {
   contactId?: string | null;
   templateId?: string | null;
   ownerId?: string | null;
-  bidDetails?: ProposalBidDetails | null;
+  bidDetails?: unknown;
   items: ProposalItemInput[];
   actorUserId: string;
 }): Promise<string> {
@@ -255,7 +251,7 @@ export async function createProposal(opts: {
         opts.title.trim(),
         opts.currency ?? "BRL",
         opts.validUntil ?? null,
-        bidDetails ? JSON.stringify(bidDetails) : null,
+        JSON.stringify(bidDetails),
         opts.actorUserId,
       ]
     );
@@ -319,7 +315,7 @@ export async function updateProposalDraft(opts: {
   contactId?: string | null;
   opportunityId?: string | null;
   templateId?: string | null;
-  bidDetails?: ProposalBidDetails | null;
+  bidDetails?: unknown;
   items?: ProposalItemInput[];
   actorUserId: string;
 }): Promise<void> {
@@ -362,7 +358,7 @@ export async function updateProposalDraft(opts: {
         opts.templateId !== undefined,
         opts.templateId,
         bidDetailsProvided,
-        bidDetails ? JSON.stringify(bidDetails) : null,
+        JSON.stringify(bidDetails),
       ]
     );
 
@@ -403,7 +399,7 @@ export async function updateProposalDraft(opts: {
         [
           opts.id,
           proposal.current_version,
-          bidDetails ? JSON.stringify(bidDetails) : "null",
+          JSON.stringify(bidDetails),
         ]
       );
     }
