@@ -377,7 +377,8 @@
     "procurement": "Licitaciones públicas",
     "poc": "Desarrollo de POC",
     "systems": "Desarrollo de sistemas",
-    "supportTickets": "Portal de incidencias"
+    "supportTickets": "Portal de incidencias",
+    "validateSignature": "Validar firma"
   },
   "cookies": {
     "title": "Cookies de este sitio",

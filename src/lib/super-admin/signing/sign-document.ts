@@ -9,6 +9,10 @@ import {
 import { generateSignatureCertificate } from "./certificate";
 import { verifyMfaStepUp } from "./mfa-stepup";
 import { stampSignedPdf } from "./stamp-pdf";
+import {
+  buildValidationUrl,
+  validationQrDataUrl,
+} from "./validation-qr";
 
 export const MAX_SIGNED_PDF_BYTES = 10 * 1024 * 1024;
 
@@ -28,6 +32,8 @@ export type SignDocumentResult = {
   authenticityCode: string;
   signedAt: string;
   checksumSha256: string;
+  validateUrl: string;
+  qrDataUrl: string;
 };
 
 export async function signDocument(opts: {
@@ -139,6 +145,8 @@ export async function signDocument(opts: {
     authenticityCode,
     signedAt,
     checksumSha256: finalChecksum,
+    validateUrl: buildValidationUrl(authenticityCode),
+    qrDataUrl: await validationQrDataUrl(authenticityCode),
   };
 }
 

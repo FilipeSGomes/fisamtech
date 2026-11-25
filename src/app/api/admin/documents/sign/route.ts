@@ -60,7 +60,6 @@ export async function POST(req: NextRequest) {
         pdf: `/api/admin/documents/${result.documentId}/pdf`,
         certificate: `/api/admin/documents/${result.documentId}/certificate`,
       },
-      validateUrl: `/pt-br/validar-assinatura?code=${encodeURIComponent(result.authenticityCode)}`,
     });
   } catch (error) {
     if (error instanceof MfaStepUpError) {

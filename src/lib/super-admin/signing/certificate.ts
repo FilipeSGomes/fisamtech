@@ -1,5 +1,9 @@
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import { CONTACT } from "@/lib/config";
+import {
+  buildValidationUrl,
+  drawValidationQr,
+} from "./validation-qr";
 
 export async function generateSignatureCertificate(opts: {
   title: string;
@@ -18,6 +22,7 @@ export async function generateSignatureCertificate(opts: {
   const ink = rgb(0.12, 0.14, 0.18);
   const muted = rgb(0.4, 0.42, 0.46);
   const accent = rgb(0.15, 0.35, 0.55);
+  const validateUrl = buildValidationUrl(opts.authenticityCode);
 
   const fmt = (iso: string) =>
     new Intl.DateTimeFormat("pt-BR", {
@@ -58,10 +63,7 @@ export async function generateSignatureCertificate(opts: {
     ["MFA (TOTP) confirmado em", `${fmt(opts.mfaStepUpAt)} (Brasília)`],
     ["Código de autenticidade", opts.authenticityCode],
     ["Checksum SHA-256", opts.checksumSha256],
-    [
-      "Validação pública",
-      "https://www.fisamtech.com/pt-br/validar-assinatura",
-    ],
+    ["Validação pública", validateUrl],
   ];
 
   for (const [label, value] of rows) {
@@ -70,24 +72,30 @@ export async function generateSignatureCertificate(opts: {
     page.drawText(value, {
       x: 56,
       y,
-      size: 11,
+      size: label === "Validação pública" ? 8 : 11,
       font,
       color: ink,
-      maxWidth: 480,
+      maxWidth: 360,
     });
     y -= 22;
   }
 
-  y -= 8;
-  page.drawText(
-    "Este certificado comprova assinatura eletrônica interna da FISAM TECH,",
-    { x: 56, y, size: 9, font, color: muted, maxWidth: 480 }
-  );
-  y -= 12;
-  page.drawText(
-    "com step-up MFA (TOTP). Não constitui certificado ICP-Brasil (A1/A3).",
-    { x: 56, y, size: 9, font, color: muted, maxWidth: 480 }
-  );
+  // QR on the right side of the certificate body
+  await drawValidationQr({
+    pdf,
+    page,
+    authenticityCode: opts.authenticityCode,
+    x: 420,
+    y: 520,
+    size: 120,
+  });
+  page.drawText("Escaneie para validar", {
+    x: 422,
+    y: 508,
+    size: 8,
+    font: fontBold,
+    color: muted,
+  });
 
   return Buffer.from(await pdf.save());
 }

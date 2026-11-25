@@ -377,7 +377,8 @@
     "procurement": "Marchés publics",
     "poc": "Preuve de concept",
     "systems": "Développement de systèmes",
-    "supportTickets": "Portail de tickets"
+    "supportTickets": "Portail de tickets",
+    "validateSignature": "Valider la signature"
   },
   "cookies": {
     "title": "Cookies de ce site",

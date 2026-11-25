@@ -888,6 +888,32 @@ h1,h2,h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -
   display: grid;
   gap: 4px;
 }
+.sa-sign-success-grid {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+}
+@media (min-width: 640px) {
+  .sa-sign-success-grid {
+    grid-template-columns: 1fr auto;
+  }
+}
+.sa-sign-qr {
+  margin: 0;
+  text-align: center;
+}
+.sa-sign-qr img {
+  display: block;
+  width: 160px;
+  height: 160px;
+  border: 1px solid #e6e8ec;
+  border-radius: 8px;
+  background: #fff;
+}
+.sa-sign-qr figcaption {
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
 .signature-validate-form {
   display: grid;
   gap: 12px;

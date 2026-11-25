@@ -9,6 +9,7 @@ type SignSuccess = {
   signedAt: string;
   downloadUrls: { pdf: string; certificate: string };
   validateUrl: string;
+  qrDataUrl: string;
 };
 
 type ListedDoc = {
@@ -181,20 +182,44 @@ export function DocumentSigner({
           <p>
             <strong>Documento assinado</strong>
           </p>
-          <p>
-            Código de autenticidade:{" "}
-            <code className="sa-mono">{success.authenticityCode}</code>
-          </p>
-          <div className="sa-proposal-actions">
-            <a className="btn" href={success.downloadUrls.pdf}>
-              Baixar PDF assinado
-            </a>
-            <a className="btn" href={success.downloadUrls.certificate}>
-              Baixar certificado
-            </a>
-            <Link className="btn btn-primary" href={success.validateUrl} target="_blank">
-              Validar assinatura
-            </Link>
+          <div className="sa-sign-success-grid">
+            <div>
+              <p>
+                Código de autenticidade:{" "}
+                <code className="sa-mono">{success.authenticityCode}</code>
+              </p>
+              <p className="muted">
+                Escaneie o QR ou abra o link para validar com o código já
+                preenchido.
+              </p>
+              <div className="sa-proposal-actions">
+                <a className="btn" href={success.downloadUrls.pdf}>
+                  Baixar PDF assinado
+                </a>
+                <a className="btn" href={success.downloadUrls.certificate}>
+                  Baixar certificado
+                </a>
+                <Link
+                  className="btn btn-primary"
+                  href={success.validateUrl}
+                  target="_blank"
+                >
+                  Validar assinatura
+                </Link>
+              </div>
+            </div>
+            {success.qrDataUrl ? (
+              <figure className="sa-sign-qr">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={success.qrDataUrl}
+                  alt={`QR Code para validar ${success.authenticityCode}`}
+                  width={160}
+                  height={160}
+                />
+                <figcaption className="muted">Escanear para validar</figcaption>
+              </figure>
+            ) : null}
           </div>
         </div>
       ) : null}

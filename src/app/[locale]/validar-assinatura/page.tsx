@@ -40,8 +40,7 @@ export default async function ValidarAssinaturaPage({
       <SignatureValidateForm initialCode={initialCode} />
       <p className="muted">
         Esta consulta retorna apenas metadados públicos (signatário, data e
-        identificação do documento). O PDF não é disponibilizado por aqui. A
-        assinatura é eletrônica interna com MFA — não é certificado ICP-Brasil.
+        identificação do documento). O PDF não é disponibilizado por aqui.
       </p>
     </InstitutionalShell>
   );

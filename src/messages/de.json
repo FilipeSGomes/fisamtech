@@ -377,7 +377,8 @@
     "procurement": "Öffentliche Ausschreibungen",
     "poc": "Proof of Concept",
     "systems": "Systementwicklung",
-    "supportTickets": "Ticket-Portal"
+    "supportTickets": "Ticket-Portal",
+    "validateSignature": "Signatur prüfen"
   },
   "cookies": {
     "title": "Cookies dieser Website",

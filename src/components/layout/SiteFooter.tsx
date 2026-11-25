@@ -10,7 +10,10 @@ export async function SiteFooter({ locale }: { locale: string }) {
     <footer className="site-footer">
       <div className="shell footer-grid">
         <div>
-          <div className="footer-brand"><img src="/images/perfil-512.webp" alt="" width={64} height={64} /><span>FISAM TECH</span></div>
+          <div className="footer-brand">
+            <img src="/images/perfil-512.webp" alt="" width={64} height={64} />
+            <span>FISAM TECH</span>
+          </div>
           <h3>{CONTACT.company}</h3>
           <p>CNPJ {CONTACT.cnpj}</p>
           <p>{CONTACT.legalName}</p>
@@ -44,6 +47,7 @@ export async function SiteFooter({ locale }: { locale: string }) {
           <p className="muted" style={{ marginTop: 12, fontSize: "0.8rem" }}>
             {t("note")}
           </p>
+          <Link href="/validar-assinatura">{t("validateSignature")}</Link>
         </div>
       </div>
     </footer>

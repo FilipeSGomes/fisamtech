@@ -1,4 +1,8 @@
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import {
+  buildValidationUrl,
+  drawValidationQr,
+} from "./validation-qr";
 
 export async function stampSignedPdf(opts: {
   sourcePdf: Buffer;
@@ -18,6 +22,7 @@ export async function stampSignedPdf(opts: {
   const ink = rgb(0.12, 0.14, 0.18);
   const muted = rgb(0.4, 0.42, 0.46);
   const rule = rgb(0.75, 0.76, 0.78);
+  const validateUrl = buildValidationUrl(opts.authenticityCode);
 
   const signedAtLabel = new Intl.DateTimeFormat("pt-BR", {
     timeZone: "America/Sao_Paulo",
@@ -43,8 +48,6 @@ export async function stampSignedPdf(opts: {
       ? "Assinatura confirmada com MFA (TOTP)"
       : "Sessão autenticada",
     `Código de autenticidade ${opts.authenticityCode}`,
-    "Assinatura eletrônica interna FISAM TECH (não é ICP-Brasil).",
-    "Valide em: https://www.fisamtech.com/pt-br/validar-assinatura",
   ];
 
   page.drawLine({
@@ -61,10 +64,39 @@ export async function stampSignedPdf(opts: {
       size: index === 0 ? 11 : 10,
       font: index === 0 ? fontBold : font,
       color: index === 0 ? ink : muted,
-      maxWidth: width - 112,
+      maxWidth: Math.max(180, width - 220),
     });
     y -= 16;
   }
+
+  y -= 8;
+  page.drawText("Escaneie o QR para validar este documento:", {
+    x: 56,
+    y,
+    size: 9,
+    font: fontBold,
+    color: muted,
+  });
+  y -= 118;
+
+  const qrSize = 110;
+  await drawValidationQr({
+    pdf,
+    page,
+    authenticityCode: opts.authenticityCode,
+    x: 56,
+    y: Math.max(40, y),
+    size: qrSize,
+  });
+
+  page.drawText(validateUrl, {
+    x: 56 + qrSize + 16,
+    y: Math.max(40, y) + qrSize / 2,
+    size: 8,
+    font,
+    color: muted,
+    maxWidth: width - (56 + qrSize + 32),
+  });
 
   return Buffer.from(await pdf.save());
 }
