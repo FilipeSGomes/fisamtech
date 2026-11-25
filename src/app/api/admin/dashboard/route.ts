@@ -9,10 +9,10 @@ export async function GET(req: NextRequest) {
     const [leadsByStatus, leadsBySource, openOpps, proposals, stale] =
       await Promise.all([
         adminQuery<{ status: string; n: number }>(
-          `select status, count(*)::int as n from leads group by status order by status`
+          `select status, count(*)::int as n from leads where archived_at is null group by status order by status`
         ),
         adminQuery<{ source: string; n: number }>(
-          `select source, count(*)::int as n from leads group by source order by n desc`
+          `select source, count(*)::int as n from leads where archived_at is null group by source order by n desc`
         ),
         adminQuery<{ n: number; pipeline: string }>(
           `select count(*)::int as n,
@@ -24,7 +24,7 @@ export async function GET(req: NextRequest) {
         ),
         adminQuery<{ n: number }>(
           `select count(*)::int as n from leads
-           where status not in ('WON','LOST')
+           where archived_at is null and status not in ('WON','LOST')
              and (next_action_at is null or next_action_at < now())`
         ),
       ]);

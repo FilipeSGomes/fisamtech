@@ -1,4 +1,4 @@
-import { adminQuery } from "@/lib/db";
+import { adminQuery, withAdminTransaction } from "@/lib/db";
 import { writeAudit } from "@/lib/super-admin/audit/write";
 import { normalizeEmail } from "@/lib/super-admin/auth/password";
 import {
@@ -33,6 +33,7 @@ export type LeadRow = {
   next_action_note: string | null;
   lost_reason: string | null;
   service_interest: string | null;
+  archived_at: Date | null;
 };
 
 const SORT_WHITELIST = new Set([
@@ -49,6 +50,7 @@ export async function listLeads(opts: {
   status?: string;
   source?: string;
   ownerId?: string;
+  visibility?: "active" | "archived" | "all";
   page?: number;
   pageSize?: number;
   sort?: string;
@@ -61,6 +63,9 @@ export async function listLeads(opts: {
 
   const clauses: string[] = [];
   const values: unknown[] = [];
+  if (opts.visibility !== "all") {
+    clauses.push(opts.visibility === "archived" ? "l.archived_at is not null" : "l.archived_at is null");
+  }
   if (opts.q) {
     values.push(`%${opts.q}%`);
     const i = values.length;
@@ -94,7 +99,8 @@ export async function listLeads(opts: {
     `select l.id, l.created_at, l.updated_at, l.name, l.email, l.company, l.country,
             l.locale, l.currency, l.role, l.challenge, l.budget_range, l.source, l.phone,
             l.status, l.owner_id, u.name as owner_name, l.company_id, l.contact_id,
-            l.next_action_at, l.next_action_note, l.lost_reason, l.service_interest
+            l.next_action_at, l.next_action_note, l.lost_reason, l.service_interest,
+            l.archived_at
      from leads l
      left join admin_users u on u.id = l.owner_id
      ${whereSql}
@@ -111,13 +117,70 @@ export async function getLead(id: string): Promise<LeadRow | null> {
     `select l.id, l.created_at, l.updated_at, l.name, l.email, l.company, l.country,
             l.locale, l.currency, l.role, l.challenge, l.budget_range, l.source, l.phone,
             l.status, l.owner_id, u.name as owner_name, l.company_id, l.contact_id,
-            l.next_action_at, l.next_action_note, l.lost_reason, l.service_interest
+            l.next_action_at, l.next_action_note, l.lost_reason, l.service_interest,
+            l.archived_at
      from leads l
      left join admin_users u on u.id = l.owner_id
      where l.id = $1`,
     [id]
   );
   return result.rows[0] ?? null;
+}
+
+export async function setLeadArchived(opts: {
+  id: string;
+  archived: boolean;
+  actorUserId: string;
+}): Promise<void> {
+  const result = await adminQuery(
+    `update leads
+     set archived_at = case when $2 then coalesce(archived_at, now()) else null end,
+         updated_at = now()
+     where id = $1`,
+    [opts.id, opts.archived]
+  );
+  if (result.rowCount !== 1) throw new Error("Lead not found");
+  await writeAudit({
+    action: opts.archived ? "LEAD_ARCHIVED" : "LEAD_RESTORED",
+    actorUserId: opts.actorUserId,
+    resourceType: "lead",
+    resourceId: opts.id,
+  });
+}
+
+export async function permanentlyDeleteLead(opts: {
+  id: string;
+  actorUserId: string;
+}): Promise<void> {
+  await withAdminTransaction(async (client) => {
+    const lead = await client.query<{ archived_at: Date | null }>(
+      `select archived_at from leads where id = $1 for update`,
+      [opts.id]
+    );
+    if (!lead.rows[0]) throw new Error("Lead not found");
+    if (!lead.rows[0].archived_at) {
+      throw new Error("Desative o lead antes de excluí-lo definitivamente");
+    }
+
+    const linkedRecords = await client.query<{ bookings: number; payments: number }>(
+      `select
+         (select count(*)::int from bookings where lead_id = $1) as bookings,
+         (select count(*)::int from payments where lead_id = $1) as payments`,
+      [opts.id]
+    );
+    const linked = linkedRecords.rows[0];
+    if (linked.bookings > 0 || linked.payments > 0) {
+      throw new Error("Este lead possui pagamentos ou reservas vinculados. Mantenha-o desativado para preservar o histórico.");
+    }
+
+    await client.query(`delete from leads where id = $1`, [opts.id]);
+    await client.query(
+      `insert into admin_audit_logs
+        (actor_user_id, action, resource_type, resource_id, context)
+       values ($1, 'LEAD_DELETED', 'lead', $2, $3::jsonb)`,
+      [opts.actorUserId, opts.id, JSON.stringify({ permanent: true })]
+    );
+  });
 }
 
 export async function updateLeadStatus(opts: {
@@ -257,7 +320,7 @@ export async function findDuplicateLeads(email: string): Promise<
   }>(
     `select id, name, email, company, status, created_at
      from leads
-     where email_normalized = $1
+     where email_normalized = $1 and archived_at is null
      order by created_at desc
      limit 20`,
     [normalized]

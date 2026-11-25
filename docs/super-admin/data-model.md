@@ -12,7 +12,7 @@
 ## CRM
 
 - `companies`, `contacts`
-- `leads` extended: `status`, `owner_id`, `company_id`, `contact_id`, normalized email/phone, next action, lost reason, UTM, service interest
+- `leads` extended: `status`, `owner_id`, `company_id`, `contact_id`, normalized email/phone, next action, lost reason, UTM, service interest, `archived_at` for reversible deactivation
 - `opportunities`, `crm_activities`
 
 ## Proposals
@@ -30,3 +30,7 @@
 2. `002_whistleblowing.sql`
 3. `003_super_admin_foundation.sql`
 4. `004_super_admin_proposals_ops.sql`
+5. `004_support_tickets.sql`
+6. `005_nda_documents.sql`
+7. `006_service_contracts.sql`
+8. `007_lead_archiving.sql`

@@ -13,10 +13,10 @@ export default async function DashboardPage() {
   const [byStatus, bySource, openOpps, proposals, totalLeads, stale, accepted] =
     await Promise.all([
       adminQuery<{ status: string; n: number }>(
-        `select status, count(*)::int as n from leads group by status`
+        `select status, count(*)::int as n from leads where archived_at is null group by status`
       ),
       adminQuery<{ source: string; n: number }>(
-        `select source, count(*)::int as n from leads group by source order by n desc`
+        `select source, count(*)::int as n from leads where archived_at is null group by source order by n desc`
       ),
       adminQuery<{ n: number; pipeline: string }>(
         `select count(*)::int as n, coalesce(sum(estimated_value),0)::text as pipeline
@@ -25,10 +25,10 @@ export default async function DashboardPage() {
       adminQuery<{ status: string; n: number }>(
         `select status, count(*)::int as n from proposals group by status`
       ),
-      adminQuery<{ n: number }>(`select count(*)::int as n from leads`),
+      adminQuery<{ n: number }>(`select count(*)::int as n from leads where archived_at is null`),
       adminQuery<{ n: number }>(
         `select count(*)::int as n from leads
-         where status not in ('WON','LOST')
+         where archived_at is null and status not in ('WON','LOST')
            and (next_action_at is null or next_action_at < now())`
       ),
       adminQuery<{ n: number }>(
@@ -50,7 +50,7 @@ export default async function DashboardPage() {
       <p className="muted">Indicadores operacionais (dados reais do banco).</p>
       <div className="sa-kpi-grid">
         <div className="sa-kpi">
-          <span className="sa-kpi-label">Leads totais</span>
+          <span className="sa-kpi-label">Leads ativos</span>
           <strong className="sa-kpi-value">{totalLeads.rows[0]?.n ?? 0}</strong>
         </div>
         <div className="sa-kpi">

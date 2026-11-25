@@ -7,6 +7,8 @@ import {
   findDuplicateLeads,
   getLead,
   listLeadActivities,
+  permanentlyDeleteLead,
+  setLeadArchived,
   updateLeadStatus,
   type LeadStatus,
 } from "@/lib/super-admin/crm/leads";
@@ -73,6 +75,41 @@ export async function PATCH(req: NextRequest, ctx: Ctx) {
     }
     const updated = await getLead(id);
     return NextResponse.json({ lead: updated });
+  } catch (error) {
+    return jsonError(error);
+  }
+}
+
+const archiveSchema = z.object({ archived: z.boolean() });
+
+export async function POST(req: NextRequest, ctx: Ctx) {
+  try {
+    const user = await requireAdminApi(req, "leads:delete");
+    const { id } = await ctx.params;
+    const lead = await getLead(id);
+    if (!lead) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
+    if (!canAccessOwnedResource(user, lead.owner_id)) {
+      return NextResponse.json({ error: "Acesso negado" }, { status: 403 });
+    }
+    const body = archiveSchema.parse(await req.json());
+    await setLeadArchived({ id, archived: body.archived, actorUserId: user.id });
+    return NextResponse.json({ ok: true, archived: body.archived });
+  } catch (error) {
+    return jsonError(error);
+  }
+}
+
+export async function DELETE(req: NextRequest, ctx: Ctx) {
+  try {
+    const user = await requireAdminApi(req, "leads:delete");
+    const { id } = await ctx.params;
+    const lead = await getLead(id);
+    if (!lead) return NextResponse.json({ error: "Não encontrado" }, { status: 404 });
+    if (!canAccessOwnedResource(user, lead.owner_id)) {
+      return NextResponse.json({ error: "Acesso negado" }, { status: 403 });
+    }
+    await permanentlyDeleteLead({ id, actorUserId: user.id });
+    return NextResponse.json({ ok: true });
   } catch (error) {
     return jsonError(error);
   }

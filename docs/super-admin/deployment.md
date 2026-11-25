@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-1. Apply migrations through `004_super_admin_proposals_ops.sql` on Supabase (pooler URL).
+1. Apply migrations through `007_lead_archiving.sql` on Supabase (pooler URL).
 2. Env:
    - `DATABASE_URL` (pooler IPv4)
    - `ADMIN_SESSION_SECRET` (≥16 chars)
@@ -23,5 +23,6 @@ Denied if any `admin_users` already exist. Then login at `/pt-br/super-admin/log
 ## Deploy notes
 
 - Feature branch / preview first; production only with explicit approval.
+- Lead archiving requires `007_lead_archiving.sql` before deploying code that reads `leads.archived_at`.
 - Serverless FS is ephemeral — PDF bytes also stored in `proposal_documents.pdf_bytes`.
 - Public funnel routes (`/api/leads`, checkout, etc.) remain unauthenticated.
