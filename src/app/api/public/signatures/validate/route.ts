@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { lookupProposalAuthenticity } from "@/lib/super-admin/proposals/service";
+import { lookupSignedDocumentAuthenticity } from "@/lib/super-admin/signing/sign-document";
 import { checkSignatureValidateRateLimit } from "@/lib/public/signature-rate-limit";
 
 export const dynamic = "force-dynamic";
@@ -31,16 +32,36 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const result = await lookupProposalAuthenticity(code);
+    const signed = await lookupSignedDocumentAuthenticity(code);
+    if (signed.valid) {
+      return NextResponse.json({
+        valid: true,
+        authenticityCode: signed.authenticityCode,
+        signerName: signed.signerName,
+        signerEmail: signed.signerEmail,
+        signedAt: signed.signedAt,
+        documentTitle: signed.documentTitle,
+        documentKind: signed.documentKind,
+        checksumShort: signed.checksumShort,
+        proposalNumber: null,
+        proposalTitle: null,
+        version: null,
+      });
+    }
+
+    const proposal = await lookupProposalAuthenticity(code);
     return NextResponse.json({
-      valid: result.valid,
-      authenticityCode: result.authenticityCode,
-      signerName: result.signerName,
-      signerEmail: result.signerEmail,
-      signedAt: result.signedAt,
-      proposalNumber: result.proposalNumber,
-      proposalTitle: result.proposalTitle,
-      version: result.version,
+      valid: proposal.valid,
+      authenticityCode: proposal.authenticityCode,
+      signerName: proposal.signerName,
+      signerEmail: proposal.signerEmail,
+      signedAt: proposal.signedAt,
+      documentTitle: proposal.proposalTitle,
+      documentKind: proposal.valid ? "proposal" : null,
+      checksumShort: null,
+      proposalNumber: proposal.proposalNumber,
+      proposalTitle: proposal.proposalTitle,
+      version: proposal.version,
     });
   } catch (error) {
     console.error("[public/signatures/validate]", error);

@@ -13,7 +13,7 @@ export async function generateMetadata({
   return pageMetadata(
     locale,
     "Validar assinatura | FISAM TECH",
-    "Confira a autenticidade de uma proposta assinada eletronicamente pela FISAM TECH.",
+    "Confira a autenticidade de documentos e propostas assinados eletronicamente pela FISAM TECH.",
     "/validar-assinatura"
   );
 }
@@ -35,12 +35,13 @@ export default async function ValidarAssinaturaPage({
       prose
       eyebrow="Autenticidade"
       title="Validar assinatura eletrônica"
-      lead="Informe o código de autenticidade impresso no PDF da proposta para confirmar signatário, data e documento."
+      lead="Informe o código de autenticidade impresso no PDF ou no certificado para confirmar signatário, data e documento."
     >
       <SignatureValidateForm initialCode={initialCode} />
       <p className="muted">
         Esta consulta retorna apenas metadados públicos (signatário, data e
-        identificação da proposta). O PDF não é disponibilizado por aqui.
+        identificação do documento). O PDF não é disponibilizado por aqui. A
+        assinatura é eletrônica interna com MFA — não é certificado ICP-Brasil.
       </p>
     </InstitutionalShell>
   );

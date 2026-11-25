@@ -8,6 +8,9 @@ type ValidateResult = {
   signerName?: string | null;
   signerEmail?: string | null;
   signedAt?: string | null;
+  documentTitle?: string | null;
+  documentKind?: "signed_document" | "proposal" | null;
+  checksumShort?: string | null;
   proposalNumber?: string | null;
   proposalTitle?: string | null;
   version?: number | null;
@@ -98,6 +101,11 @@ export function SignatureValidateForm({
             <>
               <p>
                 <strong>Assinatura válida</strong>
+                {result.documentKind === "signed_document" ? (
+                  <span className="muted"> · documento assinado</span>
+                ) : result.documentKind === "proposal" ? (
+                  <span className="muted"> · proposta comercial</span>
+                ) : null}
               </p>
               <dl>
                 <div>
@@ -117,13 +125,27 @@ export function SignatureValidateForm({
                   <dd>{formatSignedAt(result.signedAt)}</dd>
                 </div>
                 <div>
-                  <dt>Proposta</dt>
+                  <dt>Documento</dt>
                   <dd>
-                    {result.proposalNumber || "—"}
-                    {result.version != null ? ` · v${result.version}` : ""}
-                    {result.proposalTitle ? ` — ${result.proposalTitle}` : ""}
+                    {result.documentKind === "proposal" ? (
+                      <>
+                        {result.proposalNumber || "—"}
+                        {result.version != null ? ` · v${result.version}` : ""}
+                        {result.proposalTitle
+                          ? ` — ${result.proposalTitle}`
+                          : ""}
+                      </>
+                    ) : (
+                      result.documentTitle || "—"
+                    )}
                   </dd>
                 </div>
+                {result.checksumShort ? (
+                  <div>
+                    <dt>Checksum</dt>
+                    <dd className="sa-mono">{result.checksumShort}…</dd>
+                  </div>
+                ) : null}
               </dl>
             </>
           ) : (
@@ -131,7 +153,7 @@ export function SignatureValidateForm({
               <strong>Código não encontrado</strong>
               <span className="muted">
                 {" "}
-                — verifique o código impresso no PDF da proposta.
+                — verifique o código impresso no PDF ou no certificado.
               </span>
             </p>
           )}

@@ -25,6 +25,11 @@ const NAV: NavItem[] = [
   { href: `${SA_BASE}/proposals`, label: "Propostas", permission: "proposals:read" },
   { href: `${SA_BASE}/ndas`, label: "NDAs", permission: "ndas:read" },
   { href: `${SA_BASE}/contracts`, label: "Contratos", permission: "contracts:read" },
+  {
+    href: `${SA_BASE}/assinar-documentos`,
+    label: "Assinar documentos",
+    permission: "documents:sign",
+  },
   { href: `${SA_BASE}/users`, label: "Usuários", permission: "users:read" },
   { href: `${SA_BASE}/roles`, label: "Papéis", permission: "users:read" },
   { href: `${SA_BASE}/audit`, label: "Auditoria", permission: "audit:read" },
