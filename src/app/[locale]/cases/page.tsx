@@ -4,6 +4,7 @@ import {
   FOUNDER_PRIOR_EXPERIENCE,
   FISAM_CLIENTS,
   PRODUCTS,
+  PUBLIC_DEMOS,
 } from "@/lib/config";
 import { InstitutionalShell } from "@/components/layout/InstitutionalShell";
 import { Link } from "@/i18n/routing";
@@ -102,6 +103,25 @@ export default async function CasesPage({
               ))}
             </div>
             <p className="cases-note">{t("quote.body")}</p>
+          </div>
+        </section>
+
+        <section className="section section--light">
+          <div className="shell">
+            <h2>{t("demosTitle")}</h2>
+            <p className="lead">{t("demosLead")}</p>
+            <div className="grid-3 cases-product-grid">
+              {PUBLIC_DEMOS.map((demo) => (
+                <article key={demo.key} className="card cases-product-card">
+                  <p className="muted">{t(`demos.${demo.key}.label`)}</p>
+                  <h3>{demo.name}</h3>
+                  <p>{t(`demos.${demo.key}.description`)}</p>
+                  <a href={demo.url} target="_blank" rel="noreferrer">
+                    {t("openDemo")}
+                  </a>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 

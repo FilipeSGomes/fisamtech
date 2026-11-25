@@ -139,10 +139,29 @@ export function formatBudgetRangeLabel(
 export const PRODUCTS = [
   { name: "FISAM Quote", url: "https://quote.fisamtech.com" },
   { name: "Kontrolla", url: "https://kontrolla.app" },
-  { name: "FNRH", url: "https://fnrh.fisamtech.com" },
   { name: "FinTrack", url: "https://fintrack.fisamtech.com" },
   { name: "FISAM Tour", url: "https://fisamtour.com" },
   { name: "Ponto", url: "https://ponto.fisamtour.com" },
+] as const;
+
+/** Public demonstrations with verified published URLs. */
+export const PUBLIC_DEMOS = [
+  {
+    key: "honorarios",
+    name: "Controle de Honorários e Benefícios",
+    url: "https://frontend-one-gold-63.vercel.app/",
+  },
+  { key: "time", name: "FISAM Time", url: "https://time.fisamtech.com/" },
+  {
+    key: "library",
+    name: "FISAM Biblioteca",
+    url: "https://biblioteca.fisamtech.com/",
+  },
+  {
+    key: "realEstatePlaybook",
+    name: "Playbook Imobiliário",
+    url: "https://fisam-playbook-imobiliario.vercel.app/",
+  },
 ] as const;
 
 /** Founder PRIOR experience — never present as FISAM clients */

@@ -471,6 +471,15 @@
     "clientsTitle": "Noms publiés comme clients",
     "productsTitle": "Produits de l'entreprise",
     "productsLead": "Les adresses ci-dessous sont des produits de l'entreprise, publiés avec un nom et un domaine.",
+    "demosTitle": "Démonstrations publiques",
+    "demosLead": "Projets avec démonstration en ligne. Chaque page précise ce que la version publiée permet d'essayer.",
+    "openDemo": "Ouvrir la démonstration",
+    "demos": {
+      "honorarios": { "label": "Marchés publics · projet publié", "description": "Interface publique du système de gestion des honoraires et avantages de la PGDF. La version publiée est un bootstrap et ne représente pas une activité avec des données réelles." },
+      "time": { "label": "Marchés publics · démo", "description": "Horaires de travail, pointages et suivi des preuves pour les équipes. Données synthétiques, sans backend ni synchronisation." },
+      "library": { "label": "Marchés publics · démo", "description": "Catalogue, collections et circulation d'une bibliothèque. Données synthétiques stockées dans le navigateur." },
+      "realEstatePlaybook": { "label": "Projet · démo", "description": "Playbook numérique pour un parcours de vente immobilière. Démo statique installable, sans CRM ni intégrations." }
+    },
     "priorTitle": "Parcours professionnel de Filipe Godinho Gomes",
     "priorLead": "Ces noms forment le parcours professionnel de Filipe Godinho Gomes, fondateur de FISAM TECH.",
     "cta": "Planifier une conversation technique",

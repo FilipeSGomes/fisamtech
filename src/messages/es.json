@@ -471,6 +471,15 @@
     "clientsTitle": "Nombres publicados como clientes",
     "productsTitle": "Productos de la propia empresa",
     "productsLead": "Las direcciones de abajo son productos de la propia empresa, publicados con nombre y dominio.",
+    "demosTitle": "Demostraciones públicas",
+    "demosLead": "Proyectos con demostraciones en línea. Cada página indica qué permite probar la versión publicada.",
+    "openDemo": "Abrir demostración",
+    "demos": {
+      "honorarios": { "label": "Licitaciones · proyecto publicado", "description": "Frontend público del sistema de control de honorarios y beneficios de PGDF. La versión publicada es un bootstrap y no representa una operación con datos reales." },
+      "time": { "label": "Licitaciones · demo", "description": "Jornada, registros de entrada y rastro de evidencias para equipos. Datos sintéticos, sin backend ni sincronización." },
+      "library": { "label": "Licitaciones · demo", "description": "Catálogo, colección y circulación de biblioteca. Usa datos sintéticos guardados localmente en el navegador." },
+      "realEstatePlaybook": { "label": "Proyecto · demo", "description": "Playbook digital para una jornada de ventas inmobiliarias. Demo estática instalable, sin CRM ni integraciones." }
+    },
     "priorTitle": "Registro profesional de Filipe Godinho Gomes",
     "priorLead": "Estos nombres forman el registro profesional de Filipe Godinho Gomes, fundador de FISAM TECH.",
     "cta": "Agendar conversación técnica",
